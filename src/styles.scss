@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+:root{--ink:#080f2b;--blue:#3159f5;--soft:#f5f7ff;--muted:#69708a;--line:#e9ecf5}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:'DM Sans',Arial,sans-serif;background:#fff;font-size:17px}h1,h2,h3{font-family:Manrope,sans-serif;letter-spacing:-.04em}button,input,textarea{font:inherit}a{text-decoration:none;color:inherit}.container{max-width:1180px;margin:auto;padding:0 24px}.eyebrow{color:#4665ee;background:#f1f4ff;width:max-content;border-radius:20px;padding:5px 10px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:11px;padding:14px 20px;font-weight:700;cursor:pointer;transition:.2s;background:var(--blue);color:white}.btn:hover{transform:translateY(-2px);box-shadow:0 12px 25px #3159f544}.btn.ghost{background:#ffffff18;border:1px solid #ffffff34}.page{padding:88px 0 100px;min-height:73vh}.page-head{text-align:center;max-width:700px;margin:0 auto 52px}.page-head h1{font-size:49px;line-height:1.1;margin:12px 0}.page-head p{color:var(--muted);line-height:1.7}.card{background:#fff;border:1px solid var(--line);box-shadow:0 14px 45px #1620500d;border-radius:17px}
+:root{--ink:#080f2b;--blue:#3159f5;--soft:#f5f7ff;--muted:#69708a;--line:#e9ecf5}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:'DM Sans',Arial,sans-serif;background:#fff;font-size:17px}h1,h2,h3{font-family:Manrope,sans-serif;letter-spacing:-.04em}button,input,textarea{font:inherit}a{text-decoration:none;color:inherit}.container{max-width:1180px;margin:auto;padding:0 24px}.eyebrow{color:#4665ee;background:#f1f4ff;width:max-content;border-radius:20px;padding:5px 10px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:11px;padding:14px 20px;font-weight:700;cursor:pointer;transition:.2s;background:var(--blue);color:white}.btn:hover{transform:translateY(-2px);box-shadow:0 12px 25px #3159f544}.btn.ghost{background:#ffffff18;border:1px solid #ffffff34}.page{padding:88px 0 100px;min-height:73vh}.page-head{text-align:center;max-width:700px;margin:0 auto 52px}.page-head h1{font-size:49px;line-height:1.1;margin:12px 0}.page-head p{color:var(--muted);line-height:1.7}.card{background:#fff;border:1px solid var(--line);box-shadow:0 14px 45px #1620500d;border-radius:17px}
+
+/* The app shell owns the navigation and footer; routed pages replace only the body. */
+app-root > router-outlet + * app-header,
+app-root > router-outlet + * app-footer,
+app-root > router-outlet + app-landing .one-nav { display:none !important; }
+app-root > app-header > header { position:sticky; top:0; z-index:20; max-width:none; box-shadow:0 1px 10px #10183a12; padding-left:40px; }
+
+/* Larger, more editorial typography. */
+body { font-size:19px; }
+app-header header .logo { font-size:21px; }
+app-header header nav, app-header header .start { font-size:14px; }
+
+/* Depth treatment for the product, team and editorial visuals. */
+app-landing .visual, app-landing .idea-box, app-landing .robot, app-landing .person,
+app-landing .team-photo, app-landing .blogtiles article { transform-style:preserve-3d; }
+app-landing .dashboard { box-shadow:-34px 35px 55px #02051a8c, 0 3px 0 #fff8 inset; }
+app-landing .analytics { box-shadow:0 18px 30px #02051a65; transform:translateZ(45px); }
+app-landing .automation { box-shadow:0 20px 35px #02051a75; transform:translateZ(58px); }
+app-landing .idea-box { box-shadow:22px 26px 0 #bfc9ee, 0 30px 50px #17235c30; transform:perspective(900px) rotateY(-5deg) rotateX(2deg); }
+app-landing .robot { box-shadow:0 32px 55px #3458c24a, inset 14px 12px 25px #fff9; transform:perspective(900px) rotateY(-7deg); }
+app-landing .person { box-shadow:20px 25px 0 #c9d3f5, 0 28px 50px #17235c26; transform:perspective(900px) rotateY(6deg); }
+app-landing .tiles article, app-landing .blogtiles article { transition:transform .25s ease, box-shadow .25s ease; box-shadow:0 12px 24px #17235c10; }
+app-landing .tiles article:hover, app-landing .blogtiles article:hover { transform:translateY(-9px) rotateX(2deg); box-shadow:0 24px 42px #17235c24; }
+app-landing .blogtiles img { box-shadow:0 13px 20px #101a4d30; transform:perspective(700px) rotateX(2deg); }
+app-landing h1, app-landing h2 { text-shadow:0 2px 0 #fff8; }
+@media(max-width:700px){ body{font-size:17px} app-landing .idea-box,app-landing .robot,app-landing .person{transform:none;box-shadow:0 18px 35px #17235c24} }
+
+/* Brand mark and readable supporting copy. */
+.logo, .one-nav > a:first-child { display:inline-flex !important; align-items:center; gap:9px; }
+.logo img, .one-nav > a:first-child img { width:46px; height:46px; object-fit:contain; mix-blend-mode:screen; filter:drop-shadow(0 5px 8px #1687ff65); animation:logo-float 3.6s ease-in-out infinite; }
+.foot .logo img { width:37px; height:37px; }
+p, li, small, input, textarea, .eyebrow { font-size:1.05em; }
+app-landing .tiles p, app-landing .split p, app-landing .heading p, app-landing .contact p { font-size:15px; }
+app-landing .tiles h3, app-landing .list strong, app-landing .metrics small { font-size:15px; }
+app-header header nav, app-header header .start, .one-nav nav a, .one-nav > a:last-child { font-size:15px; }
+@keyframes logo-float { 0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-3px) rotate(3deg)} }
+@media(prefers-reduced-motion:reduce){.logo img,.one-nav > a:first-child img{animation:none}}
+
+/* High-contrast 4B mark and hero reveal on the first page. */
+.one-nav .menu-logo{height:60px;display:flex;align-items:center;gap:10px;padding:0 14px;border-radius:16px;background:linear-gradient(145deg,#eaf3ff,#c6dcff);box-shadow:0 7px 16px #2058b038, inset 0 1px #fff;overflow:hidden;font:800 17px Manrope;color:#081447}
+.one-nav .menu-logo img{width:55px;height:55px;mix-blend-mode:screen;filter:drop-shadow(0 4px 7px #006dff8a);animation:logo-float 3.6s ease-in-out infinite}
+.logo{min-width:205px;min-height:64px;justify-content:flex-start;white-space:nowrap}.logo span{display:inline-block;font:800 22px Manrope;color:#091645;letter-spacing:-.05em}
+.header-logo{display:inline-flex !important;align-items:center;gap:12px}.brand-image{width:62px;height:62px;display:inline-grid;place-items:center;overflow:visible;border-radius:0;background:transparent;box-shadow:none}.header-logo .brand-image img,.one-nav .menu-logo .brand-image img{position:static;width:62px !important;height:62px !important;max-width:none !important;transform:none;display:block !important;visibility:visible !important;opacity:1 !important;mix-blend-mode:normal !important;background:transparent !important;padding:0 !important;object-fit:contain !important;filter:drop-shadow(0 5px 8px #146cff4a) !important}.one-nav .menu-logo .brand-image{width:58px;height:58px}.one-nav .menu-logo .brand-image img{width:58px !important;height:58px !important}
+app-landing .hero-content{display:grid;grid-template-columns:1fr .65fr;align-items:center;gap:35px}
+app-landing .hero-logo{height:330px;display:grid;place-items:center;position:relative;border-radius:50%;background:radial-gradient(circle,#2449b8,#0b1544 62%,transparent 63%);animation:hero-orbit 7s ease-in-out infinite}
+app-landing .hero-logo img{position:relative;z-index:2;width:255px;height:255px;object-fit:contain;mix-blend-mode:screen;filter:drop-shadow(0 18px 18px #001352);animation:hero-logo-in 1s cubic-bezier(.2,.9,.2,1) both,logo-float 3.6s 1s ease-in-out infinite}
+app-landing .hero-logo i{position:absolute;width:14px;height:14px;border-radius:4px;background:#10c8ff;box-shadow:0 0 22px #10c8ff;animation:pixel-drift 3s ease-in-out infinite}app-landing .hero-logo i:nth-of-type(1){top:35px;right:60px}app-landing .hero-logo i:nth-of-type(2){top:85px;right:27px;animation-delay:.7s}app-landing .hero-logo i:nth-of-type(3){bottom:48px;left:40px;animation-delay:1.2s}
+@keyframes hero-logo-in{from{opacity:0;transform:scale(.35) rotate(-25deg)}to{opacity:1;transform:scale(1) rotate(0)}}@keyframes hero-orbit{50%{transform:translateY(-10px) rotate(2deg)}}@keyframes pixel-drift{50%{transform:translateY(-13px) scale(1.2)}}
+@media(max-width:700px){app-landing .hero-content{grid-template-columns:1fr}app-landing .hero-logo{height:230px;width:230px;margin:auto}app-landing .hero-logo img{width:190px;height:190px}}
