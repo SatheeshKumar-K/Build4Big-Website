@@ -82,7 +82,7 @@ const posts: Post[] = [
   selector: 'app-header',
   imports: [RouterLink, RouterLinkActive],
   template: `<header [class.homebar]="home">
-    <a routerLink="/" class="logo header-logo" aria-label="Build4Big home"><span class="brand-image"><img src="/build4big-mark.svg" alt="Build4Big 4B logo" /></span><span>Build4Big</span></a
+    <a routerLink="/" class="logo header-logo" aria-label="Build4Big home"><span class="brand-image"><img src="/build4big-logo.png" alt="Build4Big 4B logo" /></span><span>Build4Big</span></a
     ><button class="menu" (click)="open.set(!open())">
       {{ open() ? '×' : '☰' }}
     </button>
