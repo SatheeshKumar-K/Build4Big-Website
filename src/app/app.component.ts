@@ -4975,38 +4975,169 @@ export class ContactComponent {}
       50% { transform: translateY(3px); }
     }
 
-    /* Responsiveness */
+    /* Responsiveness for Tablet & Mobile */
     @media (max-width: 1180px) {
       .hero-workflow-bar {
-        flex-wrap: wrap;
-        gap: 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
       }
       .wf-sep { display: none; }
-      .workflow-item { min-width: 45%; }
-      .wf-scroll-indicator { width: 100%; flex-direction: row; justify-content: center; margin-top: 8px; }
+      .wf-scroll-indicator {
+        grid-column: span 2;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 10px;
+      }
     }
-    @media (max-width: 980px) {
+    @media (max-width: 992px) {
       .hero-interactive-stage {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 24px;
       }
-      .hero-subtext { margin: 0 auto 32px; }
-      .hero-cta-btns { justify-content: center; }
-      .hero-visual-col { height: 460px; margin-top: 15px; }
-      .chip-ai { left: 0; }
-      .chip-innovation { right: 0; }
-      .chip-strategy { left: 0; }
-      .chip-support { right: 0; }
+      .hero-subtext {
+        margin: 0 auto 30px;
+      }
+      .hero-cta-btns {
+        justify-content: center;
+      }
+      .hero-visual-col {
+        height: 480px;
+        margin-top: 10px;
+      }
+      .chip-ai { top: 15px; left: 2%; }
+      .chip-innovation { top: 25px; right: 2%; }
+      .chip-strategy { bottom: 45px; left: 2%; }
+      .chip-support { bottom: 55px; right: 2%; }
+      .script-badge-quote { right: 8%; bottom: 5px; }
     }
     @media (max-width: 768px) {
-      .hero-headline { font-size: 38px; }
-      .hero-visual-col { height: 390px; transform: none !important; }
-      .hologram-globe { width: 220px; height: 220px; }
-      .glass-chip { min-width: 155px; padding: 10px 14px; }
-      .glass-chip strong { font-size: 12.5px; }
-      .glass-chip small { display: none; }
-      .chip-icon { width: 34px; height: 34px; font-size: 16px; }
-      .workflow-item { min-width: 100%; }
+      .hero-land-glow {
+        padding: 30px 0 25px;
+        min-height: auto;
+      }
+      .hero-headline {
+        font-size: 38px;
+        line-height: 1.12;
+      }
+      .hero-subtext {
+        font-size: 15px;
+      }
+      .hero-cta-btns {
+        flex-wrap: wrap;
+      }
+      .hero-visual-col {
+        height: 410px;
+        transform: none !important;
+      }
+      .globe-system-wrap {
+        width: 250px;
+        height: 250px;
+      }
+      .hologram-globe {
+        width: 220px;
+        height: 220px;
+      }
+      .globe-core-mark, .mark-img-4b {
+        width: 120px;
+        height: 120px;
+      }
+      .ring-1 { width: 340px; height: 190px; }
+      .ring-2 { width: 360px; height: 170px; }
+      .ring-3 { width: 270px; height: 270px; }
+      .orbit-glow-behind { width: 280px; height: 280px; }
+      .glass-chip {
+        min-width: 160px;
+        padding: 10px 12px;
+        gap: 10px;
+        border-radius: 14px;
+      }
+      .glass-chip strong {
+        font-size: 13px;
+      }
+      .glass-chip small {
+        display: none;
+      }
+      .chip-icon {
+        width: 36px;
+        height: 36px;
+      }
+      .chip-icon svg {
+        width: 18px;
+        height: 18px;
+      }
+      .chip-ai { top: 10px; left: 0; }
+      .chip-innovation { top: 15px; right: 0; }
+      .chip-strategy { bottom: 35px; left: 0; }
+      .chip-support { bottom: 45px; right: 0; }
+      .script-badge-quote {
+        font-size: 17px;
+        right: 15px;
+        bottom: 0;
+      }
+      .orbit-node {
+        width: 32px;
+        height: 32px;
+      }
+      .orbit-node svg {
+        width: 15px;
+        height: 15px;
+      }
+      .node-1 { top: 5px; left: 40px; }
+      .node-2 { top: 20px; right: 25px; }
+      .node-3 { bottom: 25px; left: 35px; }
+      .node-4 { bottom: 25px; right: 35px; }
+      .hero-workflow-bar {
+        grid-template-columns: 1fr;
+        padding: 18px 20px;
+        gap: 14px;
+      }
+      .wf-scroll-indicator {
+        grid-column: span 1;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero-headline {
+        font-size: 32px;
+      }
+      .hero-visual-col {
+        height: 360px;
+      }
+      .globe-system-wrap {
+        width: 200px;
+        height: 200px;
+      }
+      .hologram-globe {
+        width: 180px;
+        height: 180px;
+      }
+      .globe-core-mark, .mark-img-4b {
+        width: 100px;
+        height: 100px;
+      }
+      .ring-1 { width: 280px; height: 160px; }
+      .ring-2 { width: 290px; height: 140px; }
+      .ring-3 { width: 220px; height: 220px; }
+      .glass-chip {
+        min-width: 135px;
+        padding: 8px 10px;
+      }
+      .glass-chip strong {
+        font-size: 11.5px;
+      }
+      .chip-icon {
+        width: 30px;
+        height: 30px;
+      }
+      .chip-icon svg {
+        width: 15px;
+        height: 15px;
+      }
+      .btn-hero-gradient, .btn-hero-glass {
+        width: 100%;
+        justify-content: center;
+      }
     }
 
     /* Remaining Section Styles */
