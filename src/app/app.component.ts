@@ -4254,27 +4254,12 @@ export class ContactComponent {}
 
               <div class="hologram-globe">
                 <div class="globe-energy-grid"></div>
-                <!-- 3D 4B Brand Mark Inside Globe -->
+                <!-- Original Build4Big 3D Brand Logo Inside Globe -->
                 <div class="globe-core-mark">
-                  <svg class="mark-svg-4b" viewBox="0 0 96 96" fill="none">
-                    <defs>
-                      <linearGradient id="markGlowGrad" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0%" stop-color="#00f0ff"/>
-                        <stop offset="50%" stop-color="#0066ff"/>
-                        <stop offset="100%" stop-color="#0033bb"/>
-                      </linearGradient>
-                      <filter id="markBloom" x="-20%" y="-20%" width="140%" height="140%">
-                        <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#00d2ff" flood-opacity="0.8"/>
-                      </filter>
-                    </defs>
-                    <path fill="url(#markGlowGrad)" filter="url(#markBloom)" d="M12 18h32c16 0 26 8 26 21 0 7-4 13-10 16 8 3 13 9 13 18 0 14-11 23-29 23H12V18Zm17 14v17h15c6 0 10-3 10-8.5s-4-8.5-10-8.5H29Zm0 30v19h17c7 0 11-3 11-9.5s-4-9.5-11-9.5H29Z"/>
-                    <path fill="url(#markGlowGrad)" filter="url(#markBloom)" d="M52 42h13v24h9v12h-9v12H52V78H28V66l24-24Zm0 24V55L40 66h12Z"/>
-                    <rect x="74" y="18" width="11" height="11" rx="2.5" fill="#00f0ff"/>
-                    <rect x="76" y="34" width="8" height="8" rx="2" fill="#0088ff"/>
-                    <rect x="66" y="37" width="6" height="6" rx="1.5" fill="#0066ff"/>
-                  </svg>
+                  <img src="build4big-logo-cutout.png" alt="Build4Big 4B" class="mark-img-4b" />
                 </div>
               </div>
+
 
               <!-- Satellite Radar Nodes -->
               <div class="orbit-node node-1" title="Targeted Solutions">🎯</div>
@@ -4680,14 +4665,17 @@ export class ContactComponent {}
       justify-content: center;
       animation: markBob 4s ease-in-out infinite;
     }
-    .mark-svg-4b {
-      width: 100%;
-      height: 100%;
-      filter: drop-shadow(0 0 20px rgba(0, 220, 255, 0.9));
+    .mark-img-4b {
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 25px rgba(0, 210, 255, 0.85)) drop-shadow(0 0 10px rgba(0, 102, 255, 0.9));
+      user-select: none;
+      pointer-events: none;
     }
     @keyframes markBob {
       0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-5px) scale(1.03); }
+      50% { transform: translateY(-5px) scale(1.04); }
     }
 
     /* Satellite Mini Radar Nodes */
