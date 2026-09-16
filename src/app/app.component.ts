@@ -205,6 +205,12 @@ const posts: Post[] = [
         (click)="open.set(false)"
         >Contact</a
       >
+      <a
+        routerLink="/contact"
+        class="start-btn-mobile"
+        (click)="open.set(false)"
+        >Get Started &rarr;</a
+      >
     </nav>
     <a routerLink="/contact" class="start-btn">Get Started &rarr;</a>
   </header>`,
@@ -306,6 +312,9 @@ const posts: Post[] = [
       cursor: pointer;
       padding: 6px 10px;
     }
+    .start-btn-mobile {
+      display: none;
+    }
     @media (max-width: 860px) {
       header {
         height: 68px;
@@ -316,6 +325,21 @@ const posts: Post[] = [
       }
       .start-btn {
         display: none;
+      }
+      .start-btn-mobile {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+        margin-top: 8px;
+        padding: 12px 20px;
+        border-radius: 25px;
+        background: linear-gradient(135deg, #0062ff 0%, #00c6ff 100%);
+        color: #ffffff !important;
+        font-weight: 700;
+        font-size: 15px;
+        box-shadow: 0 4px 18px rgba(0, 110, 255, 0.4);
       }
       .menu {
         display: block;
