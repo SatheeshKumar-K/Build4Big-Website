@@ -4196,30 +4196,221 @@ export class ContactComponent {}
   selector: 'app-landing',
   imports: [CommonModule, RouterLink, FooterComponent, HomeAboutPreviewComponent, ServicesShowcaseComponent, BlogShowcaseComponent, ContactShowcaseComponent],
   template: `
-    <div id="home">
-      <header class="one-nav">
-        <a href="#home" class="menu-logo" aria-label="Build4Big home"><span class="brand-image"><img src="/build4big-mark.svg" alt="Build4Big 4B logo" /></span><span>Build4Big</span></a>
-        <nav><a href="#home">Home</a><a routerLink="/about">About</a><a href="#services">Services</a><a routerLink="/blog">Blog</a><a routerLink="/contact">Contact</a></nav>
-        <a href="#contact">Get Started</a>
+    <div id="home" class="hero-section-wrapper" (mousemove)="onMouseMove($event)" (mouseleave)="onMouseLeave()">
+      <!-- Background Ambient Glow & Particles Canvas -->
+      <div class="hero-ambient-canvas">
+        <div class="ambient-glow glow-top" [style.transform]="'translate(' + mouseX * -20 + 'px, ' + mouseY * -20 + 'px)'"></div>
+        <div class="ambient-glow glow-right" [style.transform]="'translate(' + mouseX * 25 + 'px, ' + mouseY * 25 + 'px)'"></div>
+        <div class="ambient-glow glow-bottom" [style.transform]="'translate(' + mouseX * -15 + 'px, ' + mouseY * 15 + 'px)'"></div>
+        <div class="mesh-grid"></div>
+        <div class="wave-particles"></div>
+      </div>
+
+      <!-- Modern Top Navbar matching design -->
+      <header class="hero-nav container">
+        <a routerLink="/" class="nav-logo" aria-label="Build4Big home">
+          <img src="build4big-logo.png" alt="Build4Big Logo" class="brand-img" />
+          <span class="brand-text">Build4Big</span>
+        </a>
+        <nav class="nav-links">
+          <a href="#home" class="nav-item active">Home</a>
+          <a href="#services" class="nav-item">Services</a>
+          <a routerLink="/about" class="nav-item">About</a>
+          <a routerLink="/blog" class="nav-item">Blog</a>
+          <a routerLink="/contact" class="nav-item">Contact</a>
+        </nav>
+        <div class="nav-right">
+          <a routerLink="/contact" class="nav-search-btn" title="Search / Inquire" aria-label="Search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </a>
+          <a routerLink="/contact" class="nav-cta-btn">Get Started →</a>
+        </div>
       </header>
-      <div class="hero-land">
-        <span class="hero-wave" aria-hidden="true"></span>
-        <span class="hero-particle particle-one" aria-hidden="true"></span>
-        <span class="hero-particle particle-two" aria-hidden="true"></span>
-        <span class="hero-particle particle-three" aria-hidden="true"></span>
-        <div class="container hero-content">
-          <div class="hero-copy"><div class="tag">● Innovate　•　Build　•　Grow</div>
-          <h1>Transforming<br />Ideas into <em>Digital Reality</em></h1>
-          <p>
-            We are a startup software company helping businesses build modern
-            digital products, websites, mobile apps and automation systems.
+
+      <!-- Main Hero Stage -->
+      <div class="container hero-main-stage">
+        <!-- Left Column: Copy & CTAs -->
+        <div class="hero-copy-col" [style.transform]="'translate3d(' + mouseX * 10 + 'px, ' + mouseY * 10 + 'px, 0)'">
+          <div class="hero-pill-badge">
+            <span class="pill-dot"></span>
+            <span>Innovate</span>
+            <span class="pill-sep">•</span>
+            <span>Build</span>
+            <span class="pill-sep">•</span>
+            <span>Grow</span>
+          </div>
+
+          <h1 class="hero-headline">
+            Transforming<br />
+            Ideas into<br />
+            <span class="text-gradient">Digital Reality</span>
+          </h1>
+
+          <p class="hero-desc">
+            We are a startup software company helping businesses build modern digital products, websites, mobile apps and automation systems.
           </p>
-          <a href="#contact" class="go">Get Started　→</a
-          ><a href="#about" class="watch">▷ Watch Our Story</a></div>
-          <div class="hero-logo"><img src="build4big-logo.png" alt="Build4Big" /><i></i><i></i><i></i></div>
+
+          <div class="hero-cta-group">
+            <a routerLink="/contact" class="btn-hero-primary">Get Started →</a>
+            <a routerLink="/about" class="btn-hero-glass">
+              <span class="play-icon">▷</span> Watch Our Story
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive 3D Sphere & Floating Feature Badges -->
+        <div class="hero-interactive-col" [style.transform]="'perspective(1000px) rotateY(' + mouseX * 14 + 'deg) rotateX(' + mouseY * -14 + 'deg)'">
+          <!-- Center Holographic Sphere -->
+          <div class="sphere-glow-system">
+            <div class="hologram-outer-orbit orbit-1"></div>
+            <div class="hologram-outer-orbit orbit-2"></div>
+            <div class="hologram-outer-orbit orbit-3"></div>
+
+            <div class="center-globe-sphere">
+              <div class="globe-inner-core">
+                <!-- 3D 4B Brand Mark Center -->
+                <div class="core-logo-mark">
+                  <svg class="brand-4b-svg" viewBox="0 0 96 96" fill="none">
+                    <defs>
+                      <linearGradient id="coreGrad" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#00d2ff"/>
+                        <stop offset="50%" stop-color="#0066ff"/>
+                        <stop offset="100%" stop-color="#0033cc"/>
+                      </linearGradient>
+                      <filter id="coreGlow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#00d2ff" flood-opacity="0.8"/>
+                      </filter>
+                    </defs>
+                    <path fill="url(#coreGrad)" filter="url(#coreGlow)" d="M12 18h32c16 0 26 8 26 21 0 7-4 13-10 16 8 3 13 9 13 18 0 14-11 23-29 23H12V18Zm17 14v17h15c6 0 10-3 10-8.5s-4-8.5-10-8.5H29Zm0 30v19h17c7 0 11-3 11-9.5s-4-9.5-11-9.5H29Z"/>
+                    <path fill="url(#coreGrad)" filter="url(#coreGlow)" d="M52 42h13v24h9v12h-9v12H52V78H28V66l24-24Zm0 24V55L40 66h12Z"/>
+                    <rect x="74" y="18" width="11" height="11" rx="2.5" fill="#00d2ff"/>
+                    <rect x="76" y="34" width="8" height="8" rx="2" fill="#0088ff"/>
+                    <rect x="66" y="37" width="6" height="6" rx="1.5" fill="#0066ff"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Surrounding Floating Mini Radar Nodes -->
+            <div class="radar-node node-target" title="Targeted Solutions">🎯</div>
+            <div class="radar-node node-gear" title="Automated Systems">⚙️</div>
+            <div class="radar-node node-shield" title="Security & Trust">🛡️</div>
+            <div class="radar-node node-chart" title="Growth Metrics">📈</div>
+          </div>
+
+          <!-- Glass Floating Card 1: AI Solutions (Top-Left) -->
+          <div class="hero-glass-card card-ai" [style.transform]="'translate3d(' + mouseX * -18 + 'px, ' + mouseY * -18 + 'px, 30px)'">
+            <div class="card-icon-wrap icon-purple">💡</div>
+            <div class="card-text-group">
+              <span class="card-title">AI Solutions</span>
+              <span class="card-sub">Turn Ideas into Intelligence</span>
+            </div>
+          </div>
+
+          <!-- Glass Floating Card 2: Product Innovation (Top-Right) -->
+          <div class="hero-glass-card card-innovation" [style.transform]="'translate3d(' + mouseX * 22 + 'px, ' + mouseY * -15 + 'px, 40px)'">
+            <div class="card-icon-wrap icon-blue">🚀</div>
+            <div class="card-text-group">
+              <span class="card-title">Product Innovation</span>
+              <span class="card-sub">Build What Matters</span>
+            </div>
+          </div>
+
+          <!-- Glass Floating Card 3: Business Strategy (Bottom-Left) -->
+          <div class="hero-glass-card card-strategy" [style.transform]="'translate3d(' + mouseX * -25 + 'px, ' + mouseY * 20 + 'px, 35px)'">
+            <div class="card-icon-wrap icon-cyan">📊</div>
+            <div class="card-text-group">
+              <span class="card-title">Business Strategy</span>
+              <span class="card-sub">Plan for a Bigger Future</span>
+            </div>
+          </div>
+
+          <!-- Glass Floating Card 4: Dedicated Support (Bottom-Right) -->
+          <div class="hero-glass-card card-support" [style.transform]="'translate3d(' + mouseX * 18 + 'px, ' + mouseY * 24 + 'px, 25px)'">
+            <div class="card-icon-wrap icon-indigo">👥</div>
+            <div class="card-text-group">
+              <span class="card-title">Dedicated Support</span>
+              <span class="card-sub">Your Growth Our Priority</span>
+            </div>
+          </div>
+
+          <!-- Decorative Handwritten Badge -->
+          <div class="handwritten-script-badge" [style.transform]="'translate3d(' + mouseX * 8 + 'px, ' + mouseY * 8 + 'px, 0)'">
+            <span>Ideas</span>
+            <span>Build</span>
+            <span>Better</span>
+            <span>Tomorrows</span>
+            <svg class="handwritten-curve" width="90" height="20" viewBox="0 0 100 20" fill="none">
+              <path d="M5 14C30 3 70 3 95 14" stroke="#4fc3f7" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Glass Workflow Process Bar -->
+      <div class="container hero-bottom-bar-wrap">
+        <div class="bottom-workflow-bar">
+          <!-- Step 1 -->
+          <div class="workflow-step">
+            <div class="step-icon-box">💡</div>
+            <div class="step-info">
+              <span class="step-num">01</span>
+              <strong class="step-heading">Innovate</strong>
+              <small class="step-desc">Turn Ideas into Solutions</small>
+            </div>
+          </div>
+          <div class="step-divider"></div>
+
+          <!-- Step 2 -->
+          <div class="workflow-step">
+            <div class="step-icon-box code-icon">&lt;/&gt;</div>
+            <div class="step-info">
+              <span class="step-num">02</span>
+              <strong class="step-heading">Build</strong>
+              <small class="step-desc">Modern Digital Products</small>
+            </div>
+          </div>
+          <div class="step-divider"></div>
+
+          <!-- Step 3 -->
+          <div class="workflow-step">
+            <div class="step-icon-box">🚀</div>
+            <div class="step-info">
+              <span class="step-num">03</span>
+              <strong class="step-heading">Deliver</strong>
+              <small class="step-desc">Real Business Impact</small>
+            </div>
+          </div>
+          <div class="step-divider"></div>
+
+          <!-- Step 4 -->
+          <div class="workflow-step">
+            <div class="step-icon-box">📈</div>
+            <div class="step-info">
+              <span class="step-num">04</span>
+              <strong class="step-heading">Grow</strong>
+              <small class="step-desc">Together for a Better Tomorrow</small>
+            </div>
+          </div>
+
+          <!-- Scroll to Explore Indicator -->
+          <a href="#services" class="scroll-explore-btn" aria-label="Scroll to explore services">
+            <div class="mouse-icon">
+              <span class="mouse-wheel"></span>
+            </div>
+            <span class="explore-label">Scroll to Explore</span>
+            <svg class="chevron-down" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </a>
         </div>
       </div>
     </div>
+
+    <!-- Subsequent Landing Page Sections -->
     <app-home-about-preview></app-home-about-preview>
     <section id="services" class="landing-services-wrap">
       <app-services-showcase></app-services-showcase>
@@ -4233,248 +4424,725 @@ export class ContactComponent {}
     <app-footer></app-footer>
   `,
   styles: `
-    .one-nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 max(24px,calc((100vw - 1120px)/2));background:#fff;position:sticky;top:0;z-index:9}.one-nav>a{font:800 16px Manrope;color:#080f2b;text-decoration:none}.one-nav>a:last-child{background:#3159f5;color:#fff;padding:12px 18px;border-radius:10px;font:700 12px 'DM Sans'}.one-nav nav{display:flex;gap:18px}.one-nav nav a{font-size:12px;font-weight:700;color:#111936;text-decoration:none}.one-nav nav a:hover{color:#3159f5}
-    .hero-land {
-      position:relative;isolation:isolate;overflow:hidden;
-      background:#06133d;
+    :host {
+      display: block;
+      background: #020718;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Hero Main Wrapper */
+    .hero-section-wrapper {
+      position: relative;
+      min-height: 100vh;
+      background: radial-gradient(circle at 75% 40%, #081d58 0%, #030a24 45%, #010410 100%);
       color: #fff;
-      padding: 135px 0;
+      overflow: hidden;
+      padding-bottom: 55px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-    .hero-land::before{content:'';position:absolute;z-index:-2;inset:-7%;background:linear-gradient(90deg,#071337cc,#07133755 55%,#071337b8),url('/home-tech-background.png') center/cover no-repeat;animation:background-drift 18s ease-in-out infinite alternate;transform-origin:center}
-    .hero-land::after{content:'';position:absolute;z-index:-1;inset:0;background:radial-gradient(circle at 27% 34%,#0bd8ff33,transparent 20%),radial-gradient(circle at 75% 71%,#1f4fff45,transparent 25%);animation:ambient-pulse 6s ease-in-out infinite}
-    .hero-content{position:relative;z-index:1}.hero-wave{position:absolute;left:-12%;right:-12%;bottom:-22%;height:46%;border-top:1px solid #18cfff95;border-radius:50% 50% 0 0/70% 70% 0 0;box-shadow:0 -16px 38px #097bff63,0 -38px 0 -37px #146bff91,0 -62px 0 -61px #1caeff77;transform:rotate(-4deg);opacity:.8;animation:wave-flow 9s ease-in-out infinite}.hero-particle{position:absolute;width:7px;height:7px;background:#31dfff;border-radius:50%;box-shadow:0 0 14px #21d6ff,0 0 28px #1280ff;z-index:0;animation:particle-float 5s ease-in-out infinite}.particle-one{top:22%;left:13%}.particle-two{top:37%;right:17%;animation-delay:1.3s}.particle-three{bottom:24%;right:36%;width:5px;height:5px;animation-delay:2.2s}@keyframes background-drift{from{transform:scale(1) translate3d(-1%,0,0)}to{transform:scale(1.08) translate3d(1.5%,-1%,0)}}@keyframes ambient-pulse{50%{opacity:.55;transform:scale(1.05)}}@keyframes wave-flow{50%{transform:rotate(-1deg) translateX(3%) translateY(-10px);opacity:1}}@keyframes particle-float{50%{transform:translateY(-20px) translateX(8px);opacity:.4}}
-    .hero-land h1 {
-      font: 800 55px/1.12 Manrope;
-      margin: 18px 0;
+
+    /* Ambient Background Layer with Particles */
+    .hero-ambient-canvas {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
     }
-    .hero-land em {
-      font-style: normal;
-      color: #4e70ff;
+    .ambient-glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.55;
+      transition: transform 0.2s cubic-bezier(0.1, 0.9, 0.2, 1);
     }
-    .hero-land p {
-      max-width: 560px;
-      line-height: 1.8;
+    .glow-top {
+      top: -15%;
+      left: 20%;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(0, 102, 255, 0.45), transparent 70%);
     }
-    .tag {
-      font-size: 11px;
-      color: #c5d1ff;
+    .glow-right {
+      top: 15%;
+      right: -10%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(0, 180, 255, 0.38), rgba(67, 56, 202, 0.25) 50%, transparent 75%);
     }
-    .go,
-    .watch {
-      display: inline-block;
-      margin: 20px 12px 0 0;
-      padding: 14px 20px;
-      border-radius: 10px;
-      font-size: 13px;
-      font-weight: bold;
+    .glow-bottom {
+      bottom: -15%;
+      left: -5%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(14, 165, 233, 0.25), transparent 70%);
+    }
+    .mesh-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.6;
+    }
+    .wave-particles {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 450px;
+      background: radial-gradient(ellipse at 50% 100%, rgba(0, 140, 255, 0.18), transparent 70%);
+      opacity: 0.8;
+    }
+
+    /* Top Navigation Header */
+    .hero-nav {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 86px;
+      width: 100%;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       text-decoration: none;
     }
-    .go {
-      background: #3159f5;
-      color: white;
+    .brand-img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 14px rgba(0, 150, 255, 0.6));
     }
-    .watch {
-      color: white;
-      border: 1px solid #ffffff55;
+    .brand-text {
+      font: 800 24px Manrope, sans-serif;
+      color: #ffffff;
+      letter-spacing: -0.03em;
     }
-    .landing-section,
-    .landing-services-wrap,
-    .landing-blog-wrap {
-      scroll-margin-top: 76px;
-    }
-    .landing-section {
-      padding: 85px 0;
-    }
-    .light {
-      background: #f6f8ff;
-    }
-    .split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 70px;
-      align-items: center;
-      max-width: 930px;
-    }
-    .split h2,
-    .heading h2 {
-      font: 800 40px/1.15 Manrope;
-      margin: 13px 0;
-    }
-    .split p,
-    .heading p,
-    .tiles p {
-      font-size: 13px;
-      color: #69708a;
-      line-height: 1.8;
-    }
-    .idea-box,
-    .person {
-      min-height: 260px;
-      border-radius: 20px;
-      background: #dce5ff;
-      display: grid;
-      place-content: center;
-      text-align: center;
-      font: 800 28px/1.25 Manrope;
-    }
-    .idea-box b {
-      color: #3159f5;
-    }
-    .metrics {
-      margin-top: 50px;
-      max-width: 930px;
-      background: #080f2b;
-      color: white;
-      padding: 22px 30px;
-      border-radius: 15px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-    .metrics b {
-      font: 800 23px Manrope;
-    }
-    .metrics small {
-      display: block;
-      color: #c5cce6;
-      font: 11px 'DM Sans';
-      margin-top: 4px;
-    }
-    .heading {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 42px;
-    }
-    .tiles {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      max-width: 900px;
-    }
-    .tiles article {
-      background: #fff;
-      border: 1px solid #e8ebf5;
-      border-radius: 16px;
-      padding: 26px;
-    }
-    .tiles i {
-      font-style: normal;
-      color: #3159f5;
-      font-size: 20px;
-    }
-    .tiles h3 {
-      font-size: 17px;
-      margin: 18px 0 7px;
-    }
-    .list {
+    .nav-links {
       display: flex;
-      gap: 13px;
-      margin: 16px 0;
-      color: #69708a;
-      font-size: 12px;
+      align-items: center;
+      gap: 32px;
     }
-    .list b {
-      color: #3159f5;
-      font-size: 22px;
+    .nav-item {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: #b3c5e8;
+      text-decoration: none;
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.25s ease;
     }
-    .list strong {
-      display: block;
-      color: #080f2b;
+    .nav-item:hover, .nav-item.active {
+      color: #ffffff;
+    }
+    .nav-item.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2.5px;
+      background: #00d2ff;
+      border-radius: 4px;
+      box-shadow: 0 0 10px #00d2ff;
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .nav-search-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .nav-search-btn:hover {
+      background: rgba(0, 150, 255, 0.25);
+      border-color: #00d2ff;
+      box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+    }
+    .nav-cta-btn {
+      background: linear-gradient(135deg, #0066ff, #00a2ff);
+      color: #ffffff;
+      font: 700 14px Manrope, sans-serif;
+      padding: 12px 24px;
+      border-radius: 24px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(0, 110, 255, 0.45);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0, 150, 255, 0.65);
+    }
+
+    /* Main Hero Content Layout */
+    .hero-main-stage {
+      position: relative;
+      z-index: 5;
+      display: grid;
+      grid-template-columns: 1.05fr 1.15fr;
+      align-items: center;
+      gap: 40px;
+      padding-top: 25px;
+      padding-bottom: 35px;
+      width: 100%;
+    }
+
+    /* Left Copy Column */
+    .hero-copy-col {
+      transition: transform 0.2s cubic-bezier(0.1, 0.9, 0.2, 1);
+    }
+    .hero-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(0, 60, 160, 0.35);
+      border: 1px solid rgba(0, 170, 255, 0.35);
+      padding: 6px 18px;
+      border-radius: 30px;
       font-size: 13px;
+      font-weight: 700;
+      color: #cde4ff;
+      margin-bottom: 24px;
+      box-shadow: 0 0 20px rgba(0, 110, 255, 0.25);
     }
-    .robot {
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #00d2ff;
+      box-shadow: 0 0 10px #00d2ff;
+    }
+    .pill-sep {
+      color: rgba(255, 255, 255, 0.3);
+    }
+    .hero-headline {
+      font: 800 62px/1.08 Manrope, sans-serif;
+      letter-spacing: -0.035em;
+      color: #ffffff;
+      margin: 0 0 22px;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    }
+    .text-gradient {
+      background: linear-gradient(135deg, #00e1ff 0%, #3a88ff 50%, #9066ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
+    }
+    .hero-desc {
+      font-size: 16.5px;
+      line-height: 1.75;
+      color: #a6bcdc;
+      max-width: 520px;
+      margin: 0 0 34px;
+    }
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .btn-hero-primary {
+      background: linear-gradient(135deg, #0066ff, #00b4ff);
+      color: #ffffff;
+      font: 700 15px Manrope, sans-serif;
+      padding: 15px 30px;
+      border-radius: 28px;
+      text-decoration: none;
+      box-shadow: 0 8px 30px rgba(0, 110, 255, 0.55);
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-hero-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 38px rgba(0, 160, 255, 0.75);
+    }
+    .btn-hero-glass {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(12px);
+      color: #ffffff;
+      font: 700 15px Manrope, sans-serif;
+      padding: 15px 28px;
+      border-radius: 28px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.25s ease;
+    }
+    .btn-hero-glass:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(0, 190, 255, 0.5);
+      transform: translateY(-3px);
+    }
+    .play-icon {
+      font-size: 13px;
+      color: #00d2ff;
+    }
+
+    /* Right Column: 3D Globe & Floating Cards */
+    .hero-interactive-col {
+      position: relative;
+      height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform-style: preserve-3d;
+      transition: transform 0.2s cubic-bezier(0.1, 0.9, 0.2, 1);
+    }
+
+    /* Center Glowing Hologram Sphere */
+    .sphere-glow-system {
+      position: relative;
+      width: 330px;
+      height: 330px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hologram-outer-orbit {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px dashed rgba(0, 180, 255, 0.45);
+      pointer-events: none;
+    }
+    .orbit-1 {
+      width: 440px;
+      height: 240px;
+      transform: rotate(-25deg);
+      animation: orbitSpin1 22s linear infinite;
+      border-color: rgba(0, 200, 255, 0.35);
+    }
+    .orbit-2 {
+      width: 460px;
+      height: 210px;
+      transform: rotate(35deg);
+      animation: orbitSpin2 28s linear infinite reverse;
+      border-color: rgba(90, 120, 255, 0.35);
+    }
+    .orbit-3 {
+      width: 380px;
+      height: 380px;
+      border: 1px solid rgba(0, 220, 255, 0.2);
+      animation: pulseGlow 4s ease-in-out infinite;
+    }
+    @keyframes orbitSpin1 {
+      from { transform: rotate(-25deg) rotate(0deg); }
+      to { transform: rotate(-25deg) rotate(360deg); }
+    }
+    @keyframes orbitSpin2 {
+      from { transform: rotate(35deg) rotate(0deg); }
+      to { transform: rotate(35deg) rotate(360deg); }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.05); opacity: 0.7; }
+    }
+
+    .center-globe-sphere {
+      width: 290px;
       height: 290px;
       border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #2d57ed, #e6ecff 47%);
-      font-size: 34px;
-      padding-top: 96px;
-      text-align: center;
-      letter-spacing: 18px;
+      background: radial-gradient(circle at 35% 30%, #00a2ff 0%, #0044cc 40%, #020f3e 85%);
+      box-shadow: 
+        0 0 50px rgba(0, 160, 255, 0.65),
+        inset 0 0 45px rgba(0, 220, 255, 0.75),
+        inset -10px -10px 40px rgba(0, 20, 80, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      animation: globeFloat 5s ease-in-out infinite;
     }
-    .robot span {
-      display: block;
-      margin: 28px auto;
-      color: #071337;
-      background: #a9b9ee;
-      width: 100px;
-      height: 90px;
-      padding: 25px;
-      border-radius: 40px;
-      letter-spacing: 0;
+    .center-globe-sphere::before {
+      content: '';
+      position: absolute;
+      inset: -50%;
+      background: conic-gradient(from 0deg at 50% 50%, rgba(0, 220, 255, 0.4) 0deg, transparent 60deg, transparent 300deg, rgba(0, 220, 255, 0.4) 360deg);
+      animation: radarSweep 8s linear infinite;
+      pointer-events: none;
     }
-    .benefits {
-      padding: 16px;
-      background: #e9edff;
-      color: #3159f5;
-      font-size: 12px;
-      line-height: 2.5;
-      border-radius: 12px;
+    @keyframes radarSweep {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
-    .person {
-      font-size: 150px;
+    @keyframes globeFloat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-10px) scale(1.02); }
     }
-    .blogtiles img {
+
+    .globe-inner-core {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .core-logo-mark {
+      width: 130px;
+      height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: markFloat 4s ease-in-out infinite;
+    }
+    .brand-4b-svg {
       width: 100%;
-      height: 145px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 13px;
+      height: 100%;
+      filter: drop-shadow(0 0 20px rgba(0, 220, 255, 0.9));
     }
-    .blogtiles small,
-    .blogtiles a {
+    @keyframes markFloat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-6px) scale(1.04); }
+    }
+
+    /* Radar Mini Nodes */
+    .radar-node {
+      position: absolute;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(7, 24, 75, 0.85);
+      border: 1px solid rgba(0, 200, 255, 0.5);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      box-shadow: 0 0 16px rgba(0, 180, 255, 0.4);
+      z-index: 3;
+      animation: chipFloat 3.5s ease-in-out infinite;
+    }
+    .node-target { top: 8px; left: 65px; animation-delay: 0.2s; }
+    .node-gear { top: 28px; right: 40px; animation-delay: 1.1s; }
+    .node-shield { bottom: 32px; left: 45px; animation-delay: 0.7s; }
+    .node-chart { bottom: 38px; right: 45px; animation-delay: 1.6s; }
+
+    /* Glass Floating Feature Cards */
+    .hero-glass-card {
+      position: absolute;
+      background: rgba(9, 28, 80, 0.68);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(0, 180, 255, 0.35);
+      border-radius: 20px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 220px;
+      box-shadow: 
+        0 14px 35px rgba(0, 10, 45, 0.65),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      z-index: 4;
+      cursor: default;
+      transition: transform 0.22s cubic-bezier(0.1, 0.9, 0.2, 1), box-shadow 0.22s ease, border-color 0.22s ease;
+    }
+    .hero-glass-card:hover {
+      border-color: #00d2ff;
+      box-shadow: 
+        0 18px 45px rgba(0, 140, 255, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+    .card-icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .icon-purple {
+      background: linear-gradient(135deg, rgba(140, 70, 255, 0.4), rgba(80, 20, 200, 0.2));
+      border: 1px solid rgba(170, 100, 255, 0.5);
+      box-shadow: 0 0 14px rgba(150, 70, 255, 0.4);
+    }
+    .icon-blue {
+      background: linear-gradient(135deg, rgba(0, 140, 255, 0.4), rgba(0, 70, 180, 0.2));
+      border: 1px solid rgba(0, 180, 255, 0.5);
+      box-shadow: 0 0 14px rgba(0, 150, 255, 0.4);
+    }
+    .icon-cyan {
+      background: linear-gradient(135deg, rgba(0, 220, 255, 0.4), rgba(0, 120, 180, 0.2));
+      border: 1px solid rgba(0, 220, 255, 0.5);
+      box-shadow: 0 0 14px rgba(0, 220, 255, 0.4);
+    }
+    .icon-indigo {
+      background: linear-gradient(135deg, rgba(90, 100, 255, 0.4), rgba(50, 60, 190, 0.2));
+      border: 1px solid rgba(120, 130, 255, 0.5);
+      box-shadow: 0 0 14px rgba(100, 110, 255, 0.4);
+    }
+    .card-text-group {
+      display: flex;
+      flex-direction: column;
+    }
+    .card-title {
+      font: 700 15px Manrope, sans-serif;
+      color: #ffffff;
+      margin-bottom: 3px;
+    }
+    .card-sub {
+      font-size: 11.5px;
+      color: #a8c1e8;
+      line-height: 1.35;
+    }
+
+    /* Position the 4 floating cards */
+    .card-ai {
+      top: 30px;
+      left: 10px;
+    }
+    .card-innovation {
+      top: 40px;
+      right: 0;
+    }
+    .card-strategy {
+      bottom: 60px;
+      left: 5px;
+    }
+    .card-support {
+      bottom: 75px;
+      right: 15px;
+    }
+
+    /* Handwritten Script Badge ("Ideas Build Better Tomorrows") */
+    .handwritten-script-badge {
+      position: absolute;
+      right: 30px;
+      bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      font-family: 'Caveat', cursive;
+      font-size: 20px;
+      line-height: 1.15;
+      color: #bde4ff;
+      transform: rotate(5deg);
+      pointer-events: none;
+      text-shadow: 0 0 10px rgba(0, 190, 255, 0.6);
+    }
+    .handwritten-curve {
+      margin-top: -2px;
+      filter: drop-shadow(0 0 6px #00d2ff);
+    }
+
+    /* Bottom Workflow Process Bar */
+    .hero-bottom-bar-wrap {
+      position: relative;
+      z-index: 6;
+      width: 100%;
+      margin-top: 15px;
+    }
+    .bottom-workflow-bar {
+      background: rgba(6, 20, 60, 0.72);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 170, 255, 0.3);
+      border-radius: 24px;
+      padding: 16px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      box-shadow: 0 16px 40px rgba(1, 6, 24, 0.65);
+    }
+    .workflow-step {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex: 1;
+    }
+    .step-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(0, 110, 255, 0.18);
+      border: 1px solid rgba(0, 180, 255, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 19px;
+      color: #00d2ff;
+      flex-shrink: 0;
+      box-shadow: 0 0 12px rgba(0, 140, 255, 0.25);
+    }
+    .step-icon-box.code-icon {
+      font-family: monospace;
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: -1px;
+    }
+    .step-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .step-num {
       font-size: 11px;
-      color: #3159f5;
+      font-weight: 700;
+      color: #4fc3f7;
+      letter-spacing: 0.5px;
     }
-    .contact p {
-      line-height: 2;
-      font-size: 13px;
+    .step-heading {
+      font: 700 14px Manrope, sans-serif;
+      color: #ffffff;
+      margin: 1px 0;
     }
-    .form {
-      display: grid;
-      gap: 12px;
-      background: white;
-      padding: 25px;
-      border-radius: 16px;
+    .step-desc {
+      font-size: 11.5px;
+      color: #8da4ca;
+      white-space: nowrap;
     }
-    .form input,
-    .form textarea {
-      border: 0;
-      background: #f4f6fc;
-      padding: 13px;
-      border-radius: 8px;
+    .step-divider {
+      width: 1px;
+      height: 38px;
+      background: rgba(255, 255, 255, 0.12);
     }
-    .form textarea {
-      height: 100px;
+
+    /* Scroll to Explore */
+    .scroll-explore-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      text-decoration: none;
+      padding-left: 12px;
+      color: #8ba8d4;
+      transition: color 0.2s ease;
     }
-    .form button {
-      background: #3159f5;
-      color: white;
-      border: 0;
-      padding: 13px;
-      border-radius: 8px;
-      font-weight: bold;
+    .scroll-explore-btn:hover {
+      color: #00d2ff;
     }
-    @media (max-width: 700px) {
-      .hero-land {
-        padding: 90px 0;
-      }
-      .hero-land h1 {
-        font-size: 39px;
-      }
-      .one-nav{height:auto;padding:16px 18px;align-items:flex-start}.one-nav nav{flex-wrap:wrap;gap:10px}.one-nav>a:last-child{display:none}
-      .split {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-      .tiles {
-        grid-template-columns: 1fr;
-      }
-      .metrics {
-        grid-template-columns: repeat(2, 1fr);
+    .mouse-icon {
+      width: 18px;
+      height: 28px;
+      border: 2px solid currentColor;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      padding-top: 5px;
+    }
+    .mouse-wheel {
+      width: 3px;
+      height: 6px;
+      background: currentColor;
+      border-radius: 2px;
+      animation: wheelBounce 1.6s ease-in-out infinite;
+    }
+    @keyframes wheelBounce {
+      0%, 100% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(5px); opacity: 0.3; }
+    }
+    .explore-label {
+      font-size: 10.5px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .chevron-down {
+      margin-top: -2px;
+      animation: chevronBounce 1.6s ease-in-out infinite;
+    }
+    @keyframes chevronBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(3px); }
+    }
+
+    /* Responsive Adaptations */
+    @media (max-width: 1180px) {
+      .bottom-workflow-bar {
+        flex-wrap: wrap;
         gap: 20px;
       }
-      .split h2,
-      .heading h2 {
-        font-size: 31px;
+      .step-divider {
+        display: none;
+      }
+      .workflow-step {
+        min-width: 45%;
+      }
+      .scroll-explore-btn {
+        width: 100%;
+        margin-top: 10px;
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+    @media (max-width: 980px) {
+      .hero-main-stage {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-desc {
+        margin: 0 auto 34px;
+      }
+      .hero-cta-group {
+        justify-content: center;
+      }
+      .hero-interactive-col {
+        height: 480px;
+        margin-top: 20px;
+      }
+      .card-ai { left: 0; }
+      .card-innovation { right: 0; }
+      .card-strategy { left: 0; }
+      .card-support { right: 0; }
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .hero-headline {
+        font-size: 40px;
+      }
+      .hero-interactive-col {
+        height: 400px;
+        transform: none !important;
+      }
+      .center-globe-sphere {
+        width: 220px;
+        height: 220px;
+      }
+      .hero-glass-card {
+        min-width: 160px;
+        padding: 10px 14px;
+      }
+      .card-title {
+        font-size: 13px;
+      }
+      .card-sub {
+        display: none;
+      }
+      .card-icon-wrap {
+        width: 34px;
+        height: 34px;
+        font-size: 16px;
+      }
+      .workflow-step {
+        min-width: 100%;
       }
     }
   `,
@@ -4482,6 +5150,23 @@ export class ContactComponent {}
 export class LandingComponent {
   services = services;
   posts = posts;
+
+  // Interactive mouse move parallax state
+  mouseX = 0;
+  mouseY = 0;
+
+  onMouseMove(e: MouseEvent): void {
+    const width = window.innerWidth || 1200;
+    const height = window.innerHeight || 800;
+    // Normalized offset from -1 to 1
+    this.mouseX = (e.clientX - width / 2) / (width / 2);
+    this.mouseY = (e.clientY - height / 2) / (height / 2);
+  }
+
+  onMouseLeave(): void {
+    this.mouseX = 0;
+    this.mouseY = 0;
+  }
 }
 @Component({
   selector: 'app-root',
