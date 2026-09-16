@@ -131,12 +131,16 @@ app-header header .start:hover {
 }
 
 /* --- Footer links hover --- */
-app-footer .foot section > a {
+app-footer .foot section > a,
+app-footer .foot-nav a {
   position: relative;
   transition: color 0.22s ease !important;
-  display: inline-block !important;
+  display: block !important;
+  width: fit-content;
+  margin-bottom: 9px;
 }
-app-footer .foot section > a::after {
+app-footer .foot section > a::after,
+app-footer .foot-nav a::after {
   content: '';
   position: absolute;
   left: 0; bottom: -1px;
@@ -144,8 +148,10 @@ app-footer .foot section > a::after {
   background: #6681ff;
   transition: width 0.22s ease;
 }
-app-footer .foot section > a:hover { color: #8599ff !important; }
-app-footer .foot section > a:hover::after { width: 100%; }
+app-footer .foot section > a:hover,
+app-footer .foot-nav a:hover { color: #ffffff !important; }
+app-footer .foot section > a:hover::after,
+app-footer .foot-nav a:hover::after { width: 100%; }
 
 /* --- Footer social --- */
 app-footer .social {

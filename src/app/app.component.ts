@@ -315,18 +315,28 @@ export class HeaderComponent {
       </section>
       <section>
         <h4>Quick Links</h4>
-        <a routerLink="/">Home</a><a routerLink="/about">About Us</a
-        ><a routerLink="/services">Services</a
-        ><a routerLink="/blog">Blog</a>
+        <nav class="foot-nav">
+          <a routerLink="/">Home</a>
+          <a routerLink="/about">About Us</a>
+          <a routerLink="/services">Services</a>
+          <a routerLink="/blog">Blog</a>
+          <a routerLink="/contact">Contact</a>
+        </nav>
       </section>
       <section>
         <h4>Our Services</h4>
-        <a>Web Development</a><a>Mobile Apps</a><a>Software Development</a
-        ><a>UI/UX Design</a><a>Automation</a><a>IT Consulting</a>
+        <nav class="foot-nav">
+          <a routerLink="/services">Web Development</a>
+          <a routerLink="/services">Mobile Apps</a>
+          <a routerLink="/services">Software Development</a>
+          <a routerLink="/services">UI/UX Design</a>
+          <a routerLink="/services">Automation</a>
+          <a routerLink="/services">IT Consulting</a>
+        </nav>
       </section>
       <section>
         <h4>Contact Info</h4>
-        <p>⌖ Plot No. 2, Thirunagar, Madurai</p>
+        <p>⌖ Plot No. 2, Mahatma Gandhi 11th St, Thirunagar, Madurai</p>
         <p>☎ +91 96777 45205</p>
         <p>◉ +91 70106 68560</p>
         <p>✉ info@build4big.com</p>
@@ -345,7 +355,7 @@ export class HeaderComponent {
     }
     .foot {
       display: grid;
-      grid-template-columns: 2.1fr 1fr 1.25fr 1.3fr;
+      grid-template-columns: 2fr 1fr 1.3fr 1.3fr;
       gap: 40px;
     }
     .logo {
@@ -362,18 +372,30 @@ export class HeaderComponent {
     }
     .foot h4 {
       margin: 3px 0 18px;
-      font-size: 13px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.3px;
+    }
+    .foot-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
     .foot p,
+    .foot-nav a,
     .foot section > a {
       display: block;
       color: #b9c0dc;
-      font-size: 12px;
-      line-height: 1.7;
-      margin: 0 0 9px;
+      font-size: 13px;
+      line-height: 1.6;
+      margin: 0;
+      width: fit-content;
+      text-decoration: none;
       transition: color 0.2s ease;
     }
-    .foot section > a:hover { color: #c8d2f8; }
+    .foot-nav a:hover,
+    .foot section > a:hover { color: #ffffff; }
     .social {
       margin-top: 20px;
       font-size: 18px;
