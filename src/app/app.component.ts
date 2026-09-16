@@ -4202,21 +4202,191 @@ export class ContactComponent {}
         <nav><a href="#home">Home</a><a routerLink="/about">About</a><a href="#services">Services</a><a routerLink="/blog">Blog</a><a routerLink="/contact">Contact</a></nav>
         <a href="#contact">Get Started</a>
       </header>
-      <div class="hero-land">
-        <span class="hero-wave" aria-hidden="true"></span>
-        <span class="hero-particle particle-one" aria-hidden="true"></span>
-        <span class="hero-particle particle-two" aria-hidden="true"></span>
-        <span class="hero-particle particle-three" aria-hidden="true"></span>
-        <div class="container hero-content">
-          <div class="hero-copy"><div class="tag">● Innovate　•　Build　•　Grow</div>
-          <h1>Transforming<br />Ideas into <em>Digital Reality</em></h1>
-          <p>
-            We are a startup software company helping businesses build modern
-            digital products, websites, mobile apps and automation systems.
-          </p>
-          <a href="#contact" class="go">Get Started　→</a
-          ><a href="#about" class="watch">▷ Watch Our Story</a></div>
-          <div class="hero-logo"><img src="build4big-logo.png" alt="Build4Big" /><i></i><i></i><i></i></div>
+      <!-- Interactive 3D Hero Section matching image -->
+      <div class="hero-land-glow" (mousemove)="onHeroMouseMove($event)" (mouseleave)="onHeroMouseLeave()">
+        <!-- Dynamic ambient cursor lighting & tech grid -->
+        <div class="hero-ambient-lights">
+          <div class="ambient-orb orb-cyan" [style.transform]="'translate(' + heroMouseX * -25 + 'px, ' + heroMouseY * -25 + 'px)'"></div>
+          <div class="ambient-orb orb-blue" [style.transform]="'translate(' + heroMouseX * 30 + 'px, ' + heroMouseY * 30 + 'px)'"></div>
+          <div class="ambient-orb orb-purple" [style.transform]="'translate(' + heroMouseX * -15 + 'px, ' + heroMouseY * 20 + 'px)'"></div>
+          <div class="hero-cyber-grid"></div>
+          <div class="hero-flow-wave"></div>
+        </div>
+
+        <!-- Main Hero Stage: Left Copy & Right 3D Visual -->
+        <div class="container hero-interactive-stage">
+          <!-- Left Column -->
+          <div class="hero-text-col" [style.transform]="'translate3d(' + heroMouseX * 10 + 'px, ' + heroMouseY * 10 + 'px, 0)'">
+            <div class="hero-pill-badge">
+              <span class="pill-dot"></span>
+              <span>Innovate</span>
+              <span class="pill-sep">•</span>
+              <span>Build</span>
+              <span class="pill-sep">•</span>
+              <span>Grow</span>
+            </div>
+
+            <h1 class="hero-headline">
+              Transforming<br />
+              Ideas into<br />
+              <span class="text-gradient">Digital Reality</span>
+            </h1>
+
+            <p class="hero-subtext">
+              We are a startup software company helping businesses build modern digital products, websites, mobile apps and automation systems.
+            </p>
+
+            <div class="hero-cta-btns">
+              <a href="#contact" class="btn-hero-gradient">Get Started →</a>
+              <a href="#about" class="btn-hero-glass">
+                <span class="play-arrow">▷</span> Watch Our Story
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: 3D Holographic Sphere with Floating Glass Cards -->
+          <div class="hero-visual-col" [style.transform]="'perspective(1000px) rotateY(' + heroMouseX * 12 + 'deg) rotateX(' + heroMouseY * -12 + 'deg)'">
+            <!-- Central Holographic Globe & Orbits -->
+            <div class="globe-system-wrap">
+              <div class="orbit-ring ring-1"></div>
+              <div class="orbit-ring ring-2"></div>
+              <div class="orbit-ring ring-3"></div>
+
+              <div class="hologram-globe">
+                <div class="globe-energy-grid"></div>
+                <!-- 3D 4B Brand Mark Inside Globe -->
+                <div class="globe-core-mark">
+                  <svg class="mark-svg-4b" viewBox="0 0 96 96" fill="none">
+                    <defs>
+                      <linearGradient id="markGlowGrad" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#00f0ff"/>
+                        <stop offset="50%" stop-color="#0066ff"/>
+                        <stop offset="100%" stop-color="#0033bb"/>
+                      </linearGradient>
+                      <filter id="markBloom" x="-20%" y="-20%" width="140%" height="140%">
+                        <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#00d2ff" flood-opacity="0.8"/>
+                      </filter>
+                    </defs>
+                    <path fill="url(#markGlowGrad)" filter="url(#markBloom)" d="M12 18h32c16 0 26 8 26 21 0 7-4 13-10 16 8 3 13 9 13 18 0 14-11 23-29 23H12V18Zm17 14v17h15c6 0 10-3 10-8.5s-4-8.5-10-8.5H29Zm0 30v19h17c7 0 11-3 11-9.5s-4-9.5-11-9.5H29Z"/>
+                    <path fill="url(#markGlowGrad)" filter="url(#markBloom)" d="M52 42h13v24h9v12h-9v12H52V78H28V66l24-24Zm0 24V55L40 66h12Z"/>
+                    <rect x="74" y="18" width="11" height="11" rx="2.5" fill="#00f0ff"/>
+                    <rect x="76" y="34" width="8" height="8" rx="2" fill="#0088ff"/>
+                    <rect x="66" y="37" width="6" height="6" rx="1.5" fill="#0066ff"/>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Satellite Radar Nodes -->
+              <div class="orbit-node node-1" title="Targeted Solutions">🎯</div>
+              <div class="orbit-node node-2" title="Automation">⚙️</div>
+              <div class="orbit-node node-3" title="Security">🛡️</div>
+              <div class="orbit-node node-4" title="Growth Analytics">📈</div>
+            </div>
+
+            <!-- Floating Glass Card 1: AI Solutions -->
+            <div class="glass-chip chip-ai" [style.transform]="'translate3d(' + heroMouseX * -18 + 'px, ' + heroMouseY * -18 + 'px, 35px)'">
+              <div class="chip-icon icon-bulb">💡</div>
+              <div class="chip-text">
+                <strong>AI Solutions</strong>
+                <small>Turn Ideas into Intelligence</small>
+              </div>
+            </div>
+
+            <!-- Floating Glass Card 2: Product Innovation -->
+            <div class="glass-chip chip-innovation" [style.transform]="'translate3d(' + heroMouseX * 20 + 'px, ' + heroMouseY * -15 + 'px, 45px)'">
+              <div class="chip-icon icon-rocket">🚀</div>
+              <div class="chip-text">
+                <strong>Product Innovation</strong>
+                <small>Build What Matters</small>
+              </div>
+            </div>
+
+            <!-- Floating Glass Card 3: Business Strategy -->
+            <div class="glass-chip chip-strategy" [style.transform]="'translate3d(' + heroMouseX * -22 + 'px, ' + heroMouseY * 18 + 'px, 30px)'">
+              <div class="chip-icon icon-bar">📊</div>
+              <div class="chip-text">
+                <strong>Business Strategy</strong>
+                <small>Plan for a Bigger Future</small>
+              </div>
+            </div>
+
+            <!-- Floating Glass Card 4: Dedicated Support -->
+            <div class="glass-chip chip-support" [style.transform]="'translate3d(' + heroMouseX * 18 + 'px, ' + heroMouseY * 22 + 'px, 25px)'">
+              <div class="chip-icon icon-users">👥</div>
+              <div class="chip-text">
+                <strong>Dedicated Support</strong>
+                <small>Your Growth Our Priority</small>
+              </div>
+            </div>
+
+            <!-- Handwritten Script Badge ("Ideas Build Better Tomorrows") -->
+            <div class="script-badge-quote" [style.transform]="'translate3d(' + heroMouseX * 8 + 'px, ' + heroMouseY * 8 + 'px, 0)'">
+              <span>Ideas</span>
+              <span>Build</span>
+              <span>Better</span>
+              <span>Tomorrows</span>
+              <svg class="quote-underline" width="95" height="20" viewBox="0 0 100 20" fill="none">
+                <path d="M5 14C30 3 70 3 95 14" stroke="#4fc3f7" stroke-width="2.4" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Glass Workflow Process Bar -->
+        <div class="container hero-workflow-container">
+          <div class="hero-workflow-bar">
+            <!-- Step 1 -->
+            <div class="workflow-item">
+              <div class="wf-icon">💡</div>
+              <div class="wf-content">
+                <span class="wf-index">01</span>
+                <strong class="wf-title">Innovate</strong>
+                <span class="wf-sub">Turn Ideas into Solutions</span>
+              </div>
+            </div>
+            <div class="wf-sep"></div>
+
+            <!-- Step 2 -->
+            <div class="workflow-item">
+              <div class="wf-icon code-style">&lt;/&gt;</div>
+              <div class="wf-content">
+                <span class="wf-index">02</span>
+                <strong class="wf-title">Build</strong>
+                <span class="wf-sub">Modern Digital Products</span>
+              </div>
+            </div>
+            <div class="wf-sep"></div>
+
+            <!-- Step 3 -->
+            <div class="workflow-item">
+              <div class="wf-icon">🚀</div>
+              <div class="wf-content">
+                <span class="wf-index">03</span>
+                <strong class="wf-title">Deliver</strong>
+                <span class="wf-sub">Real Business Impact</span>
+              </div>
+            </div>
+            <div class="wf-sep"></div>
+
+            <!-- Step 4 -->
+            <div class="workflow-item">
+              <div class="wf-icon">📈</div>
+              <div class="wf-content">
+                <span class="wf-index">04</span>
+                <strong class="wf-title">Grow</strong>
+                <span class="wf-sub">Together for a Better Tomorrow</span>
+              </div>
+            </div>
+
+            <!-- Scroll to Explore -->
+            <a href="#services" class="wf-scroll-indicator" aria-label="Scroll to Explore">
+              <div class="mouse-shape">
+                <span class="mouse-dot"></span>
+              </div>
+              <span class="scroll-label">Scroll to Explore</span>
+              <span class="scroll-arrow">⌄</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -4234,49 +4404,567 @@ export class ContactComponent {}
   `,
   styles: `
     .one-nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 max(24px,calc((100vw - 1120px)/2));background:#fff;position:sticky;top:0;z-index:9}.one-nav>a{font:800 16px Manrope;color:#080f2b;text-decoration:none}.one-nav>a:last-child{background:#3159f5;color:#fff;padding:12px 18px;border-radius:10px;font:700 12px 'DM Sans'}.one-nav nav{display:flex;gap:18px}.one-nav nav a{font-size:12px;font-weight:700;color:#111936;text-decoration:none}.one-nav nav a:hover{color:#3159f5}
-    .hero-land {
-      position:relative;isolation:isolate;overflow:hidden;
-      background:#06133d;
-      color: #fff;
-      padding: 135px 0;
+
+    /* Interactive 3D Hero Section matching image */
+    .hero-land-glow {
+      position: relative;
+      background: radial-gradient(circle at 75% 40%, #092265 0%, #030d30 45%, #010619 100%);
+      color: #ffffff;
+      padding: 50px 0 45px;
+      overflow: hidden;
+      min-height: calc(100vh - 76px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-    .hero-land::before{content:'';position:absolute;z-index:-2;inset:-7%;background:linear-gradient(90deg,#071337cc,#07133755 55%,#071337b8),url('/home-tech-background.png') center/cover no-repeat;animation:background-drift 18s ease-in-out infinite alternate;transform-origin:center}
-    .hero-land::after{content:'';position:absolute;z-index:-1;inset:0;background:radial-gradient(circle at 27% 34%,#0bd8ff33,transparent 20%),radial-gradient(circle at 75% 71%,#1f4fff45,transparent 25%);animation:ambient-pulse 6s ease-in-out infinite}
-    .hero-content{position:relative;z-index:1}.hero-wave{position:absolute;left:-12%;right:-12%;bottom:-22%;height:46%;border-top:1px solid #18cfff95;border-radius:50% 50% 0 0/70% 70% 0 0;box-shadow:0 -16px 38px #097bff63,0 -38px 0 -37px #146bff91,0 -62px 0 -61px #1caeff77;transform:rotate(-4deg);opacity:.8;animation:wave-flow 9s ease-in-out infinite}.hero-particle{position:absolute;width:7px;height:7px;background:#31dfff;border-radius:50%;box-shadow:0 0 14px #21d6ff,0 0 28px #1280ff;z-index:0;animation:particle-float 5s ease-in-out infinite}.particle-one{top:22%;left:13%}.particle-two{top:37%;right:17%;animation-delay:1.3s}.particle-three{bottom:24%;right:36%;width:5px;height:5px;animation-delay:2.2s}@keyframes background-drift{from{transform:scale(1) translate3d(-1%,0,0)}to{transform:scale(1.08) translate3d(1.5%,-1%,0)}}@keyframes ambient-pulse{50%{opacity:.55;transform:scale(1.05)}}@keyframes wave-flow{50%{transform:rotate(-1deg) translateX(3%) translateY(-10px);opacity:1}}@keyframes particle-float{50%{transform:translateY(-20px) translateX(8px);opacity:.4}}
-    .hero-land h1 {
-      font: 800 55px/1.12 Manrope;
-      margin: 18px 0;
+
+    /* Ambient Cursor Lighting & Background Grid */
+    .hero-ambient-lights {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
     }
-    .hero-land em {
-      font-style: normal;
-      color: #4e70ff;
+    .ambient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(95px);
+      opacity: 0.5;
+      transition: transform 0.22s cubic-bezier(0.1, 0.9, 0.2, 1);
     }
-    .hero-land p {
-      max-width: 560px;
-      line-height: 1.8;
+    .orb-cyan {
+      top: -10%;
+      left: 22%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0, 150, 255, 0.45), transparent 70%);
     }
-    .tag {
-      font-size: 11px;
-      color: #c5d1ff;
+    .orb-blue {
+      top: 10%;
+      right: -8%;
+      width: 650px;
+      height: 650px;
+      background: radial-gradient(circle, rgba(0, 190, 255, 0.35), rgba(79, 70, 229, 0.25) 50%, transparent 75%);
     }
-    .go,
-    .watch {
-      display: inline-block;
-      margin: 20px 12px 0 0;
-      padding: 14px 20px;
-      border-radius: 10px;
+    .orb-purple {
+      bottom: -15%;
+      left: -5%;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(14, 165, 233, 0.3), transparent 70%);
+    }
+    .hero-cyber-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 55px 55px;
+      opacity: 0.75;
+    }
+    .hero-flow-wave {
+      position: absolute;
+      bottom: -40px;
+      left: 0;
+      width: 100%;
+      height: 380px;
+      background: radial-gradient(ellipse at 50% 100%, rgba(0, 140, 255, 0.2), transparent 70%);
+      opacity: 0.85;
+    }
+
+    /* Main Stage Layout */
+    .hero-interactive-stage {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.05fr 1.15fr;
+      align-items: center;
+      gap: 36px;
+      width: 100%;
+      margin: auto 0;
+    }
+
+    /* Left Text Column */
+    .hero-text-col {
+      transition: transform 0.2s cubic-bezier(0.1, 0.9, 0.2, 1);
+    }
+    .hero-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(0, 70, 180, 0.32);
+      border: 1px solid rgba(0, 180, 255, 0.4);
+      padding: 6px 18px;
+      border-radius: 30px;
       font-size: 13px;
-      font-weight: bold;
+      font-weight: 700;
+      color: #cde6ff;
+      margin-bottom: 22px;
+      box-shadow: 0 0 20px rgba(0, 130, 255, 0.25);
+    }
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #00e1ff;
+      box-shadow: 0 0 10px #00e1ff;
+    }
+    .pill-sep {
+      color: rgba(255, 255, 255, 0.35);
+    }
+    .hero-headline {
+      font: 800 60px/1.08 Manrope, sans-serif;
+      letter-spacing: -0.035em;
+      color: #ffffff;
+      margin: 0 0 20px;
+      text-shadow: 0 4px 28px rgba(0, 0, 0, 0.5);
+    }
+    .text-gradient {
+      background: linear-gradient(135deg, #00e1ff 0%, #3a88ff 50%, #9066ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
+    }
+    .hero-subtext {
+      font-size: 16px;
+      line-height: 1.75;
+      color: #a7bedd;
+      max-width: 500px;
+      margin: 0 0 32px;
+    }
+    .hero-cta-btns {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .btn-hero-gradient {
+      background: linear-gradient(135deg, #0066ff, #00b4ff);
+      color: #ffffff;
+      font: 700 15px Manrope, sans-serif;
+      padding: 14px 28px;
+      border-radius: 28px;
       text-decoration: none;
+      box-shadow: 0 8px 30px rgba(0, 110, 255, 0.55);
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
-    .go {
-      background: #3159f5;
-      color: white;
+    .btn-hero-gradient:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 38px rgba(0, 160, 255, 0.75);
     }
-    .watch {
-      color: white;
-      border: 1px solid #ffffff55;
+    .btn-hero-glass {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      backdrop-filter: blur(12px);
+      color: #ffffff;
+      font: 700 15px Manrope, sans-serif;
+      padding: 14px 26px;
+      border-radius: 28px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.25s ease;
     }
+    .btn-hero-glass:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(0, 190, 255, 0.5);
+      transform: translateY(-3px);
+    }
+    .play-arrow {
+      color: #00e1ff;
+      font-size: 13px;
+    }
+
+    /* Right Visual Column */
+    .hero-visual-col {
+      position: relative;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform-style: preserve-3d;
+      transition: transform 0.2s cubic-bezier(0.1, 0.9, 0.2, 1);
+    }
+
+    /* Globe & Holographic Orbits */
+    .globe-system-wrap {
+      position: relative;
+      width: 320px;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .orbit-ring {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .ring-1 {
+      width: 440px;
+      height: 230px;
+      transform: rotate(-24deg);
+      border: 1px dashed rgba(0, 200, 255, 0.4);
+      animation: orbitSpinRing1 22s linear infinite;
+    }
+    .ring-2 {
+      width: 450px;
+      height: 200px;
+      transform: rotate(34deg);
+      border: 1px dashed rgba(100, 130, 255, 0.4);
+      animation: orbitSpinRing2 28s linear infinite reverse;
+    }
+    .ring-3 {
+      width: 370px;
+      height: 370px;
+      border: 1px solid rgba(0, 220, 255, 0.22);
+      animation: pulseGlobeGlow 4s ease-in-out infinite;
+    }
+    @keyframes orbitSpinRing1 {
+      from { transform: rotate(-24deg) rotate(0deg); }
+      to { transform: rotate(-24deg) rotate(360deg); }
+    }
+    @keyframes orbitSpinRing2 {
+      from { transform: rotate(34deg) rotate(0deg); }
+      to { transform: rotate(34deg) rotate(360deg); }
+    }
+    @keyframes pulseGlobeGlow {
+      0%, 100% { transform: scale(1); opacity: 0.45; }
+      50% { transform: scale(1.05); opacity: 0.75; }
+    }
+
+    .hologram-globe {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #00a8ff 0%, #0047cc 45%, #021142 85%);
+      box-shadow: 
+        0 0 55px rgba(0, 160, 255, 0.7),
+        inset 0 0 45px rgba(0, 220, 255, 0.75),
+        inset -10px -10px 40px rgba(0, 20, 80, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      animation: globeDrift 5s ease-in-out infinite;
+    }
+    .globe-energy-grid {
+      position: absolute;
+      inset: -50%;
+      background: conic-gradient(from 0deg at 50% 50%, rgba(0, 220, 255, 0.45) 0deg, transparent 60deg, transparent 300deg, rgba(0, 220, 255, 0.45) 360deg);
+      animation: sweepRadar 8s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes sweepRadar {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes globeDrift {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-9px) scale(1.02); }
+    }
+
+    .globe-core-mark {
+      position: relative;
+      z-index: 2;
+      width: 125px;
+      height: 125px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: markBob 4s ease-in-out infinite;
+    }
+    .mark-svg-4b {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 20px rgba(0, 220, 255, 0.9));
+    }
+    @keyframes markBob {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-5px) scale(1.03); }
+    }
+
+    /* Satellite Mini Radar Nodes */
+    .orbit-node {
+      position: absolute;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(6, 24, 78, 0.88);
+      border: 1px solid rgba(0, 200, 255, 0.55);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      box-shadow: 0 0 16px rgba(0, 180, 255, 0.45);
+      z-index: 3;
+      animation: nodeFloat 3.5s ease-in-out infinite;
+    }
+    .node-1 { top: 10px; left: 60px; animation-delay: 0.2s; }
+    .node-2 { top: 25px; right: 35px; animation-delay: 1.1s; }
+    .node-3 { bottom: 30px; left: 45px; animation-delay: 0.7s; }
+    .node-4 { bottom: 35px; right: 45px; animation-delay: 1.6s; }
+    @keyframes nodeFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+
+    /* Floating Glass Cards */
+    .glass-chip {
+      position: absolute;
+      background: rgba(8, 26, 78, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(0, 180, 255, 0.35);
+      border-radius: 20px;
+      padding: 15px 18px;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      min-width: 215px;
+      box-shadow: 
+        0 14px 35px rgba(0, 10, 45, 0.65),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      z-index: 4;
+      cursor: default;
+      transition: transform 0.22s cubic-bezier(0.1, 0.9, 0.2, 1), box-shadow 0.22s ease, border-color 0.22s ease;
+    }
+    .glass-chip:hover {
+      border-color: #00e1ff;
+      box-shadow: 
+        0 18px 45px rgba(0, 140, 255, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+    .chip-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 19px;
+      flex-shrink: 0;
+    }
+    .icon-bulb {
+      background: linear-gradient(135deg, rgba(140, 70, 255, 0.4), rgba(80, 20, 200, 0.2));
+      border: 1px solid rgba(170, 100, 255, 0.5);
+      box-shadow: 0 0 14px rgba(150, 70, 255, 0.4);
+    }
+    .icon-rocket {
+      background: linear-gradient(135deg, rgba(0, 140, 255, 0.4), rgba(0, 70, 180, 0.2));
+      border: 1px solid rgba(0, 180, 255, 0.5);
+      box-shadow: 0 0 14px rgba(0, 150, 255, 0.4);
+    }
+    .icon-bar {
+      background: linear-gradient(135deg, rgba(0, 220, 255, 0.4), rgba(0, 120, 180, 0.2));
+      border: 1px solid rgba(0, 220, 255, 0.5);
+      box-shadow: 0 0 14px rgba(0, 220, 255, 0.4);
+    }
+    .icon-users {
+      background: linear-gradient(135deg, rgba(90, 100, 255, 0.4), rgba(50, 60, 190, 0.2));
+      border: 1px solid rgba(120, 130, 255, 0.5);
+      box-shadow: 0 0 14px rgba(100, 110, 255, 0.4);
+    }
+    .chip-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .chip-text strong {
+      font: 700 14.5px Manrope, sans-serif;
+      color: #ffffff;
+      margin-bottom: 2px;
+    }
+    .chip-text small {
+      font-size: 11.5px;
+      color: #a8c2ea;
+      line-height: 1.35;
+    }
+
+    .chip-ai { top: 25px; left: 10px; }
+    .chip-innovation { top: 35px; right: 0; }
+    .chip-strategy { bottom: 55px; left: 5px; }
+    .chip-support { bottom: 70px; right: 15px; }
+
+    /* Quote Badge */
+    .script-badge-quote {
+      position: absolute;
+      right: 30px;
+      bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      font-family: 'Caveat', cursive;
+      font-size: 20px;
+      line-height: 1.15;
+      color: #bde4ff;
+      transform: rotate(5deg);
+      pointer-events: none;
+      text-shadow: 0 0 10px rgba(0, 190, 255, 0.6);
+    }
+    .quote-underline {
+      margin-top: -2px;
+      filter: drop-shadow(0 0 6px #00d2ff);
+    }
+
+    /* Bottom Workflow Bar */
+    .hero-workflow-container {
+      position: relative;
+      z-index: 5;
+      width: 100%;
+      margin-top: 15px;
+    }
+    .hero-workflow-bar {
+      background: rgba(5, 18, 56, 0.72);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 170, 255, 0.3);
+      border-radius: 24px;
+      padding: 16px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      box-shadow: 0 16px 40px rgba(1, 6, 24, 0.65);
+    }
+    .workflow-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex: 1;
+    }
+    .wf-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(0, 110, 255, 0.18);
+      border: 1px solid rgba(0, 180, 255, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 19px;
+      color: #00d2ff;
+      flex-shrink: 0;
+      box-shadow: 0 0 12px rgba(0, 140, 255, 0.25);
+    }
+    .wf-icon.code-style {
+      font-family: monospace;
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: -1px;
+    }
+    .wf-content {
+      display: flex;
+      flex-direction: column;
+    }
+    .wf-index {
+      font-size: 11px;
+      font-weight: 700;
+      color: #4fc3f7;
+      letter-spacing: 0.5px;
+    }
+    .wf-title {
+      font: 700 14px Manrope, sans-serif;
+      color: #ffffff;
+      margin: 1px 0;
+    }
+    .wf-sub {
+      font-size: 11.5px;
+      color: #8ca3c8;
+      white-space: nowrap;
+    }
+    .wf-sep {
+      width: 1px;
+      height: 38px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    /* Scroll Indicator */
+    .wf-scroll-indicator {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+      padding-left: 10px;
+      color: #8ba8d4;
+      transition: color 0.2s ease;
+    }
+    .wf-scroll-indicator:hover {
+      color: #00d2ff;
+    }
+    .mouse-shape {
+      width: 18px;
+      height: 28px;
+      border: 2px solid currentColor;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      padding-top: 5px;
+    }
+    .mouse-dot {
+      width: 3px;
+      height: 6px;
+      background: currentColor;
+      border-radius: 2px;
+      animation: wheelBounce 1.6s ease-in-out infinite;
+    }
+    .scroll-label {
+      font-size: 10.5px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .scroll-arrow {
+      font-size: 12px;
+      margin-top: -3px;
+      animation: arrowBounce 1.6s ease-in-out infinite;
+    }
+    @keyframes arrowBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(3px); }
+    }
+
+    /* Responsiveness */
+    @media (max-width: 1180px) {
+      .hero-workflow-bar {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .wf-sep { display: none; }
+      .workflow-item { min-width: 45%; }
+      .wf-scroll-indicator { width: 100%; flex-direction: row; justify-content: center; margin-top: 8px; }
+    }
+    @media (max-width: 980px) {
+      .hero-interactive-stage {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-subtext { margin: 0 auto 32px; }
+      .hero-cta-btns { justify-content: center; }
+      .hero-visual-col { height: 460px; margin-top: 15px; }
+      .chip-ai { left: 0; }
+      .chip-innovation { right: 0; }
+      .chip-strategy { left: 0; }
+      .chip-support { right: 0; }
+    }
+    @media (max-width: 768px) {
+      .hero-headline { font-size: 38px; }
+      .hero-visual-col { height: 390px; transform: none !important; }
+      .hologram-globe { width: 220px; height: 220px; }
+      .glass-chip { min-width: 155px; padding: 10px 14px; }
+      .glass-chip strong { font-size: 12.5px; }
+      .glass-chip small { display: none; }
+      .chip-icon { width: 34px; height: 34px; font-size: 16px; }
+      .workflow-item { min-width: 100%; }
+    }
+
+    /* Remaining Section Styles */
     .landing-section,
     .landing-services-wrap,
     .landing-blog-wrap {
@@ -4454,13 +5142,6 @@ export class ContactComponent {}
       font-weight: bold;
     }
     @media (max-width: 700px) {
-      .hero-land {
-        padding: 90px 0;
-      }
-      .hero-land h1 {
-        font-size: 39px;
-      }
-      .one-nav{height:auto;padding:16px 18px;align-items:flex-start}.one-nav nav{flex-wrap:wrap;gap:10px}.one-nav>a:last-child{display:none}
       .split {
         grid-template-columns: 1fr;
         gap: 30px;
@@ -4482,6 +5163,22 @@ export class ContactComponent {}
 export class LandingComponent {
   services = services;
   posts = posts;
+
+  // Interactive mouse move parallax state
+  heroMouseX = 0;
+  heroMouseY = 0;
+
+  onHeroMouseMove(e: MouseEvent): void {
+    const width = window.innerWidth || 1200;
+    const height = window.innerHeight || 800;
+    this.heroMouseX = (e.clientX - width / 2) / (width / 2);
+    this.heroMouseY = (e.clientY - height / 2) / (height / 2);
+  }
+
+  onHeroMouseLeave(): void {
+    this.heroMouseX = 0;
+    this.heroMouseY = 0;
+  }
 }
 @Component({
   selector: 'app-root',
