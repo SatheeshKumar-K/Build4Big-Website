@@ -3749,28 +3749,35 @@ const contactPillars = [
             <a class="social-btn" href="https://youtube.com" target="_blank" aria-label="YouTube">▷</a>
           </div>
         </div>
-        <!-- Center: Live Google Map -->
+        <!-- Center: Interactive Live Map Card with Design Chips -->
         <div class="contact-center-col">
-          <div class="live-map-card">
-            <div class="map-header">
-              <span class="map-badge-live">📍 Live Location</span>
-              <a href="https://maps.google.com/?q=Plot+No.+2,+Mahatma+Gandhi+11th+Street,+Thirunagar,+Madurai+-+625006" target="_blank" rel="noopener noreferrer" class="map-open-link">Open in Maps ↗</a>
-            </div>
-            <div class="map-frame-wrap">
+          <div class="map-blob-container">
+            <div class="float-chip chip1">💡 Ideas</div>
+            <div class="float-chip chip2">👥 Collaboration</div>
+            <div class="float-chip chip3">🚀 Opportunities</div>
+
+            <div class="map-blob">
               <iframe
-                title="Build4Big Office Location"
-                src="https://maps.google.com/maps?q=Plot+No.+2,+Mahatma+Gandhi+11th+Street,+Thirunagar,+Madurai+-+625006&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                width="100%"
-                height="100%"
-                style="border:0;"
-                allowfullscreen=""
+                class="live-map-iframe"
+                title="Build4Big Office Location Map"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=78.0536,9.8587,78.0936,9.8987&layer=mapnik&marker=9.8787,78.0736"
                 loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
               ></iframe>
-            </div>
-            <div class="map-footer-caption">
-              <strong>Build4Big Technologies</strong>
-              <small>Thirunagar, Madurai – 625006</small>
+              <div class="map-pin-overlay">
+                <div class="map-pin">
+                  <div class="pin-head"></div>
+                  <div class="pin-stem"></div>
+                </div>
+              </div>
+              <a
+                class="map-badge"
+                href="https://maps.google.com/?q=Plot+No.+2,+Mahatma+Gandhi+11th+Street,+Thirunagar,+Madurai+-+625006"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Open in Google Maps"
+              >
+                <span>Let'sConnect</span>
+              </a>
             </div>
           </div>
         </div>
@@ -3915,77 +3922,117 @@ const contactPillars = [
       transition: background 0.2s, color 0.2s;
     }
     .social-btn:hover { background: #3159f5; color: #fff; }
-    /* Live Map Card */
-    .live-map-card {
-      width: 100%;
-      height: 360px;
-      background: #ffffff;
-      border: 1px solid #dce7f9;
-      border-radius: 24px;
-      box-shadow: 0 10px 32px rgba(49, 89, 245, 0.12);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-    .live-map-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 44px rgba(49, 89, 245, 0.18);
-    }
-    .map-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 16px;
-      background: #f8faff;
-      border-bottom: 1px solid #eef3fc;
-    }
-    .map-badge-live {
-      font: 700 12px Manrope;
-      color: #2563eb;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .map-open-link {
-      font-size: 11.5px;
-      font-weight: 700;
-      color: #3b82f6;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .map-open-link:hover {
-      color: #1d4ed8;
-      text-decoration: underline;
-    }
-    .map-frame-wrap {
-      flex: 1;
-      width: 100%;
+    /* Map blob container & Floating chips */
+    .map-blob-container {
       position: relative;
-      background: #eef2f6;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    .map-frame-wrap iframe {
+    .map-blob {
+      width: 290px;
+      height: 290px;
+      background: linear-gradient(135deg, #dbe7ff 0%, #c4d7ff 50%, #ebf2ff 100%);
+      border-radius: 42px;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 24px;
+      box-shadow: 0 16px 44px rgba(49, 89, 245, 0.18);
+      overflow: hidden;
+      border: 2px solid #ffffff;
+    }
+    .live-map-iframe {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       border: 0;
+      opacity: 0.88;
+      border-radius: 40px;
+      filter: saturate(1.1) contrast(1.02);
+      transition: opacity 0.3s ease;
     }
-    .map-footer-caption {
-      padding: 10px 16px;
+    .map-blob:hover .live-map-iframe {
+      opacity: 1;
+    }
+    .map-pin-overlay {
+      position: absolute;
+      top: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      z-index: 2;
+    }
+    .map-pin {
+      animation: pinBounce 2s ease-in-out infinite;
+    }
+    .pin-head {
+      width: 32px;
+      height: 32px;
+      background: #2563eb;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      margin: auto;
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.45);
+    }
+    .pin-stem {
+      width: 4px;
+      height: 18px;
+      background: #2563eb;
+      margin: 2px auto 0;
+      border-radius: 0 0 4px 4px;
+    }
+    @keyframes pinBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-9px); }
+    }
+    .map-badge {
+      position: relative;
+      z-index: 3;
+      background: linear-gradient(135deg, #4338ca, #6366f1);
+      color: #ffffff;
+      font: 700 13px Manrope, sans-serif;
+      padding: 10px 22px;
+      border-radius: 20px;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(67, 56, 202, 0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0.3px;
+    }
+    .map-badge:hover {
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 10px 24px rgba(67, 56, 202, 0.5);
+    }
+    .float-chip {
+      position: absolute;
       background: #ffffff;
-      border-top: 1px solid #f1f5f9;
-      display: flex;
-      flex-direction: column;
+      border-radius: 14px;
+      padding: 7px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #080f2b;
+      box-shadow: 0 6px 20px rgba(49, 89, 245, 0.16);
+      white-space: nowrap;
+      animation: chipFloat 3.2s ease-in-out infinite;
+      z-index: 4;
+      border: 1px solid #edf2f7;
     }
-    .map-footer-caption strong {
-      font: 700 12.5px Manrope;
-      color: #0f172a;
-    }
-    .map-footer-caption small {
-      font-size: 11px;
-      color: #64748b;
+    .chip1 { top: -14px; left: -24px; animation-delay: 0s; }
+    .chip2 { bottom: 18px; right: -32px; animation-delay: 1.1s; }
+    .chip3 { bottom: -14px; left: 6px; animation-delay: 0.6s; }
+    @keyframes chipFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
     /* Form card */
     .contact-form-card {
@@ -4073,8 +4120,8 @@ const contactPillars = [
     .cpillar-title { font: 700 13px Manrope; color: #080f2b; margin-bottom: 4px; }
     .cpillar-text { font-size: 11px; color: #69708a; line-height: 1.6; }
     @media (max-width: 1100px) {
-      .contact-main { grid-template-columns: 1fr; }
-      .live-map-card { height: 280px; }
+      .contact-main { grid-template-columns: 1fr; gap: 36px; }
+      .map-blob-container { margin: 20px auto; }
     }
     @media (max-width: 900px) {
       .contact-pillars { grid-template-columns: repeat(2, 1fr); }
@@ -4082,6 +4129,10 @@ const contactPillars = [
       .plane-wrap { display: none; }
     }
     @media (max-width: 500px) {
+      .map-blob { width: 260px; height: 260px; }
+      .chip1 { left: -10px; }
+      .chip2 { right: -15px; }
+      .chip3 { left: 0; }
       .contact-pillars { grid-template-columns: 1fr; }
       .contact-title { font-size: 32px; }
     }
