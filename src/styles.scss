@@ -5,12 +5,23 @@
 app-root > router-outlet + * app-header,
 app-root > router-outlet + * app-footer,
 app-root > router-outlet + app-landing .one-nav { display:none !important; }
-app-root > app-header > header { position:sticky; top:0; z-index:20; max-width:none; box-shadow:0 1px 10px #10183a12; padding-left:40px; }
+app-root > app-header > header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  max-width: none;
+  background: rgba(2, 7, 27, 0.92) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  padding: 0 40px;
+}
 
 /* Larger, more editorial typography. */
 body { font-size:19px; }
 app-header header .logo { font-size:21px; }
-app-header header nav, app-header header .start { font-size:14px; }
+app-header header nav, app-header header .start { font-size:15px; }
 
 /* Depth treatment for the product, team and editorial visuals. */
 app-landing .visual, app-landing .idea-box, app-landing .robot, app-landing .person,
@@ -43,6 +54,7 @@ app-header header nav, app-header header .start, .one-nav nav a, .one-nav > a:la
 .one-nav .menu-logo{height:60px;display:flex;align-items:center;gap:10px;padding:0 14px;border-radius:16px;background:linear-gradient(145deg,#eaf3ff,#c6dcff);box-shadow:0 7px 16px #2058b038, inset 0 1px #fff;overflow:hidden;font:800 17px Manrope;color:#081447}
 .one-nav .menu-logo img{width:55px;height:55px;mix-blend-mode:screen;filter:drop-shadow(0 4px 7px #006dff8a);animation:logo-float 3.6s ease-in-out infinite}
 .logo{min-width:205px;min-height:64px;justify-content:flex-start;white-space:nowrap}.logo span{display:inline-block;font:800 22px Manrope;color:#091645;letter-spacing:-.05em}
+.header-logo span, .header-logo .brand-title { color:#ffffff !important; }
 .header-logo{display:inline-flex !important;align-items:center;gap:12px}.brand-image{width:62px;height:62px;display:inline-grid;place-items:center;overflow:visible;border-radius:0;background:transparent;box-shadow:none}.header-logo .brand-image img,.one-nav .menu-logo .brand-image img{position:static;width:62px !important;height:62px !important;max-width:none !important;transform:none;display:block !important;visibility:visible !important;opacity:1 !important;mix-blend-mode:normal !important;background:transparent !important;padding:0 !important;object-fit:contain !important;filter:drop-shadow(0 5px 8px #146cff4a) !important}.one-nav .menu-logo .brand-image{width:58px;height:58px}.one-nav .menu-logo .brand-image img{width:58px !important;height:58px !important}
 app-landing .hero-content{display:grid;grid-template-columns:1fr .65fr;align-items:center;gap:35px}
 app-landing .hero-logo{height:330px;display:grid;place-items:center;position:relative;border-radius:50%;background:radial-gradient(circle,#2449b8,#0b1544 62%,transparent 63%);animation:hero-orbit 7s ease-in-out infinite}

@@ -165,10 +165,13 @@ const posts: Post[] = [
 @Component({
   selector: 'app-header',
   imports: [RouterLink, RouterLinkActive],
-  template: `<header [class.homebar]="home">
-    <a routerLink="/" class="logo header-logo" aria-label="Build4Big home"><span class="brand-image"><img src="build4big-logo.png" alt="Build4Big" /></span><span>Build4Big</span></a
-    ><button class="menu" (click)="open.set(!open())">
-      {{ open() ? '×' : '☰' }}
+  template: `<header>
+    <a routerLink="/" class="logo header-logo" aria-label="Build4Big home">
+      <span class="brand-image"><img src="build4big-logo-cutout.png" alt="Build4Big" /></span>
+      <span class="brand-title">Build4Big</span>
+    </a>
+    <button class="menu" (click)="open.set(!open())" aria-label="Toggle navigation">
+      {{ open() ? '✕' : '☰' }}
     </button>
     <nav [class.show]="open()">
       <a
@@ -177,94 +180,141 @@ const posts: Post[] = [
         [routerLinkActiveOptions]="{ exact: true }"
         (click)="open.set(false)"
         >Home</a
-      ><a
+      >
+      <a
         routerLink="/services"
         routerLinkActive="active"
         (click)="open.set(false)"
         >Services</a
-      ><a routerLink="/blog" routerLinkActive="active" (click)="open.set(false)"
-        >Blog</a
-      ><a
+      >
+      <a
         routerLink="/about"
         routerLinkActive="active"
         (click)="open.set(false)"
         >About</a
-      ><a
+      >
+      <a
+        routerLink="/blog"
+        routerLinkActive="active"
+        (click)="open.set(false)"
+        >Blog</a
+      >
+      <a
         routerLink="/contact"
         routerLinkActive="active"
         (click)="open.set(false)"
         >Contact</a
       >
     </nav>
-    <a routerLink="/contact" class="start">Get Started</a>
+    <a routerLink="/contact" class="start-btn">Get Started &rarr;</a>
   </header>`,
   styles: `
+    :host {
+      display: block;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
     header {
-      height: 78px;
+      height: 76px;
       display: flex;
       align-items: center;
-      gap: 30px;
-      max-width: 1180px;
+      justify-content: space-between;
+      max-width: 1240px;
       margin: auto;
-      padding: 0 24px;
-      background: #fff;
+      padding: 0 32px;
+      background: rgba(2, 7, 27, 0.95);
+      color: #ffffff;
     }
     .logo {
-      font-weight: 800;
-      font-family: Manrope;
-      font-size: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
     }
-    .logo b {
-      color: #3159f5;
+    .brand-title {
+      font-weight: 800;
+      font-family: 'Manrope', sans-serif;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+      color: #ffffff !important;
     }
     nav {
       display: flex;
-      gap: 23px;
+      align-items: center;
+      gap: 34px;
       margin-left: auto;
-      font-size: 12px;
+      margin-right: 36px;
+      font-size: 15px;
       font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
     }
     nav a {
-      padding: 8px 0;
-      border-bottom: 2px solid transparent;
-      transition: color 0.2s ease, border-color 0.2s ease;
+      color: #9cb3d5;
+      text-decoration: none;
+      padding: 10px 0;
+      position: relative;
+      transition: color 0.22s ease;
+      letter-spacing: 0.01em;
     }
-    nav a:hover { color: #3159f5; }
-    .active {
-      color: #3159f5;
-      border-color: #3159f5 !important;
+    nav a:hover {
+      color: #ffffff;
     }
-    .start {
-      font-size: 12px;
+    nav a.active {
+      color: #ffffff;
       font-weight: 700;
-      background: #3159f5;
-      color: white;
-      padding: 11px 16px;
-      border-radius: 10px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .start:hover {
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2.5px;
+      background: linear-gradient(90deg, #00d2ff, #0066ff);
+      border-radius: 4px;
+      box-shadow: 0 0 10px rgba(0, 210, 255, 0.7);
+    }
+    .start-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: 'DM Sans', sans-serif;
+      background: linear-gradient(135deg, #0062ff 0%, #00c6ff 100%);
+      color: #ffffff !important;
+      padding: 10px 24px;
+      border-radius: 25px;
+      text-decoration: none;
+      white-space: nowrap;
+      box-shadow: 0 4px 18px rgba(0, 110, 255, 0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    }
+    .start-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 24px #3159f540;
-    }
-    .homebar {
-      background: transparent;
-      color: white;
+      box-shadow: 0 8px 25px rgba(0, 198, 255, 0.5);
+      filter: brightness(1.08);
     }
     .menu {
       display: none;
       background: none;
       border: 0;
-      font-size: 24px;
-      color: inherit;
+      font-size: 26px;
+      color: #ffffff;
       margin-left: auto;
+      cursor: pointer;
+      padding: 6px 10px;
     }
-    @media (max-width: 760px) {
+    @media (max-width: 860px) {
       header {
         height: 68px;
-        padding: 0 18px;
+        padding: 0 20px;
       }
-      .start {
+      .brand-title {
+        font-size: 19px;
+      }
+      .start-btn {
         display: none;
       }
       .menu {
@@ -273,30 +323,44 @@ const posts: Post[] = [
       nav {
         display: none;
         position: absolute;
-        z-index: 4;
-        top: 62px;
+        z-index: 1001;
+        top: 68px;
         left: 16px;
         right: 16px;
         margin: 0;
-        padding: 15px;
-        background: #fff;
-        color: #080f2b;
-        border-radius: 14px;
-        box-shadow: 0 18px 40px #0002;
+        padding: 20px 24px;
+        background: #061138;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
         flex-direction: column;
-        gap: 3px;
+        align-items: flex-start;
+        gap: 16px;
       }
       nav.show {
         display: flex;
       }
-      .homebar nav {
-        color: #080f2b;
+      nav a {
+        color: #b2c5e5;
+        font-size: 16px;
+        width: 100%;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      nav a:last-child {
+        border-bottom: none;
+      }
+      nav a.active {
+        color: #00d2ff;
+      }
+      nav a.active::after {
+        display: none;
       }
     }
   `,
 })
 export class HeaderComponent {
-  home = false;
   open = signal(false);
 }
 @Component({
