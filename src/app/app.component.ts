@@ -20,6 +20,8 @@ type Post = {
   categoryBg: string;
   categoryColor: string;
   featured?: boolean;
+  readTime?: string;
+  author?: string;
 };
 const services: Service[] = [
   ['⌘', 'Web Development', 'Modern, responsive and scalable websites.'],
@@ -47,84 +49,124 @@ const services: Service[] = [
 ].map(([icon, title, text]) => ({ icon, title, text }));
 const posts: Post[] = [
   {
-    id: 'turning-ideas',
-    title: 'Turning Ideas into Real Products',
-    date: 'Aug 05, 2025',
+    id: 'tech-changing-small-businesses',
+    title: 'How Technology is Changing Small Businesses',
+    date: 'Aug 14, 2025',
     category: 'Technology',
     categoryBg: '#eff6ff',
     categoryColor: '#2563eb',
+    featured: true,
+    readTime: '6 min read',
+    author: 'Build4Big Team',
     image:
-      'https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1000&q=80',
     excerpt:
-      'How a simple idea can grow into a meaningful digital product.',
+      'Explore how modern technology is helping small businesses work smarter, reach more customers and create new opportunities.',
   },
   {
-    id: 'web-trends',
-    title: 'Modern Web Development Trends in 2026',
+    id: 'ai-everyday-work',
+    title: 'Practical Ways to Use AI in Everyday Work',
     date: 'Aug 10, 2025',
-    category: 'Development',
-    categoryBg: '#f3e8ff',
-    categoryColor: '#7e22ce',
-    image:
-      'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=900&q=80',
-    excerpt:
-      'Technologies and tools shaping the future of web development.',
-  },
-  {
-    id: 'ai-small-business',
-    title: 'How AI is Changing Small Businesses',
-    date: 'Aug 14, 2025',
-    category: 'Artificial Intelligence',
+    category: 'AI & Automation',
     categoryBg: '#dbeafe',
     categoryColor: '#1d4ed8',
-    featured: true,
+    readTime: '4 min read',
+    author: 'Build4Big Team',
     image:
-      'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',
     excerpt:
-      'Practical ways AI can help businesses work smarter and grow faster.',
+      'Discover actionable strategies for integrating AI tools into daily workflows to boost efficiency.',
   },
   {
-    id: 'mobile-growth',
+    id: 'web-trends-2026',
+    title: 'Top Web Development Trends in 2026',
+    date: 'Aug 08, 2025',
+    category: 'Web Development',
+    categoryBg: '#ede9fe',
+    categoryColor: '#6d28d9',
+    readTime: '6 min read',
+    author: 'Build4Big Team',
+    image:
+      'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
+    excerpt:
+      'Next-generation frameworks, edge rendering, and responsive design systems dominating web development.',
+  },
+  {
+    id: 'turning-ideas-into-products',
+    title: 'Turning Ideas into Real Products',
+    date: 'Aug 05, 2025',
+    category: 'Business',
+    categoryBg: '#fef3c7',
+    categoryColor: '#b45309',
+    readTime: '4 min read',
+    author: 'Build4Big Team',
+    image:
+      'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80',
+    excerpt:
+      'A step-by-step roadmap from initial conceptualization and UX wireframing to launching a viable software product.',
+  },
+  {
+    id: 'mobile-apps-business-growth',
     title: 'Why Mobile Apps are Important for Business Growth',
-    date: 'Aug 12, 2025',
+    date: 'Aug 03, 2025',
     category: 'Mobile & Apps',
     categoryBg: '#fce7f3',
     categoryColor: '#be185d',
+    readTime: '5 min read',
+    author: 'Build4Big Team',
     image:
-      'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
     excerpt:
-      'A mobile-first world and how it creates better customer experiences.',
+      'Why mobile-first presence is essential for client retention, direct notifications, and brand loyalty.',
   },
   {
-    id: 'automation',
-    title: 'Automation: Work Smarter, Not Harder',
-    date: 'Aug 08, 2025',
+    id: 'turn-idea-successful-product',
+    title: 'How to Turn Your Idea into a Successful Product',
+    date: 'Jul 28, 2025',
     category: 'Business',
-    categoryBg: '#d1fae5',
-    categoryColor: '#047857',
+    categoryBg: '#fef3c7',
+    categoryColor: '#b45309',
+    readTime: '5 min read',
+    author: 'Build4Big Team',
     image:
-      'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80',
     excerpt:
-      'How automation can save time and improve productivity.',
+      'Validation techniques, iterative prototyping, and building lean feedback loops for sustainable startup growth.',
   },
   {
-    id: 'ux-design',
-    title: 'Crafting High-Impact User Experiences',
-    date: 'Aug 18, 2025',
-    category: 'UI/UX Design',
-    categoryBg: '#e0e7ff',
-    categoryColor: '#4338ca',
+    id: 'ui-ux-digital-success',
+    title: 'The Role of UI/UX in Digital Success',
+    date: 'Jul 20, 2025',
+    category: 'Web Development',
+    categoryBg: '#ede9fe',
+    categoryColor: '#6d28d9',
+    readTime: '6 min read',
+    author: 'Build4Big Team',
     image:
-      'https://images.unsplash.com/photo-1581291518655-9523b932edd8?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1581291518655-9523b932edd8?auto=format&fit=crop&w=800&q=80',
     excerpt:
-      'Why thoughtful interface design transforms digital engagement.',
+      'Intuitive navigation, frictionless checkout flows, and clean visual hierarchies directly drive conversions.',
+  },
+  {
+    id: 'real-world-ai-in-action',
+    title: '5 Real-World Examples of AI in Action',
+    date: 'Jul 15, 2025',
+    category: 'AI & Automation',
+    categoryBg: '#dbeafe',
+    categoryColor: '#1d4ed8',
+    readTime: '4 min read',
+    author: 'Build4Big Team',
+    image:
+      'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80',
+    excerpt:
+      'From automated customer response bots to intelligent predictive analytics in manufacturing and retail.',
   },
 ];
 @Component({
   selector: 'app-header',
   imports: [RouterLink, RouterLinkActive],
   template: `<header [class.homebar]="home">
-    <a routerLink="/" class="logo header-logo" aria-label="Build4Big home"><span class="brand-image"><img src="/build4big-logo.png" alt="Build4Big 4B logo" /></span><span>Build4Big</span></a
+    <a routerLink="/" class="logo header-logo" aria-label="Build4Big home"><span class="brand-image"><img src="build4big-logo.png" alt="Build4Big" /></span><span>Build4Big</span></a
     ><button class="menu" (click)="open.set(!open())">
       {{ open() ? '×' : '☰' }}
     </button>
@@ -263,7 +305,7 @@ export class HeaderComponent {
   template: `<footer>
     <div class="foot container">
       <section>
-        <a class="logo" routerLink="/"><img src="/build4big-logo.png" alt="Build4Big logo" /> Build4Big</a>
+        <a class="logo" routerLink="/"><img src="build4big-logo.png" alt="Build4Big" /> Build4Big</a>
         <h2>Innovate Today<br />Build a Better Tomorrow</h2>
         <p>
           A startup software company helping businesses grow with modern
@@ -2150,185 +2192,335 @@ export class SimpleComponent {
     this.intro = d['intro'] as string;
   }
 }
-const blogPillars = [
-  {
-    iconType: 'learn',
-    title: 'Learn',
-    subtitle: 'Practical insights',
-  },
-  {
-    iconType: 'inspire',
-    title: 'Get Inspired',
-    subtitle: 'Fresh perspectives',
-  },
-  {
-    iconType: 'grow',
-    title: 'Grow Together',
-    subtitle: 'Ideas for a better future',
-  },
-  {
-    iconType: 'update',
-    title: 'Stay Updated',
-    subtitle: 'On the latest trends',
-  },
-];
-
 @Component({
   selector: 'app-blog-showcase',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, FormsModule],
   template: `
-    <div #blogRoot class="blog-showcase" [class.is-visible]="isVisible()">
-      <!-- Ambient floating orbs -->
-      <div class="ambient-orb orb-tl" aria-hidden="true"></div>
-      <div class="ambient-orb orb-tr" aria-hidden="true"></div>
-      <div class="ambient-orb orb-bl" aria-hidden="true"></div>
-      <div class="ambient-orb orb-br" aria-hidden="true"></div>
+    <div #blogRoot class="blog-showcase-container" [class.is-visible]="isVisible()">
+      <!-- Ambient Glow and Floating Shapes -->
+      <div class="glow-orb glow-top-left" aria-hidden="true"></div>
+      <div class="glow-orb glow-top-right" aria-hidden="true"></div>
+      <div class="glow-orb glow-center" aria-hidden="true"></div>
 
-      <!-- Handwritten scribbles & vector arrows -->
-      <div class="scribble scribble-tl" aria-hidden="true">
-        <div class="scribble-box">
-          <span class="scribble-text">Knowledge<br />Today<br />Better Tomorrow</span>
-          <svg class="scribble-arrow" viewBox="0 0 75 55" fill="none">
-            <path d="M62 8 C40 8 16 18 12 34 C10 42 20 48 30 40 C36 32 30 18 16 26 C8 32 6 48 4 52" stroke="#2563eb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M1 42 L4 54 L14 48" stroke="#2563eb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+      <!-- HERO SECTION -->
+      <div class="blog-hero container">
+        <div class="hero-left">
+          <div class="badge-eyebrow">OUR BLOG</div>
+          <h1 class="hero-heading">
+            Discover Ideas<br />
+            for a <span class="gradient-text">Smarter Tomorrow.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Explore expert insights, practical guides, and real stories on
+            technology, AI, business and digital transformation.
+          </p>
+
+          <!-- Search Bar -->
+          <div class="search-bar-wrap">
+            <span class="search-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </span>
+            <input
+              type="text"
+              class="search-input"
+              placeholder="Search articles, topics or keywords..."
+              [(ngModel)]="searchQuery"
+            />
+            <button class="search-btn" aria-label="Search">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Hero Right: 3D Illustration Graphic with Book, Bulb, Floating Badges & Scribbles -->
+        <div class="hero-right" aria-hidden="true">
+          <!-- Handwritten Scribble Top -->
+          <div class="handwritten-scribble scribble-top">
+            <span>Better<br />Ideas<br />Brighter<br />Tomorrow</span>
+            <svg class="scribble-curve" viewBox="0 0 50 40" fill="none">
+              <path d="M10 5 C25 25, 30 35, 42 30" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" fill="none"/>
+              <polyline points="35 30 43 30 40 22" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <!-- Handwritten Scribble Right -->
+          <div class="handwritten-scribble scribble-right">
+            <span>Knowledge<br />for a<br />Bigger Impact</span>
+            <svg class="scribble-curve-right" viewBox="0 0 60 40" fill="none">
+              <path d="M45 5 C30 25, 20 30, 8 32" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" fill="none"/>
+              <polyline points="15 26 7 32 14 38" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <!-- Floating Badges -->
+          <div class="floating-badge badge-grow">
+            <span class="badge-icon">📖</span>
+            <span class="badge-txt">Grow</span>
+          </div>
+          <div class="floating-badge badge-share">
+            <span class="badge-icon">🔗</span>
+            <span class="badge-txt">Share</span>
+          </div>
+          <div class="floating-badge badge-innovate">
+            <span class="badge-icon">🚀</span>
+            <span class="badge-txt">Innovate</span>
+          </div>
+
+          <!-- Book & Glowing Idea Bulb Illustration -->
+          <div class="illustration-stage">
+            <div class="bulb-halo"></div>
+            <div class="bulb-graphic">
+              <div class="bulb-glow">💡</div>
+              <div class="bulb-rays">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="open-book-graphic">
+              <div class="book-pages left-page"></div>
+              <div class="book-spine"></div>
+              <div class="book-pages right-page"></div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="scribble scribble-tr" aria-hidden="true">
-        <div class="scribble-box">
-          <span class="scribble-text">Ideas<br />Inspire<br />Progress</span>
-          <svg class="scribble-arrow" viewBox="0 0 85 35" fill="none">
-            <path d="M6 22 Q42 28 72 10" stroke="#2563eb" stroke-width="2.6" stroke-linecap="round"/>
-            <path d="M58 6 L74 10 L64 20" stroke="#2563eb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-      </div>
-
-      <!-- Header -->
-      <div class="showcase-head container">
-        <div class="blog-pill-badge">OUR BLOG</div>
-        <h2 class="showcase-title">Insights, Ideas and <span class="gradient-text">Innovation</span></h2>
-        <p class="showcase-sub">
-          Stay updated with the latest in technology, AI, business and digital transformation.<br />
-          Explore our articles, guides and thoughts to learn, grow and build together.
-        </p>
-      </div>
-
-      <!-- 3D Coverflow Stage -->
-      <div
-        class="stage-container"
-        (mouseenter)="stopAutoplay()"
-        (mouseleave)="startAutoplay()"
-        (touchstart)="onTouchStart($event)"
-        (touchend)="onTouchEnd($event)"
-      >
-        <!-- Nav button left -->
-        <button class="nav-arrow nav-prev" (click)="prev()" aria-label="Previous Article">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </button>
-
-        <!-- Coverflow track -->
-        <div class="coverflow-stage">
-          <article
-            *ngFor="let card of postsList; let i = index"
-            class="blog-card"
-            [class.is-active]="isCenter(i)"
-            [ngStyle]="getCardStyle(i)"
-            (click)="selectCard(i)"
-            [attr.aria-selected]="isCenter(i)"
+      <!-- FILTER PILLS & SORT ROW -->
+      <div class="filter-sort-row container">
+        <div class="category-pills">
+          <button
+            class="pill-btn"
+            [class.active]="selectedCategory === 'All Posts'"
+            (click)="setCategory('All Posts')"
           >
-            <!-- Card Image -->
-            <div class="card-img-wrap">
-              <img [src]="card.image" [alt]="card.title" loading="lazy" />
-              <span *ngIf="card.featured" class="badge-featured">★ Featured</span>
+            All Posts
+          </button>
+          <button
+            class="pill-btn"
+            [class.active]="selectedCategory === 'Technology'"
+            (click)="setCategory('Technology')"
+          >
+            <span class="pill-icon">💻</span> Technology
+          </button>
+          <button
+            class="pill-btn"
+            [class.active]="selectedCategory === 'AI & Automation'"
+            (click)="setCategory('AI & Automation')"
+          >
+            <span class="pill-icon">🤖</span> AI & Automation
+          </button>
+          <button
+            class="pill-btn"
+            [class.active]="selectedCategory === 'Web Development'"
+            (click)="setCategory('Web Development')"
+          >
+            <span class="pill-icon">&lt;/&gt;</span> Web Development
+          </button>
+          <button
+            class="pill-btn"
+            [class.active]="selectedCategory === 'Business'"
+            (click)="setCategory('Business')"
+          >
+            <span class="pill-icon">📊</span> Business
+          </button>
+          <button
+            class="pill-btn"
+            [class.active]="selectedCategory === 'Productivity'"
+            (click)="setCategory('Productivity')"
+          >
+            <span class="pill-icon">💡</span> Productivity
+          </button>
+          <button
+            class="pill-btn"
+            [class.active]="selectedCategory === 'Tips & Guides'"
+            (click)="setCategory('Tips & Guides')"
+          >
+            <span class="pill-icon">📝</span> Tips & Guides
+          </button>
+        </div>
+
+        <div class="sort-dropdown">
+          <span class="sort-label">Sort by:</span>
+          <select [(ngModel)]="sortBy" class="sort-select">
+            <option value="latest">Latest</option>
+            <option value="popular">Popular</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- MAIN CONTENT SPLIT: FEATURED + LATEST (LEFT) & TRENDING + NEWSLETTER (RIGHT) -->
+      <div class="main-content-split container">
+        <!-- LEFT COLUMN: Featured Article & Latest Articles -->
+        <div class="content-left">
+          <!-- Featured Article Banner -->
+          <article class="featured-card" *ngIf="featuredPost">
+            <div class="featured-img-wrap">
+              <img [src]="featuredPost.image" [alt]="featuredPost.title" loading="lazy" />
+              <div class="featured-chip">
+                <span>★ Featured Article</span>
+              </div>
+              <div class="laptop-overlay">
+                <div class="overlay-text">
+                  <span>Ideas<br />Build<br />Better<br />Tomorrows</span>
+                  <small>Build4Big</small>
+                </div>
+              </div>
             </div>
 
-            <!-- Meta: Category & Date -->
-            <div class="card-meta-row">
-              <span class="cat-pill" [style.background]="card.categoryBg" [style.color]="card.categoryColor">
-                {{ card.category }}
-              </span>
-              <span class="card-date">{{ card.date }}</span>
-            </div>
+            <div class="featured-body">
+              <div class="meta-row">
+                <span class="category-tag-blue">{{ featuredPost.category | uppercase }}</span>
+                <span class="meta-time">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  {{ featuredPost.date }}
+                </span>
+              </div>
 
-            <!-- Title & Excerpt -->
-            <h3>{{ card.title }}</h3>
-            <p>{{ card.excerpt }}</p>
+              <h2 class="featured-title">{{ featuredPost.title }}</h2>
+              <p class="featured-desc">{{ featuredPost.excerpt }}</p>
 
-            <!-- Action -->
-            <div class="card-action">
-              <a [routerLink]="['/blog', card.id]" class="btn-read-more">
-                Read More <span>→</span>
-              </a>
+              <div class="featured-footer">
+                <div class="author-badge">
+                  <div class="avatar-stack">
+                    <span class="avatar-icon">👨‍💻</span>
+                  </div>
+                  <span class="author-name">By {{ featuredPost.author || 'Build4Big Team' }}</span>
+                </div>
+                <a [routerLink]="['/blog', featuredPost.id]" class="btn-read-full">
+                  Read Full Article <span>→</span>
+                </a>
+              </div>
             </div>
           </article>
-        </div>
 
-        <!-- Nav button right -->
-        <button class="nav-arrow nav-next" (click)="next()" aria-label="Next Article">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Pagination Indicators -->
-      <div class="carousel-indicators" role="tablist">
-        <button
-          *ngFor="let p of postsList; let i = index"
-          class="indicator-dot"
-          [class.active]="i === activeIndex()"
-          (click)="goTo(i)"
-          [attr.aria-label]="'Go to ' + p.title"
-        ></button>
-      </div>
-
-      <!-- Bottom Feature Pillars Bar -->
-      <div class="pillars-container container">
-        <div class="pillars-strip">
-          <div class="pillar-item" *ngFor="let p of pillars">
-            <div class="pillar-icon-box">
-              <ng-container [ngSwitch]="p.iconType">
-                <!-- Learn / Book -->
-                <svg *ngSwitchCase="'learn'" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                </svg>
-                <!-- Inspire / Bulb -->
-                <svg *ngSwitchCase="'inspire'" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2a7 7 0 0 0-7 7c0 2.5 1.3 4.7 3.2 6 .3.2.5.6.5 1v2c0 .6.4 1 1 1h4.6c.6 0 1-.4 1-1v-2c0-.4.2-.8.5-1A7 7 0 0 0 12 2z"></path>
-                  <path d="M9 22h6"></path>
-                </svg>
-                <!-- Grow / People -->
-                <svg *ngSwitchCase="'grow'" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="9" cy="7" r="4"></circle>
-                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                </svg>
-                <!-- Update / Rocket -->
-                <svg *ngSwitchCase="'update'" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
-                  <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
-                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
-                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
-                </svg>
-              </ng-container>
+          <!-- Latest Articles Section -->
+          <div class="latest-section">
+            <div class="latest-header">
+              <div>
+                <h3 class="latest-title">Latest Articles</h3>
+                <p class="latest-subtitle">Fresh insights, practical guides and stories to fuel your growth.</p>
+              </div>
+              <a routerLink="/blog" class="view-all-link">View All Articles <span>→</span></a>
             </div>
-            <div class="pillar-text">
-              <h4>{{ p.title }}</h4>
-              <p>{{ p.subtitle }}</p>
+
+            <div class="latest-cards-grid">
+              <article class="mini-article-card" *ngFor="let p of filteredPosts">
+                <div class="mini-img-wrap">
+                  <img [src]="p.image" [alt]="p.title" loading="lazy" />
+                  <span class="mini-category-badge">{{ p.category | uppercase }}</span>
+                </div>
+                <div class="mini-body">
+                  <div class="mini-meta-row">
+                    <span class="mini-cat-name">{{ p.category | uppercase }}</span>
+                    <span class="mini-date">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      {{ p.date }}
+                    </span>
+                  </div>
+                  <h4 class="mini-title">{{ p.title }}</h4>
+                  <div class="mini-footer">
+                    <span class="read-time-pill">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      {{ p.readTime || '5 min read' }}
+                    </span>
+                    <a [routerLink]="['/blog', p.id]" class="mini-arrow-btn" [attr.aria-label]="'Read ' + p.title">
+                      <span>→</span>
+                    </a>
+                  </div>
+                </div>
+              </article>
             </div>
           </div>
         </div>
 
-        <!-- Explore All Articles Button -->
-        <div class="explore-btn-wrap">
-          <a routerLink="/blog" class="btn-explore-all">Explore All Articles <span>→</span></a>
-        </div>
+        <!-- RIGHT COLUMN: Trending Posts & Stay Updated Card -->
+        <aside class="content-right">
+          <!-- Trending Posts Card -->
+          <div class="sidebar-card trending-card">
+            <div class="sidebar-header">
+              <div class="trending-title-wrap">
+                <span class="fire-icon">🔥</span>
+                <h3 class="sidebar-title">Trending Posts</h3>
+              </div>
+              <a routerLink="/blog" class="sidebar-link">View All <span>→</span></a>
+            </div>
+
+            <div class="trending-list">
+              <article class="trending-item" *ngFor="let t of trendingPosts; let i = index">
+                <span class="item-rank">0{{ i + 1 }}</span>
+                <div class="trending-thumb">
+                  <img [src]="t.image" [alt]="t.title" loading="lazy" />
+                </div>
+                <div class="trending-details">
+                  <h4 class="trending-headline">
+                    <a [routerLink]="['/blog', t.id]">{{ t.title }}</a>
+                  </h4>
+                  <div class="trending-meta">
+                    <span>{{ t.date }}</span>
+                    <span class="dot">•</span>
+                    <span>{{ t.readTime || '4 min read' }}</span>
+                  </div>
+                </div>
+                <a [routerLink]="['/blog', t.id]" class="trending-arrow" aria-label="Read article">
+                  <span>→</span>
+                </a>
+              </article>
+            </div>
+          </div>
+
+          <!-- Stay Updated (Newsletter) Card -->
+          <div class="sidebar-card newsletter-card">
+            <div class="newsletter-icon-wrap">
+              <div class="paper-airplane" aria-hidden="true">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </div>
+              <div class="mail-badge">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+            </div>
+
+            <h3 class="newsletter-title">Stay Updated</h3>
+            <p class="newsletter-desc">
+              Get the latest articles, insights and resources delivered to your inbox.
+            </p>
+
+            <form class="newsletter-form" (submit)="subscribe($event)">
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                [(ngModel)]="subscriberEmail"
+                name="email"
+                class="newsletter-input"
+                required
+              />
+              <button type="submit" class="btn-subscribe">
+                <span>{{ subscribed ? 'Subscribed! 🎉' : 'Subscribe →' }}</span>
+              </button>
+            </form>
+
+            <p class="newsletter-footnote">No spam. Just valuable content.</p>
+          </div>
+        </aside>
       </div>
     </div>
   `,
@@ -2337,874 +2529,1059 @@ const blogPillars = [
       display: block;
       width: 100%;
     }
-    .blog-showcase {
+
+    .blog-showcase-container {
       position: relative;
       overflow: hidden;
-      padding: 72px 16px 88px;
-      background: radial-gradient(circle at 18% 18%, #eef5ff 0%, transparent 42%),
-                  radial-gradient(circle at 82% 82%, #f5edff 0%, transparent 45%),
-                  #f8faff;
-      color: #080f2b;
+      padding: 60px 16px 85px;
+      background: linear-gradient(180deg, #f8faff 0%, #f1f5fd 50%, #f8faff 100%);
+      color: #0f172a;
     }
 
-    /* Ambient decorative orbs */
-    .ambient-orb {
+    /* Staggered Scroll Reveal */
+    .blog-hero, .filter-sort-row, .featured-card, .latest-section, .trending-card, .newsletter-card {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .is-visible .blog-hero {
+      opacity: 1;
+      transform: none;
+      transition-delay: 0.05s;
+    }
+    .is-visible .filter-sort-row {
+      opacity: 1;
+      transform: none;
+      transition-delay: 0.15s;
+    }
+    .is-visible .featured-card {
+      opacity: 1;
+      transform: none;
+      transition-delay: 0.22s;
+    }
+    .is-visible .latest-section {
+      opacity: 1;
+      transform: none;
+      transition-delay: 0.3s;
+    }
+    .is-visible .trending-card {
+      opacity: 1;
+      transform: none;
+      transition-delay: 0.24s;
+    }
+    .is-visible .newsletter-card {
+      opacity: 1;
+      transform: none;
+      transition-delay: 0.34s;
+    }
+
+    /* Ambient Glow Circles */
+    .glow-orb {
       position: absolute;
       border-radius: 50%;
+      filter: blur(80px);
       pointer-events: none;
+      z-index: 0;
+      opacity: 0.55;
+    }
+    .glow-top-left {
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, #bfdbfe, #93c5fd);
+      top: -120px;
+      left: -80px;
+      animation: floatGlow 9s ease-in-out infinite alternate;
+    }
+    .glow-top-right {
+      width: 440px;
+      height: 440px;
+      background: radial-gradient(circle, #ddd6fe, #bfdbfe);
+      top: 40px;
+      right: -100px;
+      animation: floatGlow 11s 1s ease-in-out infinite alternate-reverse;
+    }
+    .glow-center {
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, #e0e7ff, #ede9fe);
+      bottom: 200px;
+      left: 30%;
+      animation: floatGlow 13s ease-in-out infinite alternate;
+    }
+    @keyframes floatGlow {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(25px, -20px) scale(1.08); }
+    }
+
+    /* HERO SECTION */
+    .blog-hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+      position: relative;
       z-index: 1;
-    }
-    .orb-tl {
-      top: 65px;
-      left: 14%;
-      width: 24px;
-      height: 24px;
-      background: #3b82f6;
-      opacity: 0.7;
-      box-shadow: 0 0 30px #3b82f6;
-      animation: floatOrb 6s ease-in-out infinite alternate;
-    }
-    .orb-tr {
-      top: 150px;
-      right: 18%;
-      width: 16px;
-      height: 16px;
-      background: #8b5cf6;
-      opacity: 0.65;
-      box-shadow: 0 0 20px #8b5cf6;
-      animation: floatOrb 7s 1s ease-in-out infinite alternate-reverse;
-    }
-    .orb-bl {
-      bottom: 240px;
-      left: 2%;
-      width: 48px;
-      height: 48px;
-      background: radial-gradient(circle, #60a5fa 0%, #3b82f6 70%);
-      opacity: 0.45;
-      filter: blur(4px);
-      animation: floatOrb 8s 2s ease-in-out infinite alternate;
-    }
-    .orb-br {
-      bottom: 210px;
-      right: 4%;
-      width: 16px;
-      height: 16px;
-      background: #2563eb;
-      opacity: 0.8;
-      box-shadow: 0 0 20px #2563eb;
-      animation: floatOrb 6.5s ease-in-out infinite alternate;
-    }
-    @keyframes floatOrb {
-      0% { transform: translateY(0) scale(1); }
-      100% { transform: translateY(-16px) scale(1.15); }
+      padding-top: 10px;
+      margin-bottom: 45px;
     }
 
-    /* Handwritten scribble annotations */
-    .scribble {
-      position: absolute;
-      z-index: 4;
-      pointer-events: none;
-      user-select: none;
-    }
-    .scribble-box {
-      position: relative;
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .scribble-text {
-      font-family: 'Caveat', cursive, sans-serif;
-      font-size: 26px;
-      font-weight: 700;
-      color: #2563eb;
-      line-height: 1.05;
-      white-space: nowrap;
-    }
-    .scribble-tl {
-      top: 95px;
-      left: 3%;
-      transform: rotate(-12deg);
-    }
-    .scribble-tl .scribble-arrow {
-      width: 70px;
-      height: 50px;
-      margin-top: 4px;
-      margin-left: 15px;
-    }
-    .scribble-tr {
-      top: 95px;
-      right: 4%;
-      transform: rotate(-8deg);
-    }
-    .scribble-tr .scribble-arrow {
-      width: 80px;
-      height: 32px;
-      margin-top: 4px;
-    }
-
-    /* Showcase Head */
-    .showcase-head {
-      text-align: center;
-      max-width: 840px;
-      margin: 0 auto 30px;
-      position: relative;
-      z-index: 3;
-    }
-    .blog-pill-badge {
-      display: inline-flex;
-      align-items: center;
+    .badge-eyebrow {
+      display: inline-block;
       font-size: 11px;
       font-weight: 800;
       letter-spacing: 0.16em;
-      text-transform: uppercase;
       color: #2563eb;
-      background: #eef4ff;
-      border: 1.5px solid #c7d8fe;
-      border-radius: 9999px;
-      padding: 6px 20px;
-      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.08);
       margin-bottom: 14px;
     }
-    .showcase-title {
-      font: 800 clamp(36px, 4.4vw, 54px)/1.15 Manrope, sans-serif;
-      letter-spacing: -0.04em;
-      margin: 0 0 14px;
+
+    .hero-heading {
+      font: 800 clamp(38px, 4.4vw, 56px)/1.12 Manrope, sans-serif;
       color: #0a1128;
+      margin: 0 0 16px;
+      letter-spacing: -0.04em;
     }
+
     .gradient-text {
-      background: linear-gradient(135deg, #1d68ff 0%, #8b28f8 100%);
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .showcase-sub {
-      font-size: clamp(14px, 1.2vw, 16px);
-      color: #55617d;
+
+    .hero-subtitle {
+      font-size: 16px;
       line-height: 1.65;
-      max-width: 660px;
-      margin: 0 auto;
+      color: #475569;
+      max-width: 520px;
+      margin: 0 0 28px;
     }
 
-    /* 3D Coverflow Stage */
-    .stage-container {
-      position: relative;
-      max-width: 1260px;
-      margin: 25px auto 10px;
-      min-height: 510px;
+    /* Search Bar */
+    .search-bar-wrap {
       display: flex;
       align-items: center;
-      justify-content: center;
-    }
-    .coverflow-stage {
-      position: relative;
-      width: 100%;
-      height: 490px;
-      perspective: 1200px;
-      transform-style: preserve-3d;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: visible;
-    }
-
-    /* Navigation Arrows */
-    .nav-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
       background: #ffffff;
-      color: #2563eb;
-      border: 1px solid #e0ebff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 9999px;
+      padding: 6px 8px 6px 18px;
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.08);
+      max-width: 480px;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .search-bar-wrap:focus-within {
+      border-color: #3b82f6;
+      box-shadow: 0 10px 28px rgba(37, 99, 235, 0.16);
+    }
+    .search-icon {
+      display: flex;
+      align-items: center;
+      margin-right: 10px;
+    }
+    .search-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 14.5px;
+      color: #0f172a;
+      background: transparent;
+    }
+    .search-input::placeholder {
+      color: #94a3b8;
+    }
+    .search-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #2563eb;
+      border: none;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      z-index: 25;
-      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.18);
-      transition: all 0.25s ease;
+      transition: transform 0.2s, background 0.2s;
     }
-    .nav-arrow:hover {
-      transform: translateY(-50%) scale(1.1);
-      background: #2563eb;
-      color: #ffffff;
-      box-shadow: 0 10px 28px rgba(37, 99, 235, 0.4);
-    }
-    .nav-prev {
-      left: 12px;
-    }
-    .nav-next {
-      right: 12px;
+    .search-btn:hover {
+      background: #1d4ed8;
+      transform: scale(1.05);
     }
 
-    /* Blog Card */
-    .blog-card {
+    /* HERO RIGHT ILLUSTRATION */
+    .hero-right {
+      position: relative;
+      height: 330px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .handwritten-scribble {
       position: absolute;
-      width: clamp(260px, 23vw, 320px);
-      min-height: 420px;
-      padding: 16px 16px 24px;
-      border-radius: 26px;
+      font-family: 'Caveat', cursive;
+      font-size: 19px;
+      font-weight: 700;
+      color: #2563eb;
+      line-height: 1.1;
+      pointer-events: none;
+    }
+    .scribble-top {
+      top: 15px;
+      left: 15px;
+      transform: rotate(-10deg);
+    }
+    .scribble-top .scribble-curve {
+      width: 36px;
+      height: 30px;
+      margin-top: 2px;
+      margin-left: 15px;
+    }
+    .scribble-right {
+      top: 45px;
+      right: 5px;
+      transform: rotate(8deg);
+      text-align: right;
+    }
+    .scribble-right .scribble-curve-right {
+      width: 45px;
+      height: 28px;
+      margin-top: 2px;
+      margin-left: auto;
+    }
+
+    /* Floating Badges */
+    .floating-badge {
+      position: absolute;
       background: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.95);
-      box-shadow: 0 18px 45px rgba(22, 45, 96, 0.08);
+      padding: 7px 16px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      box-shadow: 0 8px 22px rgba(37, 99, 235, 0.12);
+      border: 1px solid #e2e8f0;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0f172a;
+      z-index: 4;
+      animation: badgeFloat 5s ease-in-out infinite alternate;
+    }
+    .badge-grow {
+      top: 85px;
+      left: 55px;
+      animation-delay: 0s;
+    }
+    .badge-share {
+      top: 50px;
+      right: 90px;
+      animation-delay: 1.2s;
+    }
+    .badge-innovate {
+      bottom: 75px;
+      right: 35px;
+      animation-delay: 2.2s;
+    }
+    @keyframes badgeFloat {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-8px); }
+    }
+
+    /* Open Book & Glowing Bulb */
+    .illustration-stage {
+      position: relative;
+      width: 280px;
+      height: 220px;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      text-align: left;
-      cursor: pointer;
-      transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1),
-                  opacity 0.65s ease,
-                  filter 0.65s ease,
-                  box-shadow 0.65s ease;
-      will-change: transform, opacity;
-      user-select: none;
+      align-items: center;
+      justify-content: flex-end;
     }
-    .blog-card.is-active {
-      box-shadow: 0 32px 65px -12px rgba(37, 99, 235, 0.25),
-                  0 0 0 1.5px rgba(255, 255, 255, 0.95) inset;
-      cursor: default;
+    .bulb-halo {
+      position: absolute;
+      top: 15px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.35) 0%, rgba(147, 197, 253, 0) 70%);
+      animation: bulbBreathe 3.5s ease-in-out infinite alternate;
+    }
+    @keyframes bulbBreathe {
+      0% { transform: scale(0.9); opacity: 0.6; }
+      100% { transform: scale(1.15); opacity: 1; }
+    }
+    .bulb-graphic {
+      position: absolute;
+      top: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 56px;
+      z-index: 3;
+      filter: drop-shadow(0 0 16px rgba(59, 130, 246, 0.7));
+      animation: bulbGlowPulse 4s ease-in-out infinite alternate;
+    }
+    @keyframes bulbGlowPulse {
+      0% { transform: translateY(0); filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.5)); }
+      100% { transform: translateY(-6px); filter: drop-shadow(0 0 24px rgba(59, 130, 246, 0.95)); }
+    }
+    .open-book-graphic {
+      width: 220px;
+      height: 70px;
+      position: relative;
+      display: flex;
+      perspective: 600px;
+      filter: drop-shadow(0 14px 22px rgba(37, 99, 235, 0.22));
+    }
+    .book-pages {
+      flex: 1;
+      height: 100%;
+      background: linear-gradient(135deg, #ffffff 0%, #dbeafe 100%);
+      border: 2px solid #2563eb;
+    }
+    .left-page {
+      border-radius: 12px 0 0 12px;
+      transform: rotateY(18deg) skewY(-4deg);
+      border-right: none;
+    }
+    .right-page {
+      border-radius: 0 12px 12px 0;
+      transform: rotateY(-18deg) skewY(4deg);
+      border-left: none;
+    }
+    .book-spine {
+      width: 14px;
+      background: #1d4ed8;
+      border-radius: 4px;
     }
 
-    /* Card Image Wrap */
-    .card-img-wrap {
+    /* FILTER & SORT ROW */
+    .filter-sort-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
       position: relative;
+      z-index: 2;
+    }
+    .category-pills {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .pill-btn {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 9999px;
+      padding: 9px 18px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #334155;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.22s ease;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+    }
+    .pill-btn:hover {
+      border-color: #93c5fd;
+      background: #eff6ff;
+      color: #1d4ed8;
+      transform: translateY(-2px);
+    }
+    .pill-btn.active {
+      background: #2563eb;
+      border-color: #2563eb;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+    }
+    .pill-icon {
+      font-size: 13px;
+    }
+
+    .sort-dropdown {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13.5px;
+      color: #64748b;
+    }
+    .sort-select {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 9999px;
+      padding: 7px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #0f172a;
+      outline: none;
+      cursor: pointer;
+    }
+
+    /* MAIN CONTENT SPLIT */
+    .main-content-split {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr;
+      gap: 32px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* FEATURED ARTICLE BANNER */
+    .featured-card {
+      background: #ffffff;
+      border-radius: 24px;
+      border: 1px solid #e2e8f0;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      box-shadow: 0 10px 32px rgba(37, 99, 235, 0.07);
+      margin-bottom: 40px;
+      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease;
+    }
+    .featured-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 44px rgba(37, 99, 235, 0.13);
+    }
+    .featured-img-wrap {
+      position: relative;
+      min-height: 270px;
+      overflow: hidden;
+    }
+    .featured-img-wrap img {
       width: 100%;
-      height: 175px;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .featured-card:hover .featured-img-wrap img {
+      transform: scale(1.04);
+    }
+    .featured-chip {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(124, 58, 237, 0.92);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.35);
+    }
+    .laptop-overlay {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background: rgba(15, 23, 42, 0.78);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 14px 16px;
+      color: #ffffff;
+    }
+    .overlay-text span {
+      display: block;
+      font: 700 13px/1.3 Manrope;
+      color: #ffffff;
+    }
+    .overlay-text small {
+      display: block;
+      font-size: 10.5px;
+      color: #93c5fd;
+      margin-top: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .featured-body {
+      padding: 30px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .meta-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+      font-size: 12px;
+    }
+    .category-tag-blue {
+      color: #2563eb;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+    .meta-time {
+      color: #64748b;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .featured-title {
+      font: 800 24px/1.25 Manrope, sans-serif;
+      color: #0a1128;
+      margin: 0 0 12px;
+      letter-spacing: -0.03em;
+    }
+    .featured-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #64748b;
+      margin: 0 0 24px;
+    }
+    .featured-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: auto;
+    }
+    .author-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .avatar-stack {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+    .author-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #334155;
+    }
+    .btn-read-full {
+      background: #2563eb;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.22s ease;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.28);
+    }
+    .btn-read-full:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.36);
+    }
+
+    /* LATEST ARTICLES SECTION */
+    .latest-section {
+      margin-top: 10px;
+    }
+    .latest-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+    .latest-title {
+      font: 800 24px Manrope;
+      color: #0a1128;
+      margin: 0 0 4px;
+    }
+    .latest-subtitle {
+      font-size: 13.5px;
+      color: #64748b;
+      margin: 0;
+    }
+    .view-all-link {
+      font-size: 13px;
+      font-weight: 700;
+      color: #2563eb;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s;
+    }
+    .view-all-link:hover {
+      color: #1d4ed8;
+    }
+
+    .latest-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .mini-article-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
       border-radius: 18px;
       overflow: hidden;
-      margin-bottom: 14px;
-      background: #edf2f9;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
-    .card-img-wrap img {
+    .mini-article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.12);
+    }
+    .mini-img-wrap {
+      position: relative;
+      height: 140px;
+      overflow: hidden;
+    }
+    .mini-img-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.4s ease;
     }
-    .blog-card:hover .card-img-wrap img {
-      transform: scale(1.04);
+    .mini-article-card:hover .mini-img-wrap img {
+      transform: scale(1.05);
     }
-    .badge-featured {
+    .mini-category-badge {
       position: absolute;
       top: 10px;
       left: 10px;
-      background: rgba(14, 34, 85, 0.82);
-      backdrop-filter: blur(8px);
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(6px);
       color: #ffffff;
-      font-size: 11px;
+      font-size: 9.5px;
       font-weight: 700;
-      padding: 4px 11px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      letter-spacing: 0.06em;
+      padding: 3px 8px;
+      border-radius: 6px;
     }
-
-    /* Card Meta */
-    .card-meta-row {
+    .mini-body {
+      padding: 16px 14px 14px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .mini-meta-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 100%;
-      margin-bottom: 10px;
-      padding: 0 4px;
-    }
-    .cat-pill {
+      margin-bottom: 8px;
       font-size: 11px;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 9999px;
     }
-    .card-date {
-      font-size: 11.5px;
-      color: #7b88a8;
-      font-weight: 500;
-    }
-
-    /* Card Text */
-    .blog-card h3 {
-      font: 800 18px/1.3 Manrope, sans-serif;
-      color: #081236;
-      margin: 0 0 8px;
-      padding: 0 4px;
-    }
-    .blog-card.is-active h3 {
-      font-size: 20px;
-    }
-    .blog-card p {
-      font-size: 13px;
-      line-height: 1.55;
-      color: #63708f;
-      margin: 0 0 16px;
-      flex-grow: 1;
-      padding: 0 4px;
-    }
-
-    /* Action */
-    .card-action {
-      padding: 0 4px;
-      margin-top: auto;
-    }
-    .btn-read-more {
-      font: 700 13px 'DM Sans', sans-serif;
+    .mini-cat-name {
       color: #2563eb;
-      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+    }
+    .mini-date {
+      color: #94a3b8;
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      transition: color 0.2s ease, transform 0.2s ease;
+      gap: 4px;
     }
-    .btn-read-more:hover {
-      color: #1d4ed8;
-      transform: translateX(2px);
+    .mini-title {
+      font: 700 15px/1.3 Manrope;
+      color: #0f172a;
+      margin: 0 0 14px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
-
-    /* Indicators */
-    .carousel-indicators {
+    .mini-footer {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 9px;
-      margin-top: 15px;
-      margin-bottom: 45px;
-      position: relative;
-      z-index: 5;
+      justify-content: space-between;
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid #f1f5f9;
     }
-    .indicator-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      border: 0;
-      background: #cbd5e1;
-      cursor: pointer;
-      transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-      padding: 0;
-    }
-    .indicator-dot.active {
-      width: 26px;
-      border-radius: 9999px;
-      background: #2563eb;
-      box-shadow: 0 3px 10px rgba(37, 99, 235, 0.35);
-    }
-
-    /* Bottom Pillars Bar */
-    .pillars-container {
-      position: relative;
-      z-index: 5;
-    }
-    .pillars-strip {
-      max-width: 1140px;
-      margin: 0 auto;
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(220, 232, 255, 0.9);
-      border-radius: 24px;
-      box-shadow: 0 16px 36px rgba(25, 52, 114, 0.06);
-      padding: 22px 34px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+    .read-time-pill {
+      font-size: 11.5px;
+      color: #64748b;
+      display: inline-flex;
       align-items: center;
-      gap: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      gap: 4px;
     }
-    .pillars-strip:hover {
-      box-shadow: 0 22px 45px rgba(25, 52, 114, 0.1);
-    }
-    .pillar-item {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 4px 10px;
-    }
-    .pillar-item:not(:last-child) {
-      border-right: 1px solid #e3ebfa;
-    }
-    .pillar-icon-box {
-      width: 48px;
-      height: 48px;
+    .mini-arrow-btn {
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
       background: #eff6ff;
+      color: #2563eb;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #2563eb;
-      flex-shrink: 0;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12);
-      transition: transform 0.25s ease;
+      font-weight: 700;
+      font-size: 14px;
+      transition: all 0.2s;
     }
-    .pillar-item:hover .pillar-icon-box {
-      transform: scale(1.1);
-      background: #dbeafe;
-    }
-    .pillar-text h4 {
-      font: 800 15px Manrope, sans-serif;
-      color: #081236;
-      margin: 0 0 3px;
-    }
-    .pillar-text p {
-      font-size: 12px;
-      color: #626e8c;
-      margin: 0;
-      line-height: 1.35;
-    }
-
-    /* Explore Button */
-    .explore-btn-wrap {
-      text-align: center;
-      margin-top: 35px;
-    }
-    .btn-explore-all {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: linear-gradient(110deg, #2563eb, #3b82f6);
+    .mini-article-card:hover .mini-arrow-btn {
+      background: #2563eb;
       color: #ffffff;
-      padding: 14px 34px;
-      border-radius: 9999px;
-      font: 700 14px 'DM Sans', sans-serif;
-      text-decoration: none;
-      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.35);
-      transition: all 0.25s ease;
-    }
-    .btn-explore-all:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.45);
-    }
-    .btn-explore-all span {
-      font-size: 18px;
-      transition: transform 0.2s ease;
-    }
-    .btn-explore-all:hover span {
       transform: translateX(3px);
     }
 
-    /* Scroll reveal animations */
-    .showcase-head, .stage-container, .carousel-indicators, .pillars-strip, .explore-btn-wrap {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    /* RIGHT SIDEBAR COLUMN */
+    .sidebar-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 6px 24px rgba(15, 23, 42, 0.05);
+      margin-bottom: 26px;
+      transition: transform 0.25s, box-shadow 0.25s;
     }
-    .is-visible .showcase-head {
-      opacity: 1;
-      transform: none;
+    .sidebar-card:hover {
+      box-shadow: 0 12px 32px rgba(37, 99, 235, 0.09);
     }
-    .is-visible .stage-container {
-      opacity: 1;
-      transform: none;
-      transition-delay: 0.12s;
+    .sidebar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
     }
-    .is-visible .carousel-indicators {
-      opacity: 1;
-      transform: none;
-      transition-delay: 0.2s;
+    .trending-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-    .is-visible .pillars-strip {
-      opacity: 1;
-      transform: none;
-      transition-delay: 0.26s;
+    .fire-icon {
+      font-size: 18px;
     }
-    .is-visible .explore-btn-wrap {
-      opacity: 1;
-      transform: none;
-      transition-delay: 0.32s;
+    .sidebar-title {
+      font: 800 18px Manrope;
+      color: #0a1128;
+      margin: 0;
+    }
+    .sidebar-link {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #2563eb;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
     }
 
-    /* Responsive adjustments */
-    @media (max-width: 1040px) {
-      .scribble-tl { left: 1%; }
-      .scribble-tr { right: 2%; }
-      .pillars-strip {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-        padding: 24px;
+    /* Trending List Items */
+    .trending-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .trending-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #f1f5f9;
+      transition: transform 0.2s ease;
+    }
+    .trending-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .trending-item:hover {
+      transform: translateX(4px);
+    }
+    .item-rank {
+      font: 800 16px Manrope;
+      color: #94a3b8;
+      width: 24px;
+      flex-shrink: 0;
+    }
+    .trending-thumb {
+      width: 54px;
+      height: 54px;
+      border-radius: 12px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .trending-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .trending-details {
+      flex: 1;
+      min-width: 0;
+    }
+    .trending-headline {
+      font: 700 13px/1.3 Manrope;
+      margin: 0 0 4px;
+    }
+    .trending-headline a {
+      color: #0f172a;
+      transition: color 0.2s;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .trending-headline a:hover {
+      color: #2563eb;
+    }
+    .trending-meta {
+      font-size: 11px;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .trending-arrow {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #f8fafc;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    .trending-item:hover .trending-arrow {
+      background: #2563eb;
+      color: #ffffff;
+    }
+
+    /* NEWSLETTER CARD */
+    .newsletter-card {
+      background: linear-gradient(145deg, #ffffff 0%, #f0f6ff 100%);
+      border: 1.5px solid #dbeafe;
+      position: relative;
+    }
+    .newsletter-icon-wrap {
+      position: relative;
+      width: 52px;
+      height: 52px;
+      margin-bottom: 14px;
+    }
+    .mail-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .paper-airplane {
+      position: absolute;
+      top: -10px;
+      right: -240px;
+      opacity: 0.65;
+      animation: planeSway 4s ease-in-out infinite alternate;
+    }
+    @keyframes planeSway {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-6px) rotate(4deg); }
+    }
+    .newsletter-title {
+      font: 800 20px Manrope;
+      color: #0a1128;
+      margin: 0 0 6px;
+    }
+    .newsletter-desc {
+      font-size: 13px;
+      line-height: 1.55;
+      color: #64748b;
+      margin: 0 0 18px;
+    }
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .newsletter-input {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 9999px;
+      padding: 12px 18px;
+      font-size: 13.5px;
+      outline: none;
+      color: #0f172a;
+      transition: border-color 0.2s;
+    }
+    .newsletter-input:focus {
+      border-color: #2563eb;
+    }
+    .btn-subscribe {
+      background: #2563eb;
+      color: #ffffff;
+      border: none;
+      border-radius: 9999px;
+      padding: 12px 20px;
+      font: 700 13.5px 'DM Sans';
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+    }
+    .btn-subscribe:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.38);
+    }
+    .newsletter-footnote {
+      font-size: 11.5px;
+      color: #94a3b8;
+      margin: 12px 0 0;
+      text-align: center;
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 1024px) {
+      .blog-hero {
+        grid-template-columns: 1fr;
+        gap: 30px;
       }
-      .pillar-item:nth-child(2) {
-        border-right: none;
+      .hero-right {
+        height: 260px;
+      }
+      .main-content-split {
+        grid-template-columns: 1fr;
+      }
+      .featured-card {
+        grid-template-columns: 1fr;
+      }
+      .featured-img-wrap {
+        min-height: 220px;
       }
     }
+
     @media (max-width: 768px) {
-      .scribble {
+      .latest-cards-grid {
+        grid-template-columns: 1fr;
+      }
+      .filter-sort-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero-heading {
+        font-size: 34px;
+      }
+      .hero-right {
         display: none;
       }
-      .blog-showcase {
-        padding: 55px 12px 65px;
-      }
-      .stage-container {
-        min-height: 460px;
-      }
-      .coverflow-stage {
-        height: 450px;
-      }
-      .blog-card {
-        width: clamp(260px, 78vw, 300px);
-        min-height: 380px;
-        padding: 14px 14px 20px;
-      }
-      .card-img-wrap {
-        height: 155px;
-      }
-      .nav-arrow {
-        width: 40px;
-        height: 40px;
-      }
-      .nav-prev { left: 4px; }
-      .nav-next { right: 4px; }
-      .pillars-strip {
-        grid-template-columns: 1fr;
-        gap: 14px;
-        padding: 20px;
-      }
-      .pillar-item:not(:last-child) {
-        border-right: none;
-        border-bottom: 1px solid #e3ebfa;
-        padding-bottom: 12px;
-      }
     }
+
     @media (prefers-reduced-motion: reduce) {
-      .showcase-head, .stage-container, .carousel-indicators, .pillars-strip, .explore-btn-wrap {
+      .blog-showcase-container, .blog-hero, .filter-sort-row, .featured-card, .latest-section, .trending-card, .newsletter-card {
         opacity: 1 !important;
         transform: none !important;
         transition: none !important;
       }
-      .blog-card {
-        transition: none !important;
-      }
-      .ambient-orb {
+      .floating-badge, .glow-orb, .bulb-graphic, .bulb-halo, .paper-airplane {
         animation: none !important;
+      }
+      .featured-card, .mini-article-card, .trending-item {
+        transition: none !important;
       }
     }
   `,
 })
-export class BlogShowcaseComponent implements AfterViewInit, OnDestroy {
+export class BlogShowcaseComponent implements AfterViewInit {
   @ViewChild('blogRoot') blogRoot?: ElementRef<HTMLElement>;
   isVisible = signal(false);
-  activeIndex = signal(2); // Starts on Artificial Intelligence (index 2), matching the screenshot!
-  postsList = posts;
-  pillars = blogPillars;
 
-  private autoplayTimer: any = null;
+  searchQuery = '';
+  selectedCategory = 'All Posts';
+  sortBy = 'latest';
+  subscribed = false;
+  subscriberEmail = '';
+
+  postsList: Post[] = posts;
+
   private observer?: IntersectionObserver;
-  private touchStartX = 0;
+
+  get featuredPost(): Post | undefined {
+    return this.postsList.find((p) => p.featured) || this.postsList[0];
+  }
+
+  get trendingPosts(): Post[] {
+    return this.postsList.slice(1, 5);
+  }
+
+  get filteredPosts(): Post[] {
+    let list = this.postsList.filter((p) => !p.featured);
+
+    if (this.selectedCategory !== 'All Posts') {
+      list = list.filter(
+        (p) => p.category.toLowerCase() === this.selectedCategory.toLowerCase()
+      );
+    }
+
+    if (this.searchQuery.trim()) {
+      const q = this.searchQuery.toLowerCase();
+      list = list.filter(
+        (p) =>
+          p.title.toLowerCase().includes(q) ||
+          p.excerpt.toLowerCase().includes(q) ||
+          p.category.toLowerCase().includes(q)
+      );
+    }
+
+    return list.slice(0, 3);
+  }
 
   ngAfterViewInit(): void {
     if (typeof IntersectionObserver !== 'undefined') {
-      this.observer = new IntersectionObserver(([entry]) => {
-        if (entry.isIntersecting) {
-          this.isVisible.set(true);
-          this.observer?.disconnect();
-        }
-      }, { threshold: 0.08 });
+      this.observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            this.isVisible.set(true);
+            this.observer?.disconnect();
+          }
+        },
+        { threshold: 0.08 }
+      );
       if (this.blogRoot) this.observer.observe(this.blogRoot.nativeElement);
     } else {
       this.isVisible.set(true);
     }
-    this.startAutoplay();
   }
 
-  ngOnDestroy(): void {
-    this.stopAutoplay();
-    this.observer?.disconnect();
+  setCategory(cat: string): void {
+    this.selectedCategory = cat;
   }
 
-  getOffset(index: number): number {
-    let offset = index - this.activeIndex();
-    const total = this.postsList.length;
-    while (offset > total / 2) offset -= total;
-    while (offset < -total / 2) offset += total;
-    return offset;
-  }
-
-  isCenter(index: number): boolean {
-    return this.getOffset(index) === 0;
-  }
-
-  getCardStyle(index: number): { [key: string]: string | number } {
-    const offset = this.getOffset(index);
-    let translateX = 0;
-    let translateZ = 0;
-    let scale = 1;
-    let rotateY = 0;
-    let opacity = 1;
-    let zIndex = 1;
-    let filter = 'none';
-    let pointerEvents = 'auto';
-
-    if (offset === 0) {
-      translateX = 0;
-      translateZ = 70;
-      scale = 1.14;
-      rotateY = 0;
-      opacity = 1;
-      zIndex = 12;
-      filter = 'none';
-    } else if (offset === -1) {
-      translateX = -64;
-      translateZ = 15;
-      scale = 0.92;
-      rotateY = 7;
-      opacity = 0.93;
-      zIndex = 8;
-      filter = 'blur(0.3px)';
-    } else if (offset === 1) {
-      translateX = 64;
-      translateZ = 15;
-      scale = 0.92;
-      rotateY = -7;
-      opacity = 0.93;
-      zIndex = 8;
-      filter = 'blur(0.3px)';
-    } else if (offset === -2) {
-      translateX = -120;
-      translateZ = -45;
-      scale = 0.8;
-      rotateY = 13;
-      opacity = 0.76;
-      zIndex = 5;
-      filter = 'blur(0.8px)';
-    } else if (offset === 2) {
-      translateX = 120;
-      translateZ = -45;
-      scale = 0.8;
-      rotateY = -13;
-      opacity = 0.76;
-      zIndex = 5;
-      filter = 'blur(0.8px)';
-    } else {
-      translateX = offset > 0 ? 190 : -190;
-      translateZ = -120;
-      scale = 0.65;
-      rotateY = offset > 0 ? -18 : 18;
-      opacity = 0.35;
-      zIndex = 2;
-      filter = 'blur(2px)';
-      pointerEvents = 'none';
-    }
-
-    return {
-      transform: `translate3d(${translateX}%, 0, ${translateZ}px) scale(${scale}) rotateY(${rotateY}deg)`,
-      opacity,
-      'z-index': zIndex,
-      filter,
-      'pointer-events': pointerEvents,
-    };
-  }
-
-  prev(): void {
-    const total = this.postsList.length;
-    this.activeIndex.update((i) => (i - 1 + total) % total);
-  }
-
-  next(): void {
-    const total = this.postsList.length;
-    this.activeIndex.update((i) => (i + 1) % total);
-  }
-
-  goTo(index: number): void {
-    this.activeIndex.set(index);
-  }
-
-  selectCard(index: number): void {
-    if (!this.isCenter(index)) {
-      this.activeIndex.set(index);
-    }
-  }
-
-  startAutoplay(): void {
-    this.stopAutoplay();
-    this.autoplayTimer = setInterval(() => {
-      this.next();
-    }, 4500);
-  }
-
-  stopAutoplay(): void {
-    if (this.autoplayTimer) {
-      clearInterval(this.autoplayTimer);
-      this.autoplayTimer = null;
-    }
-  }
-
-  onTouchStart(e: TouchEvent): void {
-    this.stopAutoplay();
-    if (e.changedTouches.length > 0) {
-      this.touchStartX = e.changedTouches[0].screenX;
-    }
-  }
-
-  onTouchEnd(e: TouchEvent): void {
-    if (e.changedTouches.length > 0) {
-      const touchEndX = e.changedTouches[0].screenX;
-      const diff = touchEndX - this.touchStartX;
-      if (diff > 45) {
-        this.prev();
-      } else if (diff < -45) {
-        this.next();
-      }
-    }
-    this.startAutoplay();
+  subscribe(e: Event): void {
+    e.preventDefault();
+    if (!this.subscriberEmail) return;
+    this.subscribed = true;
+    setTimeout(() => {
+      this.subscribed = false;
+      this.subscriberEmail = '';
+    }, 4000);
   }
 }
 
 @Component({
   selector: 'app-blog',
-  imports: [CommonModule, RouterLink, HeaderComponent, FooterComponent, BlogShowcaseComponent],
+  imports: [CommonModule, HeaderComponent, FooterComponent, BlogShowcaseComponent],
   template: `
     <app-header></app-header>
     <main class="blog-page-wrap">
       <app-blog-showcase></app-blog-showcase>
-      <section class="all-articles-section container">
-        <div class="articles-header">
-          <h2>All Articles & Guides</h2>
-          <p>Explore all the stories, tutorials and thoughts from our team.</p>
-        </div>
-        <div class="articles-grid">
-          <article class="article-item" *ngFor="let p of posts">
-            <div class="article-img-wrap">
-              <img [src]="p.image" [alt]="p.title" loading="lazy" />
-              <span *ngIf="p.featured" class="article-badge">★ Featured</span>
-            </div>
-            <div class="article-body">
-              <div class="article-meta">
-                <span class="cat-tag" [style.background]="p.categoryBg" [style.color]="p.categoryColor">{{ p.category }}</span>
-                <span class="meta-date">{{ p.date }}</span>
-              </div>
-              <h3>{{ p.title }}</h3>
-              <p>{{ p.excerpt }}</p>
-              <a [routerLink]="['/blog', p.id]" class="read-link">Read Full Story <span>→</span></a>
-            </div>
-          </article>
-        </div>
-      </section>
     </main>
     <app-footer></app-footer>
   `,
   styles: `
-    .blog-page-wrap {
-      background: #f8faff;
-      padding-bottom: 70px;
-      min-height: 80vh;
-    }
-    .all-articles-section {
-      margin-top: 50px;
-      max-width: 1140px;
-    }
-    .articles-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .articles-header h2 {
-      font: 800 34px Manrope;
-      color: #081236;
-      margin: 0 0 10px;
-    }
-    .articles-header p {
-      color: #63708f;
-      font-size: 15px;
-      margin: 0;
-    }
-    .articles-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-    .article-item {
-      overflow: hidden;
-      border-radius: 20px;
-      background: #fff;
-      display: flex;
-      flex-direction: column;
-      border: 1px solid #e2eaf8;
-      box-shadow: 0 12px 30px rgba(18, 38, 85, 0.06);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-    .article-item:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(18, 38, 85, 0.12);
-    }
-    .article-img-wrap {
-      position: relative;
-      height: 190px;
-      overflow: hidden;
-    }
-    .article-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-    .article-item:hover .article-img-wrap img {
-      transform: scale(1.05);
-    }
-    .article-badge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      background: rgba(13, 33, 85, 0.8);
-      backdrop-filter: blur(8px);
-      color: #fff;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 12px;
-    }
-    .article-body {
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-    .article-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 12px;
-    }
-    .cat-tag {
-      font-size: 11px;
-      font-weight: 700;
-      padding: 4px 12px;
-      border-radius: 9999px;
-    }
-    .meta-date {
-      font-size: 12px;
-      color: #7b88a8;
-    }
-    .article-body h3 {
-      font: 800 18px/1.3 Manrope;
-      color: #081236;
-      margin: 0 0 10px;
-    }
-    .article-body p {
-      font-size: 13.5px;
-      color: #63708f;
-      line-height: 1.6;
-      margin: 0 0 18px;
-      flex-grow: 1;
-    }
-    .read-link {
-      font: 700 13px 'DM Sans';
-      color: #2563eb;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      margin-top: auto;
-    }
-    .read-link:hover {
-      color: #1d4ed8;
-    }
-    @media (max-width: 900px) {
-      .articles-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (max-width: 600px) {
-      .articles-grid {
-        grid-template-columns: 1fr;
-      }
-    }
     :host { display: block; animation: pageEnter 0.42s cubic-bezier(0.22,1,0.36,1) both; }
     @keyframes pageEnter { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
-    .articles-grid .article-card { transition: transform 0.28s cubic-bezier(0.22,1,0.36,1), box-shadow 0.28s ease; }
-    .articles-grid .article-card:hover { transform: translateY(-7px); box-shadow: 0 20px 44px rgba(22,32,80,0.13); }
-    @media (prefers-reduced-motion: reduce) { :host{animation:none} .article-card{transition:none} }
+    .blog-page-wrap {
+      background: #f8faff;
+      min-height: 80vh;
+    }
+    @media (prefers-reduced-motion: reduce) { :host{animation:none} }
   `,
 })
 export class BlogComponent {
@@ -3730,7 +4107,7 @@ export class ContactComponent {}
           </p>
           <a href="#contact" class="go">Get Started　→</a
           ><a href="#about" class="watch">▷ Watch Our Story</a></div>
-          <div class="hero-logo"><img src="/build4big-logo.png" alt="Build4Big 4B logo" /><i></i><i></i><i></i></div>
+          <div class="hero-logo"><img src="build4big-logo.png" alt="Build4Big" /><i></i><i></i><i></i></div>
         </div>
       </div>
     </div>
