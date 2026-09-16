@@ -4245,14 +4245,16 @@ export class ContactComponent {}
           </div>
 
           <!-- Right Column: 3D Holographic Sphere with Floating Glass Cards -->
-          <div class="hero-visual-col" [style.transform]="'perspective(1000px) rotateY(' + heroMouseX * 12 + 'deg) rotateX(' + heroMouseY * -12 + 'deg)'">
+          <div class="hero-visual-col" [style.transform]="'perspective(1100px) rotateY(' + heroMouseX * 10 + 'deg) rotateX(' + heroMouseY * -10 + 'deg)'">
             <!-- Central Holographic Globe & Orbits -->
             <div class="globe-system-wrap">
+              <div class="orbit-glow-behind"></div>
               <div class="orbit-ring ring-1"></div>
               <div class="orbit-ring ring-2"></div>
               <div class="orbit-ring ring-3"></div>
 
               <div class="hologram-globe">
+                <div class="globe-shimmer"></div>
                 <div class="globe-energy-grid"></div>
                 <!-- Original Build4Big 3D Brand Logo Inside Globe -->
                 <div class="globe-core-mark">
@@ -4260,44 +4262,59 @@ export class ContactComponent {}
                 </div>
               </div>
 
-
-              <!-- Satellite Radar Nodes -->
-              <div class="orbit-node node-1" title="Targeted Solutions">🎯</div>
-              <div class="orbit-node node-2" title="Automation">⚙️</div>
-              <div class="orbit-node node-3" title="Security">🛡️</div>
-              <div class="orbit-node node-4" title="Growth Analytics">📈</div>
+              <!-- Satellite Radar Nodes (Exact matching icons: Target, Gear, Shield, Growth) -->
+              <div class="orbit-node node-1" title="Target">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              </div>
+              <div class="orbit-node node-2" title="Innovation">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              </div>
+              <div class="orbit-node node-3" title="Security">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="orbit-node node-4" title="Analytics">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              </div>
             </div>
 
-            <!-- Floating Glass Card 1: AI Solutions -->
-            <div class="glass-chip chip-ai" [style.transform]="'translate3d(' + heroMouseX * -18 + 'px, ' + heroMouseY * -18 + 'px, 35px)'">
-              <div class="chip-icon icon-bulb">💡</div>
+            <!-- Floating Glass Card 1: AI Solutions (Top Left) -->
+            <div class="glass-chip chip-ai" [style.transform]="'translate3d(' + heroMouseX * -15 + 'px, ' + heroMouseY * -15 + 'px, 35px)'">
+              <div class="chip-icon icon-bulb">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-7 7c0 3.03 1.8 5.65 4.38 6.78.38.16.62.54.62.95V18h4v-1.27c0-.41.24-.79.62-.95C17.2 14.65 19 12.03 19 9a7 7 0 0 0-7-7z"/></svg>
+              </div>
               <div class="chip-text">
                 <strong>AI Solutions</strong>
                 <small>Turn Ideas into Intelligence</small>
               </div>
             </div>
 
-            <!-- Floating Glass Card 2: Product Innovation -->
-            <div class="glass-chip chip-innovation" [style.transform]="'translate3d(' + heroMouseX * 20 + 'px, ' + heroMouseY * -15 + 'px, 45px)'">
-              <div class="chip-icon icon-rocket">🚀</div>
+            <!-- Floating Glass Card 2: Product Innovation (Top Right) -->
+            <div class="glass-chip chip-innovation" [style.transform]="'translate3d(' + heroMouseX * 18 + 'px, ' + heroMouseY * -12 + 'px, 45px)'">
+              <div class="chip-icon icon-rocket">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4.5c1.45-1.47 4.5-2 4.5-2"/><path d="M12 15v5s3.03-.55 4.5-2c1.47-1.45 2-4.5 2-4.5"/></svg>
+              </div>
               <div class="chip-text">
                 <strong>Product Innovation</strong>
                 <small>Build What Matters</small>
               </div>
             </div>
 
-            <!-- Floating Glass Card 3: Business Strategy -->
-            <div class="glass-chip chip-strategy" [style.transform]="'translate3d(' + heroMouseX * -22 + 'px, ' + heroMouseY * 18 + 'px, 30px)'">
-              <div class="chip-icon icon-bar">📊</div>
+            <!-- Floating Glass Card 3: Business Strategy (Bottom Left) -->
+            <div class="glass-chip chip-strategy" [style.transform]="'translate3d(' + heroMouseX * -18 + 'px, ' + heroMouseY * 15 + 'px, 30px)'">
+              <div class="chip-icon icon-bar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/><path d="M4 8l6-4 7 3 4-4"/></svg>
+              </div>
               <div class="chip-text">
                 <strong>Business Strategy</strong>
                 <small>Plan for a Bigger Future</small>
               </div>
             </div>
 
-            <!-- Floating Glass Card 4: Dedicated Support -->
-            <div class="glass-chip chip-support" [style.transform]="'translate3d(' + heroMouseX * 18 + 'px, ' + heroMouseY * 22 + 'px, 25px)'">
-              <div class="chip-icon icon-users">👥</div>
+            <!-- Floating Glass Card 4: Dedicated Support (Bottom Right) -->
+            <div class="glass-chip chip-support" [style.transform]="'translate3d(' + heroMouseX * 16 + 'px, ' + heroMouseY * 18 + 'px, 25px)'">
+              <div class="chip-icon icon-users">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
               <div class="chip-text">
                 <strong>Dedicated Support</strong>
                 <small>Your Growth Our Priority</small>
@@ -4310,19 +4327,22 @@ export class ContactComponent {}
               <span>Build</span>
               <span>Better</span>
               <span>Tomorrows</span>
-              <svg class="quote-underline" width="95" height="20" viewBox="0 0 100 20" fill="none">
-                <path d="M5 14C30 3 70 3 95 14" stroke="#4fc3f7" stroke-width="2.4" stroke-linecap="round"/>
+              <svg class="quote-underline" width="110" height="24" viewBox="0 0 110 24" fill="none">
+                <path d="M4 16C35 4 80 4 106 18" stroke="#38bdf8" stroke-width="2.6" stroke-linecap="round"/>
               </svg>
             </div>
           </div>
         </div>
+
 
         <!-- Bottom Glass Workflow Process Bar -->
         <div class="container hero-workflow-container">
           <div class="hero-workflow-bar">
             <!-- Step 1 -->
             <div class="workflow-item">
-              <div class="wf-icon">💡</div>
+              <div class="wf-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-7 7c0 3.03 1.8 5.65 4.38 6.78.38.16.62.54.62.95V18h4v-1.27c0-.41.24-.79.62-.95C17.2 14.65 19 12.03 19 9a7 7 0 0 0-7-7z"/></svg>
+              </div>
               <div class="wf-content">
                 <span class="wf-index">01</span>
                 <strong class="wf-title">Innovate</strong>
@@ -4333,7 +4353,9 @@ export class ContactComponent {}
 
             <!-- Step 2 -->
             <div class="workflow-item">
-              <div class="wf-icon code-style">&lt;/&gt;</div>
+              <div class="wf-icon code-style">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
               <div class="wf-content">
                 <span class="wf-index">02</span>
                 <strong class="wf-title">Build</strong>
@@ -4344,7 +4366,9 @@ export class ContactComponent {}
 
             <!-- Step 3 -->
             <div class="workflow-item">
-              <div class="wf-icon">🚀</div>
+              <div class="wf-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4.5c1.45-1.47 4.5-2 4.5-2"/><path d="M12 15v5s3.03-.55 4.5-2c1.47-1.45 2-4.5 2-4.5"/></svg>
+              </div>
               <div class="wf-content">
                 <span class="wf-index">03</span>
                 <strong class="wf-title">Deliver</strong>
@@ -4355,7 +4379,9 @@ export class ContactComponent {}
 
             <!-- Step 4 -->
             <div class="workflow-item">
-              <div class="wf-icon">📈</div>
+              <div class="wf-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/><line x1="2" y1="21" x2="22" y2="21"/></svg>
+              </div>
               <div class="wf-content">
                 <span class="wf-index">04</span>
                 <strong class="wf-title">Grow</strong>
@@ -4369,10 +4395,11 @@ export class ContactComponent {}
                 <span class="mouse-dot"></span>
               </div>
               <span class="scroll-label">Scroll to Explore</span>
-              <span class="scroll-arrow">⌄</span>
+              <svg class="scroll-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </a>
           </div>
         </div>
+
       </div>
     </div>
     <app-home-about-preview></app-home-about-preview>
@@ -4393,9 +4420,9 @@ export class ContactComponent {}
     /* Interactive 3D Hero Section matching image */
     .hero-land-glow {
       position: relative;
-      background: radial-gradient(circle at 75% 40%, #092265 0%, #030d30 45%, #010619 100%);
+      background: radial-gradient(circle at 74% 38%, #0d2876 0%, #041038 42%, #02071b 100%);
       color: #ffffff;
-      padding: 50px 0 45px;
+      padding: 44px 0 38px;
       overflow: hidden;
       min-height: calc(100vh - 76px);
       display: flex;
@@ -4414,30 +4441,30 @@ export class ContactComponent {}
     .ambient-orb {
       position: absolute;
       border-radius: 50%;
-      filter: blur(95px);
-      opacity: 0.5;
+      filter: blur(100px);
+      opacity: 0.55;
       transition: transform 0.22s cubic-bezier(0.1, 0.9, 0.2, 1);
     }
     .orb-cyan {
-      top: -10%;
-      left: 22%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(0, 150, 255, 0.45), transparent 70%);
+      top: -12%;
+      left: 18%;
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(0, 160, 255, 0.45), transparent 70%);
     }
     .orb-blue {
-      top: 10%;
-      right: -8%;
-      width: 650px;
-      height: 650px;
-      background: radial-gradient(circle, rgba(0, 190, 255, 0.35), rgba(79, 70, 229, 0.25) 50%, transparent 75%);
+      top: 12%;
+      right: -5%;
+      width: 680px;
+      height: 680px;
+      background: radial-gradient(circle, rgba(0, 210, 255, 0.38), rgba(65, 80, 250, 0.28) 45%, transparent 75%);
     }
     .orb-purple {
       bottom: -15%;
-      left: -5%;
-      width: 550px;
-      height: 550px;
-      background: radial-gradient(circle, rgba(14, 165, 233, 0.3), transparent 70%);
+      left: -8%;
+      width: 580px;
+      height: 580px;
+      background: radial-gradient(circle, rgba(14, 165, 233, 0.28), transparent 70%);
     }
     .hero-cyber-grid {
       position: absolute;
@@ -4446,16 +4473,18 @@ export class ContactComponent {}
         linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
       background-size: 55px 55px;
-      opacity: 0.75;
+      opacity: 0.7;
     }
     .hero-flow-wave {
       position: absolute;
-      bottom: -40px;
+      bottom: -30px;
       left: 0;
       width: 100%;
-      height: 380px;
-      background: radial-gradient(ellipse at 50% 100%, rgba(0, 140, 255, 0.2), transparent 70%);
-      opacity: 0.85;
+      height: 420px;
+      background: 
+        radial-gradient(ellipse at 8% 85%, rgba(0, 140, 255, 0.38) 0%, transparent 55%),
+        radial-gradient(ellipse at 40% 95%, rgba(0, 80, 220, 0.22) 0%, transparent 60%);
+      opacity: 0.9;
     }
 
     /* Main Stage Layout */
@@ -4463,9 +4492,9 @@ export class ContactComponent {}
       position: relative;
       z-index: 2;
       display: grid;
-      grid-template-columns: 1.05fr 1.15fr;
+      grid-template-columns: 1.02fr 1.18fr;
       align-items: center;
-      gap: 36px;
+      gap: 32px;
       width: 100%;
       margin: auto 0;
     }
@@ -4479,14 +4508,14 @@ export class ContactComponent {}
       align-items: center;
       gap: 10px;
       background: rgba(0, 70, 180, 0.32);
-      border: 1px solid rgba(0, 180, 255, 0.4);
+      border: 1px solid rgba(0, 180, 255, 0.45);
       padding: 6px 18px;
       border-radius: 30px;
       font-size: 13px;
       font-weight: 700;
       color: #cde6ff;
       margin-bottom: 22px;
-      box-shadow: 0 0 20px rgba(0, 130, 255, 0.25);
+      box-shadow: 0 0 22px rgba(0, 140, 255, 0.3);
     }
     .pill-dot {
       width: 8px;
@@ -4499,14 +4528,14 @@ export class ContactComponent {}
       color: rgba(255, 255, 255, 0.35);
     }
     .hero-headline {
-      font: 800 60px/1.08 Manrope, sans-serif;
-      letter-spacing: -0.035em;
+      font: 800 62px/1.06 Manrope, sans-serif;
+      letter-spacing: -0.038em;
       color: #ffffff;
-      margin: 0 0 20px;
-      text-shadow: 0 4px 28px rgba(0, 0, 0, 0.5);
+      margin: 0 0 22px;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
     }
     .text-gradient {
-      background: linear-gradient(135deg, #00e1ff 0%, #3a88ff 50%, #9066ff 100%);
+      background: linear-gradient(135deg, #00d9ff 0%, #3a88ff 55%, #a855f7 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -4515,9 +4544,9 @@ export class ContactComponent {}
     .hero-subtext {
       font-size: 16px;
       line-height: 1.75;
-      color: #a7bedd;
-      max-width: 500px;
-      margin: 0 0 32px;
+      color: #a3bddf;
+      max-width: 480px;
+      margin: 0 0 34px;
     }
     .hero-cta-btns {
       display: flex;
@@ -4528,7 +4557,7 @@ export class ContactComponent {}
       background: linear-gradient(135deg, #0066ff, #00b4ff);
       color: #ffffff;
       font: 700 15px Manrope, sans-serif;
-      padding: 14px 28px;
+      padding: 14px 30px;
       border-radius: 28px;
       text-decoration: none;
       box-shadow: 0 8px 30px rgba(0, 110, 255, 0.55);
@@ -4543,11 +4572,11 @@ export class ContactComponent {}
     }
     .btn-hero-glass {
       background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(255, 255, 255, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.24);
       backdrop-filter: blur(12px);
       color: #ffffff;
       font: 700 15px Manrope, sans-serif;
-      padding: 14px 26px;
+      padding: 14px 28px;
       border-radius: 28px;
       text-decoration: none;
       display: inline-flex;
@@ -4568,7 +4597,7 @@ export class ContactComponent {}
     /* Right Visual Column */
     .hero-visual-col {
       position: relative;
-      height: 500px;
+      height: 520px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -4585,59 +4614,78 @@ export class ContactComponent {}
       align-items: center;
       justify-content: center;
     }
+    .orbit-glow-behind {
+      position: absolute;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 170, 255, 0.35) 0%, rgba(0, 90, 255, 0.15) 50%, transparent 70%);
+      filter: blur(28px);
+      pointer-events: none;
+    }
     .orbit-ring {
       position: absolute;
       border-radius: 50%;
       pointer-events: none;
     }
     .ring-1 {
-      width: 440px;
-      height: 230px;
-      transform: rotate(-24deg);
-      border: 1px dashed rgba(0, 200, 255, 0.4);
-      animation: orbitSpinRing1 22s linear infinite;
+      width: 460px;
+      height: 250px;
+      transform: rotate(-25deg);
+      border: 1.5px solid rgba(0, 210, 255, 0.45);
+      box-shadow: 0 0 16px rgba(0, 190, 255, 0.28);
+      animation: orbitSpinRing1 24s linear infinite;
     }
     .ring-2 {
-      width: 450px;
-      height: 200px;
-      transform: rotate(34deg);
-      border: 1px dashed rgba(100, 130, 255, 0.4);
-      animation: orbitSpinRing2 28s linear infinite reverse;
+      width: 480px;
+      height: 220px;
+      transform: rotate(32deg);
+      border: 1px solid rgba(60, 130, 255, 0.42);
+      box-shadow: 0 0 16px rgba(40, 120, 255, 0.22);
+      animation: orbitSpinRing2 30s linear infinite reverse;
     }
     .ring-3 {
-      width: 370px;
-      height: 370px;
-      border: 1px solid rgba(0, 220, 255, 0.22);
-      animation: pulseGlobeGlow 4s ease-in-out infinite;
+      width: 380px;
+      height: 380px;
+      border: 1px solid rgba(0, 230, 255, 0.24);
+      animation: pulseGlobeGlow 4.5s ease-in-out infinite;
     }
     @keyframes orbitSpinRing1 {
-      from { transform: rotate(-24deg) rotate(0deg); }
-      to { transform: rotate(-24deg) rotate(360deg); }
+      from { transform: rotate(-25deg) rotate(0deg); }
+      to { transform: rotate(-25deg) rotate(360deg); }
     }
     @keyframes orbitSpinRing2 {
-      from { transform: rotate(34deg) rotate(0deg); }
-      to { transform: rotate(34deg) rotate(360deg); }
+      from { transform: rotate(32deg) rotate(0deg); }
+      to { transform: rotate(32deg) rotate(360deg); }
     }
     @keyframes pulseGlobeGlow {
-      0%, 100% { transform: scale(1); opacity: 0.45; }
-      50% { transform: scale(1.05); opacity: 0.75; }
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.04); opacity: 0.85; }
     }
 
+    /* 3D Holographic Sphere */
     .hologram-globe {
-      width: 280px;
-      height: 280px;
+      width: 290px;
+      height: 290px;
       border-radius: 50%;
-      background: radial-gradient(circle at 35% 30%, #00a8ff 0%, #0047cc 45%, #021142 85%);
+      background: radial-gradient(circle at 35% 28%, #0099ff 0%, #004ecc 45%, #021142 85%);
       box-shadow: 
-        0 0 55px rgba(0, 160, 255, 0.7),
-        inset 0 0 45px rgba(0, 220, 255, 0.75),
-        inset -10px -10px 40px rgba(0, 20, 80, 0.9);
+        0 0 65px rgba(0, 170, 255, 0.85),
+        inset 0 0 50px rgba(0, 230, 255, 0.8),
+        inset -12px -12px 45px rgba(0, 20, 90, 0.95);
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       overflow: hidden;
       animation: globeDrift 5s ease-in-out infinite;
+    }
+    .globe-shimmer {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle at 75% 80%, rgba(0, 240, 255, 0.45) 0%, transparent 50%);
+      pointer-events: none;
     }
     .globe-energy-grid {
       position: absolute;
@@ -4652,24 +4700,24 @@ export class ContactComponent {}
     }
     @keyframes globeDrift {
       0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-9px) scale(1.02); }
+      50% { transform: translateY(-8px) scale(1.02); }
     }
 
     .globe-core-mark {
       position: relative;
       z-index: 2;
-      width: 125px;
-      height: 125px;
+      width: 155px;
+      height: 155px;
       display: flex;
       align-items: center;
       justify-content: center;
       animation: markBob 4s ease-in-out infinite;
     }
     .mark-img-4b {
-      width: 140px;
-      height: 140px;
+      width: 155px;
+      height: 155px;
       object-fit: contain;
-      filter: drop-shadow(0 0 25px rgba(0, 210, 255, 0.85)) drop-shadow(0 0 10px rgba(0, 102, 255, 0.9));
+      filter: drop-shadow(0 0 28px rgba(0, 220, 255, 0.95)) drop-shadow(0 0 12px rgba(0, 110, 255, 0.95));
       user-select: none;
       pointer-events: none;
     }
@@ -4681,24 +4729,28 @@ export class ContactComponent {}
     /* Satellite Mini Radar Nodes */
     .orbit-node {
       position: absolute;
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
-      background: rgba(6, 24, 78, 0.88);
-      border: 1px solid rgba(0, 200, 255, 0.55);
+      background: rgba(7, 24, 75, 0.92);
+      border: 1.5px solid rgba(0, 210, 255, 0.65);
       backdrop-filter: blur(8px);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 15px;
-      box-shadow: 0 0 16px rgba(0, 180, 255, 0.45);
+      color: #38bdf8;
+      box-shadow: 0 0 18px rgba(0, 190, 255, 0.55);
       z-index: 3;
       animation: nodeFloat 3.5s ease-in-out infinite;
     }
-    .node-1 { top: 10px; left: 60px; animation-delay: 0.2s; }
-    .node-2 { top: 25px; right: 35px; animation-delay: 1.1s; }
-    .node-3 { bottom: 30px; left: 45px; animation-delay: 0.7s; }
-    .node-4 { bottom: 35px; right: 45px; animation-delay: 1.6s; }
+    .orbit-node svg {
+      width: 18px;
+      height: 18px;
+    }
+    .node-1 { top: 12px; left: 65px; animation-delay: 0.2s; }
+    .node-2 { top: 28px; right: 40px; animation-delay: 1.1s; }
+    .node-3 { bottom: 32px; left: 52px; animation-delay: 0.7s; }
+    .node-4 { bottom: 38px; right: 48px; animation-delay: 1.6s; }
     @keyframes nodeFloat {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-7px); }
@@ -4707,19 +4759,19 @@ export class ContactComponent {}
     /* Floating Glass Cards */
     .glass-chip {
       position: absolute;
-      background: rgba(8, 26, 78, 0.7);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1.5px solid rgba(0, 180, 255, 0.35);
+      background: rgba(10, 28, 80, 0.78);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1.5px solid rgba(0, 190, 255, 0.42);
       border-radius: 20px;
-      padding: 15px 18px;
+      padding: 14px 18px;
       display: flex;
       align-items: center;
-      gap: 13px;
-      min-width: 215px;
+      gap: 14px;
+      min-width: 220px;
       box-shadow: 
-        0 14px 35px rgba(0, 10, 45, 0.65),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        0 14px 40px rgba(0, 8, 38, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
       z-index: 4;
       cursor: default;
       transition: transform 0.22s cubic-bezier(0.1, 0.9, 0.2, 1), box-shadow 0.22s ease, border-color 0.22s ease;
@@ -4727,38 +4779,45 @@ export class ContactComponent {}
     .glass-chip:hover {
       border-color: #00e1ff;
       box-shadow: 
-        0 18px 45px rgba(0, 140, 255, 0.45),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        0 18px 48px rgba(0, 150, 255, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
     }
     .chip-icon {
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 19px;
       flex-shrink: 0;
     }
+    .chip-icon svg {
+      width: 22px;
+      height: 22px;
+    }
     .icon-bulb {
-      background: linear-gradient(135deg, rgba(140, 70, 255, 0.4), rgba(80, 20, 200, 0.2));
-      border: 1px solid rgba(170, 100, 255, 0.5);
+      background: linear-gradient(135deg, rgba(130, 60, 255, 0.45), rgba(70, 15, 180, 0.25));
+      border: 1px solid rgba(160, 90, 255, 0.55);
+      color: #c084fc;
       box-shadow: 0 0 14px rgba(150, 70, 255, 0.4);
     }
     .icon-rocket {
-      background: linear-gradient(135deg, rgba(0, 140, 255, 0.4), rgba(0, 70, 180, 0.2));
-      border: 1px solid rgba(0, 180, 255, 0.5);
-      box-shadow: 0 0 14px rgba(0, 150, 255, 0.4);
+      background: linear-gradient(135deg, rgba(0, 150, 255, 0.45), rgba(0, 80, 200, 0.25));
+      border: 1px solid rgba(0, 190, 255, 0.55);
+      color: #38bdf8;
+      box-shadow: 0 0 14px rgba(0, 160, 255, 0.4);
     }
     .icon-bar {
-      background: linear-gradient(135deg, rgba(0, 220, 255, 0.4), rgba(0, 120, 180, 0.2));
-      border: 1px solid rgba(0, 220, 255, 0.5);
+      background: linear-gradient(135deg, rgba(0, 210, 255, 0.45), rgba(0, 110, 180, 0.25));
+      border: 1px solid rgba(0, 230, 255, 0.55);
+      color: #22d3ee;
       box-shadow: 0 0 14px rgba(0, 220, 255, 0.4);
     }
     .icon-users {
-      background: linear-gradient(135deg, rgba(90, 100, 255, 0.4), rgba(50, 60, 190, 0.2));
-      border: 1px solid rgba(120, 130, 255, 0.5);
-      box-shadow: 0 0 14px rgba(100, 110, 255, 0.4);
+      background: linear-gradient(135deg, rgba(90, 100, 255, 0.45), rgba(50, 60, 190, 0.25));
+      border: 1px solid rgba(120, 140, 255, 0.55);
+      color: #818cf8;
+      box-shadow: 0 0 14px rgba(100, 120, 255, 0.4);
     }
     .chip-text {
       display: flex;
@@ -4771,7 +4830,7 @@ export class ContactComponent {}
     }
     .chip-text small {
       font-size: 11.5px;
-      color: #a8c2ea;
+      color: #9bb7e3;
       line-height: 1.35;
     }
 
@@ -4783,22 +4842,22 @@ export class ContactComponent {}
     /* Quote Badge */
     .script-badge-quote {
       position: absolute;
-      right: 30px;
-      bottom: 10px;
+      right: 32px;
+      bottom: 12px;
       display: flex;
       flex-direction: column;
       align-items: flex-end;
       font-family: 'Caveat', cursive;
-      font-size: 20px;
+      font-size: 21px;
       line-height: 1.15;
-      color: #bde4ff;
+      color: #bae6fd;
       transform: rotate(5deg);
       pointer-events: none;
-      text-shadow: 0 0 10px rgba(0, 190, 255, 0.6);
+      text-shadow: 0 0 12px rgba(0, 190, 255, 0.65);
     }
     .quote-underline {
-      margin-top: -2px;
-      filter: drop-shadow(0 0 6px #00d2ff);
+      margin-top: -3px;
+      filter: drop-shadow(0 0 8px #00d2ff);
     }
 
     /* Bottom Workflow Bar */
@@ -4809,17 +4868,17 @@ export class ContactComponent {}
       margin-top: 15px;
     }
     .hero-workflow-bar {
-      background: rgba(5, 18, 56, 0.72);
+      background: rgba(5, 18, 56, 0.76);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(0, 170, 255, 0.3);
+      border: 1px solid rgba(0, 170, 255, 0.32);
       border-radius: 24px;
       padding: 16px 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-      box-shadow: 0 16px 40px rgba(1, 6, 24, 0.65);
+      box-shadow: 0 16px 40px rgba(1, 6, 24, 0.7);
     }
     .workflow-item {
       display: flex;
@@ -4831,21 +4890,18 @@ export class ContactComponent {}
       width: 44px;
       height: 44px;
       border-radius: 12px;
-      background: rgba(0, 110, 255, 0.18);
-      border: 1px solid rgba(0, 180, 255, 0.4);
+      background: rgba(0, 110, 255, 0.2);
+      border: 1px solid rgba(0, 180, 255, 0.45);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 19px;
       color: #00d2ff;
       flex-shrink: 0;
-      box-shadow: 0 0 12px rgba(0, 140, 255, 0.25);
+      box-shadow: 0 0 14px rgba(0, 140, 255, 0.3);
     }
-    .wf-icon.code-style {
-      font-family: monospace;
-      font-weight: 800;
-      font-size: 15px;
-      letter-spacing: -1px;
+    .wf-icon svg {
+      width: 20px;
+      height: 20px;
     }
     .wf-content {
       display: flex;
@@ -4854,7 +4910,7 @@ export class ContactComponent {}
     .wf-index {
       font-size: 11px;
       font-weight: 700;
-      color: #4fc3f7;
+      color: #38bdf8;
       letter-spacing: 0.5px;
     }
     .wf-title {
@@ -4908,9 +4964,10 @@ export class ContactComponent {}
       font-weight: 600;
       white-space: nowrap;
     }
-    .scroll-arrow {
-      font-size: 12px;
-      margin-top: -3px;
+    .scroll-chevron {
+      width: 15px;
+      height: 15px;
+      margin-top: -2px;
       animation: arrowBounce 1.6s ease-in-out infinite;
     }
     @keyframes arrowBounce {
