@@ -3749,20 +3749,29 @@ const contactPillars = [
             <a class="social-btn" href="https://youtube.com" target="_blank" aria-label="YouTube">▷</a>
           </div>
         </div>
-        <!-- Center: Illustration -->
-        <div class="contact-center-col" aria-hidden="true">
-          <div class="map-blob">
-            <div class="map-pin">
-              <div class="pin-head"></div>
-              <div class="pin-stem"></div>
+        <!-- Center: Live Google Map -->
+        <div class="contact-center-col">
+          <div class="live-map-card">
+            <div class="map-header">
+              <span class="map-badge-live">📍 Live Location</span>
+              <a href="https://maps.google.com/?q=Plot+No.+2,+Mahatma+Gandhi+11th+Street,+Thirunagar,+Madurai+-+625006" target="_blank" rel="noopener noreferrer" class="map-open-link">Open in Maps ↗</a>
             </div>
-            <div class="map-badge">
-              <span>Let's</span>
-              <span>Connect</span>
+            <div class="map-frame-wrap">
+              <iframe
+                title="Build4Big Office Location"
+                src="https://maps.google.com/maps?q=Plot+No.+2,+Mahatma+Gandhi+11th+Street,+Thirunagar,+Madurai+-+625006&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
-            <div class="float-chip chip1">💡 Ideas</div>
-            <div class="float-chip chip2">👥 Collaboration</div>
-            <div class="float-chip chip3">🚀 Opportunities</div>
+            <div class="map-footer-caption">
+              <strong>Build4Big Technologies</strong>
+              <small>Thirunagar, Madurai – 625006</small>
+            </div>
           </div>
         </div>
         <!-- Right: Form card -->
@@ -3906,50 +3915,78 @@ const contactPillars = [
       transition: background 0.2s, color 0.2s;
     }
     .social-btn:hover { background: #3159f5; color: #fff; }
-    /* Map illustration */
-    .map-blob {
-      width: 280px; height: 260px;
-      background: linear-gradient(135deg, #dde8ff 0%, #c8d8ff 50%, #eff3ff 100%);
-      border-radius: 36px;
-      position: relative;
+    /* Live Map Card */
+    .live-map-card {
+      width: 100%;
+      height: 360px;
+      background: #ffffff;
+      border: 1px solid #dce7f9;
+      border-radius: 24px;
+      box-shadow: 0 10px 32px rgba(49, 89, 245, 0.12);
+      overflow: hidden;
       display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      padding-bottom: 28px;
-      box-shadow: 0 12px 48px rgba(49,89,245,0.18);
-      overflow: visible;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
-    .map-pin { position: absolute; top: 28px; left: 50%; transform: translateX(-50%); animation: pinBounce 2s ease-in-out infinite; }
-    .pin-head { width: 28px; height: 28px; background: #3159f5; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); margin: auto; box-shadow: 0 4px 14px #3159f540; }
-    .pin-stem { width: 4px; height: 18px; background: #3159f5; margin: 2px auto 0; border-radius: 0 0 4px 4px; }
-    @keyframes pinBounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(-8px)} }
-    .map-badge {
-      background: linear-gradient(135deg, #3159f5, #7c3aed);
-      color: #fff;
-      font: 700 11px Manrope;
-      padding: 8px 14px;
-      border-radius: 14px;
-      text-align: center;
-      line-height: 1.6;
-      box-shadow: 0 4px 14px #3159f540;
-      margin-top: 55px;
+    .live-map-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 44px rgba(49, 89, 245, 0.18);
     }
-    .float-chip {
+    .map-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: #f8faff;
+      border-bottom: 1px solid #eef3fc;
+    }
+    .map-badge-live {
+      font: 700 12px Manrope;
+      color: #2563eb;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .map-open-link {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #3b82f6;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .map-open-link:hover {
+      color: #1d4ed8;
+      text-decoration: underline;
+    }
+    .map-frame-wrap {
+      flex: 1;
+      width: 100%;
+      position: relative;
+      background: #eef2f6;
+    }
+    .map-frame-wrap iframe {
       position: absolute;
-      background: #fff;
-      border-radius: 10px;
-      padding: 6px 10px;
-      font-size: 11px;
-      font-weight: 600;
-      color: #080f2b;
-      box-shadow: 0 4px 14px rgba(49,89,245,0.1);
-      white-space: nowrap;
-      animation: chipFloat 3s ease-in-out infinite;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
-    .chip1 { top: -10px; left: -30px; animation-delay: 0s; }
-    .chip2 { bottom: 10px; right: -40px; animation-delay: 1s; }
-    .chip3 { bottom: -10px; left: 10px; animation-delay: 0.5s; }
-    @keyframes chipFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+    .map-footer-caption {
+      padding: 10px 16px;
+      background: #ffffff;
+      border-top: 1px solid #f1f5f9;
+      display: flex;
+      flex-direction: column;
+    }
+    .map-footer-caption strong {
+      font: 700 12.5px Manrope;
+      color: #0f172a;
+    }
+    .map-footer-caption small {
+      font-size: 11px;
+      color: #64748b;
+    }
     /* Form card */
     .contact-form-card {
       background: #fff;
@@ -4036,11 +4073,10 @@ const contactPillars = [
     .cpillar-title { font: 700 13px Manrope; color: #080f2b; margin-bottom: 4px; }
     .cpillar-text { font-size: 11px; color: #69708a; line-height: 1.6; }
     @media (max-width: 1100px) {
-      .contact-main { grid-template-columns: 1fr 1fr; }
-      .contact-center-col { display: none; }
+      .contact-main { grid-template-columns: 1fr; }
+      .live-map-card { height: 280px; }
     }
     @media (max-width: 900px) {
-      .contact-main { grid-template-columns: 1fr; }
       .contact-pillars { grid-template-columns: repeat(2, 1fr); }
       .scribble { display: none; }
       .plane-wrap { display: none; }
