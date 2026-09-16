@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
-:root{--ink:#080f2b;--blue:#3159f5;--soft:#f5f7ff;--muted:#69708a;--line:#e9ecf5}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:'DM Sans',Arial,sans-serif;background:#fff;font-size:17px}h1,h2,h3{font-family:Manrope,sans-serif;letter-spacing:-.04em}button,input,textarea{font:inherit}a{text-decoration:none;color:inherit}.container{max-width:1180px;margin:auto;padding:0 24px}.eyebrow{color:#4665ee;background:#f1f4ff;width:max-content;border-radius:20px;padding:5px 10px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:11px;padding:14px 20px;font-weight:700;cursor:pointer;transition:.2s;background:var(--blue);color:white}.btn:hover{transform:translateY(-2px);box-shadow:0 12px 25px #3159f544}.btn.ghost{background:#ffffff18;border:1px solid #ffffff34}.page{padding:88px 0 100px;min-height:73vh}.page-head{text-align:center;max-width:700px;margin:0 auto 52px}.page-head h1{font-size:49px;line-height:1.1;margin:12px 0}.page-head p{color:var(--muted);line-height:1.7}.card{background:#fff;border:1px solid var(--line);box-shadow:0 14px 45px #1620500d;border-radius:17px}
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
 :root{--ink:#080f2b;--blue:#3159f5;--soft:#f5f7ff;--muted:#69708a;--line:#e9ecf5}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:'DM Sans',Arial,sans-serif;background:#fff;font-size:17px}h1,h2,h3{font-family:Manrope,sans-serif;letter-spacing:-.04em}button,input,textarea{font:inherit}a{text-decoration:none;color:inherit}.container{max-width:1180px;margin:auto;padding:0 24px}.eyebrow{color:#4665ee;background:#f1f4ff;width:max-content;border-radius:20px;padding:5px 10px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:11px;padding:14px 20px;font-weight:700;cursor:pointer;transition:.2s;background:var(--blue);color:white}.btn:hover{transform:translateY(-2px);box-shadow:0 12px 25px #3159f544}.btn.ghost{background:#ffffff18;border:1px solid #ffffff34}.page{padding:88px 0 100px;min-height:73vh}.page-head{text-align:center;max-width:700px;margin:0 auto 52px}.page-head h1{font-size:49px;line-height:1.1;margin:12px 0}.page-head p{color:var(--muted);line-height:1.7}.card{background:#fff;border:1px solid var(--line);box-shadow:0 14px 45px #1620500d;border-radius:17px}
 
 /* The app shell owns the navigation and footer; routed pages replace only the body. */
@@ -38,6 +37,7 @@ app-landing .tiles h3, app-landing .list strong, app-landing .metrics small { fo
 app-header header nav, app-header header .start, .one-nav nav a, .one-nav > a:last-child { font-size:15px; }
 @keyframes logo-float { 0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-3px) rotate(3deg)} }
 @media(prefers-reduced-motion:reduce){.logo img,.one-nav > a:first-child img{animation:none}}
+@media(prefers-reduced-motion:reduce){app-landing .hero-land::before,app-landing .hero-land::after,app-landing .hero-wave,app-landing .hero-particle{animation:none!important}}
 
 /* High-contrast 4B mark and hero reveal on the first page. */
 .one-nav .menu-logo{height:60px;display:flex;align-items:center;gap:10px;padding:0 14px;border-radius:16px;background:linear-gradient(145deg,#eaf3ff,#c6dcff);box-shadow:0 7px 16px #2058b038, inset 0 1px #fff;overflow:hidden;font:800 17px Manrope;color:#081447}
@@ -50,3 +50,155 @@ app-landing .hero-logo img{position:relative;z-index:2;width:255px;height:255px;
 app-landing .hero-logo i{position:absolute;width:14px;height:14px;border-radius:4px;background:#10c8ff;box-shadow:0 0 22px #10c8ff;animation:pixel-drift 3s ease-in-out infinite}app-landing .hero-logo i:nth-of-type(1){top:35px;right:60px}app-landing .hero-logo i:nth-of-type(2){top:85px;right:27px;animation-delay:.7s}app-landing .hero-logo i:nth-of-type(3){bottom:48px;left:40px;animation-delay:1.2s}
 @keyframes hero-logo-in{from{opacity:0;transform:scale(.35) rotate(-25deg)}to{opacity:1;transform:scale(1) rotate(0)}}@keyframes hero-orbit{50%{transform:translateY(-10px) rotate(2deg)}}@keyframes pixel-drift{50%{transform:translateY(-13px) scale(1.2)}}
 @media(max-width:700px){app-landing .hero-content{grid-template-columns:1fr}app-landing .hero-logo{height:230px;width:230px;margin:auto}app-landing .hero-logo img{width:190px;height:190px}}
+
+/* ============================================================
+   GLOBAL ANIMATION LAYER
+   Performance-safe: only opacity + transform (no layout shift)
+   ============================================================ */
+
+/* --- Page entry: every routed page fades + slides up --- */
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+router-outlet + * {
+  animation: pageEnter 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* --- Scroll reveal utility (used by IntersectionObserver via .is-visible) --- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fadeLeft {
+  from { opacity: 0; transform: translateX(-22px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX(22px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* --- .card global lift hover (enhances scoped card styles) --- */
+.card {
+  transition: transform 0.28s cubic-bezier(0.22,1,0.36,1),
+              box-shadow 0.28s cubic-bezier(0.22,1,0.36,1) !important;
+}
+.card:hover {
+  transform: translateY(-7px) !important;
+  box-shadow: 0 22px 48px rgba(22,32,80,0.13) !important;
+}
+
+/* --- Global btn enhancements (arrow nudge + deeper shadow) --- */
+.btn { transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease !important; }
+.btn:hover { transform: translateY(-3px) !important; box-shadow: 0 14px 30px #3159f548 !important; }
+
+/* --- Images: subtle fade-in on load, gentle scale on hover --- */
+img {
+  transition: transform 0.45s cubic-bezier(0.22,1,0.36,1),
+              opacity 0.45s ease;
+}
+a:hover > img, figure:hover img { transform: scale(1.03); }
+
+/* --- Header nav links: smooth underline slide --- */
+app-header header nav a {
+  position: relative;
+  transition: color 0.22s ease !important;
+}
+app-header header nav a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -2px;
+  width: 0; height: 2px;
+  background: #3159f5;
+  transition: width 0.25s cubic-bezier(0.22,1,0.36,1);
+  border-radius: 2px;
+}
+app-header header nav a:hover::after,
+app-header header nav a.active::after { width: 100%; }
+
+/* --- Header .start button --- */
+app-header header .start {
+  transition: transform 0.22s ease, box-shadow 0.22s ease !important;
+}
+app-header header .start:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 24px #3159f540 !important;
+}
+
+/* --- Footer links hover --- */
+app-footer .foot section > a {
+  position: relative;
+  transition: color 0.22s ease !important;
+  display: inline-block !important;
+}
+app-footer .foot section > a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -1px;
+  width: 0; height: 1px;
+  background: #6681ff;
+  transition: width 0.22s ease;
+}
+app-footer .foot section > a:hover { color: #8599ff !important; }
+app-footer .foot section > a:hover::after { width: 100%; }
+
+/* --- Footer social --- */
+app-footer .social {
+  transition: letter-spacing 0.3s ease;
+  cursor: default;
+}
+app-footer .social:hover { letter-spacing: 4px; }
+
+/* --- Landing hero copy stagger (fade-up on load) --- */
+app-landing .hero-copy .tag   { animation: fadeUp 0.55s 0.05s cubic-bezier(0.22,1,0.36,1) both; }
+app-landing .hero-copy h1     { animation: fadeUp 0.6s  0.15s cubic-bezier(0.22,1,0.36,1) both; }
+app-landing .hero-copy p      { animation: fadeUp 0.6s  0.25s cubic-bezier(0.22,1,0.36,1) both; }
+app-landing .hero-copy .go    { animation: fadeUp 0.55s 0.35s cubic-bezier(0.22,1,0.36,1) both; }
+app-landing .hero-copy .watch { animation: fadeUp 0.55s 0.42s cubic-bezier(0.22,1,0.36,1) both; }
+app-landing .go, app-landing .watch {
+  transition: transform 0.22s ease, box-shadow 0.22s ease !important;
+}
+app-landing .go:hover   { transform: translateY(-3px) !important; box-shadow: 0 12px 28px #3159f540 !important; }
+app-landing .watch:hover { transform: translateY(-3px) !important; }
+
+/* --- Landing hero extra glow ring --- */
+app-landing .hero-land::before {
+  animation: background-drift 18s ease-in-out infinite alternate,
+             hero-glow-pulse 6s ease-in-out infinite !important;
+}
+@keyframes hero-glow-pulse {
+  0%, 100% { filter: brightness(1); }
+  50%       { filter: brightness(1.06); }
+}
+
+/* --- Section scroll-margin for anchor links --- */
+section[id] { scroll-margin-top: 80px; }
+
+/* --- Smooth focus ring for accessibility --- */
+:focus-visible {
+  outline: 2px solid #3159f5;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   prefers-reduced-motion — disable ALL custom animations
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  router-outlet + * { animation: none !important; }
+  img { transition: none !important; }
+}
+
