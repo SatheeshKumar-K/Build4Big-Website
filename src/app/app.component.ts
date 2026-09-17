@@ -1156,7 +1156,7 @@ const servicePillars = [
     .services-showcase {
       position: relative;
       overflow: hidden;
-      padding: 72px 16px 88px;
+      padding: 32px 16px 44px;
       background: radial-gradient(circle at 18% 20%, #eef5ff 0%, transparent 42%),
                   radial-gradient(circle at 82% 80%, #f5edff 0%, transparent 45%),
                   #f8faff;
@@ -1171,27 +1171,27 @@ const servicePillars = [
       z-index: 1;
     }
     .orb-tl {
-      top: 60px;
+      top: 30px;
       left: 18%;
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       background: #3b82f6;
       opacity: 0.7;
       box-shadow: 0 0 25px #3b82f6;
       animation: floatOrb 6s ease-in-out infinite alternate;
     }
     .orb-tr {
-      top: 240px;
+      top: 140px;
       right: 5%;
-      width: 30px;
-      height: 30px;
+      width: 26px;
+      height: 26px;
       background: linear-gradient(135deg, #a855f7, #6366f1);
       opacity: 0.6;
       box-shadow: 0 0 35px #a855f7;
       animation: floatOrb 7s 1s ease-in-out infinite alternate-reverse;
     }
     .orb-bl {
-      bottom: 230px;
+      bottom: 120px;
       left: 3%;
       width: 12px;
       height: 12px;
@@ -1200,10 +1200,10 @@ const servicePillars = [
       animation: floatOrb 5s 2s ease-in-out infinite alternate;
     }
     .orb-br {
-      bottom: 220px;
+      bottom: 110px;
       right: 25%;
-      width: 16px;
-      height: 16px;
+      width: 14px;
+      height: 14px;
       background: #2563eb;
       opacity: 0.75;
       box-shadow: 0 0 20px #2563eb;
@@ -1229,72 +1229,72 @@ const servicePillars = [
     }
     .scribble-text {
       font-family: 'Caveat', cursive, sans-serif;
-      font-size: 28px;
+      font-size: 24px;
       font-weight: 700;
       color: #2563eb;
       line-height: 1.05;
       white-space: nowrap;
     }
     .scribble-tl {
-      top: 175px;
-      left: 4%;
+      top: 85px;
+      left: 3.5%;
       transform: rotate(-14deg);
     }
     .scribble-tl .scribble-arrow {
-      width: 65px;
-      height: 65px;
+      width: 52px;
+      height: 52px;
       margin-top: -6px;
-      margin-left: 30px;
+      margin-left: 24px;
     }
     .scribble-tr {
-      top: 135px;
-      right: 7%;
+      top: 65px;
+      right: 6%;
       transform: rotate(-10deg);
     }
     .scribble-tr .scribble-arrow {
-      width: 82px;
-      height: 32px;
+      width: 68px;
+      height: 28px;
       margin-top: 4px;
     }
     .scribble-br {
-      bottom: 165px;
-      right: 5%;
+      bottom: 80px;
+      right: 4%;
       transform: rotate(-10deg);
     }
     .scribble-br .scribble-arrow {
-      width: 58px;
-      height: 58px;
+      width: 48px;
+      height: 48px;
       margin-top: 2px;
-      margin-left: 20px;
+      margin-left: 16px;
     }
 
     /* Showcase Head */
     .showcase-head {
       text-align: center;
       max-width: 820px;
-      margin: 0 auto 30px;
+      margin: 0 auto 12px;
       position: relative;
       z-index: 3;
     }
     .services-pill-badge {
       display: inline-flex;
       align-items: center;
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 800;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: #2563eb;
       background: #eef4ff;
       border: 1.5px solid #c7d8fe;
       border-radius: 9999px;
-      padding: 6px 20px;
-      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.08);
-      margin-bottom: 14px;
+      padding: 4px 16px;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.07);
+      margin-bottom: 8px;
     }
     .showcase-title {
-      font: 800 clamp(36px, 4.4vw, 54px)/1.15 Manrope, sans-serif;
+      font: 800 clamp(28px, 3.2vw, 40px)/1.15 Manrope, sans-serif;
       letter-spacing: -0.04em;
-      margin: 0 0 14px;
+      margin: 0 0 8px;
       color: #0a1128;
     }
     .gradient-text {
@@ -1303,19 +1303,19 @@ const servicePillars = [
       -webkit-text-fill-color: transparent;
     }
     .showcase-sub {
-      font-size: clamp(14px, 1.2vw, 16px);
+      font-size: clamp(13px, 1.05vw, 15px);
       color: #55617d;
-      line-height: 1.65;
-      max-width: 630px;
+      line-height: 1.5;
+      max-width: 580px;
       margin: 0 auto;
     }
 
     /* 3D Coverflow Stage */
     .stage-container {
       position: relative;
-      max-width: 1260px;
-      margin: 25px auto 10px;
-      min-height: 485px;
+      max-width: 1240px;
+      margin: 10px auto 4px;
+      min-height: 380px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1323,7 +1323,7 @@ const servicePillars = [
     .coverflow-stage {
       position: relative;
       width: 100%;
-      height: 470px;
+      height: 365px;
       perspective: 1200px;
       transform-style: preserve-3d;
       display: flex;
@@ -1337,8 +1337,8 @@ const servicePillars = [
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 46px;
-      height: 46px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       background: #2563eb;
       color: #fff;
@@ -1348,31 +1348,32 @@ const servicePillars = [
       justify-content: center;
       cursor: pointer;
       z-index: 25;
-      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.38);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
       transition: all 0.25s ease;
     }
     .nav-arrow:hover {
-      transform: translateY(-50%) scale(1.1);
+      transform: translateY(-50%) scale(1.08);
       background: #1d4ed8;
-      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.5);
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.45);
     }
     .nav-prev {
-      left: 12px;
+      left: 14px;
     }
     .nav-next {
-      right: 12px;
+      right: 14px;
     }
 
     /* Service Card */
     .service-card {
       position: absolute;
-      width: clamp(260px, 23vw, 320px);
-      min-height: 380px;
-      padding: 34px 24px 28px;
-      border-radius: 28px;
+      width: clamp(230px, 20vw, 275px);
+      min-height: 300px;
+      max-height: 325px;
+      padding: 22px 18px 20px;
+      border-radius: 22px;
       background: #ffffff;
       border: 1px solid rgba(255, 255, 255, 0.95);
-      box-shadow: 0 18px 45px rgba(22, 45, 96, 0.08);
+      box-shadow: 0 14px 36px rgba(22, 45, 96, 0.08);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1386,7 +1387,7 @@ const servicePillars = [
       user-select: none;
     }
     .service-card.is-active {
-      box-shadow: 0 32px 65px -12px rgba(37, 99, 235, 0.25),
+      box-shadow: 0 24px 50px -10px rgba(37, 99, 235, 0.22),
                   0 0 0 1.5px rgba(255, 255, 255, 0.95) inset;
       background: linear-gradient(180deg, #ffffff, #f7faff);
       cursor: default;
@@ -1394,39 +1395,39 @@ const servicePillars = [
 
     /* Icon Bubble */
     .icon-bubble {
-      width: 74px;
-      height: 74px;
-      border-radius: 24px;
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 22px;
+      margin-bottom: 14px;
       transition: all 0.35s ease;
     }
     .service-card.is-active .icon-bubble {
-      width: 86px;
-      height: 86px;
-      border-radius: 28px;
-      transform: translateY(-3px);
+      width: 66px;
+      height: 66px;
+      border-radius: 20px;
+      transform: translateY(-2px);
     }
 
     /* Card Typography */
     .service-card h3 {
-      font: 800 21px/1.25 Manrope, sans-serif;
+      font: 800 18px/1.2 Manrope, sans-serif;
       color: #081236;
-      margin: 0 0 12px;
+      margin: 0 0 8px;
       transition: font-size 0.3s ease;
     }
     .service-card.is-active h3 {
-      font-size: 24px;
+      font-size: 20px;
     }
     .service-card p {
-      font-size: 13.5px;
-      line-height: 1.6;
+      font-size: 12.5px;
+      line-height: 1.5;
       color: #63708f;
-      margin: 0 0 24px;
+      margin: 0 0 14px;
       flex-grow: 1;
-      max-width: 250px;
+      max-width: 220px;
     }
 
     /* Card Action Buttons */
@@ -1437,22 +1438,22 @@ const servicePillars = [
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
       background: linear-gradient(110deg, #2563eb, #3b82f6);
       color: #ffffff;
-      padding: 13px 32px;
+      padding: 9px 24px;
       border-radius: 9999px;
-      font: 700 14px 'DM Sans', sans-serif;
+      font: 700 13px 'DM Sans', sans-serif;
       text-decoration: none;
-      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.38);
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.32);
       transition: all 0.25s ease;
     }
     .btn-learn-more:hover {
       transform: translateY(-2px);
-      box-shadow: 0 14px 28px rgba(37, 99, 235, 0.48);
+      box-shadow: 0 10px 22px rgba(37, 99, 235, 0.42);
     }
     .btn-learn-more span {
-      font-size: 18px;
+      font-size: 16px;
       transition: transform 0.2s ease;
     }
     .btn-learn-more:hover span {
@@ -1462,22 +1463,22 @@ const servicePillars = [
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 42px;
-      height: 42px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       background: #ffffff;
       color: #2563eb;
-      font-size: 19px;
+      font-size: 16px;
       font-weight: 800;
-      box-shadow: 0 6px 16px rgba(24, 60, 138, 0.12);
+      box-shadow: 0 4px 12px rgba(24, 60, 138, 0.1);
       border: 1px solid #eef2ff;
       transition: all 0.25s ease;
     }
     .service-card:hover .btn-circle-arrow {
       background: #2563eb;
       color: #fff;
-      transform: scale(1.08);
-      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+      transform: scale(1.06);
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.26);
     }
 
     /* Indicators */
@@ -1485,15 +1486,15 @@ const servicePillars = [
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 9px;
-      margin-top: 15px;
-      margin-bottom: 45px;
+      gap: 8px;
+      margin-top: 8px;
+      margin-bottom: 24px;
       position: relative;
       z-index: 5;
     }
     .indicator-dot {
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       border: 0;
       background: #cbd5e1;
@@ -1502,7 +1503,7 @@ const servicePillars = [
       padding: 0;
     }
     .indicator-dot.active {
-      width: 26px;
+      width: 22px;
       border-radius: 9999px;
       background: #2563eb;
       box-shadow: 0 3px 10px rgba(37, 99, 235, 0.35);
@@ -1514,35 +1515,35 @@ const servicePillars = [
       z-index: 5;
     }
     .pillars-strip {
-      max-width: 1140px;
+      max-width: 1120px;
       margin: 0 auto;
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(16px);
       border: 1px solid rgba(220, 232, 255, 0.9);
-      border-radius: 24px;
-      box-shadow: 0 16px 36px rgba(25, 52, 114, 0.06);
-      padding: 22px 34px;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(25, 52, 114, 0.05);
+      padding: 14px 24px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       align-items: center;
-      gap: 20px;
+      gap: 16px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .pillars-strip:hover {
-      box-shadow: 0 22px 45px rgba(25, 52, 114, 0.1);
+      box-shadow: 0 16px 36px rgba(25, 52, 114, 0.08);
     }
     .pillar-item {
       display: flex;
       align-items: center;
-      gap: 16px;
-      padding: 4px 10px;
+      gap: 12px;
+      padding: 2px 8px;
     }
     .pillar-item:not(:last-child) {
       border-right: 1px solid #e3ebfa;
     }
     .pillar-icon-box {
-      width: 48px;
-      height: 48px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       background: #eff6ff;
       display: flex;
@@ -1550,30 +1551,30 @@ const servicePillars = [
       justify-content: center;
       color: #2563eb;
       flex-shrink: 0;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12);
+      box-shadow: 0 3px 10px rgba(37, 99, 235, 0.1);
       transition: transform 0.25s ease;
     }
     .pillar-item:hover .pillar-icon-box {
-      transform: scale(1.1);
+      transform: scale(1.08);
       background: #dbeafe;
     }
     .pillar-text h4 {
-      font: 800 15px Manrope, sans-serif;
+      font: 800 14px Manrope, sans-serif;
       color: #081236;
-      margin: 0 0 3px;
+      margin: 0 0 2px;
     }
     .pillar-text p {
-      font-size: 12px;
+      font-size: 11px;
       color: #626e8c;
       margin: 0;
-      line-height: 1.35;
+      line-height: 1.3;
     }
 
     /* Scroll reveal animations */
     .showcase-head, .stage-container, .carousel-indicators, .pillars-strip {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: translateY(18px);
+      transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .is-visible .showcase-head {
       opacity: 1;
@@ -1582,17 +1583,17 @@ const servicePillars = [
     .is-visible .stage-container {
       opacity: 1;
       transform: none;
-      transition-delay: 0.12s;
+      transition-delay: 0.1s;
     }
     .is-visible .carousel-indicators {
       opacity: 1;
       transform: none;
-      transition-delay: 0.2s;
+      transition-delay: 0.16s;
     }
     .is-visible .pillars-strip {
       opacity: 1;
       transform: none;
-      transition-delay: 0.26s;
+      transition-delay: 0.22s;
     }
 
     /* Responsive adjustments */
@@ -1602,8 +1603,8 @@ const servicePillars = [
       .scribble-br { right: 1%; }
       .pillars-strip {
         grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-        padding: 24px;
+        gap: 14px;
+        padding: 16px 20px;
       }
       .pillar-item:nth-child(2) {
         border-right: none;
@@ -1614,34 +1615,34 @@ const servicePillars = [
         display: none;
       }
       .services-showcase {
-        padding: 55px 12px 65px;
+        padding: 24px 10px 36px;
       }
       .stage-container {
-        min-height: 440px;
+        min-height: 330px;
       }
       .coverflow-stage {
-        height: 430px;
+        height: 320px;
       }
       .service-card {
-        width: clamp(260px, 78vw, 300px);
-        min-height: 350px;
-        padding: 26px 18px 22px;
+        width: clamp(230px, 72vw, 270px);
+        min-height: 275px;
+        padding: 18px 14px 16px;
       }
       .nav-arrow {
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
       }
       .nav-prev { left: 4px; }
       .nav-next { right: 4px; }
       .pillars-strip {
         grid-template-columns: 1fr;
-        gap: 14px;
-        padding: 20px;
+        gap: 10px;
+        padding: 14px;
       }
       .pillar-item:not(:last-child) {
         border-right: none;
         border-bottom: 1px solid #e3ebfa;
-        padding-bottom: 12px;
+        padding-bottom: 10px;
       }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -1715,67 +1716,67 @@ export class ServicesShowcaseComponent implements AfterViewInit, OnDestroy {
 
     if (offset === 0) {
       translateX = 0;
-      translateZ = 70;
-      scale = 1.15;
+      translateZ = 45;
+      scale = 1.05;
       rotateY = 0;
       opacity = 1;
       zIndex = 12;
       filter = 'none';
     } else if (offset === -1) {
-      translateX = -64;
-      translateZ = 15;
-      scale = 0.92;
-      rotateY = 7;
+      translateX = -62;
+      translateZ = 10;
+      scale = 0.88;
+      rotateY = 6;
       opacity = 0.93;
       zIndex = 8;
-      filter = 'blur(0.3px)';
+      filter = 'blur(0.2px)';
     } else if (offset === 1) {
-      translateX = 64;
-      translateZ = 15;
-      scale = 0.92;
-      rotateY = -7;
+      translateX = 62;
+      translateZ = 10;
+      scale = 0.88;
+      rotateY = -6;
       opacity = 0.93;
       zIndex = 8;
-      filter = 'blur(0.3px)';
+      filter = 'blur(0.2px)';
     } else if (offset === -2) {
-      translateX = -120;
-      translateZ = -45;
-      scale = 0.8;
-      rotateY = 13;
-      opacity = 0.76;
+      translateX = -116;
+      translateZ = -30;
+      scale = 0.76;
+      rotateY = 12;
+      opacity = 0.75;
       zIndex = 5;
-      filter = 'blur(0.8px)';
+      filter = 'blur(0.6px)';
     } else if (offset === 2) {
-      translateX = 120;
-      translateZ = -45;
-      scale = 0.8;
-      rotateY = -13;
-      opacity = 0.76;
+      translateX = 116;
+      translateZ = -30;
+      scale = 0.76;
+      rotateY = -12;
+      opacity = 0.75;
       zIndex = 5;
-      filter = 'blur(0.8px)';
+      filter = 'blur(0.6px)';
     } else if (offset === -3) {
-      translateX = -168;
-      translateZ = -105;
-      scale = 0.68;
-      rotateY = 18;
-      opacity = 0.45;
+      translateX = -162;
+      translateZ = -80;
+      scale = 0.65;
+      rotateY = 16;
+      opacity = 0.42;
       zIndex = 3;
-      filter = 'blur(1.6px)';
+      filter = 'blur(1.2px)';
     } else if (offset === 3) {
-      translateX = 168;
-      translateZ = -105;
-      scale = 0.68;
-      rotateY = -18;
-      opacity = 0.45;
+      translateX = 162;
+      translateZ = -80;
+      scale = 0.65;
+      rotateY = -16;
+      opacity = 0.42;
       zIndex = 3;
-      filter = 'blur(1.6px)';
+      filter = 'blur(1.2px)';
     } else {
-      translateX = offset > 0 ? 210 : -210;
-      translateZ = -200;
+      translateX = offset > 0 ? 200 : -200;
+      translateZ = -160;
       scale = 0.5;
       opacity = 0;
       zIndex = 1;
-      filter = 'blur(3px)';
+      filter = 'blur(2px)';
       pointerEvents = 'none';
     }
 
