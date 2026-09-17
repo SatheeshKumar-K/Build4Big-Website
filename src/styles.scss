@@ -228,8 +228,16 @@ app-landing .hero-land::before {
   50%       { filter: brightness(1.06); }
 }
 
-/* --- Section scroll-margin for anchor links --- */
-#home, #about, #services, #blog, #contact, section[id] { scroll-margin-top: 80px; }
+/* --- Section scroll-margin for anchor links (based on actual sticky navbar height) --- */
+#home, #about, #services, #blog, #contact, section[id], [id] {
+  scroll-margin-top: 84px !important;
+}
+
+@media (max-width: 860px) {
+  #home, #about, #services, #blog, #contact, section[id], [id] {
+    scroll-margin-top: 72px !important;
+  }
+}
 
 /* --- Smooth focus ring for accessibility --- */
 :focus-visible {

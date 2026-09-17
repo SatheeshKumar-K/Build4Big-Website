@@ -407,8 +407,8 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     if (typeof window !== 'undefined') {
       const updateActive = () => {
-        const sections = ['home', 'services', 'about', 'blog', 'contact'];
-        const scrollPos = window.scrollY + 120;
+        const sections = ['home', 'about', 'services', 'blog', 'contact'];
+        const scrollPos = window.scrollY + 140;
         for (let i = sections.length - 1; i >= 0; i--) {
           const el = document.getElementById(sections[i]);
           if (el && el.offsetTop <= scrollPos) {
@@ -438,20 +438,34 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
     this.open.set(false);
     this.activeSection.set(sectionId);
 
+    const performScroll = (id: string) => {
+      const el = document.getElementById(id);
+      if (el) {
+        const headerEl = document.querySelector('app-header header, app-header, header');
+        const headerHeight = headerEl ? (headerEl as HTMLElement).getBoundingClientRect().height : 76;
+        const extraGap = 8; // Subtle breathing space below navbar
+        const elementPosition = el.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - (headerHeight + extraGap);
+
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: 'smooth',
+        });
+
+        if (typeof history !== 'undefined' && history.pushState) {
+          history.pushState(null, '', '#' + id);
+        }
+      }
+    };
+
     const el = document.getElementById(sectionId);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      if (typeof history !== 'undefined' && history.pushState) {
-        history.pushState(null, '', '#' + sectionId);
-      }
+      performScroll(sectionId);
     } else {
       this.router.navigate(['/'], { fragment: sectionId }).then(() => {
         setTimeout(() => {
-          const target = document.getElementById(sectionId);
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        }, 100);
+          performScroll(sectionId);
+        }, 120);
       });
     }
   }
@@ -596,20 +610,34 @@ export class FooterComponent {
     if (event) {
       event.preventDefault();
     }
+    const performScroll = (id: string) => {
+      const el = document.getElementById(id);
+      if (el) {
+        const headerEl = document.querySelector('app-header header, app-header, header');
+        const headerHeight = headerEl ? (headerEl as HTMLElement).getBoundingClientRect().height : 76;
+        const extraGap = 8;
+        const elementPosition = el.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - (headerHeight + extraGap);
+
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: 'smooth',
+        });
+
+        if (typeof history !== 'undefined' && history.pushState) {
+          history.pushState(null, '', '#' + id);
+        }
+      }
+    };
+
     const el = document.getElementById(sectionId);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      if (typeof history !== 'undefined' && history.pushState) {
-        history.pushState(null, '', '#' + sectionId);
-      }
+      performScroll(sectionId);
     } else {
       this.router.navigate(['/'], { fragment: sectionId }).then(() => {
         setTimeout(() => {
-          const target = document.getElementById(sectionId);
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        }, 100);
+          performScroll(sectionId);
+        }, 120);
       });
     }
   }
