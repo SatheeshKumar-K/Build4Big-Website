@@ -1979,8 +1979,8 @@ const aboutFeatures = [
   `,
   styles: `
     :host{display:block}
-    .about-page{scroll-margin-top:76px;overflow:hidden;background:radial-gradient(circle at 78% 10%,#edf4ff 0,transparent 25%),#fff;color:#07133d}
-    .about-hero{min-height:590px;display:grid;grid-template-columns:minmax(320px,.9fr) minmax(0,1.1fr);gap:70px;align-items:center;padding-top:84px;padding-bottom:74px}
+    .about-page{overflow:hidden;background:radial-gradient(circle at 78% 10%,#edf4ff 0,transparent 25%),#fff;color:#07133d}
+    .about-hero{min-height:520px;display:grid;grid-template-columns:minmax(320px,.9fr) minmax(0,1.1fr);gap:50px;align-items:center;padding-top:36px;padding-bottom:45px}
     .story-badge{display:inline-block;padding:7px 15px;border-radius:20px;background:linear-gradient(100deg,#eff3ff,#fff);color:#265df6;text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:800;box-shadow:0 8px 25px #2457b218}
     .story-copy h1{font:800 clamp(40px,4vw,61px)/1.08 Manrope;margin:18px 0}
     .story-copy h1 em{font-style:normal;color:#1f61fa}
@@ -2023,7 +2023,7 @@ const aboutFeatures = [
     @keyframes reveal-left{from{opacity:0;transform:translateX(-26px)}to{opacity:1;transform:none}}
     @keyframes reveal-right{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
     @keyframes reveal-bottom{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-    @media(max-width:850px){.about-hero{grid-template-columns:1fr;gap:18px;padding-top:65px}.card-marquee{width:calc(100% + 48px);margin-left:-24px}.story-copy p{font-size:15px}}
+    @media(max-width:850px){.about-hero{grid-template-columns:1fr;gap:18px;padding-top:28px}.card-marquee{width:calc(100% + 48px);margin-left:-24px}.story-copy p{font-size:15px}}
     @media(max-width:560px){.about-hero{padding-bottom:44px}.story-copy h1{font-size:40px}.story-copy h2{font-size:20px}.story-actions{gap:13px}.primary-action{padding:13px 16px}.story-card{flex-basis:270px;min-height:260px;padding:25px}.feature{width:230px;padding:8px 17px}.card-marquee{mask-image:none}.edge{display:none}}
     @media(prefers-reduced-motion:reduce){.reveal-left,.reveal-right,.reveal-bottom{opacity:1!important;transform:none!important;animation:none!important}.card-track,.feature-track{animation:none}.story-card{transition:none}}
   `,
@@ -2780,7 +2780,7 @@ export class SimpleComponent {
     .blog-showcase-container {
       position: relative;
       overflow: hidden;
-      padding: 60px 16px 85px;
+      padding: 32px 16px 55px;
       background: linear-gradient(180deg, #f8faff 0%, #f1f5fd 50%, #f8faff 100%);
       color: #0f172a;
     }
@@ -2864,12 +2864,12 @@ export class SimpleComponent {
     .blog-hero {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 40px;
+      gap: 36px;
       align-items: center;
       position: relative;
       z-index: 1;
-      padding-top: 10px;
-      margin-bottom: 45px;
+      padding-top: 0;
+      margin-bottom: 30px;
     }
 
     .badge-eyebrow {
@@ -2878,7 +2878,7 @@ export class SimpleComponent {
       font-weight: 800;
       letter-spacing: 0.16em;
       color: #2563eb;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
 
     .hero-heading {
@@ -3707,7 +3707,7 @@ export class SimpleComponent {
 
     @media (max-width: 768px) {
       .blog-showcase-container {
-        padding: 45px 12px 60px;
+        padding: 24px 12px 45px;
       }
       .latest-cards-grid {
         grid-template-columns: 1fr;
@@ -4093,7 +4093,7 @@ const contactPillars = [
     .contact-showcase {
       position: relative;
       overflow: hidden;
-      padding: 80px 24px 60px;
+      padding: 36px 20px 50px;
       background: linear-gradient(160deg, #f0f4ff 0%, #fafbff 55%, #eef1ff 100%);
       opacity: 0;
       transition: opacity 0.8s ease;
@@ -4123,7 +4123,7 @@ const contactPillars = [
     .plane-trail { width: 120px; height: 60px; position: absolute; top: 10px; right: 40px; }
     @keyframes planeDrift { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-10px) rotate(3deg)} }
     /* Header */
-    .contact-header { text-align: center; margin-bottom: 52px; position: relative; z-index: 1; }
+    .contact-header { text-align: center; margin-bottom: 28px; position: relative; z-index: 1; }
     .contact-badge {
       display: inline-block;
       border: 1.5px solid #b4c4f4;
@@ -4392,13 +4392,13 @@ const contactPillars = [
       .map-blob-container { margin: 20px auto; }
     }
     @media (max-width: 900px) {
-      .contact-showcase { padding: 60px 16px 45px; }
+      .contact-showcase { padding: 28px 16px 40px; }
       .contact-pillars { grid-template-columns: repeat(2, 1fr); gap: 14px; }
       .scribble { display: none; }
       .plane-wrap { display: none; }
     }
     @media (max-width: 500px) {
-      .contact-showcase { padding: 45px 12px 35px; }
+      .contact-showcase { padding: 20px 12px 30px; }
       .map-blob { width: 250px; height: 250px; }
       .map-blob-container { max-width: 280px; }
       .float-chip { font-size: 11px; padding: 5px 10px; }
