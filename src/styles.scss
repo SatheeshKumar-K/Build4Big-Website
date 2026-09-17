@@ -234,9 +234,11 @@ app-landing .hero-land::before {
 }
 
 .landing-contact-wrap {
-  min-height: calc(100vh - 84px);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  padding-bottom: 40px;
+  box-sizing: border-box;
 }
 .landing-contact-wrap app-contact-showcase {
   flex: 1;
@@ -247,7 +249,8 @@ app-landing .hero-land::before {
     scroll-margin-top: 72px !important;
   }
   .landing-contact-wrap {
-    min-height: calc(100vh - 72px);
+    min-height: 100vh;
+    padding-bottom: 24px;
   }
 }
 

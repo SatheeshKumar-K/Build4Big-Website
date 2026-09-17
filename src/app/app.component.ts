@@ -3946,7 +3946,7 @@ const contactPillars = [
   selector: 'app-contact-showcase',
   imports: [CommonModule, FormsModule],
   template: `
-    <div #contactRoot class="contact-showcase" [class.is-visible]="isVisible()">
+    <div class="contact-showcase">
       <!-- Background orbs -->
       <div class="orb orb1" aria-hidden="true"></div>
       <div class="orb orb2" aria-hidden="true"></div>
@@ -4093,12 +4093,10 @@ const contactPillars = [
     .contact-showcase {
       position: relative;
       overflow: hidden;
-      padding: 36px 20px 50px;
+      padding: 24px 20px 32px;
       background: linear-gradient(160deg, #f0f4ff 0%, #fafbff 55%, #eef1ff 100%);
-      opacity: 0;
-      transition: opacity 0.8s ease;
+      opacity: 1;
     }
-    .contact-showcase.is-visible { opacity: 1; }
     /* Orbs */
     .orb { position: absolute; border-radius: 50%; filter: blur(55px); opacity: 0.35; pointer-events: none; }
     .orb1 { width: 320px; height: 320px; background: radial-gradient(circle, #c7d7ff, #7ca4ff); top: -100px; left: -80px; animation: orbFloat 8s ease-in-out infinite; }
@@ -4109,46 +4107,46 @@ const contactPillars = [
     .scribble {
       position: absolute;
       font-family: 'Caveat', cursive;
-      font-size: 14px;
+      font-size: 13px;
       color: #3159f5;
-      line-height: 1.5;
+      line-height: 1.4;
       pointer-events: none;
       opacity: 0.75;
     }
-    .scribble-left { top: 80px; left: 32px; transform: rotate(-5deg); }
-    .scribble-right { top: 80px; right: 32px; transform: rotate(4deg); text-align: center; }
+    .scribble-left { top: 60px; left: 24px; transform: rotate(-5deg); }
+    .scribble-right { top: 60px; right: 24px; transform: rotate(4deg); text-align: center; }
     /* Paper plane */
-    .plane-wrap { position: absolute; top: 45px; right: 120px; pointer-events: none; animation: planeDrift 5s ease-in-out infinite; }
-    .paper-plane { width: 52px; height: 52px; filter: drop-shadow(0 4px 10px #3159f535); }
-    .plane-trail { width: 120px; height: 60px; position: absolute; top: 10px; right: 40px; }
+    .plane-wrap { position: absolute; top: 35px; right: 90px; pointer-events: none; animation: planeDrift 5s ease-in-out infinite; }
+    .paper-plane { width: 44px; height: 44px; filter: drop-shadow(0 4px 10px #3159f535); }
+    .plane-trail { width: 100px; height: 50px; position: absolute; top: 8px; right: 35px; }
     @keyframes planeDrift { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-10px) rotate(3deg)} }
     /* Header */
-    .contact-header { text-align: center; margin-bottom: 28px; position: relative; z-index: 1; }
+    .contact-header { text-align: center; margin-bottom: 20px; position: relative; z-index: 1; }
     .contact-badge {
       display: inline-block;
       border: 1.5px solid #b4c4f4;
       border-radius: 30px;
-      padding: 6px 18px;
+      padding: 4px 14px;
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.2px;
       color: #3159f5;
-      margin-bottom: 18px;
+      margin-bottom: 8px;
       background: #fff;
     }
-    .contact-title { font: 800 44px/1.1 Manrope; color: #080f2b; margin: 0 0 14px; }
+    .contact-title { font: 800 clamp(26px, 3.2vw, 36px)/1.15 Manrope; color: #080f2b; margin: 0 0 8px; }
     .grad { background: linear-gradient(135deg, #3159f5, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .contact-sub { font-size: 14px; color: #69708a; line-height: 1.8; }
+    .contact-sub { font-size: 13px; color: #69708a; line-height: 1.5; margin: 0; }
     /* Main layout */
     .contact-main {
       display: grid;
-      grid-template-columns: 1fr 1.1fr 1fr;
-      gap: 24px;
+      grid-template-columns: 1fr 1.05fr 1fr;
+      gap: 20px;
       max-width: 1160px;
       margin: 0 auto;
       position: relative;
       z-index: 1;
-      align-items: center;
+      align-items: stretch;
     }
     /* Center column */
     .contact-center-col {
@@ -4160,32 +4158,34 @@ const contactPillars = [
     /* Info col */
     .contact-info-col {
       background: #fff;
-      border-radius: 24px;
-      padding: 32px 28px 24px;
-      box-shadow: 0 4px 24px rgba(49,89,245,0.08);
+      border-radius: 20px;
+      padding: 22px 20px 18px;
+      box-shadow: 0 4px 20px rgba(49,89,245,0.07);
       border: 1px solid #e8edff;
+      display: flex;
+      flex-direction: column;
     }
-    .info-accent { width: 40px; height: 3px; background: #3159f5; border-radius: 2px; margin-bottom: 18px; }
-    .info-title { font: 700 22px/1.2 Manrope; color: #080f2b; margin: 0 0 8px; }
-    .info-sub { font-size: 13px; color: #69708a; line-height: 1.7; margin-bottom: 24px; }
-    .info-list { display: flex; flex-direction: column; gap: 18px; }
-    .info-item { display: flex; gap: 14px; align-items: flex-start; }
+    .info-accent { width: 34px; height: 3px; background: #3159f5; border-radius: 2px; margin-bottom: 12px; }
+    .info-title { font: 700 19px/1.2 Manrope; color: #080f2b; margin: 0 0 6px; }
+    .info-sub { font-size: 12px; color: #69708a; line-height: 1.5; margin-bottom: 16px; }
+    .info-list { display: flex; flex-direction: column; gap: 12px; flex: 1; }
+    .info-item { display: flex; gap: 12px; align-items: flex-start; }
     .info-icon {
-      width: 40px; height: 40px; border-radius: 50%;
+      width: 34px; height: 34px; border-radius: 50%;
       background: #f0f4ff;
       display: flex; align-items: center; justify-content: center;
-      font-size: 16px; flex-shrink: 0;
+      font-size: 15px; flex-shrink: 0;
     }
-    .info-label { font: 700 13px Manrope; color: #080f2b; margin-bottom: 2px; }
-    .info-val { font-size: 12px; color: #69708a; line-height: 1.6; }
-    .social-row { display: flex; align-items: center; gap: 10px; margin: 22px 0 0; }
+    .info-label { font: 700 12.5px Manrope; color: #080f2b; margin-bottom: 2px; }
+    .info-val { font-size: 11.5px; color: #69708a; line-height: 1.5; }
+    .social-row { display: flex; align-items: center; gap: 8px; margin: 16px 0 0; }
     .social-label { font: 700 12px Manrope; color: #080f2b; }
     .social-btn {
-      width: 34px; height: 34px; border-radius: 8px;
+      width: 30px; height: 30px; border-radius: 8px;
       border: 1px solid #dde4f5;
       background: #fff;
       display: flex; align-items: center; justify-content: center;
-      font-size: 13px; font-weight: 700; color: #3159f5;
+      font-size: 12px; font-weight: 700; color: #3159f5;
       text-decoration: none;
       transition: background 0.2s, color 0.2s;
     }
@@ -4194,23 +4194,23 @@ const contactPillars = [
     .map-blob-container {
       position: relative;
       width: 100%;
-      max-width: 320px;
+      max-width: 290px;
       margin: 0 auto;
       display: flex;
       justify-content: center;
       align-items: center;
     }
     .map-blob {
-      width: 290px;
-      height: 290px;
+      width: 250px;
+      height: 250px;
       background: linear-gradient(135deg, #dbe7ff 0%, #c4d7ff 50%, #ebf2ff 100%);
-      border-radius: 42px;
+      border-radius: 36px;
       position: relative;
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      padding-bottom: 24px;
-      box-shadow: 0 16px 44px rgba(49, 89, 245, 0.18);
+      padding-bottom: 18px;
+      box-shadow: 0 14px 36px rgba(49, 89, 245, 0.16);
       overflow: hidden;
       border: 2px solid #ffffff;
     }
@@ -4222,7 +4222,7 @@ const contactPillars = [
       height: 100%;
       border: 0;
       opacity: 0.88;
-      border-radius: 40px;
+      border-radius: 34px;
       filter: saturate(1.1) contrast(1.02);
       transition: opacity 0.3s ease;
     }
@@ -4231,7 +4231,7 @@ const contactPillars = [
     }
     .map-pin-overlay {
       position: absolute;
-      top: 36px;
+      top: 30px;
       left: 50%;
       transform: translateX(-50%);
       pointer-events: none;
@@ -4241,36 +4241,36 @@ const contactPillars = [
       animation: pinBounce 2s ease-in-out infinite;
     }
     .pin-head {
-      width: 32px;
-      height: 32px;
+      width: 28px;
+      height: 28px;
       background: #2563eb;
       border-radius: 50% 50% 50% 0;
       transform: rotate(-45deg);
       margin: auto;
-      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.45);
+      box-shadow: 0 6px 14px rgba(37, 99, 235, 0.45);
     }
     .pin-stem {
       width: 4px;
-      height: 18px;
+      height: 16px;
       background: #2563eb;
       margin: 2px auto 0;
       border-radius: 0 0 4px 4px;
     }
     @keyframes pinBounce {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-9px); }
+      50% { transform: translateY(-8px); }
     }
     .map-badge {
       position: relative;
       z-index: 3;
       background: linear-gradient(135deg, #4338ca, #6366f1);
       color: #ffffff;
-      font: 700 13px Manrope, sans-serif;
-      padding: 10px 22px;
-      border-radius: 20px;
+      font: 700 12px Manrope, sans-serif;
+      padding: 8px 18px;
+      border-radius: 18px;
       text-align: center;
       text-decoration: none;
-      box-shadow: 0 6px 20px rgba(67, 56, 202, 0.4);
+      box-shadow: 0 5px 16px rgba(67, 56, 202, 0.4);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       display: inline-flex;
       align-items: center;
@@ -4279,151 +4279,143 @@ const contactPillars = [
     }
     .map-badge:hover {
       transform: translateY(-2px) scale(1.04);
-      box-shadow: 0 10px 24px rgba(67, 56, 202, 0.5);
+      box-shadow: 0 8px 20px rgba(67, 56, 202, 0.5);
     }
     .float-chip {
       position: absolute;
       background: #ffffff;
-      border-radius: 14px;
-      padding: 7px 14px;
-      font-size: 12px;
+      border-radius: 12px;
+      padding: 6px 12px;
+      font-size: 11px;
       font-weight: 700;
       color: #080f2b;
-      box-shadow: 0 6px 20px rgba(49, 89, 245, 0.16);
+      box-shadow: 0 5px 16px rgba(49, 89, 245, 0.14);
       white-space: nowrap;
       animation: chipFloat 3.2s ease-in-out infinite;
       z-index: 4;
       border: 1px solid #edf2f7;
     }
-    .chip1 { top: -14px; left: -24px; animation-delay: 0s; }
-    .chip2 { bottom: 18px; right: -32px; animation-delay: 1.1s; }
-    .chip3 { bottom: -14px; left: 6px; animation-delay: 0.6s; }
+    .chip1 { top: -12px; left: -18px; animation-delay: 0s; }
+    .chip2 { bottom: 14px; right: -24px; animation-delay: 1.1s; }
+    .chip3 { bottom: -12px; left: 8px; animation-delay: 0.6s; }
     @keyframes chipFloat {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+      50% { transform: translateY(-7px); }
     }
     /* Form card */
     .contact-form-card {
       background: #fff;
-      border-radius: 24px;
-      padding: 32px 28px 24px;
-      box-shadow: 0 4px 24px rgba(49,89,245,0.08);
+      border-radius: 20px;
+      padding: 22px 20px 18px;
+      box-shadow: 0 4px 20px rgba(49,89,245,0.07);
       border: 1px solid #e8edff;
+      display: flex;
+      flex-direction: column;
     }
-    .form-title { font: 700 22px/1.2 Manrope; color: #080f2b; margin: 18px 0 6px; }
-    .form-sub { font-size: 13px; color: #69708a; line-height: 1.6; margin-bottom: 22px; }
-    .contact-form { display: flex; flex-direction: column; gap: 14px; }
+    .form-title { font: 700 19px/1.2 Manrope; color: #080f2b; margin: 0 0 6px; }
+    .form-sub { font-size: 12px; color: #69708a; line-height: 1.5; margin-bottom: 14px; }
+    .contact-form { display: flex; flex-direction: column; gap: 10px; }
     .field-wrap {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 9px;
       background: #f5f7ff;
-      border-radius: 12px;
-      padding: 0 14px;
+      border-radius: 10px;
+      padding: 0 12px;
       border: 1px solid #e8edff;
       transition: border-color 0.2s;
     }
     .field-wrap:focus-within { border-color: #3159f5; }
-    .field-wrap.msg-wrap { align-items: flex-start; padding-top: 12px; }
-    .field-icon { font-size: 15px; color: #9aabd4; flex-shrink: 0; }
+    .field-wrap.msg-wrap { align-items: flex-start; padding-top: 10px; }
+    .field-icon { font-size: 14px; color: #9aabd4; flex-shrink: 0; }
     .field-icon.top { margin-top: 2px; }
     .field {
       flex: 1;
       background: none;
       border: none;
       outline: none;
-      font: 14px 'DM Sans', sans-serif;
+      font: 13.5px 'DM Sans', sans-serif;
       color: #080f2b;
-      padding: 13px 0;
+      padding: 10px 0;
     }
-    textarea.field { resize: none; line-height: 1.6; }
+    textarea.field { resize: none; line-height: 1.5; }
     .send-btn {
       background: linear-gradient(135deg, #3159f5, #5b7fff);
       color: #fff;
       border: none;
-      border-radius: 12px;
-      padding: 15px 24px;
-      font: 700 14px 'DM Sans';
+      border-radius: 10px;
+      padding: 12px 20px;
+      font: 700 13.5px 'DM Sans';
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 8px;
       transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 6px 20px #3159f535;
+      box-shadow: 0 5px 16px #3159f535;
     }
-    .send-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px #3159f540; }
-    .send-arrow { font-size: 18px; }
-    .privacy-note { font-size: 11px; color: #9aabd4; text-align: center; margin-top: 14px; }
+    .send-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px #3159f540; }
+    .send-arrow { font-size: 16px; }
+    .privacy-note { font-size: 11px; color: #9aabd4; text-align: center; margin-top: 10px; }
     /* Pillars */
     .contact-pillars {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
+      gap: 14px;
       max-width: 1080px;
-      margin: 40px auto 0;
+      margin: 22px auto 0;
       position: relative;
       z-index: 1;
     }
     .cpillar {
       background: #fff;
-      border-radius: 16px;
-      padding: 18px 16px;
+      border-radius: 14px;
+      padding: 12px 14px;
       border: 1px solid #e8edff;
       display: flex;
       align-items: flex-start;
-      gap: 14px;
-      box-shadow: 0 2px 12px rgba(49,89,245,0.06);
+      gap: 10px;
+      box-shadow: 0 2px 10px rgba(49,89,245,0.05);
       transition: transform 0.2s, box-shadow 0.2s;
     }
-    .cpillar:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(49,89,245,0.12); }
+    .cpillar:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(49,89,245,0.1); }
     .cpillar-icon {
-      width: 44px; height: 44px;
+      width: 36px; height: 36px;
       background: #f0f4ff;
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-size: 20px;
+      font-size: 17px;
       flex-shrink: 0;
     }
-    .cpillar-title { font: 700 13px Manrope; color: #080f2b; margin-bottom: 4px; }
-    .cpillar-text { font-size: 11px; color: #69708a; line-height: 1.6; }
+    .cpillar-title { font: 700 12.5px Manrope; color: #080f2b; margin-bottom: 2px; }
+    .cpillar-text { font-size: 11px; color: #69708a; line-height: 1.5; }
     @media (max-width: 1100px) {
-      .contact-main { grid-template-columns: 1fr; gap: 36px; }
-      .map-blob-container { margin: 20px auto; }
+      .contact-main { grid-template-columns: 1fr; gap: 24px; }
+      .map-blob-container { margin: 10px auto; }
     }
     @media (max-width: 900px) {
-      .contact-showcase { padding: 28px 16px 40px; }
-      .contact-pillars { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+      .contact-showcase { padding: 22px 14px 28px; }
+      .contact-pillars { grid-template-columns: repeat(2, 1fr); gap: 10px; }
       .scribble { display: none; }
       .plane-wrap { display: none; }
     }
     @media (max-width: 500px) {
-      .contact-showcase { padding: 20px 12px 30px; }
-      .map-blob { width: 250px; height: 250px; }
-      .map-blob-container { max-width: 280px; }
-      .float-chip { font-size: 11px; padding: 5px 10px; }
-      .chip1 { left: 0; top: -10px; }
-      .chip2 { right: 0; bottom: 10px; }
-      .chip3 { left: 10px; bottom: -10px; }
+      .contact-showcase { padding: 18px 10px 24px; }
+      .map-blob { width: 230px; height: 230px; }
+      .map-blob-container { max-width: 260px; }
+      .float-chip { font-size: 10.5px; padding: 4px 8px; }
+      .chip1 { left: 0; top: -8px; }
+      .chip2 { right: 0; bottom: 8px; }
+      .chip3 { left: 6px; bottom: -8px; }
       .contact-pillars { grid-template-columns: 1fr; }
-      .contact-title { font-size: clamp(26px, 7vw, 34px); }
-      .contact-info-col, .contact-form-card { padding: 24px 18px 20px; }
+      .contact-title { font-size: clamp(24px, 6.5vw, 30px); }
+      .contact-info-col, .contact-form-card { padding: 18px 14px 16px; }
     }
   `,
 })
-export class ContactShowcaseComponent implements AfterViewInit {
-  @ViewChild('contactRoot') rootEl!: ElementRef<HTMLElement>;
-  isVisible = signal(false);
+export class ContactShowcaseComponent {
   pillars = contactPillars;
   name = ''; email = ''; message = ''; sent = false;
-  private observer?: IntersectionObserver;
-  ngAfterViewInit() {
-    this.observer = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { this.isVisible.set(true); this.observer?.disconnect(); } },
-      { threshold: 0.1 }
-    );
-    this.observer.observe(this.rootEl.nativeElement);
-  }
   send() {
     if (!this.name || !this.email || !this.message) return;
     this.sent = true;
