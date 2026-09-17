@@ -182,16 +182,16 @@ const posts: Post[] = [
         >Home</a
       >
       <a
-        href="#services"
-        [class.active]="activeSection() === 'services'"
-        (click)="scrollTo('services', $event)"
-        >Services</a
-      >
-      <a
         href="#about"
         [class.active]="activeSection() === 'about'"
         (click)="scrollTo('about', $event)"
         >About</a
+      >
+      <a
+        href="#services"
+        [class.active]="activeSection() === 'services'"
+        (click)="scrollTo('services', $event)"
+        >Services</a
       >
       <a
         href="#blog"
@@ -408,12 +408,16 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
     if (typeof window !== 'undefined') {
       const updateActive = () => {
         const sections = ['home', 'about', 'services', 'blog', 'contact'];
-        const scrollPos = window.scrollY + 140;
+        const currentScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+        const triggerPos = currentScrollY + 140;
         for (let i = sections.length - 1; i >= 0; i--) {
           const el = document.getElementById(sections[i]);
-          if (el && el.offsetTop <= scrollPos) {
-            this.activeSection.set(sections[i]);
-            return;
+          if (el) {
+            const top = el.getBoundingClientRect().top + currentScrollY;
+            if (top <= triggerPos) {
+              this.activeSection.set(sections[i]);
+              return;
+            }
           }
         }
         this.activeSection.set('home');
@@ -442,13 +446,15 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
       const el = document.getElementById(id);
       if (el) {
         const headerEl = document.querySelector('app-header header, app-header, header');
-        const headerHeight = headerEl ? (headerEl as HTMLElement).getBoundingClientRect().height : 76;
-        const extraGap = 8; // Subtle breathing space below navbar
-        const elementPosition = el.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - (headerHeight + extraGap);
+        const headerHeight = headerEl ? (headerEl as HTMLElement).offsetHeight : 76;
+        const extraGap = 8;
+        const rect = el.getBoundingClientRect();
+        const currentScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+        const top = rect.top + currentScrollY;
+        const targetScrollY = Math.max(0, Math.round(top - (headerHeight + extraGap)));
 
         window.scrollTo({
-          top: Math.max(0, offsetPosition),
+          top: targetScrollY,
           behavior: 'smooth',
         });
 
@@ -614,13 +620,15 @@ export class FooterComponent {
       const el = document.getElementById(id);
       if (el) {
         const headerEl = document.querySelector('app-header header, app-header, header');
-        const headerHeight = headerEl ? (headerEl as HTMLElement).getBoundingClientRect().height : 76;
+        const headerHeight = headerEl ? (headerEl as HTMLElement).offsetHeight : 76;
         const extraGap = 8;
-        const elementPosition = el.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - (headerHeight + extraGap);
+        const rect = el.getBoundingClientRect();
+        const currentScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+        const top = rect.top + currentScrollY;
+        const targetScrollY = Math.max(0, Math.round(top - (headerHeight + extraGap)));
 
         window.scrollTo({
-          top: Math.max(0, offsetPosition),
+          top: targetScrollY,
           behavior: 'smooth',
         });
 
@@ -4087,10 +4095,9 @@ const contactPillars = [
       padding: 80px 24px 60px;
       background: linear-gradient(160deg, #f0f4ff 0%, #fafbff 55%, #eef1ff 100%);
       opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      transition: opacity 0.8s ease;
     }
-    .contact-showcase.is-visible { opacity: 1; transform: none; }
+    .contact-showcase.is-visible { opacity: 1; }
     /* Orbs */
     .orb { position: absolute; border-radius: 50%; filter: blur(55px); opacity: 0.35; pointer-events: none; }
     .orb1 { width: 320px; height: 320px; background: radial-gradient(circle, #c7d7ff, #7ca4ff); top: -100px; left: -80px; animation: orbFloat 8s ease-in-out infinite; }

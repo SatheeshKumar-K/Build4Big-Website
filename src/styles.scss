@@ -233,9 +233,21 @@ app-landing .hero-land::before {
   scroll-margin-top: 84px !important;
 }
 
+.landing-contact-wrap {
+  min-height: calc(100vh - 84px);
+  display: flex;
+  flex-direction: column;
+}
+.landing-contact-wrap app-contact-showcase {
+  flex: 1;
+}
+
 @media (max-width: 860px) {
   #home, #about, #services, #blog, #contact, section[id], [id] {
     scroll-margin-top: 72px !important;
+  }
+  .landing-contact-wrap {
+    min-height: calc(100vh - 72px);
   }
 }
 
