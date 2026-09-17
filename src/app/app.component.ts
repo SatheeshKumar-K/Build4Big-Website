@@ -2578,7 +2578,7 @@ export class SimpleComponent {
           </article>
         </div>
 
-        <!-- RIGHT COLUMN: Trending Posts & Stay Updated Card -->
+        <!-- RIGHT COLUMN: Trending Posts Card -->
         <aside class="content-right">
           <!-- Trending Posts Card -->
           <div class="sidebar-card trending-card">
@@ -2611,45 +2611,6 @@ export class SimpleComponent {
                 </a>
               </article>
             </div>
-          </div>
-
-          <!-- Stay Updated (Newsletter) Card -->
-          <div class="sidebar-card newsletter-card">
-            <div class="newsletter-icon-wrap">
-              <div class="paper-airplane" aria-hidden="true">
-                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="22" y1="2" x2="11" y2="13"></line>
-                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                </svg>
-              </div>
-              <div class="mail-badge">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                  <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
-              </div>
-            </div>
-
-            <h3 class="newsletter-title">Stay Updated</h3>
-            <p class="newsletter-desc">
-              Get the latest articles, insights and resources delivered to your inbox.
-            </p>
-
-            <form class="newsletter-form" (submit)="subscribe($event)">
-              <input
-                type="email"
-                placeholder="Enter your email address"
-                [(ngModel)]="subscriberEmail"
-                name="email"
-                class="newsletter-input"
-                required
-              />
-              <button type="submit" class="btn-subscribe">
-                <span>{{ subscribed ? 'Subscribed! 🎉' : 'Subscribe →' }}</span>
-              </button>
-            </form>
-
-            <p class="newsletter-footnote">No spam. Just valuable content.</p>
           </div>
         </aside>
       </div>
@@ -3481,92 +3442,14 @@ export class SimpleComponent {
       color: #ffffff;
     }
 
-    /* NEWSLETTER CARD */
-    .newsletter-card {
-      background: linear-gradient(145deg, #ffffff 0%, #f0f6ff 100%);
-      border: 1.5px solid #dbeafe;
+    .content-right {
       position: relative;
     }
-    .newsletter-icon-wrap {
-      position: relative;
-      width: 52px;
-      height: 52px;
-      margin-bottom: 14px;
-    }
-    .mail-badge {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
-      background: #eff6ff;
-      border: 1px solid #bfdbfe;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .paper-airplane {
-      position: absolute;
-      top: -10px;
-      right: -240px;
-      opacity: 0.65;
-      animation: planeSway 4s ease-in-out infinite alternate;
-    }
-    @keyframes planeSway {
-      0% { transform: translateY(0) rotate(0deg); }
-      100% { transform: translateY(-6px) rotate(4deg); }
-    }
-    .newsletter-title {
-      font: 800 20px Manrope;
-      color: #0a1128;
-      margin: 0 0 6px;
-    }
-    .newsletter-desc {
-      font-size: 13px;
-      line-height: 1.55;
-      color: #64748b;
-      margin: 0 0 18px;
-    }
-    .newsletter-form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .newsletter-input {
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
-      border-radius: 9999px;
-      padding: 12px 18px;
-      font-size: 13.5px;
-      outline: none;
-      color: #0f172a;
-      transition: border-color 0.2s;
-    }
-    .newsletter-input:focus {
-      border-color: #2563eb;
-    }
-    .btn-subscribe {
-      background: #2563eb;
-      color: #ffffff;
-      border: none;
-      border-radius: 9999px;
-      padding: 12px 20px;
-      font: 700 13.5px 'DM Sans';
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s ease;
-      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
-    }
-    .btn-subscribe:hover {
-      background: #1d4ed8;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.38);
-    }
-    .newsletter-footnote {
-      font-size: 11.5px;
-      color: #94a3b8;
-      margin: 12px 0 0;
-      text-align: center;
+
+    .trending-card {
+      position: sticky;
+      top: 100px;
+      margin-bottom: 0;
     }
 
     /* RESPONSIVE DESIGN */
@@ -3606,12 +3489,12 @@ export class SimpleComponent {
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .blog-showcase-container, .blog-hero, .filter-sort-row, .featured-card, .latest-section, .trending-card, .newsletter-card {
+      .blog-showcase-container, .blog-hero, .filter-sort-row, .featured-card, .latest-section, .trending-card {
         opacity: 1 !important;
         transform: none !important;
         transition: none !important;
       }
-      .floating-badge, .glow-orb, .bulb-graphic, .bulb-halo, .paper-airplane {
+      .floating-badge, .glow-orb, .bulb-graphic, .bulb-halo {
         animation: none !important;
       }
       .featured-card, .mini-article-card, .trending-item {
@@ -3627,8 +3510,6 @@ export class BlogShowcaseComponent implements AfterViewInit {
   searchQuery = '';
   selectedCategory = 'All Posts';
   sortBy = 'latest';
-  subscribed = false;
-  subscriberEmail = '';
 
   postsList: Post[] = posts;
 
@@ -3683,16 +3564,6 @@ export class BlogShowcaseComponent implements AfterViewInit {
 
   setCategory(cat: string): void {
     this.selectedCategory = cat;
-  }
-
-  subscribe(e: Event): void {
-    e.preventDefault();
-    if (!this.subscriberEmail) return;
-    this.subscribed = true;
-    setTimeout(() => {
-      this.subscribed = false;
-      this.subscriberEmail = '';
-    }, 4000);
   }
 }
 
