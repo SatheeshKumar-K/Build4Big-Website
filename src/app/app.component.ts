@@ -3506,8 +3506,8 @@ export class SimpleComponent {
     .paper-airplane {
       position: absolute;
       top: -10px;
-      right: -240px;
-      opacity: 0.65;
+      right: -12px;
+      opacity: 0.75;
       animation: planeSway 4s ease-in-out infinite alternate;
     }
     @keyframes planeSway {
