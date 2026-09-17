@@ -2486,53 +2486,9 @@ export class SimpleComponent {
 
       <!-- MAIN CONTENT SPLIT: FEATURED + LATEST (LEFT) & TRENDING + NEWSLETTER (RIGHT) -->
       <div class="main-content-split container">
-        <!-- LEFT COLUMN: Featured Article & Latest Articles -->
+        <!-- LEFT COLUMN: Latest Articles & Featured Article -->
         <div class="content-left">
-          <!-- Featured Article Banner -->
-          <article class="featured-card" *ngIf="featuredPost">
-            <div class="featured-img-wrap">
-              <img [src]="featuredPost.image" [alt]="featuredPost.title" loading="lazy" />
-              <div class="featured-chip">
-                <span>★ Featured Article</span>
-              </div>
-              <div class="laptop-overlay">
-                <div class="overlay-text">
-                  <span>Ideas<br />Build<br />Better<br />Tomorrows</span>
-                  <small>Build4Big</small>
-                </div>
-              </div>
-            </div>
-
-            <div class="featured-body">
-              <div class="meta-row">
-                <span class="category-tag-blue">{{ featuredPost.category | uppercase }}</span>
-                <span class="meta-time">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                  </svg>
-                  {{ featuredPost.date }}
-                </span>
-              </div>
-
-              <h2 class="featured-title">{{ featuredPost.title }}</h2>
-              <p class="featured-desc">{{ featuredPost.excerpt }}</p>
-
-              <div class="featured-footer">
-                <div class="author-badge">
-                  <div class="avatar-stack">
-                    <span class="avatar-icon">👨‍💻</span>
-                  </div>
-                  <span class="author-name">By {{ featuredPost.author || 'Build4Big Team' }}</span>
-                </div>
-                <a [routerLink]="['/blog', featuredPost.id]" class="btn-read-full">
-                  Read Full Article <span>→</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Latest Articles Section -->
+          <!-- Latest Articles Section (First) -->
           <div class="latest-section">
             <div class="latest-header">
               <div>
@@ -2576,6 +2532,50 @@ export class SimpleComponent {
               </article>
             </div>
           </div>
+
+          <!-- Featured Article Banner (Second) -->
+          <article class="featured-card" *ngIf="featuredPost">
+            <div class="featured-img-wrap">
+              <img [src]="featuredPost.image" [alt]="featuredPost.title" loading="lazy" />
+              <div class="featured-chip">
+                <span>★ Featured Article</span>
+              </div>
+              <div class="laptop-overlay">
+                <div class="overlay-text">
+                  <span>Ideas<br />Build<br />Better<br />Tomorrows</span>
+                  <small>Build4Big</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="featured-body">
+              <div class="meta-row">
+                <span class="category-tag-blue">{{ featuredPost.category | uppercase }}</span>
+                <span class="meta-time">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  {{ featuredPost.date }}
+                </span>
+              </div>
+
+              <h2 class="featured-title">{{ featuredPost.title }}</h2>
+              <p class="featured-desc">{{ featuredPost.excerpt }}</p>
+
+              <div class="featured-footer">
+                <div class="author-badge">
+                  <div class="avatar-stack">
+                    <span class="avatar-icon">👨‍💻</span>
+                  </div>
+                  <span class="author-name">By {{ featuredPost.author || 'Build4Big Team' }}</span>
+                </div>
+                <a [routerLink]="['/blog', featuredPost.id]" class="btn-read-full">
+                  Read Full Article <span>→</span>
+                </a>
+              </div>
+            </div>
+          </article>
         </div>
 
         <!-- RIGHT COLUMN: Trending Posts & Stay Updated Card -->
@@ -3067,7 +3067,8 @@ export class SimpleComponent {
       display: grid;
       grid-template-columns: 1.15fr 1fr;
       box-shadow: 0 10px 32px rgba(37, 99, 235, 0.07);
-      margin-bottom: 40px;
+      margin-top: 36px;
+      margin-bottom: 20px;
       transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease;
     }
     .featured-card:hover {
