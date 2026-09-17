@@ -1662,7 +1662,7 @@ const servicePillars = [
 })
 export class ServicesShowcaseComponent implements AfterViewInit, OnDestroy {
   @ViewChild('showcaseRoot') showcaseRoot?: ElementRef<HTMLElement>;
-  isVisible = signal(false);
+  isVisible = signal(true);
   activeIndex = signal(2); // Starts on Web Development (index 2), matching the screenshot!
   servicesList = serviceShowcaseList;
   pillars = servicePillars;
@@ -1672,17 +1672,6 @@ export class ServicesShowcaseComponent implements AfterViewInit, OnDestroy {
   private touchStartX = 0;
 
   ngAfterViewInit(): void {
-    if (typeof IntersectionObserver !== 'undefined') {
-      this.observer = new IntersectionObserver(([entry]) => {
-        if (entry.isIntersecting) {
-          this.isVisible.set(true);
-          this.observer?.disconnect();
-        }
-      }, { threshold: 0.08 });
-      if (this.showcaseRoot) this.observer.observe(this.showcaseRoot.nativeElement);
-    } else {
-      this.isVisible.set(true);
-    }
     this.startAutoplay();
   }
 
@@ -1813,7 +1802,7 @@ export class ServicesShowcaseComponent implements AfterViewInit, OnDestroy {
     this.stopAutoplay();
     this.autoplayTimer = setInterval(() => {
       this.next();
-    }, 4500);
+    }, 3000);
   }
 
   stopAutoplay(): void {
