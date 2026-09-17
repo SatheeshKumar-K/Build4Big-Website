@@ -210,7 +210,7 @@ app-landing .hero-land::before {
 }
 
 /* --- Section scroll-margin for anchor links --- */
-section[id] { scroll-margin-top: 80px; }
+#home, #about, #services, #blog, #contact, section[id] { scroll-margin-top: 80px; }
 
 /* --- Smooth focus ring for accessibility --- */
 :focus-visible {

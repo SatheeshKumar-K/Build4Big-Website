@@ -1,6 +1,7 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, signal, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, OnDestroy, signal, ViewChild } from '@angular/core';
 import {
   ActivatedRoute,
+  Router,
   RouterLink,
   RouterLinkActive,
   RouterOutlet,
@@ -164,9 +165,9 @@ const posts: Post[] = [
 ];
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, RouterLinkActive],
+  imports: [],
   template: `<header>
-    <a routerLink="/" class="logo header-logo" aria-label="Build4Big home">
+    <a href="#home" (click)="scrollTo('home', $event)" class="logo header-logo" aria-label="Build4Big home">
       <span class="brand-image"><img src="build4big-logo-cutout.png" alt="Build4Big" /></span>
       <span class="brand-title">Build4Big</span>
     </a>
@@ -175,44 +176,43 @@ const posts: Post[] = [
     </button>
     <nav [class.show]="open()">
       <a
-        routerLink="/"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        (click)="open.set(false)"
+        href="#home"
+        [class.active]="activeSection() === 'home'"
+        (click)="scrollTo('home', $event)"
         >Home</a
       >
       <a
-        routerLink="/services"
-        routerLinkActive="active"
-        (click)="open.set(false)"
+        href="#services"
+        [class.active]="activeSection() === 'services'"
+        (click)="scrollTo('services', $event)"
         >Services</a
       >
       <a
-        routerLink="/about"
-        routerLinkActive="active"
-        (click)="open.set(false)"
+        href="#about"
+        [class.active]="activeSection() === 'about'"
+        (click)="scrollTo('about', $event)"
         >About</a
       >
       <a
-        routerLink="/blog"
-        routerLinkActive="active"
-        (click)="open.set(false)"
+        href="#blog"
+        [class.active]="activeSection() === 'blog'"
+        (click)="scrollTo('blog', $event)"
         >Blog</a
       >
       <a
-        routerLink="/contact"
-        routerLinkActive="active"
-        (click)="open.set(false)"
+        href="#contact"
+        [class.active]="activeSection() === 'contact'"
+        (click)="scrollTo('contact', $event)"
         >Contact</a
       >
       <a
-        routerLink="/contact"
+        href="#contact"
         class="start-btn-mobile"
-        (click)="open.set(false)"
+        (click)="scrollTo('contact', $event)"
         >Get Started &rarr;</a
       >
     </nav>
-    <a routerLink="/contact" class="start-btn">Get Started &rarr;</a>
+    <a href="#contact" (click)="scrollTo('contact', $event)" class="start-btn">Get Started &rarr;</a>
   </header>`,
   styles: `
     :host {
@@ -398,8 +398,63 @@ const posts: Post[] = [
     }
   `,
 })
-export class HeaderComponent {
+export class HeaderComponent implements AfterViewInit, OnDestroy {
   open = signal(false);
+  activeSection = signal('home');
+  private router = inject(Router);
+  private scrollListener?: () => void;
+
+  ngAfterViewInit(): void {
+    if (typeof window !== 'undefined') {
+      const updateActive = () => {
+        const sections = ['home', 'services', 'about', 'blog', 'contact'];
+        const scrollPos = window.scrollY + 120;
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const el = document.getElementById(sections[i]);
+          if (el && el.offsetTop <= scrollPos) {
+            this.activeSection.set(sections[i]);
+            return;
+          }
+        }
+        this.activeSection.set('home');
+      };
+
+      this.scrollListener = updateActive;
+      window.addEventListener('scroll', updateActive, { passive: true });
+      updateActive();
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (typeof window !== 'undefined' && this.scrollListener) {
+      window.removeEventListener('scroll', this.scrollListener);
+    }
+  }
+
+  scrollTo(sectionId: string, event?: Event): void {
+    if (event) {
+      event.preventDefault();
+    }
+    this.open.set(false);
+    this.activeSection.set(sectionId);
+
+    const el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (typeof history !== 'undefined' && history.pushState) {
+        history.pushState(null, '', '#' + sectionId);
+      }
+    } else {
+      this.router.navigate(['/'], { fragment: sectionId }).then(() => {
+        setTimeout(() => {
+          const target = document.getElementById(sectionId);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      });
+    }
+  }
 }
 @Component({
   selector: 'app-footer',
@@ -418,22 +473,22 @@ export class HeaderComponent {
       <section>
         <h4>Quick Links</h4>
         <nav class="foot-nav">
-          <a routerLink="/">Home</a>
-          <a routerLink="/about">About Us</a>
-          <a routerLink="/services">Services</a>
-          <a routerLink="/blog">Blog</a>
-          <a routerLink="/contact">Contact</a>
+          <a href="#home" (click)="scrollTo('home', $event)">Home</a>
+          <a href="#about" (click)="scrollTo('about', $event)">About Us</a>
+          <a href="#services" (click)="scrollTo('services', $event)">Services</a>
+          <a href="#blog" (click)="scrollTo('blog', $event)">Blog</a>
+          <a href="#contact" (click)="scrollTo('contact', $event)">Contact</a>
         </nav>
       </section>
       <section>
         <h4>Our Services</h4>
         <nav class="foot-nav">
-          <a routerLink="/services">Web Development</a>
-          <a routerLink="/services">Mobile Apps</a>
-          <a routerLink="/services">Software Development</a>
-          <a routerLink="/services">UI/UX Design</a>
-          <a routerLink="/services">Automation</a>
-          <a routerLink="/services">IT Consulting</a>
+          <a href="#services" (click)="scrollTo('services', $event)">Web Development</a>
+          <a href="#services" (click)="scrollTo('services', $event)">Mobile Apps</a>
+          <a href="#services" (click)="scrollTo('services', $event)">Software Development</a>
+          <a href="#services" (click)="scrollTo('services', $event)">UI/UX Design</a>
+          <a href="#services" (click)="scrollTo('services', $event)">Automation</a>
+          <a href="#services" (click)="scrollTo('services', $event)">IT Consulting</a>
         </nav>
       </section>
       <section>
@@ -534,7 +589,31 @@ export class HeaderComponent {
     }
   `,
 })
-export class FooterComponent {}
+export class FooterComponent {
+  private router = inject(Router);
+
+  scrollTo(sectionId: string, event?: Event): void {
+    if (event) {
+      event.preventDefault();
+    }
+    const el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (typeof history !== 'undefined' && history.pushState) {
+        history.pushState(null, '', '#' + sectionId);
+      }
+    } else {
+      this.router.navigate(['/'], { fragment: sectionId }).then(() => {
+        setTimeout(() => {
+          const target = document.getElementById(sectionId);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      });
+    }
+  }
+}
 @Component({
   selector: 'app-home',
   imports: [RouterLink, CommonModule, HeaderComponent],
@@ -836,7 +915,7 @@ const servicePillars = [
 
 @Component({
   selector: 'app-services-showcase',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   template: `
     <div #showcaseRoot class="services-showcase" [class.is-visible]="isVisible()">
       <!-- Ambient decorative orbs & background elements -->
@@ -966,7 +1045,7 @@ const servicePillars = [
 
             <!-- Card Action: "Learn More →" on Center, circle arrow on sides -->
             <div class="card-action">
-              <a *ngIf="isCenter(i)" routerLink="/contact" class="btn-learn-more">
+              <a *ngIf="isCenter(i)" href="#contact" class="btn-learn-more">
                 Learn More <span>→</span>
               </a>
               <span *ngIf="!isCenter(i)" class="btn-circle-arrow">→</span>
@@ -1828,7 +1907,7 @@ const aboutFeatures = [
 
 @Component({
   selector: 'app-home-about-preview',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   template: `
     <section #section id="about" class="about-page" [class.is-visible]="isVisible()">
       <section class="about-hero container">
@@ -1838,7 +1917,7 @@ const aboutFeatures = [
           <h2>We are a new technology company focused on turning ideas into modern digital solutions.</h2>
           <p>Build4Big is our own technology venture, created with a passion for software, design and innovation. We are starting our journey by building useful, scalable and meaningful digital experiences for businesses and people.</p>
           <p>Our goal is simple — understand real problems, create smart solutions and continuously improve the way technology works for people.</p>
-          <div class="story-actions"><a href="#about-features" class="primary-action">Explore Our Journey <span>→</span></a><a routerLink="/services" class="secondary-action"><i>▶</i> See What We Build</a></div>
+          <div class="story-actions"><a href="#about-features" class="primary-action">Explore Our Journey <span>→</span></a><a href="#services" class="secondary-action"><i>▶</i> See What We Build</a></div>
         </div>
         <div class="card-marquee reveal-right" aria-label="Build4Big values">
           <div class="edge edge-left"></div><div class="edge edge-right"></div>
@@ -2495,7 +2574,7 @@ export class SimpleComponent {
                 <h3 class="latest-title">Latest Articles</h3>
                 <p class="latest-subtitle">Fresh insights, practical guides and stories to fuel your growth.</p>
               </div>
-              <a routerLink="/blog" class="view-all-link">View All Articles <span>→</span></a>
+              <a href="#blog" class="view-all-link">View All Articles <span>→</span></a>
             </div>
 
             <div class="latest-cards-grid">
@@ -2587,7 +2666,7 @@ export class SimpleComponent {
                 <span class="fire-icon">🔥</span>
                 <h3 class="sidebar-title">Trending Posts</h3>
               </div>
-              <a routerLink="/blog" class="sidebar-link">View All <span>→</span></a>
+              <a href="#blog" class="sidebar-link">View All <span>→</span></a>
             </div>
 
             <div class="trending-list">
@@ -4304,12 +4383,12 @@ export class ContactShowcaseComponent implements AfterViewInit {
 export class ContactComponent {}
 @Component({
   selector: 'app-landing',
-  imports: [CommonModule, RouterLink, FooterComponent, HomeAboutPreviewComponent, ServicesShowcaseComponent, BlogShowcaseComponent, ContactShowcaseComponent],
+  imports: [CommonModule, FooterComponent, HomeAboutPreviewComponent, ServicesShowcaseComponent, BlogShowcaseComponent, ContactShowcaseComponent],
   template: `
     <div id="home">
       <header class="one-nav">
         <a href="#home" class="menu-logo" aria-label="Build4Big home"><span class="brand-image"><img src="/build4big-mark.svg" alt="Build4Big 4B logo" /></span><span>Build4Big</span></a>
-        <nav><a href="#home">Home</a><a routerLink="/about">About</a><a href="#services">Services</a><a routerLink="/blog">Blog</a><a routerLink="/contact">Contact</a></nav>
+        <nav><a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#blog">Blog</a><a href="#contact">Contact</a></nav>
         <a href="#contact">Get Started</a>
       </header>
       <!-- Interactive 3D Hero Section matching image -->
@@ -5499,12 +5578,12 @@ const simple = (kind: string, label: string, title: string, intro: string) => ({
 });
 export const routes: Routes = [
   { path: '', component: LandingComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'services', component: ServicesComponent },
-  { path: 'ai-solutions', redirectTo: 'services' },
-  { path: 'contact', component: ContactComponent },
+  { path: 'about', redirectTo: '' },
+  { path: 'services', redirectTo: '' },
+  { path: 'ai-solutions', redirectTo: '' },
+  { path: 'contact', redirectTo: '' },
   { path: 'careers', redirectTo: '' },
-  { path: 'blog', component: BlogComponent },
+  { path: 'blog', redirectTo: '' },
   { path: 'blog/:id', component: BlogDetailComponent },
   { path: '**', redirectTo: '' },
 ];
