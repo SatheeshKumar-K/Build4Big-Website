@@ -1161,6 +1161,8 @@ const servicePillars = [
                   radial-gradient(circle at 82% 80%, #f5edff 0%, transparent 45%),
                   #f8faff;
       color: #080f2b;
+      min-height: 100vh;
+      box-sizing: border-box;
     }
 
     /* Ambient decorative orbs */
@@ -1968,7 +1970,7 @@ const aboutFeatures = [
   `,
   styles: `
     :host{display:block}
-    .about-page{overflow:hidden;background:radial-gradient(circle at 78% 10%,#edf4ff 0,transparent 25%),#fff;color:#07133d}
+    .about-page{overflow:hidden;background:radial-gradient(circle at 78% 10%,#edf4ff 0,transparent 25%),#fff;color:#07133d;min-height:100vh;box-sizing:border-box}
     .about-hero{min-height:520px;display:grid;grid-template-columns:minmax(320px,.9fr) minmax(0,1.1fr);gap:50px;align-items:center;padding-top:36px;padding-bottom:45px}
     .story-badge{display:inline-block;padding:7px 15px;border-radius:20px;background:linear-gradient(100deg,#eff3ff,#fff);color:#265df6;text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:800;box-shadow:0 8px 25px #2457b218}
     .story-copy h1{font:800 clamp(40px,4vw,61px)/1.08 Manrope;margin:18px 0}
@@ -2772,6 +2774,8 @@ export class SimpleComponent {
       padding: 32px 16px 55px;
       background: linear-gradient(180deg, #f8faff 0%, #f1f5fd 50%, #f8faff 100%);
       color: #0f172a;
+      min-height: 100vh;
+      box-sizing: border-box;
     }
 
     /* Staggered Scroll Reveal */
@@ -4085,6 +4089,8 @@ const contactPillars = [
       padding: 24px 20px 32px;
       background: linear-gradient(160deg, #f0f4ff 0%, #fafbff 55%, #eef1ff 100%);
       opacity: 1;
+      min-height: 100vh;
+      box-sizing: border-box;
     }
     /* Orbs */
     .orb { position: absolute; border-radius: 50%; filter: blur(55px); opacity: 0.35; pointer-events: none; }
@@ -4647,7 +4653,18 @@ export class ContactComponent {}
     <app-footer></app-footer>
   `,
   styles: `
-    .one-nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 max(24px,calc((100vw - 1120px)/2));background:#fff;position:sticky;top:0;z-index:9}.one-nav>a{font:800 16px Manrope;color:#080f2b;text-decoration:none}.one-nav>a:last-child{background:#3159f5;color:#fff;padding:12px 18px;border-radius:10px;font:700 12px 'DM Sans'}.one-nav nav{display:flex;gap:18px}.one-nav nav a{font-size:12px;font-weight:700;color:#111936;text-decoration:none}.one-nav nav a:hover{color:#3159f5}
+    .one-nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 max(24px,calc((100vw - 1120px)/2));background:#fff;position:sticky;top:0;z-index:9}.one-nav>a{font:800 16px Manrope;color:#080f2b;text-decoration:none;flex-shrink:0}.one-nav>a:last-child{background:#3159f5;color:#fff;padding:12px 18px;border-radius:10px;font:700 12px 'DM Sans';white-space:nowrap}.one-nav nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:center}.one-nav nav a{font-size:12px;font-weight:700;color:#111936;text-decoration:none;white-space:nowrap}.one-nav nav a:hover{color:#3159f5}
+    @media (max-width: 768px) {
+      .one-nav { height: 64px; padding: 0 16px; gap: 12px; }
+      .one-nav > a.menu-logo span:last-child { font-size: 15px; }
+      .one-nav nav { gap: 12px; }
+      .one-nav nav a { font-size: 11.5px; }
+      .one-nav > a:last-child { padding: 9px 14px; font-size: 11.5px; }
+    }
+    @media (max-width: 580px) {
+      .one-nav nav { display: none; }
+      .one-nav { justify-content: space-between; }
+    }
 
     /* Interactive 3D Hero Section matching image */
     .hero-land-glow {
