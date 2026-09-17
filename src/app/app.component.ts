@@ -3669,18 +3669,39 @@ export class SimpleComponent {
     }
 
     @media (max-width: 768px) {
+      .blog-showcase-container {
+        padding: 45px 12px 60px;
+      }
       .latest-cards-grid {
         grid-template-columns: 1fr;
       }
       .filter-sort-row {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
+        gap: 14px;
+      }
+      .category-pills {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 6px;
+        -webkit-overflow-scrolling: touch;
+      }
+      .pill-btn {
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .sort-dropdown {
+        justify-content: flex-end;
       }
       .hero-heading {
-        font-size: 34px;
+        font-size: clamp(28px, 6.8vw, 34px);
       }
       .hero-right {
         display: none;
+      }
+      .search-bar-wrap {
+        max-width: 100%;
+        width: 100%;
       }
     }
 
@@ -4335,17 +4356,22 @@ const contactPillars = [
       .map-blob-container { margin: 20px auto; }
     }
     @media (max-width: 900px) {
-      .contact-pillars { grid-template-columns: repeat(2, 1fr); }
+      .contact-showcase { padding: 60px 16px 45px; }
+      .contact-pillars { grid-template-columns: repeat(2, 1fr); gap: 14px; }
       .scribble { display: none; }
       .plane-wrap { display: none; }
     }
     @media (max-width: 500px) {
-      .map-blob { width: 260px; height: 260px; }
-      .chip1 { left: -10px; }
-      .chip2 { right: -15px; }
-      .chip3 { left: 0; }
+      .contact-showcase { padding: 45px 12px 35px; }
+      .map-blob { width: 250px; height: 250px; }
+      .map-blob-container { max-width: 280px; }
+      .float-chip { font-size: 11px; padding: 5px 10px; }
+      .chip1 { left: 0; top: -10px; }
+      .chip2 { right: 0; bottom: 10px; }
+      .chip3 { left: 10px; bottom: -10px; }
       .contact-pillars { grid-template-columns: 1fr; }
-      .contact-title { font-size: 32px; }
+      .contact-title { font-size: clamp(26px, 7vw, 34px); }
+      .contact-info-col, .contact-form-card { padding: 24px 18px 20px; }
     }
   `,
 })
