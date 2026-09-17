@@ -1970,7 +1970,7 @@ const aboutFeatures = [
   `,
   styles: `
     :host{display:block}
-    .about-page{overflow:hidden;background:radial-gradient(circle at 78% 10%,#edf4ff 0,transparent 25%),#fff;color:#07133d;min-height:100vh;box-sizing:border-box}
+    .about-page{overflow:hidden;background:radial-gradient(circle at 18% 20%,#eef5ff 0,transparent 42%),radial-gradient(circle at 82% 80%,#f5edff 0,transparent 45%),radial-gradient(circle at 78% 10%,#edf4ff 0,transparent 30%),#f8faff;color:#07133d;min-height:100vh;box-sizing:border-box}
     .about-hero{min-height:520px;display:grid;grid-template-columns:minmax(320px,.9fr) minmax(0,1.1fr);gap:50px;align-items:center;padding-top:36px;padding-bottom:45px}
     .story-badge{display:inline-block;padding:7px 15px;border-radius:20px;background:linear-gradient(100deg,#eff3ff,#fff);color:#265df6;text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:800;box-shadow:0 8px 25px #2457b218}
     .story-copy h1{font:800 clamp(40px,4vw,61px)/1.08 Manrope;margin:18px 0}
@@ -1995,8 +1995,8 @@ const aboutFeatures = [
     .story-card p{color:#58698f;font-size:14px;line-height:1.6;margin:0;max-width:205px}
     .card-arrow{position:absolute;bottom:25px;left:28px;display:grid;place-items:center;width:39px;height:39px;border-radius:50%;color:#2660f9;background:#fff;box-shadow:0 5px 12px #27428624;font-size:21px}
     .edge{position:absolute;top:0;bottom:0;width:65px;z-index:2;pointer-events:none}
-    .edge-left{left:0;background:linear-gradient(90deg,#fff,transparent)}
-    .edge-right{right:0;background:linear-gradient(270deg,#fff,transparent)}
+    .edge-left{left:0;background:linear-gradient(90deg,#f8faff,transparent)}
+    .edge-right{right:0;background:linear-gradient(270deg,#f8faff,transparent)}
     .feature-area{position:relative;overflow:hidden;padding:29px 0;border-top:2px solid #4a68ff;border-bottom:2px solid #4a68ff;background:linear-gradient(100deg,#f2f6ff,#fff 50%,#eef5ff);box-shadow:0 0 35px #5f7aff20}
     .feature-track,.feature-set{display:flex;gap:0;width:max-content}
     .feature-track{animation:feature-strip 32s linear infinite}
