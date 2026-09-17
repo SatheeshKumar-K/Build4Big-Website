@@ -220,6 +220,7 @@ const posts: Post[] = [
       position: sticky;
       top: 0;
       z-index: 1000;
+      width: 100%;
     }
     header {
       height: 76px;
@@ -227,16 +228,17 @@ const posts: Post[] = [
       align-items: center;
       justify-content: space-between;
       max-width: 1240px;
-      margin: auto;
+      margin: 0 auto;
       padding: 0 32px;
-      background: rgba(2, 7, 27, 0.95);
       color: #ffffff;
+      box-sizing: border-box;
     }
     .logo {
       display: inline-flex;
       align-items: center;
       gap: 12px;
       text-decoration: none;
+      flex-shrink: 0;
     }
     .brand-title {
       font-weight: 800;
@@ -248,9 +250,9 @@ const posts: Post[] = [
     nav {
       display: flex;
       align-items: center;
-      gap: 34px;
+      gap: 30px;
       margin-left: auto;
-      margin-right: 36px;
+      margin-right: 32px;
       font-size: 15px;
       font-weight: 600;
       font-family: 'DM Sans', sans-serif;
@@ -262,6 +264,7 @@ const posts: Post[] = [
       position: relative;
       transition: color 0.22s ease;
       letter-spacing: 0.01em;
+      white-space: nowrap;
     }
     nav a:hover {
       color: #ffffff;
@@ -294,6 +297,7 @@ const posts: Post[] = [
       border-radius: 25px;
       text-decoration: none;
       white-space: nowrap;
+      flex-shrink: 0;
       box-shadow: 0 4px 18px rgba(0, 110, 255, 0.4);
       transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
     }
@@ -314,6 +318,16 @@ const posts: Post[] = [
     }
     .start-btn-mobile {
       display: none;
+    }
+    @media (max-width: 1024px) {
+      nav {
+        gap: 20px;
+        margin-right: 22px;
+      }
+      .start-btn {
+        padding: 9px 18px;
+        font-size: 13.5px;
+      }
     }
     @media (max-width: 860px) {
       header {
@@ -498,12 +512,19 @@ export class HeaderComponent {
     .copyright span {
       float: right;
     }
-    @media (max-width: 760px) {
+    @media (max-width: 960px) {
       .foot {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+    }
+    @media (max-width: 580px) {
+      .foot {
+        grid-template-columns: 1fr;
+        gap: 28px;
       }
       .foot section:first-child {
-        grid-column: span 2;
+        grid-column: span 1;
       }
       .copyright span {
         float: none;
@@ -5063,7 +5084,27 @@ export class ContactComponent {}
       50% { transform: translateY(3px); }
     }
 
-    /* Responsiveness for Tablet & Mobile */
+    /* Responsiveness for Laptop, Tablet & Mobile */
+    @media (max-width: 1280px) {
+      .hero-headline {
+        font-size: clamp(40px, 4.4vw, 54px);
+      }
+      .hero-subtext {
+        font-size: 15px;
+        margin-bottom: 28px;
+      }
+      .hero-visual-col {
+        height: 480px;
+      }
+      .glass-chip {
+        min-width: 195px;
+        padding: 12px 15px;
+      }
+      .chip-ai { top: 20px; left: 0; }
+      .chip-innovation { top: 28px; right: -5px; }
+      .chip-strategy { bottom: 45px; left: 0; }
+      .chip-support { bottom: 55px; right: -5px; }
+    }
     @media (max-width: 1180px) {
       .hero-workflow-bar {
         display: grid;
@@ -5106,8 +5147,8 @@ export class ContactComponent {}
         min-height: auto;
       }
       .hero-headline {
-        font-size: 38px;
-        line-height: 1.12;
+        font-size: clamp(32px, 7vw, 40px);
+        line-height: 1.15;
       }
       .hero-subtext {
         font-size: 15px;
@@ -5187,10 +5228,10 @@ export class ContactComponent {}
     }
     @media (max-width: 480px) {
       .hero-headline {
-        font-size: 32px;
+        font-size: 30px;
       }
       .hero-visual-col {
-        height: 360px;
+        height: 350px;
       }
       .globe-system-wrap {
         width: 200px;
