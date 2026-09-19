@@ -305,6 +305,26 @@ app-landing .hero-land::before {
 }
 
 /* ============================================================
+   GLOBAL 3D PERSPECTIVE & HARDWARE ACCELERATION ENGINE
+   ============================================================ */
+.perspective-container {
+  perspective: 1100px;
+  transform-style: preserve-3d;
+}
+
+.story-card,
+.service-card,
+.sol-feature-card,
+.contact-form-card,
+.cpillar,
+.glass-chip,
+.center-ai-core {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* ============================================================
    prefers-reduced-motion — disable ALL custom animations
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
