@@ -1225,13 +1225,13 @@ interface QuoteFormState {
       /* ==========================================================================
          8. RESPONSIVENESS (Desktop, Tablet, Mobile)
          ========================================================================== */
-      @media (max-width: 480px) {
+      @media (max-width: 640px) {
         .chatbot-floating-wrapper {
           bottom: 16px;
           right: 16px;
         }
         .chatbot-unread-pill {
-          display: none; /* Hide large pill on tiny mobile to save screen space */
+          display: none; /* Hide large pill on mobile to save screen space */
         }
         .chatbot-launcher-btn {
           width: 56px;
@@ -1242,9 +1242,9 @@ interface QuoteFormState {
           right: 0 !important;
           width: 100vw !important;
           max-width: 100vw !important;
-          height: 86vh !important;
-          max-height: 86vh !important;
-          border-radius: 20px 20px 0 0 !important;
+          height: 88vh !important;
+          max-height: 88vh !important;
+          border-radius: 22px 22px 0 0 !important;
           border-bottom: none !important;
           transform-origin: bottom center;
         }

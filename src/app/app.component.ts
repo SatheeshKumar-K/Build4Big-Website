@@ -1534,6 +1534,10 @@ const servicePillars = [
 
     /* Responsive adjustments */
     @media (max-width: 1040px) {
+      .services-showcase {
+        min-height: auto;
+        padding: 28px 14px 36px;
+      }
       .scribble-tl { left: 1%; }
       .scribble-tr { right: 2%; }
       .scribble-br { right: 1%; }
@@ -1552,6 +1556,7 @@ const servicePillars = [
       }
       .services-showcase {
         padding: 24px 10px 36px;
+        min-height: auto;
       }
       .stage-container {
         padding: 0 6px;
@@ -2712,6 +2717,11 @@ const AUTOMATION_NODES: AutomationNode[] = [
     }
 
     @media (max-width: 1024px) {
+      .solutions-showcase-section {
+        min-height: auto;
+        justify-content: flex-start;
+        padding: 28px 16px 36px 0;
+      }
       .sol-ecosystem-row {
         display: flex;
         flex-direction: column;
@@ -2962,7 +2972,7 @@ const aboutFeatures = heroFeatures;
     @keyframes reveal-left{from{opacity:0;transform:translateX(-26px)}to{opacity:1;transform:none}}
     @keyframes reveal-right{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
     @keyframes reveal-bottom{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-    @media(max-width:850px){.about-hero{grid-template-columns:1fr;gap:18px;padding-top:28px}.card-marquee{width:calc(100% + 48px);margin-left:-24px}.story-copy p{font-size:15px}}
+    @media(max-width:850px){.about-page{min-height:auto;padding:32px 0}.about-hero{grid-template-columns:1fr;gap:18px;padding-top:20px}.card-marquee{width:calc(100% + 48px);margin-left:-24px}.story-copy p{font-size:15px}}
     @media(max-width:560px){.about-hero{padding-bottom:44px}.story-copy h1{font-size:40px}.story-copy h2{font-size:20px}.story-actions{gap:13px}.primary-action{padding:13px 16px}.story-card{flex-basis:270px;min-height:260px;padding:25px}.card-marquee{mask-image:none}.edge{display:none}}
     @media(prefers-reduced-motion:reduce){.reveal-left,.reveal-right,.reveal-bottom{opacity:1!important;transform:none!important;animation:none!important}.card-track{animation:none}.story-card{transition:none}}
   `,
@@ -5445,25 +5455,26 @@ const contactPillars = [
     .cpillar-title { font: 700 12.5px Manrope; color: #080f2b; margin-bottom: 2px; transform: translateZ(10px); }
     .cpillar-text { font-size: 11px; color: #69708a; line-height: 1.5; transform: translateZ(6px); }
     @media (max-width: 1100px) {
+      .contact-showcase { min-height: auto; justify-content: flex-start; padding: 32px 18px 36px; }
       .contact-main { grid-template-columns: 1fr; gap: 24px; }
       .map-blob-container { margin: 10px auto; }
     }
     @media (max-width: 900px) {
-      .contact-showcase { padding: 22px 14px 28px; }
+      .contact-showcase { padding: 26px 14px 30px; }
       .contact-pillars { grid-template-columns: repeat(2, 1fr); gap: 10px; }
       .scribble { display: none; }
       .plane-wrap { display: none; }
     }
     @media (max-width: 500px) {
-      .contact-showcase { padding: 18px 10px 24px; }
-      .map-blob { width: 230px; height: 230px; }
-      .map-blob-container { max-width: 260px; }
-      .float-chip { font-size: 10.5px; padding: 4px 8px; }
-      .chip1 { left: 0; top: -8px; }
-      .chip2 { right: 0; bottom: 8px; }
-      .chip3 { left: 6px; bottom: -8px; }
+      .contact-showcase { padding: 20px 10px 24px; }
+      .map-blob { width: 220px; height: 220px; }
+      .map-blob-container { max-width: 250px; }
+      .float-chip { font-size: 10px; padding: 3px 7px; }
+      .chip1 { left: 0; top: -6px; }
+      .chip2 { right: 0; bottom: 6px; }
+      .chip3 { left: 4px; bottom: -6px; }
       .contact-pillars { grid-template-columns: 1fr; }
-      .contact-title { font-size: clamp(24px, 6.5vw, 30px); }
+      .contact-title { font-size: clamp(22px, 6.2vw, 28px); }
       .contact-info-col, .contact-form-card { padding: 18px 14px 16px; }
     }
   `,

@@ -285,15 +285,21 @@ app-landing .hero-land::before {
   box-sizing: border-box;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1024px) {
   #home, #about, #services, #solutions, #blog, #contact, section[id], [id] {
-    scroll-margin-top: 58px !important;
+    scroll-margin-top: 64px !important;
   }
   .landing-contact-wrap,
   .landing-services-wrap,
   .landing-solutions-wrap,
   .landing-blog-wrap {
     min-height: auto;
+  }
+}
+
+@media (max-width: 860px) {
+  #home, #about, #services, #solutions, #blog, #contact, section[id], [id] {
+    scroll-margin-top: 58px !important;
   }
 }
 
