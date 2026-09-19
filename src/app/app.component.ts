@@ -2936,7 +2936,10 @@ const aboutCards = [
   { title: 'Build', description: 'We build technology with purpose, quality and long-term vision.', icon: '🚀' },
 ];
 
-const aboutFeatures = [
+const heroFeatures = [
+  { title: 'Scale', description: 'Ready for future growth', icon: '↗' },
+  { title: 'Technology', description: 'Modern tools and platforms', icon: '◈' },
+  { title: 'Digital Experiences', description: 'Simple, useful and engaging', icon: '◎' },
   { title: 'Innovate', description: 'Turning ideas into possibilities', icon: '💡' },
   { title: 'Develop', description: 'Building modern software', icon: '</>' },
   { title: 'Transform', description: 'Improving digital experiences', icon: '☁' },
@@ -2944,10 +2947,8 @@ const aboutFeatures = [
   { title: 'Grow', description: 'Creating scalable solutions', icon: '↗' },
   { title: 'Build', description: 'Technology with purpose', icon: '🚀' },
   { title: 'Create', description: 'From concept to product', icon: '✦' },
-  { title: 'Scale', description: 'Ready for future growth', icon: '⤢' },
-  { title: 'Technology', description: 'Modern tools and platforms', icon: '◈' },
-  { title: 'Digital Experiences', description: 'Simple, useful and engaging', icon: '◎' },
 ];
+const aboutFeatures = heroFeatures;
 
 @Component({
   selector: 'app-home-about-preview',
@@ -2961,7 +2962,7 @@ const aboutFeatures = [
           <h2>We are a new technology company focused on turning ideas into modern digital solutions.</h2>
           <p>Build4Big is our own technology venture, created with a passion for software, design and innovation. We are starting our journey by building useful, scalable and meaningful digital experiences for businesses and people.</p>
           <p>Our goal is simple — understand real problems, create smart solutions and continuously improve the way technology works for people.</p>
-          <div class="story-actions"><a href="#about-features" class="primary-action">Explore Our Journey <span>→</span></a><a href="#services" class="secondary-action"><i>▶</i> See What We Build</a></div>
+          <div class="story-actions"><a href="#services" class="primary-action">Explore Our Journey <span>→</span></a><a href="#services" class="secondary-action"><i>▶</i> See What We Build</a></div>
         </div>
         <div class="card-marquee reveal-right" aria-label="Build4Big values">
           <div class="edge edge-left"></div><div class="edge edge-right"></div>
@@ -2972,13 +2973,6 @@ const aboutFeatures = [
                 <h3>{{ card.title }}</h3><p>{{ card.description }}</p><span class="card-arrow">→</span>
               </article>
             </div>
-          </div>
-        </div>
-      </section>
-      <section id="about-features" class="feature-area reveal-bottom" aria-label="What Build4Big does">
-        <div class="feature-track">
-          <div class="feature-set" *ngFor="let _ of [0, 1]">
-            <article class="feature" *ngFor="let feature of features"><span class="feature-icon">{{ feature.icon }}</span><div><h3>{{ feature.title }}</h3><p>{{ feature.description }}</p></div></article>
           </div>
         </div>
       </section>
@@ -3013,26 +3007,17 @@ const aboutFeatures = [
     .edge{position:absolute;top:0;bottom:0;width:65px;z-index:2;pointer-events:none}
     .edge-left{left:0;background:linear-gradient(90deg,#f8faff,transparent)}
     .edge-right{right:0;background:linear-gradient(270deg,#f8faff,transparent)}
-    .feature-area{position:relative;overflow:hidden;padding:29px 0;border-top:2px solid #4a68ff;border-bottom:2px solid #4a68ff;background:linear-gradient(100deg,#f2f6ff,#fff 50%,#eef5ff);box-shadow:0 0 35px #5f7aff20}
-    .feature-track,.feature-set{display:flex;gap:0;width:max-content}
-    .feature-track{animation:feature-strip 32s linear infinite}
-    .feature-area:hover .feature-track{animation-play-state:paused}
-    .feature{width:245px;min-height:105px;display:flex;gap:14px;align-items:flex-start;padding:8px 23px;border-right:1px solid #cfd8ef}
-    .feature-icon{font-size:27px;line-height:1;color:#245af7}
-    .feature h3{font:800 17px Manrope;margin:0 0 5px}
-    .feature p{font-size:12px;line-height:1.45;color:#63708d;margin:0}
     .reveal-left,.reveal-right,.reveal-bottom{opacity:0;will-change:transform,opacity}
     .is-visible .reveal-left{animation:reveal-left .7s cubic-bezier(.22,1,.36,1) both}
     .is-visible .reveal-right{animation:reveal-right .7s .12s cubic-bezier(.22,1,.36,1) both}
     .is-visible .reveal-bottom{animation:reveal-bottom .7s .18s cubic-bezier(.22,1,.36,1) both}
     @keyframes about-cards{to{transform:translateX(-50%)}}
-    @keyframes feature-strip{from{transform:translateX(-50%)}to{transform:translateX(0)}}
     @keyframes reveal-left{from{opacity:0;transform:translateX(-26px)}to{opacity:1;transform:none}}
     @keyframes reveal-right{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
     @keyframes reveal-bottom{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
     @media(max-width:850px){.about-hero{grid-template-columns:1fr;gap:18px;padding-top:28px}.card-marquee{width:calc(100% + 48px);margin-left:-24px}.story-copy p{font-size:15px}}
-    @media(max-width:560px){.about-hero{padding-bottom:44px}.story-copy h1{font-size:40px}.story-copy h2{font-size:20px}.story-actions{gap:13px}.primary-action{padding:13px 16px}.story-card{flex-basis:270px;min-height:260px;padding:25px}.feature{width:230px;padding:8px 17px}.card-marquee{mask-image:none}.edge{display:none}}
-    @media(prefers-reduced-motion:reduce){.reveal-left,.reveal-right,.reveal-bottom{opacity:1!important;transform:none!important;animation:none!important}.card-track,.feature-track{animation:none}.story-card{transition:none}}
+    @media(max-width:560px){.about-hero{padding-bottom:44px}.story-copy h1{font-size:40px}.story-copy h2{font-size:20px}.story-actions{gap:13px}.primary-action{padding:13px 16px}.story-card{flex-basis:270px;min-height:260px;padding:25px}.card-marquee{mask-image:none}.edge{display:none}}
+    @media(prefers-reduced-motion:reduce){.reveal-left,.reveal-right,.reveal-bottom{opacity:1!important;transform:none!important;animation:none!important}.card-track{animation:none}.story-card{transition:none}}
   `,
 })
 export class HomeAboutPreviewComponent implements AfterViewInit, OnDestroy {
@@ -3040,7 +3025,6 @@ export class HomeAboutPreviewComponent implements AfterViewInit, OnDestroy {
   isVisible = signal(false);
   private observer?: IntersectionObserver;
   aboutCards = aboutCards;
-  features = aboutFeatures;
 
   ngAfterViewInit(): void {
     if (typeof IntersectionObserver !== 'undefined') {
@@ -5589,80 +5573,23 @@ export class ContactComponent {}
         </div>
 
 
-        <!-- Bottom Glass Features Bar matching Image 2 -->
+        <!-- Bottom Glass Running Marquee Bar matching Image 1 & 2 -->
         <div class="container hero-workflow-container">
-          <div class="hero-workflow-bar">
-            <!-- 01 Digital Experiences -->
-            <div class="workflow-item">
-              <div class="wf-icon icon-exp">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"/>
-                  <circle cx="12" cy="12" r="6"/>
-                  <circle cx="12" cy="12" r="2"/>
-                </svg>
-              </div>
-              <div class="wf-content">
-                <strong class="wf-title">Digital Experiences</strong>
-                <span class="wf-sub">Simple, useful and engaging</span>
-              </div>
-            </div>
-            <div class="wf-sep"></div>
-
-            <!-- 02 Innovate -->
-            <div class="workflow-item">
-              <div class="wf-icon icon-bulb">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M9 18h6"/><path d="M10 22h4"/>
-                  <path d="M12 2a7 7 0 0 0-7 7c0 3.03 1.8 5.65 4.38 6.78.38.16.62.54.62.95V18h4v-1.27c0-.41.24-.79.62-.95C17.2 14.65 19 12.03 19 9a7 7 0 0 0-7-7z"/>
-                </svg>
-              </div>
-              <div class="wf-content">
-                <strong class="wf-title">Innovate</strong>
-                <span class="wf-sub">Turning ideas into possibilities</span>
-              </div>
-            </div>
-            <div class="wf-sep"></div>
-
-            <!-- 03 Develop -->
-            <div class="workflow-item">
-              <div class="wf-icon code-style">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="16 18 22 12 16 6"/>
-                  <polyline points="8 6 2 12 8 18"/>
-                </svg>
-              </div>
-              <div class="wf-content">
-                <strong class="wf-title">Develop</strong>
-                <span class="wf-sub">Building modern software</span>
-              </div>
-            </div>
-            <div class="wf-sep"></div>
-
-            <!-- 04 Transform -->
-            <div class="workflow-item">
-              <div class="wf-icon icon-cloud">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
-                </svg>
-              </div>
-              <div class="wf-content">
-                <strong class="wf-title">Transform</strong>
-                <span class="wf-sub">Improving digital experiences</span>
-              </div>
-            </div>
-            <div class="wf-sep"></div>
-
-            <!-- 05 Automate -->
-            <div class="workflow-item">
-              <div class="wf-icon icon-gear">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="3"/>
-                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-                </svg>
-              </div>
-              <div class="wf-content">
-                <strong class="wf-title">Automate</strong>
-                <span class="wf-sub">Making work smarter</span>
+          <div class="hero-marquee-bar" aria-label="Build4Big Core Features">
+            <div class="marquee-edge edge-left"></div>
+            <div class="marquee-edge edge-right"></div>
+            <div class="hero-marquee-track">
+              <div class="hero-marquee-set" *ngFor="let _ of [0, 1]">
+                <div class="marquee-item" *ngFor="let item of features">
+                  <div class="wf-icon" [ngClass]="{'icon-bulb': item.title === 'Innovate', 'icon-cloud': item.title === 'Transform', 'icon-gear': item.title === 'Automate', 'icon-exp': item.title === 'Digital Experiences'}">
+                    <span class="wf-symbol">{{ item.icon }}</span>
+                  </div>
+                  <div class="wf-content">
+                    <strong class="wf-title">{{ item.title }}</strong>
+                    <span class="wf-sub">{{ item.description }}</span>
+                  </div>
+                  <div class="wf-sep"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -6142,40 +6069,69 @@ export class ContactComponent {}
       filter: drop-shadow(0 0 8px #00d2ff);
     }
 
-    /* Bottom Workflow Bar */
+    /* Bottom Glass Running Marquee Bar in Hero Section */
     .hero-workflow-container {
       position: relative;
       z-index: 5;
       width: 100%;
-      margin-top: 15px;
+      margin-top: 18px;
     }
-    .hero-workflow-bar {
+    .hero-marquee-bar {
+      position: relative;
       background: rgba(5, 18, 56, 0.78);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid rgba(0, 170, 255, 0.32);
       border-radius: 24px;
-      padding: 16px 26px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
+      padding: 13px 0;
+      overflow: hidden;
       box-shadow: 0 16px 40px rgba(1, 6, 24, 0.7);
+      user-select: none;
     }
-    .workflow-item {
+    .marquee-edge {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50px;
+      z-index: 3;
+      pointer-events: none;
+    }
+    .marquee-edge.edge-left {
+      left: 0;
+      background: linear-gradient(90deg, rgba(4, 15, 48, 0.95), transparent);
+    }
+    .marquee-edge.edge-right {
+      right: 0;
+      background: linear-gradient(270deg, rgba(4, 15, 48, 0.95), transparent);
+    }
+    .hero-marquee-track {
+      display: flex;
+      width: max-content;
+      animation: heroMarqueeScroll 30s linear infinite;
+      will-change: transform;
+    }
+    .hero-marquee-bar:hover .hero-marquee-track {
+      animation-play-state: paused;
+    }
+    .hero-marquee-set {
       display: flex;
       align-items: center;
-      gap: 12px;
-      flex: 1;
-      min-width: 0;
-      transition: transform 0.2s ease;
+      flex-shrink: 0;
     }
-    .workflow-item:hover {
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 0 20px;
+      flex-shrink: 0;
+      transition: transform 0.22s ease;
+    }
+    .marquee-item:hover {
       transform: translateY(-2px);
     }
     .wf-icon {
-      width: 42px;
-      height: 42px;
+      width: 40px;
+      height: 40px;
       border-radius: 12px;
       background: rgba(0, 110, 255, 0.2);
       border: 1px solid rgba(0, 180, 255, 0.45);
@@ -6187,7 +6143,14 @@ export class ContactComponent {}
       box-shadow: 0 0 14px rgba(0, 140, 255, 0.3);
       transition: transform 0.22s ease, box-shadow 0.22s ease;
     }
-    .workflow-item:hover .wf-icon {
+    .wf-symbol {
+      font-size: 19px;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .marquee-item:hover .wf-icon {
       transform: scale(1.08);
       box-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
     }
@@ -6197,7 +6160,7 @@ export class ContactComponent {}
       border-color: rgba(250, 204, 21, 0.45);
       box-shadow: 0 0 14px rgba(234, 179, 8, 0.3);
     }
-    .workflow-item:hover .wf-icon.icon-bulb {
+    .marquee-item:hover .wf-icon.icon-bulb {
       box-shadow: 0 0 20px rgba(250, 204, 21, 0.65);
     }
     .wf-icon.icon-cloud {
@@ -6206,70 +6169,31 @@ export class ContactComponent {}
     .wf-icon.icon-gear {
       color: #00e5ff;
     }
-    .wf-icon svg {
-      width: 20px;
-      height: 20px;
-    }
     .wf-content {
       display: flex;
       flex-direction: column;
-      min-width: 0;
     }
     .wf-title {
-      font: 700 13.5px Manrope, sans-serif;
+      font: 700 14px Manrope, sans-serif;
       color: #ffffff;
       margin: 0 0 2px;
       white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
     .wf-sub {
-      font-size: 11px;
+      font-size: 11.5px;
       color: #94a9cc;
       white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
     .wf-sep {
       width: 1px;
-      height: 36px;
+      height: 30px;
       background: rgba(255, 255, 255, 0.12);
+      margin-left: 18px;
       flex-shrink: 0;
     }
-
-    /* Responsiveness for Laptop, Tablet & Mobile */
-    @media (max-width: 1280px) {
-      .hero-headline {
-        font-size: clamp(40px, 4.4vw, 54px);
-      }
-      .hero-subtext {
-        font-size: 15px;
-        margin-bottom: 28px;
-      }
-      .hero-visual-col {
-        height: 480px;
-      }
-      .glass-chip {
-        min-width: 195px;
-        padding: 12px 15px;
-      }
-      .chip-ai { top: 20px; left: 0; }
-      .chip-innovation { top: 28px; right: -5px; }
-      .chip-strategy { bottom: 45px; left: 0; }
-      .chip-support { bottom: 55px; right: -5px; }
-    }
-    @media (max-width: 1180px) {
-      .hero-workflow-bar {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-      }
-      .wf-sep { display: none; }
-    }
-    @media (max-width: 860px) {
-      .hero-workflow-bar {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    @keyframes heroMarqueeScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
     }
     @media (max-width: 992px) {
       .hero-interactive-stage {
@@ -6369,10 +6293,30 @@ export class ContactComponent {}
       .node-2 { top: 20px; right: 25px; }
       .node-3 { bottom: 25px; left: 35px; }
       .node-4 { bottom: 25px; right: 35px; }
-      .hero-workflow-bar {
-        grid-template-columns: 1fr;
-        padding: 16px 18px;
-        gap: 12px;
+      .hero-marquee-bar {
+        padding: 10px 0;
+        border-radius: 18px;
+      }
+      .marquee-item {
+        padding: 0 14px;
+        gap: 9px;
+      }
+      .wf-icon {
+        width: 34px;
+        height: 34px;
+      }
+      .wf-symbol {
+        font-size: 16px;
+      }
+      .wf-title {
+        font-size: 13px;
+      }
+      .wf-sub {
+        font-size: 10.5px;
+      }
+      .wf-sep {
+        margin-left: 14px;
+        height: 24px;
       }
     }
     @media (max-width: 480px) {
@@ -6617,6 +6561,7 @@ export class ContactComponent {}
 export class LandingComponent {
   services = services;
   posts = posts;
+  features = heroFeatures;
 
   // Interactive mouse move parallax state
   heroMouseX = 0;
