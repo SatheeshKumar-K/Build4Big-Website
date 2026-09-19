@@ -191,7 +191,7 @@ const posts: Post[] = [
         href="#services"
         [class.active]="activeSection() === 'services'"
         (click)="scrollTo('services', $event)"
-        >Services</a
+        >Product</a
       >
       <a
         href="#blog"
@@ -495,7 +495,7 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
         <nav class="foot-nav">
           <a href="#home" (click)="scrollTo('home', $event)">Home</a>
           <a href="#about" (click)="scrollTo('about', $event)">About Us</a>
-          <a href="#services" (click)="scrollTo('services', $event)">Services</a>
+          <a href="#services" (click)="scrollTo('services', $event)">Product</a>
           <a href="#blog" (click)="scrollTo('blog', $event)">Blog</a>
           <a href="#contact" (click)="scrollTo('contact', $event)">Contact</a>
         </nav>
@@ -4437,7 +4437,7 @@ export class ContactComponent {}
     <div id="home">
       <header class="one-nav">
         <a href="#home" class="menu-logo" aria-label="Build4Big home"><span class="brand-image"><img src="/build4big-mark.svg" alt="Build4Big 4B logo" /></span><span>Build4Big</span></a>
-        <nav><a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#blog">Blog</a><a href="#contact">Contact</a></nav>
+        <nav><a href="#home">Home</a><a href="#about">About</a><a href="#services">Product</a><a href="#blog">Blog</a><a href="#contact">Contact</a></nav>
         <a href="#contact">Get Started</a>
       </header>
       <!-- Interactive 3D Hero Section matching image -->
