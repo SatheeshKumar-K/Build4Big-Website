@@ -1320,6 +1320,11 @@ const servicePillars = [
       z-index: 25;
       box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
       transition: all 0.25s ease;
+      animation: arrowSoftPulse 3.5s ease-in-out infinite;
+    }
+    @keyframes arrowSoftPulse {
+      0%, 100% { box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35); }
+      50% { box-shadow: 0 8px 24px rgba(37, 99, 235, 0.55), 0 0 12px rgba(59, 130, 246, 0.35); }
     }
     .nav-arrow:hover {
       transform: scale(1.1);
@@ -1359,6 +1364,7 @@ const servicePillars = [
     }
     .service-card.is-active {
       box-shadow: 0 20px 44px -10px rgba(37, 99, 235, 0.22),
+                  0 0 22px rgba(59, 130, 246, 0.16),
                   0 0 0 1.5px rgba(255, 255, 255, 0.95) inset;
       background: linear-gradient(180deg, #ffffff, #f7faff);
       cursor: default;
@@ -1380,6 +1386,11 @@ const servicePillars = [
       height: 56px;
       border-radius: 18px;
       transform: translateY(-2px);
+      animation: bubbleFloat 3.2s ease-in-out infinite;
+    }
+    @keyframes bubbleFloat {
+      0%, 100% { transform: translateY(-2px) scale(1); filter: drop-shadow(0 4px 12px rgba(37, 99, 235, 0.35)); }
+      50% { transform: translateY(-5px) scale(1.04); filter: drop-shadow(0 8px 20px rgba(37, 99, 235, 0.55)); }
     }
 
     /* Card Typography */
@@ -2900,13 +2911,15 @@ const aboutFeatures = heroFeatures;
     .card-track,.card-set{display:flex;gap:16px;width:max-content}
     .card-track{animation:about-cards 30s linear infinite}
     .card-marquee:hover .card-track{animation-play-state:paused}
-    .story-card{position:relative;flex:0 0 240px;min-height:230px;padding:22px 20px;border:1px solid #ffffffc9;border-radius:20px;background:linear-gradient(145deg,#f8fbffcf,#dbe7ffcc);box-shadow:0 14px 34px #1b478c16;backdrop-filter:blur(12px);transition:transform .25s ease,box-shadow .25s ease}
-    .story-card:hover{transform:translateY(-5px);box-shadow:0 20px 40px #1c4baa2a}
+    .story-card{position:relative;flex:0 0 240px;min-height:230px;padding:22px 20px;border:1px solid #ffffffc9;border-radius:20px;background:linear-gradient(145deg,#f8fbffcf,#dbe7ffcc);box-shadow:0 14px 34px #1b478c16;backdrop-filter:blur(12px);transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease}
+    .story-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 22px 45px #1c4baa2a,0 0 24px rgba(38,96,249,0.18)}
     .card-count{color:#6276ae;font-size:12px}
-    .card-icon{float:right;display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:linear-gradient(145deg,#725aff,#06c8e9);color:#fff;font-size:20px;box-shadow:0 8px 18px #3b66e555}
+    .card-icon{float:right;display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:linear-gradient(145deg,#725aff,#06c8e9);color:#fff;font-size:20px;box-shadow:0 8px 18px #3b66e555;animation:cardIconBob 3.6s ease-in-out infinite}
+    @keyframes cardIconBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px) scale(1.06)}}
     .story-card h3{font:800 24px Manrope;letter-spacing:-.05em;margin:44px 0 6px}
     .story-card p{color:#58698f;font-size:12.5px;line-height:1.5;margin:0;max-width:195px}
-    .card-arrow{position:absolute;bottom:20px;left:20px;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;color:#2660f9;background:#fff;box-shadow:0 4px 10px #27428624;font-size:18px}
+    .card-arrow{position:absolute;bottom:20px;left:20px;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;color:#2660f9;background:#fff;box-shadow:0 4px 10px #27428624;font-size:18px;transition:all .25s ease}
+    .story-card:hover .card-arrow{transform:translateX(4px);background:#2660f9;color:#fff;box-shadow:0 6px 14px #2660f944}
     .edge{position:absolute;top:0;bottom:0;width:65px;z-index:2;pointer-events:none}
     .edge-left{left:0;background:linear-gradient(90deg,#f8faff,transparent)}
     .edge-right{right:0;background:linear-gradient(270deg,#f8faff,transparent)}
@@ -5419,46 +5432,54 @@ export class ContactComponent {}
             </div>
 
             <!-- Floating Glass Card 1: AI Solutions (Top Left) -->
-            <div class="glass-chip chip-ai" [style.transform]="'translate3d(' + heroMouseX * -15 + 'px, ' + heroMouseY * -15 + 'px, 35px)'">
-              <div class="chip-icon icon-bulb">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-7 7c0 3.03 1.8 5.65 4.38 6.78.38.16.62.54.62.95V18h4v-1.27c0-.41.24-.79.62-.95C17.2 14.65 19 12.03 19 9a7 7 0 0 0-7-7z"/></svg>
-              </div>
-              <div class="chip-text">
-                <strong>AI Solutions</strong>
-                <small>Turn Ideas into Intelligence</small>
+            <div class="chip-anchor chip-ai" [style.transform]="'translate3d(' + heroMouseX * -15 + 'px, ' + heroMouseY * -15 + 'px, 35px)'">
+              <div class="glass-chip anim-chip-1">
+                <div class="chip-icon icon-bulb">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-7 7c0 3.03 1.8 5.65 4.38 6.78.38.16.62.54.62.95V18h4v-1.27c0-.41.24-.79.62-.95C17.2 14.65 19 12.03 19 9a7 7 0 0 0-7-7z"/></svg>
+                </div>
+                <div class="chip-text">
+                  <strong>AI Solutions</strong>
+                  <small>Turn Ideas into Intelligence</small>
+                </div>
               </div>
             </div>
 
             <!-- Floating Glass Card 2: Product Innovation (Top Right) -->
-            <div class="glass-chip chip-innovation" [style.transform]="'translate3d(' + heroMouseX * 18 + 'px, ' + heroMouseY * -12 + 'px, 45px)'">
-              <div class="chip-icon icon-rocket">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4.5c1.45-1.47 4.5-2 4.5-2"/><path d="M12 15v5s3.03-.55 4.5-2c1.47-1.45 2-4.5 2-4.5"/></svg>
-              </div>
-              <div class="chip-text">
-                <strong>Product Innovation</strong>
-                <small>Build What Matters</small>
+            <div class="chip-anchor chip-innovation" [style.transform]="'translate3d(' + heroMouseX * 18 + 'px, ' + heroMouseY * -12 + 'px, 45px)'">
+              <div class="glass-chip anim-chip-2">
+                <div class="chip-icon icon-rocket">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4.5c1.45-1.47 4.5-2 4.5-2"/><path d="M12 15v5s3.03-.55 4.5-2c1.47-1.45 2-4.5 2-4.5"/></svg>
+                </div>
+                <div class="chip-text">
+                  <strong>Product Innovation</strong>
+                  <small>Build What Matters</small>
+                </div>
               </div>
             </div>
 
             <!-- Floating Glass Card 3: Business Strategy (Bottom Left) -->
-            <div class="glass-chip chip-strategy" [style.transform]="'translate3d(' + heroMouseX * -18 + 'px, ' + heroMouseY * 15 + 'px, 30px)'">
-              <div class="chip-icon icon-bar">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/><path d="M4 8l6-4 7 3 4-4"/></svg>
-              </div>
-              <div class="chip-text">
-                <strong>Business Strategy</strong>
-                <small>Plan for a Bigger Future</small>
+            <div class="chip-anchor chip-strategy" [style.transform]="'translate3d(' + heroMouseX * -18 + 'px, ' + heroMouseY * 15 + 'px, 30px)'">
+              <div class="glass-chip anim-chip-3">
+                <div class="chip-icon icon-bar">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/><path d="M4 8l6-4 7 3 4-4"/></svg>
+                </div>
+                <div class="chip-text">
+                  <strong>Business Strategy</strong>
+                  <small>Plan for a Bigger Future</small>
+                </div>
               </div>
             </div>
 
             <!-- Floating Glass Card 4: Dedicated Support (Bottom Right) -->
-            <div class="glass-chip chip-support" [style.transform]="'translate3d(' + heroMouseX * 16 + 'px, ' + heroMouseY * 18 + 'px, 25px)'">
-              <div class="chip-icon icon-users">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              </div>
-              <div class="chip-text">
-                <strong>Dedicated Support</strong>
-                <small>Your Growth Our Priority</small>
+            <div class="chip-anchor chip-support" [style.transform]="'translate3d(' + heroMouseX * 16 + 'px, ' + heroMouseY * 18 + 'px, 25px)'">
+              <div class="glass-chip anim-chip-4">
+                <div class="chip-icon icon-users">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="chip-text">
+                  <strong>Dedicated Support</strong>
+                  <small>Your Growth Our Priority</small>
+                </div>
               </div>
             </div>
 
@@ -5676,17 +5697,39 @@ export class ContactComponent {}
       gap: 14px;
     }
     .btn-hero-gradient {
+      position: relative;
       background: linear-gradient(135deg, #0066ff, #00b4ff);
       color: #ffffff;
       font: 700 13.5px Manrope, sans-serif;
       padding: 10px 22px;
       border-radius: 25px;
       text-decoration: none;
-      box-shadow: 0 8px 24px rgba(0, 110, 255, 0.45);
+      box-shadow: 0 8px 24px rgba(0, 110, 255, 0.45), 0 0 14px rgba(0, 210, 255, 0.25);
       transition: all 0.25s ease;
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      overflow: hidden;
+      animation: ctaPulseGlow 4s ease-in-out infinite;
+    }
+    .btn-hero-gradient::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+      transform: rotate(25deg);
+      animation: btnSweep 4.5s ease-in-out infinite;
+    }
+    @keyframes ctaPulseGlow {
+      0%, 100% { box-shadow: 0 8px 24px rgba(0, 110, 255, 0.45), 0 0 14px rgba(0, 210, 255, 0.25); }
+      50% { box-shadow: 0 12px 32px rgba(0, 140, 255, 0.65), 0 0 22px rgba(0, 220, 255, 0.45); }
+    }
+    @keyframes btnSweep {
+      0% { left: -60%; }
+      20%, 100% { left: 160%; }
     }
     .btn-hero-gradient:hover {
       transform: translateY(-2px);
@@ -5879,8 +5922,18 @@ export class ContactComponent {}
     }
 
     /* Floating Glass Cards */
-    .glass-chip {
+    .chip-anchor {
       position: absolute;
+      z-index: 4;
+      pointer-events: auto;
+      transition: transform 0.22s cubic-bezier(0.1, 0.9, 0.2, 1);
+    }
+    .chip-ai { top: 10px; left: 0; }
+    .chip-innovation { top: 15px; right: 0; }
+    .chip-strategy { bottom: 20px; left: 0; }
+    .chip-support { bottom: 28px; right: 5px; }
+
+    .glass-chip {
       background: rgba(10, 28, 80, 0.78);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
@@ -5893,17 +5946,42 @@ export class ContactComponent {}
       min-width: 165px;
       box-shadow: 
         0 12px 30px rgba(0, 8, 38, 0.7),
+        0 0 16px rgba(0, 170, 255, 0.2),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
-      z-index: 4;
       cursor: default;
-      transition: transform 0.22s cubic-bezier(0.1, 0.9, 0.2, 1), box-shadow 0.22s ease, border-color 0.22s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
     .glass-chip:hover {
       border-color: #00e1ff;
       box-shadow: 
         0 18px 48px rgba(0, 150, 255, 0.5),
+        0 0 24px rgba(0, 225, 255, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.35);
+      transform: scale(1.05) !important;
     }
+
+    .anim-chip-1 { animation: chipLevitate1 5.4s ease-in-out infinite; }
+    .anim-chip-2 { animation: chipLevitate2 6.0s ease-in-out infinite 0.8s; }
+    .anim-chip-3 { animation: chipLevitate3 5.7s ease-in-out infinite 1.6s; }
+    .anim-chip-4 { animation: chipLevitate4 6.4s ease-in-out infinite 2.2s; }
+
+    @keyframes chipLevitate1 {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-7px) rotate(0.6deg); }
+    }
+    @keyframes chipLevitate2 {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(-0.8deg); }
+    }
+    @keyframes chipLevitate3 {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-6px) rotate(-0.5deg); }
+    }
+    @keyframes chipLevitate4 {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-7px) rotate(0.7deg); }
+    }
+
     .chip-icon {
       width: 32px;
       height: 32px;
@@ -5912,6 +5990,11 @@ export class ContactComponent {}
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      animation: chipIconPulse 3.5s ease-in-out infinite;
+    }
+    @keyframes chipIconPulse {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 3px currentColor); }
+      50% { transform: scale(1.08); filter: drop-shadow(0 0 10px currentColor); }
     }
     .chip-icon svg {
       width: 16px;
@@ -5955,11 +6038,6 @@ export class ContactComponent {}
       color: #9bb7e3;
       line-height: 1.25;
     }
-
-    .chip-ai { top: 10px; left: 0; }
-    .chip-innovation { top: 15px; right: 0; }
-    .chip-strategy { bottom: 20px; left: 0; }
-    .chip-support { bottom: 28px; right: 5px; }
 
     /* Quote Badge */
     .script-badge-quote {
