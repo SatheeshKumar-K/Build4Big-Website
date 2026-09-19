@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, inject, OnDestroy, signal, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, OnDestroy, OnInit, signal, ViewChild } from '@angular/core';
 import {
   ActivatedRoute,
   Router,
@@ -192,6 +192,12 @@ const posts: Post[] = [
         [class.active]="activeSection() === 'services'"
         (click)="scrollTo('services', $event)"
         >Product</a
+      >
+      <a
+        href="#solutions"
+        [class.active]="activeSection() === 'solutions'"
+        (click)="scrollTo('solutions', $event)"
+        >Solutions</a
       >
       <a
         href="#blog"
@@ -407,7 +413,7 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     if (typeof window !== 'undefined') {
       const updateActive = () => {
-        const sections = ['home', 'about', 'services', 'blog', 'contact'];
+        const sections = ['home', 'about', 'services', 'solutions', 'blog', 'contact'];
         const currentScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
         const triggerPos = currentScrollY + 140;
         for (let i = sections.length - 1; i >= 0; i--) {
@@ -496,6 +502,7 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
           <a href="#home" (click)="scrollTo('home', $event)">Home</a>
           <a href="#about" (click)="scrollTo('about', $event)">About Us</a>
           <a href="#services" (click)="scrollTo('services', $event)">Product</a>
+          <a href="#solutions" (click)="scrollTo('solutions', $event)">Solutions</a>
           <a href="#blog" (click)="scrollTo('blog', $event)">Blog</a>
           <a href="#contact" (click)="scrollTo('contact', $event)">Contact</a>
         </nav>
@@ -1910,6 +1917,1049 @@ export class ServicesShowcaseComponent implements AfterViewInit, OnDestroy {
   `,
 })
 export class ServicesComponent {}
+
+interface AutomationSolution {
+  id: string;
+  title: string;
+  category: string;
+  iconType: 'social' | 'chatbot' | 'install' | 'ecommerce' | 'cloud';
+  accentColor: string;
+  glowColor: string;
+  haloGradient: string;
+  description: string;
+  tag: string;
+  metrics: string;
+  features: string[];
+}
+
+const automationSolutionsList: AutomationSolution[] = [
+  {
+    id: 'social',
+    title: 'Social Media Automation',
+    category: 'Marketing & Audience',
+    iconType: 'social',
+    accentColor: '#ec4899',
+    glowColor: 'rgba(236, 72, 153, 0.45)',
+    haloGradient: 'linear-gradient(135deg, #fb7185, #ec4899, #d946ef)',
+    description: 'Auto-publish scheduled cross-platform content, generate AI captions, reply to DMs instantly, and analyze social metrics in real time.',
+    tag: 'Omnichannel Growth',
+    metrics: '10x Faster Reach',
+    features: ['Auto DM & Comment Replies', 'Multi-Platform Sync', 'AI Viral Trend Analysis'],
+  },
+  {
+    id: 'chatbot',
+    title: 'AI Chatbot Solution',
+    category: 'Conversational Intelligence',
+    iconType: 'chatbot',
+    accentColor: '#8b5cf6',
+    glowColor: 'rgba(139, 92, 246, 0.45)',
+    haloGradient: 'linear-gradient(135deg, #a855f7, #8b5cf6, #6366f1)',
+    description: '24/7 intelligent multi-channel customer agents with deep context understanding, automated lead qualification, and multilingual customer support.',
+    tag: '24/7 AI Support',
+    metrics: '99.4% Accuracy',
+    features: ['Context-Aware NLP', 'CRM & Ticket Sync', 'Zero Wait Time Support'],
+  },
+  {
+    id: 'install',
+    title: 'Install Automation',
+    category: 'DevOps & Deployment',
+    iconType: 'install',
+    accentColor: '#10b981',
+    glowColor: 'rgba(16, 185, 129, 0.45)',
+    haloGradient: 'linear-gradient(135deg, #34d399, #10b981, #059669)',
+    description: 'Zero-touch installation pipelines, automated server configuration, self-healing runtime setups, and seamless continuous deployment.',
+    tag: 'One-Click CI/CD',
+    metrics: '80% Setup Saved',
+    features: ['Automated Server Config', 'Zero-Downtime Rollouts', 'Auto Recovery & Health'],
+  },
+  {
+    id: 'ecommerce',
+    title: 'E-commerce Automation',
+    category: 'Sales & Conversion',
+    iconType: 'ecommerce',
+    accentColor: '#f59e0b',
+    glowColor: 'rgba(245, 158, 11, 0.45)',
+    haloGradient: 'linear-gradient(135deg, #fbbf24, #f59e0b, #ea580c)',
+    description: 'Synchronized inventory alerts, abandoned cart recovery sequences, dynamic AI pricing adjustments, and frictionless checkout processing.',
+    tag: 'Revenue Engine',
+    metrics: '35% Conversion Up',
+    features: ['Abandoned Cart Recovery', 'Live Inventory Tracking', 'Dynamic Pricing Rules'],
+  },
+  {
+    id: 'cloud',
+    title: 'Cloud Automation',
+    category: 'Scalable Infrastructure',
+    iconType: 'cloud',
+    accentColor: '#0ea5e9',
+    glowColor: 'rgba(14, 165, 233, 0.45)',
+    haloGradient: 'linear-gradient(135deg, #38bdf8, #0ea5e9, #2563eb)',
+    description: 'Elastic auto-scaling infrastructure, automated multi-region backups, cloud security compliance, and intelligent resource optimization.',
+    tag: 'Elastic Cloud',
+    metrics: '99.99% Uptime',
+    features: ['Auto-Healing Cloud', 'Disaster Recovery Backup', 'Cost & Latency Guard'],
+  },
+];
+
+@Component({
+  selector: 'app-solutions-showcase',
+  imports: [CommonModule],
+  template: `
+    <div class="solutions-container" (mouseenter)="pauseAutoplay()" (mouseleave)="startAutoplay()">
+      <!-- Ambient background glow orbs -->
+      <div class="ambient-orb orb-1" aria-hidden="true"></div>
+      <div class="ambient-orb orb-2" aria-hidden="true"></div>
+      <div class="ambient-orb orb-3" aria-hidden="true"></div>
+
+      <!-- Section Header -->
+      <div class="solutions-header">
+        <div class="solutions-pill-badge">
+          <span class="badge-dot"></span>
+          <span>AI &amp; AUTOMATION SOLUTIONS</span>
+        </div>
+        <h2 class="solutions-title">Intelligent Automation <span class="grad">Ecosystem</span></h2>
+        <p class="solutions-sub">
+          Connect your business with our centralized AI Automation hub — orchestrating social media, chatbots, deployment, commerce, and cloud systems effortlessly.
+        </p>
+      </div>
+
+      <!-- Interactive Orbital Star Stage matching reference image -->
+      <div class="solutions-stage-wrapper">
+        <div class="solutions-diagram-stage">
+          <!-- Background SVG for connecting rays, dashed concentric orbits, and animated light pulses -->
+          <svg class="diagram-svg-canvas" viewBox="0 0 700 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <!-- Gradients for connecting rays -->
+              <linearGradient id="raySocial" x1="350" y1="350" x2="350" y2="105" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8" />
+                <stop offset="60%" stop-color="#f43f5e" stop-opacity="0.9" />
+                <stop offset="100%" stop-color="#ec4899" stop-opacity="1" />
+              </linearGradient>
+              <linearGradient id="rayChatbot" x1="350" y1="350" x2="575" y2="265" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8" />
+                <stop offset="60%" stop-color="#a855f7" stop-opacity="0.9" />
+                <stop offset="100%" stop-color="#8b5cf6" stop-opacity="1" />
+              </linearGradient>
+              <linearGradient id="rayInstall" x1="350" y1="350" x2="485" y2="540" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8" />
+                <stop offset="60%" stop-color="#34d399" stop-opacity="0.9" />
+                <stop offset="100%" stop-color="#10b981" stop-opacity="1" />
+              </linearGradient>
+              <linearGradient id="rayEcommerce" x1="350" y1="350" x2="215" y2="540" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8" />
+                <stop offset="60%" stop-color="#fbbf24" stop-opacity="0.9" />
+                <stop offset="100%" stop-color="#f59e0b" stop-opacity="1" />
+              </linearGradient>
+              <linearGradient id="rayCloud" x1="350" y1="350" x2="125" y2="265" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8" />
+                <stop offset="60%" stop-color="#0ea5e9" stop-opacity="0.9" />
+                <stop offset="100%" stop-color="#2563eb" stop-opacity="1" />
+              </linearGradient>
+            </defs>
+
+            <!-- Concentric dashed orbital rings -->
+            <circle cx="350" cy="350" r="160" class="orbit-dashed orbit-inner" />
+            <circle cx="350" cy="350" r="235" class="orbit-dashed orbit-middle" />
+            <circle cx="350" cy="350" r="305" class="orbit-dashed orbit-outer" />
+
+            <!-- Orbiting connection dots along the circle matching reference image -->
+            <circle cx="350" cy="115" r="5" class="orbit-guide-dot" />
+            <circle cx="485" cy="165" r="4" class="orbit-guide-dot dim" />
+            <circle cx="575" cy="265" r="5" class="orbit-guide-dot" />
+            <circle cx="570" cy="415" r="4" class="orbit-guide-dot dim" />
+            <circle cx="485" cy="540" r="5" class="orbit-guide-dot" />
+            <circle cx="350" cy="585" r="4" class="orbit-guide-dot dim" />
+            <circle cx="215" cy="540" r="5" class="orbit-guide-dot" />
+            <circle cx="130" cy="415" r="4" class="orbit-guide-dot dim" />
+            <circle cx="125" cy="265" r="5" class="orbit-guide-dot" />
+            <circle cx="215" cy="165" r="4" class="orbit-guide-dot dim" />
+
+            <!-- Connecting Rays from Center to the 5 Satellite Nodes -->
+            <!-- Ray 1: Social Media (Top) -->
+            <line x1="350" y1="230" x2="350" y2="120" stroke="url(#raySocial)" stroke-width="3" stroke-linecap="round" class="connector-line line-social" [class.active-ray]="activeId() === 'social'" />
+            <circle cx="350" cy="230" r="5.5" fill="#ec4899" class="junction-dot" />
+            <circle cx="350" cy="120" r="5.5" fill="#ec4899" class="junction-dot glow-pink" />
+
+            <!-- Ray 2: AI Chatbot (Top Right) -->
+            <line x1="435" y1="285" x2="560" y2="270" stroke="url(#rayChatbot)" stroke-width="3" stroke-linecap="round" class="connector-line line-chatbot" [class.active-ray]="activeId() === 'chatbot'" />
+            <circle cx="435" cy="285" r="5.5" fill="#8b5cf6" class="junction-dot" />
+            <circle cx="560" cy="270" r="5.5" fill="#8b5cf6" class="junction-dot glow-purple" />
+
+            <!-- Ray 3: Install Automation (Bottom Right) -->
+            <line x1="405" y1="415" x2="480" y2="515" stroke="url(#rayInstall)" stroke-width="3" stroke-linecap="round" class="connector-line line-install" [class.active-ray]="activeId() === 'install'" />
+            <circle cx="405" cy="415" r="5.5" fill="#10b981" class="junction-dot" />
+            <circle cx="480" cy="515" r="5.5" fill="#10b981" class="junction-dot glow-green" />
+
+            <!-- Ray 4: E-commerce (Bottom Left) -->
+            <line x1="295" y1="415" x2="220" y2="515" stroke="url(#rayEcommerce)" stroke-width="3" stroke-linecap="round" class="connector-line line-ecommerce" [class.active-ray]="activeId() === 'ecommerce'" />
+            <circle cx="295" cy="415" r="5.5" fill="#f59e0b" class="junction-dot" />
+            <circle cx="220" cy="515" r="5.5" fill="#f59e0b" class="junction-dot glow-amber" />
+
+            <!-- Ray 5: Cloud Automation (Top Left) -->
+            <line x1="265" y1="285" x2="140" y2="270" stroke="url(#rayCloud)" stroke-width="3" stroke-linecap="round" class="connector-line line-cloud" [class.active-ray]="activeId() === 'cloud'" />
+            <circle cx="265" cy="285" r="5.5" fill="#0ea5e9" class="junction-dot" />
+            <circle cx="140" cy="270" r="5.5" fill="#0ea5e9" class="junction-dot glow-cyan" />
+          </svg>
+
+          <!-- Central Core: AI Automation with high-tech Robot & Infinity Symbol -->
+          <div class="central-core-wrapper">
+            <div class="core-pulse-wave wave-1"></div>
+            <div class="core-pulse-wave wave-2"></div>
+            <div class="central-ai-core" (click)="selectCore()">
+              <!-- Glowing high-tech border -->
+              <div class="core-inner-glow"></div>
+              
+              <!-- Cute Robot Head Icon SVG -->
+              <div class="robot-head-wrap">
+                <svg viewBox="0 0 100 80" class="robot-head-svg">
+                  <!-- Antenna -->
+                  <circle cx="50" cy="8" r="5" fill="#00d8ff" class="antenna-tip" />
+                  <rect x="48" y="12" width="4" height="10" rx="2" fill="#7dd3fc" />
+                  <!-- Ears -->
+                  <rect x="14" y="32" width="8" height="18" rx="4" fill="#0ea5e9" />
+                  <rect x="78" y="32" width="8" height="18" rx="4" fill="#0ea5e9" />
+                  <!-- Face Container -->
+                  <rect x="20" y="20" width="60" height="42" rx="18" fill="#ffffff" stroke="#38bdf8" stroke-width="2.5" />
+                  <!-- Visor Screen -->
+                  <rect x="26" y="27" width="48" height="28" rx="13" fill="#081536" />
+                  <!-- Glowing Visor Eyes -->
+                  <ellipse cx="38" cy="41" rx="6" ry="7" fill="#00e5ff" class="robot-eye eye-left" />
+                  <ellipse cx="62" cy="41" rx="6" ry="7" fill="#00e5ff" class="robot-eye eye-right" />
+                  <circle cx="36" cy="39" r="2" fill="#ffffff" />
+                  <circle cx="60" cy="39" r="2" fill="#ffffff" />
+                  <!-- Smile indicator -->
+                  <path d="M44 48 Q50 52 56 48" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" fill="none" />
+                </svg>
+              </div>
+
+              <!-- Text matching reference: "AI Automation" -->
+              <div class="core-title-group">
+                <span class="core-ai-text">AI</span>
+                <span class="core-automation-text">Automation</span>
+              </div>
+
+              <!-- Glowing infinity symbol ∞ underneath -->
+              <div class="core-infinity-wrap">
+                <svg viewBox="0 0 60 28" class="infinity-svg">
+                  <path d="M16 14 C6 14 6 5 16 5 C25 5 35 23 44 23 C54 23 54 14 44 14 C35 14 25 5 16 5" fill="none" stroke="#00e5ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="infinity-path-bg" />
+                  <path d="M44 14 C54 14 54 23 44 23 C35 23 25 5 16 5 C6 5 6 14 16 14 C25 14 35 23 44 23" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="infinity-path-flow" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5 Orbiting Satellite Nodes matching reference image -->
+
+          <!-- 1. Social Media Automation (Top) -->
+          <div class="satellite-node node-social" [class.is-active]="activeId() === 'social'" (click)="selectNode('social')">
+            <div class="node-halo halo-pink"></div>
+            <div class="node-inner-card">
+              <div class="node-icon-bubble icon-social">
+                <!-- Instagram camera gradient icon -->
+                <svg viewBox="0 0 32 32" class="social-insta-icon">
+                  <defs>
+                    <linearGradient id="instaGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#ffb900" />
+                      <stop offset="25%" stop-color="#ff0040" />
+                      <stop offset="60%" stop-color="#d300c5" />
+                      <stop offset="100%" stop-color="#7638fa" />
+                    </linearGradient>
+                  </defs>
+                  <rect x="3" y="3" width="26" height="26" rx="8" fill="url(#instaGrad)" />
+                  <rect x="7" y="7" width="18" height="18" rx="5" fill="none" stroke="#ffffff" stroke-width="2" />
+                  <circle cx="16" cy="16" r="4.5" fill="none" stroke="#ffffff" stroke-width="2" />
+                  <circle cx="21.5" cy="10.5" r="1.2" fill="#ffffff" />
+                </svg>
+              </div>
+              <div class="node-label">Social Media<br />Automation</div>
+            </div>
+          </div>
+
+          <!-- 2. AI Chatbot Solution (Top Right) -->
+          <div class="satellite-node node-chatbot" [class.is-active]="activeId() === 'chatbot'" (click)="selectNode('chatbot')">
+            <div class="node-halo halo-purple"></div>
+            <div class="node-inner-card">
+              <div class="node-icon-bubble icon-chatbot">
+                <!-- Robot Chatbot with Speech Bubble Icon -->
+                <svg viewBox="0 0 36 32" class="chatbot-icon-svg">
+                  <!-- Robot Head -->
+                  <circle cx="16" cy="6" r="2.5" fill="#8b5cf6" />
+                  <rect x="14.5" y="8" width="3" height="4" fill="#a78bfa" />
+                  <rect x="4" y="12" width="24" height="18" rx="7" fill="#8b5cf6" />
+                  <!-- Visor / Eyes -->
+                  <ellipse cx="11" cy="21" rx="2.5" ry="3" fill="#ffffff" />
+                  <ellipse cx="21" cy="21" rx="2.5" ry="3" fill="#ffffff" />
+                  <!-- Speech Bubble -->
+                  <rect x="23" y="4" width="12" height="9" rx="3.5" fill="#6366f1" />
+                  <polygon points="23,10 21,12 25,10" fill="#6366f1" />
+                  <circle cx="26" cy="8.5" r="0.9" fill="#ffffff" />
+                  <circle cx="29" cy="8.5" r="0.9" fill="#ffffff" />
+                  <circle cx="32" cy="8.5" r="0.9" fill="#ffffff" />
+                </svg>
+              </div>
+              <div class="node-label">AI Chatbot<br />Solution</div>
+            </div>
+          </div>
+
+          <!-- 3. Install Automation (Bottom Right) -->
+          <div class="satellite-node node-install" [class.is-active]="activeId() === 'install'" (click)="selectNode('install')">
+            <div class="node-halo halo-green"></div>
+            <div class="node-inner-card">
+              <div class="node-icon-bubble icon-install">
+                <!-- Gear with Download Arrow inside -->
+                <svg viewBox="0 0 32 32" class="install-gear-icon">
+                  <path d="M16 2a2 2 0 0 0-2 2v.8a10 10 0 0 0-3.3 1.4l-.6-.6a2 2 0 0 0-2.8 0l-1.4 1.4a2 2 0 0 0 0 2.8l.6.6A10 10 0 0 0 5.1 13.7H4.3a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h.8a10 10 0 0 0 1.4 3.3l-.6.6a2 2 0 0 0 0 2.8l1.4 1.4a2 2 0 0 0 2.8 0l.6-.6a10 10 0 0 0 3.3 1.4v.8a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-.8a10 10 0 0 0 3.3-1.4l.6.6a2 2 0 0 0 2.8 0l1.4-1.4a2 2 0 0 0 0-2.8l-.6-.6a10 10 0 0 0 1.4-3.3h.8a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-.8a10 10 0 0 0-1.4-3.3l.6-.6a2 2 0 0 0 0-2.8l-1.4-1.4a2 2 0 0 0-2.8 0l-.6.6A10 10 0 0 0 18.3 4.8V4a2 2 0 0 0-2-2h-2z" fill="#10b981" />
+                  <!-- Center Download Arrow -->
+                  <circle cx="16" cy="16" r="6.5" fill="#ffffff" />
+                  <path d="M16 11.5v6.5m0 0l-3-3m3 3l3-3m-4.5 4h9" stroke="#10b981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div class="node-label">Install<br />Automation</div>
+            </div>
+          </div>
+
+          <!-- 4. E-commerce Automation (Bottom Left) -->
+          <div class="satellite-node node-ecommerce" [class.is-active]="activeId() === 'ecommerce'" (click)="selectNode('ecommerce')">
+            <div class="node-halo halo-amber"></div>
+            <div class="node-inner-card">
+              <div class="node-icon-bubble icon-ecommerce">
+                <!-- Shopping Cart Icon -->
+                <svg viewBox="0 0 32 32" class="ecommerce-cart-icon">
+                  <path d="M4 6h3.5l3.2 12.8a2 2 0 0 0 2 1.6h11.2a2 2 0 0 0 1.9-1.4l3.1-9H8.5" fill="none" stroke="#f59e0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+                  <circle cx="13.5" cy="25" r="2.5" fill="#f59e0b" />
+                  <circle cx="23.5" cy="25" r="2.5" fill="#f59e0b" />
+                  <path d="M12 11h14" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </div>
+              <div class="node-label">E-commerce<br />Automation</div>
+            </div>
+          </div>
+
+          <!-- 5. Cloud Automation (Top Left) -->
+          <div class="satellite-node node-cloud" [class.is-active]="activeId() === 'cloud'" (click)="selectNode('cloud')">
+            <div class="node-halo halo-cyan"></div>
+            <div class="node-inner-card">
+              <div class="node-icon-bubble icon-cloud">
+                <!-- Cloud Automation Icon -->
+                <svg viewBox="0 0 32 32" class="cloud-icon-svg">
+                  <path d="M8 22a6 6 0 0 1 0-12 7.5 7.5 0 0 1 14.5-2.5A6.5 6.5 0 0 1 25 22H8z" fill="#0ea5e9" />
+                  <path d="M16 14v6m0-6l-2.5 2.5M16 14l2.5 2.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div class="node-label">Cloud<br />Automation</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Solution Detail Card highlighting the clicked/focused node -->
+      <div class="active-solution-panel container" *ngIf="activeSolution as s">
+        <div class="panel-inner" [style.border-left-color]="s.accentColor">
+          <div class="panel-badge-row">
+            <span class="panel-tag" [style.background]="s.glowColor" [style.color]="s.accentColor">{{ s.tag }}</span>
+            <span class="panel-metric">★ {{ s.metrics }}</span>
+          </div>
+          <div class="panel-content-row">
+            <div class="panel-copy">
+              <h3 class="panel-title">{{ s.title }}</h3>
+              <p class="panel-desc">{{ s.description }}</p>
+              <div class="panel-features">
+                <span class="feature-chip" *ngFor="let feat of s.features">
+                  <i [style.color]="s.accentColor">✓</i> {{ feat }}
+                </span>
+              </div>
+            </div>
+            <div class="panel-action">
+              <a href="#contact" class="btn-launch" [style.background]="s.haloGradient">
+                Deploy This Solution →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Pillar Strip -->
+      <div class="solutions-pillars container">
+        <div class="spillar">
+          <div class="spillar-icon">⚡</div>
+          <div class="spillar-text">
+            <strong>Real-Time Sync</strong>
+            <small>Instant multi-node workflow triggers</small>
+          </div>
+        </div>
+        <div class="spillar">
+          <div class="spillar-icon">🔒</div>
+          <div class="spillar-text">
+            <strong>Enterprise Secure</strong>
+            <small>Encrypted API gateways &amp; compliance</small>
+          </div>
+        </div>
+        <div class="spillar">
+          <div class="spillar-icon">📈</div>
+          <div class="spillar-text">
+            <strong>Predictive Scalability</strong>
+            <small>Self-optimizing AI models for scale</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  `,
+  styles: `
+    :host {
+      display: block;
+      width: 100%;
+    }
+    .solutions-container {
+      position: relative;
+      overflow: hidden;
+      padding: 40px 16px 56px;
+      color: #080f2b;
+      min-height: 100vh;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Ambient Background Orbs */
+    .ambient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb-1 {
+      top: 10%;
+      left: 15%;
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.2), transparent 70%);
+    }
+    .orb-2 {
+      top: 25%;
+      right: 12%;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(236, 72, 153, 0.18), rgba(139, 92, 246, 0.15) 50%, transparent 70%);
+    }
+    .orb-3 {
+      bottom: 10%;
+      left: 30%;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.16), transparent 70%);
+    }
+
+    /* Section Header */
+    .solutions-header {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto 24px;
+      position: relative;
+      z-index: 2;
+    }
+    .solutions-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(37, 99, 235, 0.08);
+      border: 1px solid rgba(37, 99, 235, 0.24);
+      padding: 6px 18px;
+      border-radius: 9999px;
+      font: 700 11px/1 'DM Sans', sans-serif;
+      letter-spacing: 0.1em;
+      color: #2563eb;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.08);
+    }
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #00d2ff;
+      box-shadow: 0 0 10px #00d2ff;
+      animation: blinkDot 2s ease-in-out infinite;
+    }
+    @keyframes blinkDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+    .solutions-title {
+      font: 800 clamp(28px, 4vw, 44px)/1.15 Manrope, sans-serif;
+      letter-spacing: -0.03em;
+      color: #081236;
+      margin: 0 0 10px;
+    }
+    .grad {
+      background: linear-gradient(135deg, #0284c7 0%, #2563eb 50%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .solutions-sub {
+      font-size: clamp(13.5px, 1.4vw, 15px);
+      line-height: 1.65;
+      color: #627092;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* Diagram Stage Layout */
+    .solutions-stage-wrapper {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 720px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px auto 20px;
+    }
+    .solutions-diagram-stage {
+      position: relative;
+      width: 100%;
+      max-width: 680px;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* SVG Canvas for Orbits & Rays */
+    .diagram-svg-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .orbit-dashed {
+      fill: none;
+      stroke: rgba(148, 163, 184, 0.4);
+      stroke-dasharray: 6 7;
+    }
+    .orbit-inner {
+      stroke-width: 1.2;
+    }
+    .orbit-middle {
+      stroke-width: 1.5;
+      stroke: rgba(56, 189, 248, 0.45);
+      animation: orbitSpin 80s linear infinite;
+      transform-origin: 350px 350px;
+    }
+    .orbit-outer {
+      stroke-width: 1;
+      stroke: rgba(203, 213, 225, 0.35);
+      stroke-dasharray: 4 8;
+    }
+    @keyframes orbitSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .orbit-guide-dot {
+      fill: #ffffff;
+      stroke: #38bdf8;
+      stroke-width: 2;
+      filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.8));
+    }
+    .orbit-guide-dot.dim {
+      fill: rgba(255, 255, 255, 0.7);
+      stroke: rgba(148, 163, 184, 0.6);
+      stroke-width: 1.5;
+      filter: none;
+    }
+    .connector-line {
+      stroke-dasharray: 8 5;
+      animation: flowRay 3s linear infinite;
+      opacity: 0.85;
+      transition: stroke-width 0.3s ease, opacity 0.3s ease;
+    }
+    .connector-line.active-ray {
+      stroke-width: 4.5;
+      opacity: 1;
+      filter: drop-shadow(0 0 8px currentColor);
+    }
+    @keyframes flowRay {
+      from { stroke-dashoffset: 26; }
+      to { stroke-dashoffset: 0; }
+    }
+    .junction-dot {
+      filter: drop-shadow(0 0 6px currentColor);
+    }
+    .glow-pink { filter: drop-shadow(0 0 8px #ec4899); }
+    .glow-purple { filter: drop-shadow(0 0 8px #8b5cf6); }
+    .glow-green { filter: drop-shadow(0 0 8px #10b981); }
+    .glow-amber { filter: drop-shadow(0 0 8px #f59e0b); }
+    .glow-cyan { filter: drop-shadow(0 0 8px #0ea5e9); }
+
+    /* Central Core */
+    .central-core-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: clamp(160px, 28vw, 220px);
+      height: clamp(160px, 28vw, 220px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 4;
+    }
+    .core-pulse-wave {
+      position: absolute;
+      inset: -14px;
+      border-radius: 50%;
+      border: 2px solid rgba(0, 210, 255, 0.5);
+      animation: coreWave 3.5s ease-out infinite;
+      pointer-events: none;
+    }
+    .wave-2 {
+      animation-delay: 1.75s;
+    }
+    @keyframes coreWave {
+      0% { transform: scale(0.92); opacity: 0.8; }
+      50% { opacity: 0.4; }
+      100% { transform: scale(1.35); opacity: 0; }
+    }
+    .central-ai-core {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 40%, #0c2b74 0%, #061849 55%, #030b22 100%);
+      border: 3px solid #00d2ff;
+      box-shadow: 0 0 45px rgba(0, 195, 255, 0.65),
+                  inset 0 0 35px rgba(0, 225, 255, 0.4),
+                  0 12px 30px rgba(4, 15, 48, 0.7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 0.3s ease;
+    }
+    .central-ai-core:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 60px rgba(0, 225, 255, 0.85),
+                  inset 0 0 40px rgba(0, 225, 255, 0.5);
+    }
+    .core-inner-glow {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 20%, rgba(56, 189, 248, 0.25), transparent 65%);
+      pointer-events: none;
+    }
+
+    /* Robot Avatar Inside Core */
+    .robot-head-wrap {
+      width: clamp(52px, 9vw, 76px);
+      height: auto;
+      margin-top: -2px;
+      filter: drop-shadow(0 4px 12px rgba(0, 210, 255, 0.6));
+      animation: robotBob 3s ease-in-out infinite;
+    }
+    @keyframes robotBob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    .robot-head-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .antenna-tip {
+      animation: antennaFlash 2s ease-in-out infinite alternate;
+    }
+    @keyframes antennaFlash {
+      from { filter: drop-shadow(0 0 3px #00e5ff); }
+      to { filter: drop-shadow(0 0 10px #00e5ff); }
+    }
+    .core-title-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 4px;
+      line-height: 1.1;
+    }
+    .core-ai-text {
+      font: 900 clamp(20px, 3.4vw, 28px)/1 'Manrope', sans-serif;
+      letter-spacing: 0.04em;
+      background: linear-gradient(180deg, #ffffff 10%, #7dd3fc 60%, #00e5ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 2px 8px rgba(0, 210, 255, 0.5));
+    }
+    .core-automation-text {
+      font: 700 clamp(11px, 1.8vw, 14px) 'DM Sans', sans-serif;
+      color: #e0f2fe;
+      letter-spacing: 0.05em;
+      margin-top: 2px;
+      text-shadow: 0 0 12px rgba(0, 195, 255, 0.7);
+    }
+    .core-infinity-wrap {
+      width: clamp(34px, 5.5vw, 44px);
+      margin-top: 4px;
+      filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.8));
+    }
+    .infinity-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .infinity-path-flow {
+      stroke-dasharray: 60;
+      stroke-dashoffset: 0;
+      animation: infinityFlow 3s linear infinite;
+    }
+    @keyframes infinityFlow {
+      to { stroke-dashoffset: -120; }
+    }
+
+    /* 5 Satellite Nodes */
+    .satellite-node {
+      position: absolute;
+      width: clamp(105px, 17vw, 145px);
+      height: clamp(105px, 17vw, 145px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 5;
+      user-select: none;
+      transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+      animation: nodeBob 4s ease-in-out infinite;
+    }
+    .satellite-node:hover {
+      transform: scale(1.08) !important;
+    }
+    .satellite-node.is-active {
+      transform: scale(1.1) !important;
+    }
+    @keyframes nodeBob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+
+    /* Node exact pentagon positioning matching reference */
+    /* 1. Top - Social Media */
+    .node-social {
+      top: 3%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      animation-delay: 0s;
+    }
+    /* 2. Top-Right - AI Chatbot */
+    .node-chatbot {
+      top: 28%;
+      right: 1%;
+      animation-delay: 0.8s;
+    }
+    /* 3. Bottom-Right - Install Automation */
+    .node-install {
+      bottom: 6%;
+      right: 15%;
+      animation-delay: 1.6s;
+    }
+    /* 4. Bottom-Left - E-commerce */
+    .node-ecommerce {
+      bottom: 6%;
+      left: 15%;
+      animation-delay: 2.4s;
+    }
+    /* 5. Top-Left - Cloud Automation */
+    .node-cloud {
+      top: 28%;
+      left: 1%;
+      animation-delay: 3.2s;
+    }
+
+    /* Halos for Nodes matching reference neon rings */
+    .node-halo {
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .halo-pink {
+      border: 2.5px solid #ec4899;
+      box-shadow: 0 0 25px rgba(236, 72, 153, 0.65), inset 0 0 15px rgba(236, 72, 153, 0.25);
+    }
+    .halo-purple {
+      border: 2.5px solid #8b5cf6;
+      box-shadow: 0 0 25px rgba(139, 92, 246, 0.65), inset 0 0 15px rgba(139, 92, 246, 0.25);
+    }
+    .halo-green {
+      border: 2.5px solid #10b981;
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.65), inset 0 0 15px rgba(16, 185, 129, 0.25);
+    }
+    .halo-amber {
+      border: 2.5px solid #f59e0b;
+      box-shadow: 0 0 25px rgba(245, 158, 11, 0.65), inset 0 0 15px rgba(245, 158, 11, 0.25);
+    }
+    .halo-cyan {
+      border: 2.5px solid #0ea5e9;
+      box-shadow: 0 0 25px rgba(14, 165, 233, 0.65), inset 0 0 15px rgba(14, 165, 233, 0.25);
+    }
+    .satellite-node.is-active .node-halo {
+      inset: -6px;
+      border-width: 3.5px;
+      filter: brightness(1.2);
+    }
+
+    /* Inner Card of Node */
+    .node-inner-card {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 10px;
+      box-sizing: border-box;
+      z-index: 2;
+    }
+    .node-icon-bubble {
+      width: clamp(28px, 5vw, 40px);
+      height: clamp(28px, 5vw, 40px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 5px;
+    }
+    .node-icon-bubble svg {
+      width: 100%;
+      height: 100%;
+    }
+    .node-label {
+      font: 700 clamp(9px, 1.4vw, 12px)/1.2 'Manrope', sans-serif;
+      color: #0f172a;
+      letter-spacing: -0.01em;
+    }
+    .satellite-node:hover .node-label {
+      color: #0284c7;
+    }
+
+    /* Active Detail Panel */
+    .active-solution-panel {
+      width: 100%;
+      max-width: 760px;
+      margin: 10px auto 30px;
+      position: relative;
+      z-index: 3;
+    }
+    .panel-inner {
+      background: #ffffff;
+      border-radius: 20px;
+      border: 1px solid #e2e8f0;
+      border-left: 6px solid #2563eb;
+      padding: 22px 28px;
+      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08);
+      transition: all 0.3s ease;
+    }
+    .panel-badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .panel-tag {
+      font: 700 11.5px/1 'DM Sans', sans-serif;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      letter-spacing: 0.04em;
+    }
+    .panel-metric {
+      font: 800 12px 'Manrope', sans-serif;
+      color: #0f172a;
+      background: #f1f5f9;
+      padding: 4px 12px;
+      border-radius: 9999px;
+    }
+    .panel-content-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .panel-copy {
+      flex: 1;
+    }
+    .panel-title {
+      font: 800 21px/1.2 'Manrope', sans-serif;
+      color: #081236;
+      margin: 0 0 6px;
+    }
+    .panel-desc {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #64748b;
+      margin: 0 0 12px;
+    }
+    .panel-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .feature-chip {
+      font-size: 12px;
+      font-weight: 600;
+      color: #334155;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .feature-chip i {
+      font-style: normal;
+      font-weight: 800;
+    }
+    .btn-launch {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 24px;
+      border-radius: 14px;
+      color: #ffffff;
+      font: 700 13.5px 'Manrope', sans-serif;
+      text-decoration: none;
+      white-space: nowrap;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-launch:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.45);
+    }
+
+    /* Bottom Pillars */
+    .solutions-pillars {
+      max-width: 820px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 10px;
+      position: relative;
+      z-index: 2;
+    }
+    .spillar {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      border-radius: 16px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    }
+    .spillar-icon {
+      font-size: 20px;
+    }
+    .spillar-text strong {
+      display: block;
+      font: 700 13px/1.2 'Manrope', sans-serif;
+      color: #081236;
+    }
+    .spillar-text small {
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 768px) {
+      .solutions-container {
+        padding: 30px 12px 40px;
+      }
+      .panel-content-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .btn-launch {
+        width: 100%;
+      }
+      .solutions-pillars {
+        grid-template-columns: 1fr;
+      }
+      .solutions-diagram-stage {
+        max-width: 480px;
+      }
+      .panel-inner {
+        padding: 18px 20px;
+      }
+    }
+    @media (max-width: 480px) {
+      .solutions-diagram-stage {
+        max-width: 340px;
+      }
+      .node-label {
+        font-size: 8.5px;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .orbit-middle, .connector-line, .infinity-path-flow, .satellite-node, .robot-head-wrap, .core-pulse-wave {
+        animation: none !important;
+      }
+    }
+  `,
+})
+export class SolutionsShowcaseComponent implements OnInit, OnDestroy {
+  solutionsList = automationSolutionsList;
+  activeId = signal<string>('social');
+  private autoplayTimer: any = null;
+
+  get activeSolution(): AutomationSolution {
+    return this.solutionsList.find((s) => s.id === this.activeId()) || this.solutionsList[0];
+  }
+
+  ngOnInit(): void {
+    this.startAutoplay();
+  }
+
+  ngOnDestroy(): void {
+    this.pauseAutoplay();
+  }
+
+  selectNode(id: string): void {
+    this.activeId.set(id);
+  }
+
+  selectCore(): void {
+    // Cycle to next
+    const idx = this.solutionsList.findIndex((s) => s.id === this.activeId());
+    const nextIdx = (idx + 1) % this.solutionsList.length;
+    this.activeId.set(this.solutionsList[nextIdx].id);
+  }
+
+  startAutoplay(): void {
+    this.pauseAutoplay();
+    this.autoplayTimer = setInterval(() => {
+      const idx = this.solutionsList.findIndex((s) => s.id === this.activeId());
+      const nextIdx = (idx + 1) % this.solutionsList.length;
+      this.activeId.set(this.solutionsList[nextIdx].id);
+    }, 4500);
+  }
+
+  pauseAutoplay(): void {
+    if (this.autoplayTimer) {
+      clearInterval(this.autoplayTimer);
+      this.autoplayTimer = null;
+    }
+  }
+}
+
 const aboutCards = [
   { title: 'Ideas', description: 'Every great product starts with a meaningful idea.', icon: '💡' },
   { title: 'Design', description: 'We turn ideas into clean and engaging experiences.', icon: '🎨' },
@@ -4432,12 +5482,12 @@ export class ContactShowcaseComponent {
 export class ContactComponent {}
 @Component({
   selector: 'app-landing',
-  imports: [CommonModule, FooterComponent, HomeAboutPreviewComponent, ServicesShowcaseComponent, BlogShowcaseComponent, ContactShowcaseComponent],
+  imports: [CommonModule, FooterComponent, HomeAboutPreviewComponent, ServicesShowcaseComponent, SolutionsShowcaseComponent, BlogShowcaseComponent, ContactShowcaseComponent],
   template: `
     <div id="home">
       <header class="one-nav">
         <a href="#home" class="menu-logo" aria-label="Build4Big home"><span class="brand-image"><img src="/build4big-mark.svg" alt="Build4Big 4B logo" /></span><span>Build4Big</span></a>
-        <nav><a href="#home">Home</a><a href="#about">About</a><a href="#services">Product</a><a href="#blog">Blog</a><a href="#contact">Contact</a></nav>
+        <nav><a href="#home">Home</a><a href="#about">About</a><a href="#services">Product</a><a href="#solutions">Solutions</a><a href="#blog">Blog</a><a href="#contact">Contact</a></nav>
         <a href="#contact">Get Started</a>
       </header>
       <!-- Interactive 3D Hero Section matching image -->
@@ -4643,6 +5693,9 @@ export class ContactComponent {}
     <app-home-about-preview></app-home-about-preview>
     <section id="services" class="landing-services-wrap">
       <app-services-showcase></app-services-showcase>
+    </section>
+    <section id="solutions" class="landing-solutions-wrap">
+      <app-solutions-showcase></app-solutions-showcase>
     </section>
     <section id="blog" class="landing-blog-wrap">
       <app-blog-showcase></app-blog-showcase>
@@ -5640,6 +6693,7 @@ export const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'about', redirectTo: '' },
   { path: 'services', redirectTo: '' },
+  { path: 'solutions', redirectTo: '' },
   { path: 'ai-solutions', redirectTo: '' },
   { path: 'contact', redirectTo: '' },
   { path: 'careers', redirectTo: '' },
