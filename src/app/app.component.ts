@@ -5392,9 +5392,9 @@ export class ContactComponent {}
 
             <div class="hero-cta-btns">
               <a href="#contact" class="btn-hero-gradient">Get Started →</a>
-              <a href="#about" class="btn-hero-glass">
+              <button type="button" class="btn-hero-glass" (click)="openStoryModal()" aria-label="Watch Build4Big Story Video">
                 <span class="play-arrow">▷</span> Watch Our Story
-              </a>
+              </button>
             </div>
           </div>
 
@@ -5528,6 +5528,179 @@ export class ContactComponent {}
           </div>
         </div>
 
+      </div>
+
+      <!-- Story Video Modal -->
+      <div
+        *ngIf="isStoryModalOpen()"
+        class="story-modal-overlay"
+        (click)="closeStoryModal()"
+        tabindex="0"
+      >
+        <div class="story-modal-card" (click)="$event.stopPropagation()">
+          <!-- Modal Header -->
+          <div class="story-modal-header">
+            <div class="story-header-left">
+              <span class="story-modal-badge">
+                <span class="live-dot"></span>
+                <span>BUILD4BIG STORY</span>
+              </span>
+              <h3 class="story-modal-title">Transforming Ideas into Digital Reality</h3>
+            </div>
+            <button class="story-modal-close" (click)="closeStoryModal()" aria-label="Close video player">
+              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+          </div>
+
+          <!-- Video Player Screen -->
+          <div class="story-player-viewport">
+            <!-- Native HTML5 Video if user uploaded custom mp4 -->
+            <video
+              #storyVideoEl
+              *ngIf="useNativeVideo()"
+              src="build4big-story.mp4"
+              controls
+              autoplay
+              playsinline
+              class="story-native-video"
+              (error)="onNativeVideoError()"
+            ></video>
+
+            <!-- Cinematic Motion Story Player (Interactive Video Experience) -->
+            <div *ngIf="!useNativeVideo()" class="story-motion-player">
+              <!-- Scene 1: Brand Intro -->
+              <div *ngIf="currentScene() === 0" class="motion-scene scene-brand">
+                <div class="scene-ambient-glow"></div>
+                <div class="scene-logo-hero">
+                  <div class="logo-energy-halo"></div>
+                  <img src="build4big-logo-cutout.png" alt="Build4Big" class="scene-brand-img" />
+                </div>
+                <div class="scene-content">
+                  <span class="scene-pill">CHAPTER 01 • OUR ORIGIN</span>
+                  <h2 class="scene-headline">Building Ideas into <span class="scene-accent">Digital Reality</span></h2>
+                  <p class="scene-sub">We are a passionate technology venture engineering high-impact digital experiences for forward-thinking businesses.</p>
+                </div>
+              </div>
+
+              <!-- Scene 2: Digital Solutions -->
+              <div *ngIf="currentScene() === 1" class="motion-scene scene-solutions">
+                <div class="scene-badge-pill">CHAPTER 02 • CORE CAPABILITIES</div>
+                <h2 class="scene-headline">High-Performance <span class="scene-accent">Web & Mobile</span></h2>
+                <div class="scene-cards-grid">
+                  <div class="scene-feature-chip">
+                    <span class="chip-emoji">⚡</span>
+                    <strong>Next-Gen Web Apps</strong>
+                    <small>Ultra-fast Angular & Cloud Architectures</small>
+                  </div>
+                  <div class="scene-feature-chip">
+                    <span class="chip-emoji">📱</span>
+                    <strong>Mobile Experiences</strong>
+                    <small>Intuitive, responsive & scalable apps</small>
+                  </div>
+                  <div class="scene-feature-chip">
+                    <span class="chip-emoji">☁️</span>
+                    <strong>Cloud Platforms</strong>
+                    <small>Secure, reliable & future-ready infrastructure</small>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Scene 3: AI & Automation -->
+              <div *ngIf="currentScene() === 2" class="motion-scene scene-ai">
+                <div class="scene-badge-pill">CHAPTER 03 • INTELLIGENCE</div>
+                <h2 class="scene-headline">Next-Level <span class="scene-gradient">AI Automation</span></h2>
+                <div class="scene-ai-robot-wrap">
+                  <div class="robot-pulse-aura"></div>
+                  <svg viewBox="0 0 100 80" class="scene-robot-svg">
+                    <rect x="25" y="20" width="50" height="38" rx="14" fill="#0c2358" stroke="#00e5ff" stroke-width="2.8"/>
+                    <circle cx="40" cy="38" r="5" fill="#00e5ff"/>
+                    <circle cx="60" cy="38" r="5" fill="#00e5ff"/>
+                    <path d="M42 49 Q50 54 58 49" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+                  </svg>
+                </div>
+                <p class="scene-ai-text">Automating workflows, empowering decisions, and unlocking exponential growth through custom AI models & chatbots.</p>
+              </div>
+
+              <!-- Scene 4: Our Vision & Values -->
+              <div *ngIf="currentScene() === 3" class="motion-scene scene-values">
+                <div class="scene-badge-pill">CHAPTER 04 • OUR VALUES</div>
+                <h2 class="scene-headline">Innovate • Build • Scale</h2>
+                <div class="scene-values-row">
+                  <div class="val-pod">
+                    <span class="val-num">01</span>
+                    <h4>Purpose Driven</h4>
+                    <p>Understanding real problems before writing code.</p>
+                  </div>
+                  <div class="val-pod">
+                    <span class="val-num">02</span>
+                    <h4>Quality First</h4>
+                    <p>Clean code, premium UI, and robust security.</p>
+                  </div>
+                  <div class="val-pod">
+                    <span class="val-num">03</span>
+                    <h4>Client Focused</h4>
+                    <p>Your vision and business growth are our priority.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Scene 5: Launch CTA -->
+              <div *ngIf="currentScene() === 4" class="motion-scene scene-cta">
+                <div class="scene-badge-pill">READY TO GROW?</div>
+                <h2 class="scene-headline">Let's Build Something <span class="scene-accent">Big Together</span></h2>
+                <p class="scene-sub">Turn your concepts into market-ready software solutions today.</p>
+                <div class="scene-actions">
+                  <a href="#contact" (click)="closeStoryModal()" class="scene-btn-primary">Get In Touch Now →</a>
+                  <button type="button" (click)="restartStory()" class="scene-btn-replay">↺ Replay Story</button>
+                </div>
+              </div>
+
+              <!-- Video Overlay Play/Pause indicator -->
+              <button type="button" class="scene-play-pause-btn" (click)="togglePlayPause()" [attr.aria-label]="isPlaying() ? 'Pause' : 'Play'">
+                <span *ngIf="!isPlaying()">▶</span>
+                <span *ngIf="isPlaying()">❚❚</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Video Player Timeline & Controls Bar -->
+          <div class="story-controls-bar">
+            <!-- Play/Pause Button -->
+            <button type="button" class="ctrl-btn-play" (click)="togglePlayPause()">
+              <span *ngIf="!isPlaying()">▶</span>
+              <span *ngIf="isPlaying()">❚❚</span>
+            </button>
+
+            <!-- Time Display -->
+            <span class="ctrl-time-label">{{ formattedCurrentTime() }} / {{ formattedTotalTime() }}</span>
+
+            <!-- Progress Scrub Bar -->
+            <div class="ctrl-scrubber-track" (click)="onScrubClick($event)">
+              <div class="ctrl-scrubber-fill" [style.width]="progressPercent() + '%'"></div>
+              <div class="ctrl-scrubber-thumb" [style.left]="progressPercent() + '%'"></div>
+            </div>
+
+            <!-- Scene Jump Pills -->
+            <div class="ctrl-scene-pills">
+              <button
+                type="button"
+                *ngFor="let s of storyScenes; let idx = index"
+                class="scene-pill-btn"
+                [class.is-active]="currentScene() === idx"
+                (click)="goToScene(idx)"
+              >
+                {{ s.title }}
+              </button>
+            </div>
+          </div>
+
+          <!-- Modal Footer Note -->
+          <div class="story-modal-footer">
+            <span class="video-tip">
+              💡 <strong>Custom Video:</strong> Place any <code>build4big-story.mp4</code> into the <code>public/</code> folder, and it will play automatically here!
+            </span>
+          </div>
+        </div>
       </div>
     </div>
     <app-home-about-preview></app-home-about-preview>
@@ -6586,9 +6759,609 @@ export class ContactComponent {}
         font-size: 31px;
       }
     }
+
+    /* Story Video Modal Styles */
+    .story-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(2, 6, 23, 0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+      animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.97); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .story-modal-card {
+      width: 100%;
+      max-width: 920px;
+      background: linear-gradient(180deg, #071333 0%, #030a1c 100%);
+      border: 1px solid rgba(0, 210, 255, 0.28);
+      border-radius: 20px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 210, 255, 0.15);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .story-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 22px;
+      background: rgba(10, 22, 50, 0.6);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .story-header-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .story-modal-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(0, 210, 255, 0.12);
+      border: 1px solid rgba(0, 210, 255, 0.35);
+      padding: 4px 11px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      color: #00d2ff;
+      text-transform: uppercase;
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #00e5ff;
+      box-shadow: 0 0 8px #00e5ff;
+      animation: pulseDot 1.6s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulseDot {
+      from { opacity: 0.4; transform: scale(0.85); }
+      to { opacity: 1; transform: scale(1.15); }
+    }
+
+    .story-modal-title {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: #e2e8f0;
+      letter-spacing: -0.2px;
+    }
+
+    .story-modal-close {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #94a3b8;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .story-modal-close:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      transform: rotate(90deg);
+    }
+
+    .story-player-viewport {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #020617;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .story-native-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .story-motion-player {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 50% 45%, #081d4e 0%, #030a1c 70%, #01040d 100%);
+    }
+
+    .motion-scene {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px 32px;
+      box-sizing: border-box;
+      position: relative;
+      animation: sceneFade 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes sceneFade {
+      from { opacity: 0; transform: translateY(12px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .scene-ambient-glow {
+      position: absolute;
+      width: 480px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(0, 210, 255, 0.18) 0%, rgba(49, 89, 245, 0.08) 50%, transparent 80%);
+      pointer-events: none;
+      filter: blur(40px);
+      z-index: 0;
+    }
+
+    .scene-logo-hero {
+      position: relative;
+      margin-bottom: 18px;
+      z-index: 1;
+    }
+
+    .scene-brand-img {
+      height: 68px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 20px rgba(0, 210, 255, 0.45));
+      animation: brandFloat 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes brandFloat {
+      from { transform: translateY(0); }
+      to { transform: translateY(-8px); }
+    }
+
+    .logo-energy-halo {
+      position: absolute;
+      inset: -14px;
+      border-radius: 50%;
+      border: 1px dashed rgba(0, 210, 255, 0.3);
+      animation: rotateHalo 16s linear infinite;
+    }
+
+    @keyframes rotateHalo {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .scene-pill, .scene-badge-pill {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: #00d2ff;
+      background: rgba(0, 210, 255, 0.12);
+      border: 1px solid rgba(0, 210, 255, 0.3);
+      padding: 4px 14px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      z-index: 1;
+    }
+
+    .scene-headline {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(20px, 3vw, 32px);
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0 0 10px 0;
+      line-height: 1.25;
+      z-index: 1;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .scene-accent {
+      background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .scene-gradient {
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .scene-sub {
+      font-size: clamp(12px, 1.3vw, 14.5px);
+      line-height: 1.6;
+      color: #94a3b8;
+      max-width: 580px;
+      margin: 0 auto;
+      z-index: 1;
+    }
+
+    .scene-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+      max-width: 720px;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .scene-feature-chip {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(0, 210, 255, 0.2);
+      border-radius: 14px;
+      padding: 14px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .scene-feature-chip:hover {
+      transform: translateY(-3px);
+      border-color: #00d2ff;
+      background: rgba(0, 210, 255, 0.08);
+    }
+
+    .chip-emoji {
+      font-size: 22px;
+      margin-bottom: 2px;
+    }
+
+    .scene-feature-chip strong {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .scene-feature-chip small {
+      font-size: 11px;
+      color: #94a3b8;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .scene-ai-robot-wrap {
+      position: relative;
+      margin: 10px 0 14px 0;
+      z-index: 1;
+    }
+
+    .scene-robot-svg {
+      width: 84px;
+      height: 68px;
+      filter: drop-shadow(0 0 16px rgba(0, 229, 255, 0.55));
+      animation: robotBounce 2.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes robotBounce {
+      from { transform: translateY(0) scale(0.97); }
+      to { transform: translateY(-6px) scale(1.03); }
+    }
+
+    .robot-pulse-aura {
+      position: absolute;
+      inset: -18px;
+      background: radial-gradient(circle, rgba(0, 229, 255, 0.22) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: pulseAura 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulseAura {
+      from { opacity: 0.3; transform: scale(0.9); }
+      to { opacity: 0.8; transform: scale(1.2); }
+    }
+
+    .scene-ai-text {
+      font-size: 13px;
+      color: #cbd5e1;
+      max-width: 500px;
+      line-height: 1.6;
+      z-index: 1;
+    }
+
+    .scene-values-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+      max-width: 700px;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .val-pod {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 12px 10px;
+      text-align: center;
+    }
+
+    .val-num {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 800;
+      color: #00d2ff;
+      background: rgba(0, 210, 255, 0.1);
+      padding: 2px 7px;
+      border-radius: 6px;
+      margin-bottom: 5px;
+    }
+
+    .val-pod h4 {
+      margin: 3px 0;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .val-pod p {
+      margin: 0;
+      font-size: 11px;
+      color: #94a3b8;
+      line-height: 1.35;
+    }
+
+    .scene-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 20px;
+      z-index: 1;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .scene-btn-primary {
+      background: linear-gradient(135deg, #00d2ff 0%, #3159f5 100%);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 8px 25px rgba(0, 210, 255, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .scene-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0, 210, 255, 0.5);
+    }
+
+    .scene-btn-replay {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #e2e8f0;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .scene-btn-replay:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      border-color: #00d2ff;
+    }
+
+    .scene-play-pause-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(3, 10, 28, 0.75);
+      border: 1px solid rgba(0, 210, 255, 0.3);
+      color: #00d2ff;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 2;
+      backdrop-filter: blur(8px);
+      transition: all 0.2s ease;
+    }
+
+    .scene-play-pause-btn:hover {
+      background: rgba(0, 210, 255, 0.2);
+      transform: scale(1.08);
+    }
+
+    /* Controls bar */
+    .story-controls-bar {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 20px;
+      background: #050e24;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .ctrl-btn-play {
+      background: rgba(0, 210, 255, 0.15);
+      border: 1px solid rgba(0, 210, 255, 0.35);
+      color: #00d2ff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .ctrl-btn-play:hover {
+      background: #00d2ff;
+      color: #040d21;
+    }
+
+    .ctrl-time-label {
+      font-family: 'DM Sans', monospace, sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      color: #94a3b8;
+      white-space: nowrap;
+      min-width: 60px;
+    }
+
+    .ctrl-scrubber-track {
+      flex: 1;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .ctrl-scrubber-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background: linear-gradient(90deg, #3159f5, #00d2ff);
+      border-radius: 999px;
+      transition: width 0.25s linear;
+    }
+
+    .ctrl-scrubber-thumb {
+      position: absolute;
+      top: 50%;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0 0 10px #00d2ff;
+      transform: translate(-50%, -50%);
+      transition: left 0.25s linear;
+      pointer-events: none;
+    }
+
+    .ctrl-scene-pills {
+      display: flex;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .scene-pill-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #94a3b8;
+      font-size: 10.5px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .scene-pill-btn:hover {
+      color: #ffffff;
+      border-color: rgba(0, 210, 255, 0.4);
+    }
+
+    .scene-pill-btn.is-active {
+      background: rgba(0, 210, 255, 0.18);
+      border-color: #00d2ff;
+      color: #00d2ff;
+      font-weight: 700;
+    }
+
+    .story-modal-footer {
+      padding: 8px 20px;
+      background: rgba(2, 7, 20, 0.85);
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-tip {
+      font-size: 11px;
+      color: #64748b;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .video-tip code {
+      background: rgba(0, 210, 255, 0.1);
+      color: #00d2ff;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 10.5px;
+    }
+
+    @media (max-width: 680px) {
+      .story-modal-card {
+        border-radius: 14px;
+      }
+      .story-modal-header {
+        padding: 10px 14px;
+      }
+      .story-modal-title {
+        display: none;
+      }
+      .ctrl-scene-pills {
+        display: none;
+      }
+      .scene-cards-grid, .scene-values-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .scene-feature-chip, .val-pod {
+        padding: 8px 10px;
+      }
+      .motion-scene {
+        padding: 16px 18px;
+      }
+      .scene-brand-img {
+        height: 52px;
+      }
+      .scene-robot-svg {
+        width: 64px;
+        height: 52px;
+      }
+    }
   `,
 })
-export class LandingComponent {
+export class LandingComponent implements OnDestroy {
   services = services;
   posts = posts;
   features = heroFeatures;
@@ -6596,6 +7369,123 @@ export class LandingComponent {
   // Interactive mouse move parallax state
   heroMouseX = 0;
   heroMouseY = 0;
+
+  // Story Video Modal state
+  isStoryModalOpen = signal(false);
+  isPlaying = signal(false);
+  currentScene = signal(0);
+  currentTimeSec = signal(0);
+  totalTimeSec = signal(30);
+  useNativeVideo = signal(false);
+
+  storyScenes = [
+    { title: 'Origin', duration: 6 },
+    { title: 'Capabilities', duration: 6 },
+    { title: 'AI Automation', duration: 6 },
+    { title: 'Values', duration: 6 },
+    { title: 'Build Together', duration: 6 },
+  ];
+
+  private storyTimer: any = null;
+
+  @ViewChild('storyVideoEl') storyVideoEl?: ElementRef<HTMLVideoElement>;
+
+  openStoryModal(): void {
+    this.isStoryModalOpen.set(true);
+    this.currentTimeSec.set(0);
+    this.currentScene.set(0);
+    this.isPlaying.set(true);
+    this.startStoryTimer();
+  }
+
+  closeStoryModal(): void {
+    this.isStoryModalOpen.set(false);
+    this.stopStoryTimer();
+    this.isPlaying.set(false);
+  }
+
+  togglePlayPause(): void {
+    if (this.isPlaying()) {
+      this.isPlaying.set(false);
+      this.stopStoryTimer();
+    } else {
+      this.isPlaying.set(true);
+      this.startStoryTimer();
+    }
+  }
+
+  restartStory(): void {
+    this.currentTimeSec.set(0);
+    this.currentScene.set(0);
+    this.isPlaying.set(true);
+    this.startStoryTimer();
+  }
+
+  goToScene(index: number): void {
+    const sceneStartTime = index * 6;
+    this.currentScene.set(index);
+    this.currentTimeSec.set(sceneStartTime);
+  }
+
+  onScrubClick(event: MouseEvent): void {
+    const target = event.currentTarget as HTMLElement;
+    if (!target) return;
+    const rect = target.getBoundingClientRect();
+    const ratio = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width));
+    const targetSec = Math.floor(ratio * this.totalTimeSec());
+    this.currentTimeSec.set(targetSec);
+    const sceneIdx = Math.min(this.storyScenes.length - 1, Math.floor(targetSec / 6));
+    this.currentScene.set(sceneIdx);
+  }
+
+  onNativeVideoError(): void {
+    this.useNativeVideo.set(false);
+  }
+
+  private startStoryTimer(): void {
+    this.stopStoryTimer();
+    this.storyTimer = setInterval(() => {
+      const current = this.currentTimeSec();
+      if (current >= this.totalTimeSec()) {
+        this.stopStoryTimer();
+        this.isPlaying.set(false);
+        return;
+      }
+      const nextTime = current + 1;
+      this.currentTimeSec.set(nextTime);
+      const sceneIdx = Math.min(this.storyScenes.length - 1, Math.floor(nextTime / 6));
+      this.currentScene.set(sceneIdx);
+    }, 1000);
+  }
+
+  private stopStoryTimer(): void {
+    if (this.storyTimer) {
+      clearInterval(this.storyTimer);
+      this.storyTimer = null;
+    }
+  }
+
+  progressPercent(): number {
+    return Math.min(100, Math.round((this.currentTimeSec() / this.totalTimeSec()) * 100));
+  }
+
+  formattedCurrentTime(): string {
+    const sec = this.currentTimeSec();
+    const m = Math.floor(sec / 60);
+    const s = sec % 60;
+    return `${m}:${s < 10 ? '0' : ''}${s}`;
+  }
+
+  formattedTotalTime(): string {
+    const sec = this.totalTimeSec();
+    const m = Math.floor(sec / 60);
+    const s = sec % 60;
+    return `${m}:${s < 10 ? '0' : ''}${s}`;
+  }
+
+  ngOnDestroy(): void {
+    this.stopStoryTimer();
+  }
 
   onHeroMouseMove(e: MouseEvent): void {
     const width = window.innerWidth || 1200;
