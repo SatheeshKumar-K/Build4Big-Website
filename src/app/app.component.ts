@@ -2003,6 +2003,15 @@ const AUTOMATION_NODES: AutomationNode[] = [
       <div class="ambient-glow glow-mint" aria-hidden="true"></div>
 
       <div class="container sol-main-container">
+        <!-- Section Header matching Services style -->
+        <div class="sol-showcase-head">
+          <div class="sol-pill-badge">AI SOLUTIONS</div>
+          <h2 class="sol-showcase-title">Complete <span class="sol-gradient-text">AI Solutions</span></h2>
+          <p class="sol-showcase-sub">
+            We offer a wide range of AI & automation services to help businesses turn ideas into powerful digital experiences.
+          </p>
+        </div>
+
         <!-- 3-Column Layout: Left Cards | Center Orbital Stage | Right Cards -->
         <div class="sol-ecosystem-row">
           <!-- LEFT SIDE: 3 Cards (Cloud, E-commerce, Business Process) -->
@@ -2270,7 +2279,7 @@ const AUTOMATION_NODES: AutomationNode[] = [
   styles: `
     .solutions-showcase-section {
       position: relative;
-      padding: 24px 0 36px 0;
+      padding: 34px 0 46px 0;
       overflow: hidden;
       min-height: calc(100vh - 62px);
       display: flex;
@@ -2317,6 +2326,49 @@ const AUTOMATION_NODES: AutomationNode[] = [
       padding: 0 24px;
       width: 100%;
       box-sizing: border-box;
+    }
+
+    /* Showcase Head matching Services design */
+    .sol-showcase-head {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto 24px;
+      position: relative;
+      z-index: 3;
+    }
+    .sol-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #2563eb;
+      background: #eef4ff;
+      border: 1.5px solid #c7d8fe;
+      border-radius: 9999px;
+      padding: 4px 16px;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.07);
+      margin-bottom: 8px;
+    }
+    .sol-showcase-title {
+      font: 800 clamp(28px, 3.2vw, 40px)/1.15 'Manrope', sans-serif;
+      letter-spacing: -0.04em;
+      margin: 0 0 8px;
+      color: #0a1128;
+    }
+    .sol-gradient-text {
+      background: linear-gradient(135deg, #1d68ff 0%, #8b28f8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+    .sol-showcase-sub {
+      font-size: clamp(13px, 1.05vw, 15px);
+      color: #55617d;
+      line-height: 1.5;
+      max-width: 620px;
+      margin: 0 auto;
     }
 
     /* 3-Column Ecosystem Layout */
@@ -2748,7 +2800,17 @@ const AUTOMATION_NODES: AutomationNode[] = [
 
     @media (max-width: 768px) {
       .solutions-showcase-section {
-        padding: 24px 0 40px 0;
+        padding: 30px 0 40px 0;
+      }
+      .sol-showcase-head {
+        margin-bottom: 18px;
+      }
+      .sol-showcase-title {
+        font-size: 26px;
+      }
+      .sol-showcase-sub {
+        font-size: 13px;
+        padding: 0 10px;
       }
       .sol-cards-col {
         grid-template-columns: 1fr;
