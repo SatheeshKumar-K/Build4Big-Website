@@ -5537,7 +5537,16 @@ export class ContactComponent {}
             <div class="hero-marquee-track">
               <div class="hero-marquee-set" *ngFor="let _ of [0, 1]">
                 <div class="marquee-item" *ngFor="let item of features">
-                  <div class="wf-icon" [ngClass]="{'icon-bulb': item.title === 'Innovate', 'icon-cloud': item.title === 'Transform', 'icon-gear': item.title === 'Automate', 'icon-exp': item.title === 'Digital Experiences'}">
+                  <div class="wf-icon" [ngClass]="{
+                    'icon-bulb': item.title === 'Innovate',
+                    'icon-cloud': item.title === 'Transform',
+                    'icon-gear': item.title === 'Automate',
+                    'icon-exp': item.title === 'Digital Experiences',
+                    'icon-dev': item.title === 'Develop',
+                    'icon-grow': item.title === 'Grow' || item.title === 'Scale',
+                    'icon-rocket': item.title === 'Build',
+                    'icon-sparkle': item.title === 'Create'
+                  }">
                     <span class="wf-symbol">{{ item.icon }}</span>
                   </div>
                   <div class="wf-content">
@@ -6153,20 +6162,32 @@ export class ContactComponent {}
       border-color: rgba(0, 229, 255, 0.45);
       box-shadow: 0 0 14px rgba(0, 229, 255, 0.3);
     }
+    .wf-icon.icon-exp {
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.18);
+      border-color: rgba(56, 189, 248, 0.45);
+      box-shadow: 0 0 14px rgba(56, 189, 248, 0.3);
+    }
+    .wf-content,
     .wf-text {
       display: flex;
       flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
     }
     .wf-title {
-      font: 700 12px Manrope, sans-serif;
+      display: block;
+      font: 700 12px/1.2 Manrope, sans-serif;
       color: #ffffff;
-      line-height: 1.2;
       white-space: nowrap;
     }
     .wf-sub {
+      display: block;
       font-size: 9.5px;
+      line-height: 1.2;
       color: #94a9cc;
       white-space: nowrap;
+      margin-top: 2px;
     }
     .wf-sep {
       width: 1px;
