@@ -2117,46 +2117,6 @@ const solutionPodsData: SolutionPod[] = [
             </div>
           </div>
         </div>
-
-        <!-- 6 Grid Cards for all solutions (matching the pods) -->
-        <div class="sol-cards-grid">
-          <div
-            *ngFor="let pod of pods"
-            class="sol-feature-card"
-            [class.is-selected]="selectedId() === pod.id"
-            [style.--card-accent]="pod.color"
-            [style.--card-glow]="pod.glowColor"
-            (click)="selectPod(pod.id)"
-            (mouseenter)="selectPod(pod.id)"
-          >
-            <div class="card-header-row">
-              <div class="card-icon-bubble" [style.background]="pod.color">
-                <span>{{ pod.icon }}</span>
-              </div>
-              <span class="card-badge" [style.color]="pod.color">{{ pod.shortName }}</span>
-            </div>
-            <h4 class="card-heading">{{ pod.name }}</h4>
-            <p class="card-summary">{{ pod.description }}</p>
-            <div class="card-footer-row">
-              <span class="card-explore-btn" [style.color]="pod.color">
-                <span>Explore</span>
-                <span class="arrow-glyph">→</span>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bottom Action Banner -->
-        <div class="sol-bottom-cta">
-          <div class="bottom-cta-copy">
-            <h3>Ready to automate your business with AI?</h3>
-            <p>Let's build a customized end-to-end automation architecture for your workflows.</p>
-          </div>
-          <a href="#contact" class="btn-sol-master">
-            <span>Let's Automate Your Business</span>
-            <span class="btn-arrow">→</span>
-          </a>
-        </div>
       </div>
     </div>
   `,
@@ -2562,126 +2522,8 @@ const solutionPodsData: SolutionPod[] = [
       transform: translateX(3px);
     }
 
-    /* 6 Solution Grid Cards */
-    .sol-cards-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      max-width: 1040px;
-      margin: 0 auto 36px auto;
-    }
-    .sol-feature-card {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 18px;
-      padding: 22px 20px;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
-      position: relative;
-    }
-    .sol-feature-card:hover,
-    .sol-feature-card.is-selected {
-      transform: translateY(-4px);
-      border-color: var(--card-accent);
-      box-shadow: 0 12px 28px -6px var(--card-glow), 0 0 0 1px var(--card-accent);
-    }
-    .card-header-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 12px;
-    }
-    .card-icon-bubble {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      font-size: 20px;
-      color: #ffffff;
-    }
-    .card-badge {
-      font: 700 11px 'Manrope', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .card-heading {
-      font: 700 16px/1.3 'Plus Jakarta Sans', 'Manrope', sans-serif;
-      color: #0f172a;
-      margin: 0 0 8px 0;
-    }
-    .card-summary {
-      font: 400 13px/1.55 'Inter', sans-serif;
-      color: #64748b;
-      margin: 0 0 14px 0;
-      flex: 1;
-    }
-    .card-footer-row {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-    }
-    .card-explore-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font: 700 12px 'Manrope', sans-serif;
-      text-decoration: none;
-    }
-    .sol-feature-card:hover .arrow-glyph {
-      transform: translateX(3px);
-    }
-
-    /* Bottom Action Banner */
-    .sol-bottom-cta {
-      max-width: 860px;
-      margin: 0 auto;
-      background: linear-gradient(135deg, #0b1536 0%, #1e295d 100%);
-      border-radius: 20px;
-      padding: 28px 36px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      box-shadow: 0 16px 40px -10px rgba(11, 21, 54, 0.4);
-    }
-    .bottom-cta-copy h3 {
-      font: 800 20px/1.25 'Plus Jakarta Sans', 'Manrope', sans-serif;
-      color: #ffffff;
-      margin: 0 0 6px 0;
-    }
-    .bottom-cta-copy p {
-      font: 400 13.5px/1.5 'Inter', sans-serif;
-      color: #94a3b8;
-      margin: 0;
-    }
-    .btn-sol-master {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font: 700 14px 'Manrope', sans-serif;
-      color: #0b1536;
-      background: #ffffff;
-      text-decoration: none;
-      padding: 12px 24px;
-      border-radius: 12px;
-      white-space: nowrap;
-      flex-shrink: 0;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
-      transition: transform 0.2s ease, background-color 0.2s ease;
-    }
-    .btn-sol-master:hover {
-      transform: translateY(-2px);
-      background: #f0fdf4;
-    }
-
     /* Responsive Breakpoints */
     @media (max-width: 991px) {
-      .sol-cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
       .sol-stage-wrapper {
         max-width: 560px;
       }
@@ -2740,20 +2582,6 @@ const solutionPodsData: SolutionPod[] = [
         width: 100%;
       }
       .btn-deploy-active {
-        width: 100%;
-        justify-content: center;
-        box-sizing: border-box;
-      }
-      .sol-cards-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
-      }
-      .sol-bottom-cta {
-        flex-direction: column;
-        text-align: center;
-        padding: 24px 20px;
-      }
-      .btn-sol-master {
         width: 100%;
         justify-content: center;
         box-sizing: border-box;
