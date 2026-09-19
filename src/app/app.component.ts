@@ -165,9 +165,9 @@ const posts: Post[] = [
 ];
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, RouterLink, RouterLinkActive],
+  imports: [],
   template: `<header>
-    <a routerLink="/" (click)="closeMenuAndScrollTop()" class="logo header-logo" aria-label="Build4Big home">
+    <a href="#home" (click)="scrollTo('home', $event)" class="logo header-logo" aria-label="Build4Big home">
       <span class="brand-image"><img src="build4big-logo-cutout.png" alt="Build4Big" /></span>
       <span class="brand-title">Build4Big</span>
     </a>
@@ -176,44 +176,49 @@ const posts: Post[] = [
     </button>
     <nav [class.show]="open()">
       <a
-        routerLink="/"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{exact: true}"
-        (click)="closeMenuAndScrollTop()"
+        href="#home"
+        [class.active]="activeSection() === 'home'"
+        (click)="scrollTo('home', $event)"
         >Home</a
       >
       <a
-        routerLink="/about"
-        routerLinkActive="active"
-        (click)="closeMenuAndScrollTop()"
+        href="#about"
+        [class.active]="activeSection() === 'about'"
+        (click)="scrollTo('about', $event)"
         >About</a
       >
       <a
-        routerLink="/services"
-        routerLinkActive="active"
-        (click)="closeMenuAndScrollTop()"
+        href="#services"
+        [class.active]="activeSection() === 'services'"
+        (click)="scrollTo('services', $event)"
         >Product</a
       >
       <a
-        routerLink="/solutions"
-        routerLinkActive="active"
-        (click)="closeMenuAndScrollTop()"
+        href="#solutions"
+        [class.active]="activeSection() === 'solutions'"
+        (click)="scrollTo('solutions', $event)"
         >Solutions</a
       >
+      <!-- <a
+        href="#blog"
+        [class.active]="activeSection() === 'blog'"
+        (click)="scrollTo('blog', $event)"
+        >Blog</a
+      > -->
       <a
-        routerLink="/contact"
-        routerLinkActive="active"
-        (click)="closeMenuAndScrollTop()"
+        href="#contact"
+        [class.active]="activeSection() === 'contact'"
+        (click)="scrollTo('contact', $event)"
         >Contact</a
       >
       <a
-        routerLink="/contact"
+        href="#contact"
         class="start-btn-mobile"
-        (click)="closeMenuAndScrollTop()"
+        (click)="scrollTo('contact', $event)"
         >Get Started &rarr;</a
       >
     </nav>
-    <a routerLink="/contact" (click)="closeMenuAndScrollTop()" class="start-btn">Get Started &rarr;</a>
+    <a href="#contact" (click)="scrollTo('contact', $event)" class="start-btn">Get Started &rarr;</a>
   </header>`,
   styles: `
     :host {
@@ -224,46 +229,46 @@ const posts: Post[] = [
       width: 100%;
     }
     header {
-      height: 62px;
+      height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       max-width: 1240px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 32px;
       color: #ffffff;
       box-sizing: border-box;
     }
     .logo {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       text-decoration: none;
       flex-shrink: 0;
     }
     .brand-title {
       font-weight: 800;
       font-family: 'Manrope', sans-serif;
-      font-size: 19px;
+      font-size: 22px;
       letter-spacing: -0.03em;
       color: #ffffff !important;
     }
     nav {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 30px;
       margin-left: auto;
-      margin-right: 24px;
-      font-size: 14px;
+      margin-right: 32px;
+      font-size: 15px;
       font-weight: 600;
       font-family: 'DM Sans', sans-serif;
     }
     nav a {
       color: #9cb3d5;
       text-decoration: none;
-      padding: 6px 0;
+      padding: 10px 0;
       position: relative;
-      transition: color 0.2s ease;
+      transition: color 0.22s ease;
       letter-spacing: 0.01em;
       white-space: nowrap;
     }
@@ -280,7 +285,7 @@ const posts: Post[] = [
       bottom: -2px;
       left: 0;
       width: 100%;
-      height: 2px;
+      height: 2.5px;
       background: linear-gradient(90deg, #00d2ff, #0066ff);
       border-radius: 4px;
       box-shadow: 0 0 10px rgba(0, 210, 255, 0.7);
@@ -289,54 +294,54 @@ const posts: Post[] = [
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 700;
       font-family: 'DM Sans', sans-serif;
       background: linear-gradient(135deg, #0062ff 0%, #00c6ff 100%);
       color: #ffffff !important;
-      padding: 8px 18px;
-      border-radius: 20px;
+      padding: 10px 24px;
+      border-radius: 25px;
       text-decoration: none;
       white-space: nowrap;
       flex-shrink: 0;
-      box-shadow: 0 4px 14px rgba(0, 110, 255, 0.4);
+      box-shadow: 0 4px 18px rgba(0, 110, 255, 0.4);
       transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
     }
     .start-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 22px rgba(0, 198, 255, 0.5);
+      box-shadow: 0 8px 25px rgba(0, 198, 255, 0.5);
       filter: brightness(1.08);
     }
     .menu {
       display: none;
       background: none;
       border: 0;
-      font-size: 24px;
+      font-size: 26px;
       color: #ffffff;
       margin-left: auto;
       cursor: pointer;
-      padding: 6px 8px;
+      padding: 6px 10px;
     }
     .start-btn-mobile {
       display: none;
     }
     @media (max-width: 1024px) {
       nav {
-        gap: 18px;
-        margin-right: 18px;
+        gap: 20px;
+        margin-right: 22px;
       }
       .start-btn {
-        padding: 8px 16px;
-        font-size: 12.5px;
+        padding: 9px 18px;
+        font-size: 13.5px;
       }
     }
     @media (max-width: 860px) {
       header {
-        height: 58px;
-        padding: 0 16px;
+        height: 68px;
+        padding: 0 20px;
       }
       .brand-title {
-        font-size: 18px;
+        font-size: 19px;
       }
       .start-btn {
         display: none;
@@ -348,12 +353,12 @@ const posts: Post[] = [
         width: 100%;
         text-align: center;
         margin-top: 8px;
-        padding: 10px 18px;
-        border-radius: 22px;
+        padding: 12px 20px;
+        border-radius: 25px;
         background: linear-gradient(135deg, #0062ff 0%, #00c6ff 100%);
         color: #ffffff !important;
         font-weight: 700;
-        font-size: 14px;
+        font-size: 15px;
         box-shadow: 0 4px 18px rgba(0, 110, 255, 0.4);
       }
       .menu {
@@ -363,28 +368,28 @@ const posts: Post[] = [
         display: none;
         position: absolute;
         z-index: 1001;
-        top: 58px;
-        left: 14px;
-        right: 14px;
+        top: 68px;
+        left: 16px;
+        right: 16px;
         margin: 0;
-        padding: 16px 20px;
+        padding: 20px 24px;
         background: #061138;
         border: 1px solid rgba(255, 255, 255, 0.12);
         color: #ffffff;
-        border-radius: 14px;
+        border-radius: 16px;
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
         flex-direction: column;
         align-items: flex-start;
-        gap: 12px;
+        gap: 16px;
       }
       nav.show {
         display: flex;
       }
       nav a {
         color: #b2c5e5;
-        font-size: 15px;
+        font-size: 16px;
         width: 100%;
-        padding: 6px 0;
+        padding: 8px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       }
       nav a:last-child {
@@ -399,24 +404,91 @@ const posts: Post[] = [
     }
   `,
 })
-export class HeaderComponent {
+export class HeaderComponent implements AfterViewInit, OnDestroy {
   open = signal(false);
+  activeSection = signal('home');
   private router = inject(Router);
+  private scrollListener?: () => void;
 
-  closeMenuAndScrollTop(): void {
-    this.open.set(false);
+  ngAfterViewInit(): void {
     if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      const updateActive = () => {
+        const sections = ['home', 'about', 'services', 'solutions', 'contact'];
+        const currentScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+        const triggerPos = currentScrollY + 140;
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const el = document.getElementById(sections[i]);
+          if (el) {
+            const top = el.getBoundingClientRect().top + currentScrollY;
+            if (top <= triggerPos) {
+              this.activeSection.set(sections[i]);
+              return;
+            }
+          }
+        }
+        this.activeSection.set('home');
+      };
+
+      this.scrollListener = updateActive;
+      window.addEventListener('scroll', updateActive, { passive: true });
+      updateActive();
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (typeof window !== 'undefined' && this.scrollListener) {
+      window.removeEventListener('scroll', this.scrollListener);
+    }
+  }
+
+  scrollTo(sectionId: string, event?: Event): void {
+    if (event) {
+      event.preventDefault();
+    }
+    this.open.set(false);
+    this.activeSection.set(sectionId);
+
+    const performScroll = (id: string) => {
+      const el = document.getElementById(id);
+      if (el) {
+        const headerEl = document.querySelector('app-header header, app-header, header');
+        const headerHeight = headerEl ? (headerEl as HTMLElement).offsetHeight : 76;
+        const extraGap = 8;
+        const rect = el.getBoundingClientRect();
+        const currentScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+        const top = rect.top + currentScrollY;
+        const targetScrollY = Math.max(0, Math.round(top - (headerHeight + extraGap)));
+
+        window.scrollTo({
+          top: targetScrollY,
+          behavior: 'smooth',
+        });
+
+        if (typeof history !== 'undefined' && history.pushState) {
+          history.pushState(null, '', '#' + id);
+        }
+      }
+    };
+
+    const el = document.getElementById(sectionId);
+    if (el) {
+      performScroll(sectionId);
+    } else {
+      this.router.navigate(['/'], { fragment: sectionId }).then(() => {
+        setTimeout(() => {
+          performScroll(sectionId);
+        }, 120);
+      });
     }
   }
 }
 @Component({
   selector: 'app-footer',
-  imports: [CommonModule, RouterLink],
+  imports: [RouterLink],
   template: `<footer>
     <div class="foot container">
       <section>
-        <a class="logo" routerLink="/" (click)="scrollToTop()"><img src="build4big-logo.png" alt="Build4Big" /> Build4Big</a>
+        <a class="logo" routerLink="/"><img src="build4big-logo.png" alt="Build4Big" /> Build4Big</a>
         <h2>Innovate Today<br />Build a Better Tomorrow</h2>
         <p>
           A startup software company helping businesses grow with modern
@@ -427,23 +499,23 @@ export class HeaderComponent {
       <section>
         <h4>Quick Links</h4>
         <nav class="foot-nav">
-          <a routerLink="/" (click)="scrollToTop()">Home</a>
-          <a routerLink="/about" (click)="scrollToTop()">About Us</a>
-          <a routerLink="/services" (click)="scrollToTop()">Product</a>
-          <a routerLink="/solutions" (click)="scrollToTop()">Solutions</a>
-          <!-- <a routerLink="/blog" (click)="scrollToTop()">Blog</a> -->
-          <a routerLink="/contact" (click)="scrollToTop()">Contact</a>
+          <a href="#home" (click)="scrollTo('home', $event)">Home</a>
+          <a href="#about" (click)="scrollTo('about', $event)">About Us</a>
+          <a href="#services" (click)="scrollTo('services', $event)">Product</a>
+          <a href="#solutions" (click)="scrollTo('solutions', $event)">Solutions</a>
+          <!-- <a href="#blog" (click)="scrollTo('blog', $event)">Blog</a> -->
+          <a href="#contact" (click)="scrollTo('contact', $event)">Contact</a>
         </nav>
       </section>
       <section>
         <h4>Our Services</h4>
         <nav class="foot-nav">
-          <a routerLink="/services" (click)="scrollToTop()">Web Development</a>
-          <a routerLink="/services" (click)="scrollToTop()">Mobile Apps</a>
-          <a routerLink="/services" (click)="scrollToTop()">Software Development</a>
-          <a routerLink="/services" (click)="scrollToTop()">UI/UX Design</a>
-          <a routerLink="/services" (click)="scrollToTop()">Automation</a>
-          <a routerLink="/services" (click)="scrollToTop()">IT Consulting</a>
+          <a href="#services" (click)="scrollTo('services', $event)">Web Development</a>
+          <a href="#services" (click)="scrollTo('services', $event)">Mobile Apps</a>
+          <a href="#services" (click)="scrollTo('services', $event)">Software Development</a>
+          <a href="#services" (click)="scrollTo('services', $event)">UI/UX Design</a>
+          <a href="#services" (click)="scrollTo('services', $event)">Automation</a>
+          <a href="#services" (click)="scrollTo('services', $event)">IT Consulting</a>
         </nav>
       </section>
       <section>
@@ -463,12 +535,12 @@ export class HeaderComponent {
     footer {
       background: #080f2b;
       color: #eef1ff;
-      padding-top: 48px;
+      padding-top: 64px;
     }
     .foot {
       display: grid;
       grid-template-columns: 2fr 1fr 1.3fr 1.3fr;
-      gap: 36px;
+      gap: 40px;
     }
     .logo {
       font: 800 18px Manrope;
@@ -478,12 +550,12 @@ export class HeaderComponent {
       color: #6681ff;
     }
     .foot h2 {
-      font-size: 21px;
+      font-size: 22px;
       line-height: 1.35;
-      margin: 18px 0 12px;
+      margin: 20px 0 12px;
     }
     .foot h4 {
-      margin: 3px 0 16px;
+      margin: 3px 0 18px;
       font-size: 14px;
       font-weight: 700;
       color: #ffffff;
@@ -492,7 +564,7 @@ export class HeaderComponent {
     .foot-nav {
       display: flex;
       flex-direction: column;
-      gap: 9px;
+      gap: 10px;
     }
     .foot p,
     .foot-nav a,
@@ -509,13 +581,13 @@ export class HeaderComponent {
     .foot-nav a:hover,
     .foot section > a:hover { color: #ffffff; }
     .social {
-      margin-top: 18px;
+      margin-top: 20px;
       font-size: 18px;
     }
     .copyright {
       border-top: 1px solid #ffffff17;
-      margin-top: 36px;
-      padding: 16px 24px;
+      margin-top: 48px;
+      padding: 19px 24px;
       color: #aab2d3;
       font-size: 11px;
     }
@@ -525,13 +597,13 @@ export class HeaderComponent {
     @media (max-width: 960px) {
       .foot {
         grid-template-columns: repeat(2, 1fr);
-        gap: 28px;
+        gap: 32px;
       }
     }
     @media (max-width: 580px) {
       .foot {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 28px;
       }
       .foot section:first-child {
         grid-column: span 1;
@@ -545,9 +617,43 @@ export class HeaderComponent {
   `,
 })
 export class FooterComponent {
-  scrollToTop(): void {
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  private router = inject(Router);
+
+  scrollTo(sectionId: string, event?: Event): void {
+    if (event) {
+      event.preventDefault();
+    }
+    const performScroll = (id: string) => {
+      const el = document.getElementById(id);
+      if (el) {
+        const headerEl = document.querySelector('app-header header, app-header, header');
+        const headerHeight = headerEl ? (headerEl as HTMLElement).offsetHeight : 76;
+        const extraGap = 8;
+        const rect = el.getBoundingClientRect();
+        const currentScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+        const top = rect.top + currentScrollY;
+        const targetScrollY = Math.max(0, Math.round(top - (headerHeight + extraGap)));
+
+        window.scrollTo({
+          top: targetScrollY,
+          behavior: 'smooth',
+        });
+
+        if (typeof history !== 'undefined' && history.pushState) {
+          history.pushState(null, '', '#' + id);
+        }
+      }
+    };
+
+    const el = document.getElementById(sectionId);
+    if (el) {
+      performScroll(sectionId);
+    } else {
+      this.router.navigate(['/'], { fragment: sectionId }).then(() => {
+        setTimeout(() => {
+          performScroll(sectionId);
+        }, 120);
+      });
     }
   }
 }
@@ -1738,8 +1844,9 @@ export class ServicesShowcaseComponent implements AfterViewInit, OnDestroy {
 
 @Component({
   selector: 'app-services',
-  imports: [CommonModule, RouterLink, ServicesShowcaseComponent],
+  imports: [CommonModule, RouterLink, HeaderComponent, FooterComponent, ServicesShowcaseComponent],
   template: `
+    <app-header></app-header>
     <main class="services-page-wrap">
       <app-services-showcase></app-services-showcase>
       <section class="services-cta-banner container">
@@ -1752,45 +1859,41 @@ export class ServicesShowcaseComponent implements AfterViewInit, OnDestroy {
         </div>
       </section>
     </main>
+    <app-footer></app-footer>
   `,
   styles: `
-    :host {
-      display: block;
-      min-height: calc(100vh - 62px);
-      animation: pageEnter 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
-    }
     .services-page-wrap {
       padding-top: 10px;
-      padding-bottom: 50px;
-      min-height: calc(100vh - 62px);
+      padding-bottom: 70px;
+      min-height: 80vh;
       background: #f8faff;
     }
     .services-cta-banner {
-      margin-top: 36px;
+      margin-top: 45px;
       max-width: 1080px;
     }
     .cta-inner {
       background: linear-gradient(110deg, #081132, #17327f);
       color: #fff;
-      padding: 30px 40px;
-      border-radius: 20px;
+      padding: 36px 44px;
+      border-radius: 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 16px 40px rgba(8, 17, 50, 0.16);
+      box-shadow: 0 20px 48px rgba(8, 17, 50, 0.16);
     }
     .cta-copy h3 {
-      font: 800 23px Manrope, sans-serif;
+      font: 800 25px Manrope, sans-serif;
       margin: 0 0 6px;
     }
     .cta-copy p {
       color: #b7c8fb;
       margin: 0;
-      font-size: 14px;
+      font-size: 15px;
     }
     .cta-btn {
       background: #2563eb;
-      padding: 13px 26px;
+      padding: 15px 30px;
       font-size: 14px;
       border-radius: 12px;
       white-space: nowrap;
@@ -1804,8 +1907,8 @@ export class ServicesShowcaseComponent implements AfterViewInit, OnDestroy {
       .cta-inner {
         flex-direction: column;
         align-items: flex-start;
-        gap: 16px;
-        padding: 22px 20px;
+        gap: 20px;
+        padding: 26px 22px;
       }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -2756,34 +2859,6 @@ export class SolutionsShowcaseComponent {
   }
 }
 
-@Component({
-  selector: 'app-solutions',
-  imports: [CommonModule, SolutionsShowcaseComponent],
-  template: `
-    <main class="solutions-page-wrap">
-      <app-solutions-showcase></app-solutions-showcase>
-    </main>
-  `,
-  styles: `
-    :host {
-      display: block;
-      min-height: calc(100vh - 62px);
-      animation: pageEnter 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
-    }
-    .solutions-page-wrap {
-      width: 100%;
-    }
-    @keyframes pageEnter {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: none; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      :host { animation: none !important; }
-    }
-  `,
-})
-export class SolutionsComponent {}
-
 
 
 const aboutCards = [
@@ -2812,7 +2887,7 @@ const aboutFeatures = heroFeatures;
 
 @Component({
   selector: 'app-home-about-preview',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   template: `
     <section #section id="about" class="about-page" [class.is-visible]="isVisible()">
       <section class="about-hero container">
@@ -2822,7 +2897,7 @@ const aboutFeatures = heroFeatures;
           <h2>We are a new technology company focused on turning ideas into modern digital solutions.</h2>
           <p>Build4Big is our own technology venture, created with a passion for software, design and innovation. We are starting our journey by building useful, scalable and meaningful digital experiences for businesses and people.</p>
           <p>Our goal is simple — understand real problems, create smart solutions and continuously improve the way technology works for people.</p>
-          <div class="story-actions"><a routerLink="/services" class="primary-action">Explore Our Journey <span>→</span></a><a routerLink="/services" class="secondary-action"><i>▶</i> See What We Build</a></div>
+          <div class="story-actions"><a href="#services" class="primary-action">Explore Our Journey <span>→</span></a><a href="#services" class="secondary-action"><i>▶</i> See What We Build</a></div>
         </div>
         <div class="card-marquee reveal-right" aria-label="Build4Big values">
           <div class="edge edge-left"></div><div class="edge edge-right"></div>
@@ -2840,8 +2915,8 @@ const aboutFeatures = heroFeatures;
   `,
   styles: `
     :host{display:block}
-    .about-page{overflow:hidden;background:radial-gradient(circle at 18% 20%,#eef5ff 0,transparent 42%),radial-gradient(circle at 82% 80%,#f5edff 0,transparent 45%),radial-gradient(circle at 78% 10%,#edf4ff 0,transparent 30%),#f8faff;color:#07133d;min-height:calc(100vh - 62px);box-sizing:border-box}
-    .about-hero{min-height:500px;display:grid;grid-template-columns:minmax(320px,.9fr) minmax(0,1.1fr);gap:42px;align-items:center;padding-top:28px;padding-bottom:38px}
+    .about-page{overflow:hidden;background:radial-gradient(circle at 18% 20%,#eef5ff 0,transparent 42%),radial-gradient(circle at 82% 80%,#f5edff 0,transparent 45%),radial-gradient(circle at 78% 10%,#edf4ff 0,transparent 30%),#f8faff;color:#07133d;min-height:100vh;box-sizing:border-box}
+    .about-hero{min-height:520px;display:grid;grid-template-columns:minmax(320px,.9fr) minmax(0,1.1fr);gap:50px;align-items:center;padding-top:36px;padding-bottom:45px}
     .story-badge{display:inline-block;padding:7px 15px;border-radius:20px;background:linear-gradient(100deg,#eff3ff,#fff);color:#265df6;text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:800;box-shadow:0 8px 25px #2457b218}
     .story-copy h1{font:800 clamp(40px,4vw,61px)/1.08 Manrope;margin:18px 0}
     .story-copy h1 em{font-style:normal;color:#1f61fa}
@@ -5279,36 +5354,27 @@ export class ContactShowcaseComponent {
 }
 @Component({
   selector: 'app-contact',
-  imports: [CommonModule, ContactShowcaseComponent],
-  template: `
-    <main class="contact-page-wrap">
+  imports: [CommonModule, HeaderComponent, FooterComponent, ContactShowcaseComponent],
+  template: `<app-header></app-header>
+    <main>
       <app-contact-showcase></app-contact-showcase>
     </main>
-  `,
-  styles: `
-    :host {
-      display: block;
-      min-height: calc(100vh - 62px);
-      animation: pageEnter 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
-    }
-    .contact-page-wrap {
-      width: 100%;
-    }
-    @keyframes pageEnter {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: none; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      :host { animation: none !important; }
-    }
-  `,
+    <app-footer></app-footer>`,
+  styles: `:host{display:block;animation:pageEnter 0.42s cubic-bezier(0.22,1,0.36,1) both}
+           @keyframes pageEnter{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+           @media(prefers-reduced-motion:reduce){:host{animation:none}}`,
 })
 export class ContactComponent {}
 @Component({
   selector: 'app-landing',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, FooterComponent, HomeAboutPreviewComponent, ServicesShowcaseComponent, SolutionsShowcaseComponent, ContactShowcaseComponent],
   template: `
-    <main class="landing-page-wrap">
+    <div id="home">
+      <header class="one-nav">
+        <a href="#home" class="menu-logo" aria-label="Build4Big home"><span class="brand-image"><img src="/build4big-mark.svg" alt="Build4Big 4B logo" /></span><span>Build4Big</span></a>
+        <nav><a href="#home">Home</a><a href="#about">About</a><a href="#services">Product</a><a href="#solutions">Solutions</a><!-- <a href="#blog">Blog</a> --><a href="#contact">Contact</a></nav>
+        <a href="#contact">Get Started</a>
+      </header>
       <!-- Interactive 3D Hero Section matching image -->
       <div class="hero-land-glow" (mousemove)="onHeroMouseMove($event)" (mouseleave)="onHeroMouseLeave()">
         <!-- Dynamic ambient cursor lighting & tech grid -->
@@ -5344,8 +5410,8 @@ export class ContactComponent {}
             </p>
 
             <div class="hero-cta-btns">
-              <a routerLink="/contact" class="btn-hero-gradient">Get Started →</a>
-              <a routerLink="/about" class="btn-hero-glass">
+              <a href="#contact" class="btn-hero-gradient">Get Started →</a>
+              <a href="#about" class="btn-hero-glass">
                 <span class="play-arrow">▷</span> Watch Our Story
               </a>
             </div>
@@ -5369,7 +5435,7 @@ export class ContactComponent {}
                 </div>
               </div>
 
-              <!-- Satellite Radar Nodes (Target, Innovation, Security, Analytics) -->
+              <!-- Satellite Radar Nodes (Exact matching icons: Target, Gear, Shield, Growth) -->
               <div class="orbit-node node-1" title="Target">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
               </div>
@@ -5441,6 +5507,7 @@ export class ContactComponent {}
           </div>
         </div>
 
+
         <!-- Bottom Glass Running Marquee Bar matching Image 1 & 2 -->
         <div class="container hero-workflow-container">
           <div class="hero-marquee-bar" aria-label="Build4Big Core Features">
@@ -5464,37 +5531,47 @@ export class ContactComponent {}
         </div>
 
       </div>
-    </main>
+    </div>
+    <app-home-about-preview></app-home-about-preview>
+    <section id="services" class="landing-services-wrap">
+      <app-services-showcase></app-services-showcase>
+    </section>
+    <section id="solutions" class="landing-solutions-wrap">
+      <app-solutions-showcase></app-solutions-showcase>
+    </section>
+    <!-- <section id="blog" class="landing-blog-wrap">
+      <app-blog-showcase></app-blog-showcase>
+    </section> -->
+    <section id="contact" class="landing-contact-wrap">
+      <app-contact-showcase></app-contact-showcase>
+    </section>
+    <app-footer></app-footer>
   `,
   styles: `
-    :host {
-      display: block;
-      animation: pageEnter 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+    .one-nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 max(24px,calc((100vw - 1120px)/2));background:#fff;position:sticky;top:0;z-index:9}.one-nav>a{font:800 16px Manrope;color:#080f2b;text-decoration:none;flex-shrink:0}.one-nav>a:last-child{background:#3159f5;color:#fff;padding:12px 18px;border-radius:10px;font:700 12px 'DM Sans';white-space:nowrap}.one-nav nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:center}.one-nav nav a{font-size:12px;font-weight:700;color:#111936;text-decoration:none;white-space:nowrap}.one-nav nav a:hover{color:#3159f5}
+    @media (max-width: 768px) {
+      .one-nav { height: 64px; padding: 0 16px; gap: 12px; }
+      .one-nav > a.menu-logo span:last-child { font-size: 15px; }
+      .one-nav nav { gap: 12px; }
+      .one-nav nav a { font-size: 11.5px; }
+      .one-nav > a:last-child { padding: 9px 14px; font-size: 11.5px; }
     }
-    .landing-page-wrap {
-      width: 100%;
+    @media (max-width: 580px) {
+      .one-nav nav { display: none; }
+      .one-nav { justify-content: space-between; }
     }
 
-    /* Interactive 3D Hero Section fitting desktop screen */
+    /* Interactive 3D Hero Section matching image */
     .hero-land-glow {
       position: relative;
       background: radial-gradient(circle at 74% 38%, #0d2876 0%, #041038 42%, #02071b 100%);
       color: #ffffff;
-      padding: 10px 0 14px;
+      padding: 44px 0 38px;
       overflow: hidden;
-      min-height: calc(100vh - 62px);
-      box-sizing: border-box;
+      min-height: calc(100vh - 76px);
       display: flex;
       flex-direction: column;
-      justify-content: space-evenly;
-    }
-    @media (min-width: 993px) {
-      .hero-land-glow {
-        height: calc(100vh - 62px);
-        min-height: 540px;
-        max-height: 820px;
-        padding: 8px 0 12px;
-      }
+      justify-content: space-between;
     }
 
     /* Ambient Cursor Lighting & Background Grid */
@@ -5561,7 +5638,7 @@ export class ContactComponent {}
       display: grid;
       grid-template-columns: 1.02fr 1.18fr;
       align-items: center;
-      gap: 28px;
+      gap: 32px;
       width: 100%;
       margin: auto 0;
     }
@@ -5573,16 +5650,16 @@ export class ContactComponent {}
     .hero-pill-badge {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
+      gap: 10px;
       background: rgba(0, 70, 180, 0.32);
       border: 1px solid rgba(0, 180, 255, 0.45);
-      padding: 5px 15px;
+      padding: 6px 18px;
       border-radius: 30px;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 700;
       color: #cde6ff;
-      margin-bottom: 12px;
-      box-shadow: 0 0 20px rgba(0, 140, 255, 0.3);
+      margin-bottom: 22px;
+      box-shadow: 0 0 22px rgba(0, 140, 255, 0.3);
     }
     .pill-dot {
       width: 8px;
@@ -5595,10 +5672,10 @@ export class ContactComponent {}
       color: rgba(255, 255, 255, 0.35);
     }
     .hero-headline {
-      font: 800 clamp(28px, 2.9vw, 44px)/1.08 Manrope, sans-serif;
+      font: 800 62px/1.06 Manrope, sans-serif;
       letter-spacing: -0.038em;
       color: #ffffff;
-      margin: 0 0 12px;
+      margin: 0 0 22px;
       text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
     }
     .text-gradient {
@@ -5609,62 +5686,62 @@ export class ContactComponent {}
       display: inline-block;
     }
     .hero-subtext {
-      font-size: 14px;
-      line-height: 1.5;
+      font-size: 16px;
+      line-height: 1.75;
       color: #a3bddf;
-      max-width: 460px;
-      margin: 0 0 20px;
+      max-width: 480px;
+      margin: 0 0 34px;
     }
     .hero-cta-btns {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 18px;
     }
     .btn-hero-gradient {
       background: linear-gradient(135deg, #0066ff, #00b4ff);
       color: #ffffff;
-      font: 700 13.5px Manrope, sans-serif;
-      padding: 10px 24px;
-      border-radius: 24px;
+      font: 700 15px Manrope, sans-serif;
+      padding: 14px 30px;
+      border-radius: 28px;
       text-decoration: none;
-      box-shadow: 0 8px 24px rgba(0, 110, 255, 0.5);
+      box-shadow: 0 8px 30px rgba(0, 110, 255, 0.55);
       transition: all 0.25s ease;
       display: inline-flex;
       align-items: center;
       gap: 8px;
     }
     .btn-hero-gradient:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(0, 160, 255, 0.7);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 38px rgba(0, 160, 255, 0.75);
     }
     .btn-hero-glass {
       background: rgba(255, 255, 255, 0.07);
       border: 1px solid rgba(255, 255, 255, 0.24);
       backdrop-filter: blur(12px);
       color: #ffffff;
-      font: 700 13.5px Manrope, sans-serif;
-      padding: 10px 22px;
-      border-radius: 24px;
+      font: 700 15px Manrope, sans-serif;
+      padding: 14px 28px;
+      border-radius: 28px;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 9px;
+      gap: 10px;
       transition: all 0.25s ease;
     }
     .btn-hero-glass:hover {
       background: rgba(255, 255, 255, 0.14);
       border-color: rgba(0, 190, 255, 0.5);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
     .play-arrow {
       color: #00e1ff;
-      font-size: 12px;
+      font-size: 13px;
     }
 
     /* Right Visual Column */
     .hero-visual-col {
       position: relative;
-      height: 360px;
+      height: 520px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -5675,19 +5752,19 @@ export class ContactComponent {}
     /* Globe & Holographic Orbits */
     .globe-system-wrap {
       position: relative;
-      width: 270px;
-      height: 270px;
+      width: 320px;
+      height: 320px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     .orbit-glow-behind {
       position: absolute;
-      width: 310px;
-      height: 310px;
+      width: 380px;
+      height: 380px;
       border-radius: 50%;
       background: radial-gradient(circle, rgba(0, 170, 255, 0.35) 0%, rgba(0, 90, 255, 0.15) 50%, transparent 70%);
-      filter: blur(24px);
+      filter: blur(28px);
       pointer-events: none;
     }
     .orbit-ring {
@@ -5696,24 +5773,24 @@ export class ContactComponent {}
       pointer-events: none;
     }
     .ring-1 {
-      width: 380px;
-      height: 200px;
+      width: 460px;
+      height: 250px;
       transform: rotate(-25deg);
       border: 1.5px solid rgba(0, 210, 255, 0.45);
-      box-shadow: 0 0 14px rgba(0, 190, 255, 0.28);
+      box-shadow: 0 0 16px rgba(0, 190, 255, 0.28);
       animation: orbitSpinRing1 24s linear infinite;
     }
     .ring-2 {
-      width: 400px;
-      height: 180px;
+      width: 480px;
+      height: 220px;
       transform: rotate(32deg);
       border: 1px solid rgba(60, 130, 255, 0.42);
-      box-shadow: 0 0 14px rgba(40, 120, 255, 0.22);
+      box-shadow: 0 0 16px rgba(40, 120, 255, 0.22);
       animation: orbitSpinRing2 30s linear infinite reverse;
     }
     .ring-3 {
-      width: 290px;
-      height: 290px;
+      width: 380px;
+      height: 380px;
       border: 1px solid rgba(0, 230, 255, 0.24);
       animation: pulseGlobeGlow 4.5s ease-in-out infinite;
     }
@@ -5732,14 +5809,14 @@ export class ContactComponent {}
 
     /* 3D Holographic Sphere */
     .hologram-globe {
-      width: 240px;
-      height: 240px;
+      width: 290px;
+      height: 290px;
       border-radius: 50%;
       background: radial-gradient(circle at 35% 28%, #0099ff 0%, #004ecc 45%, #021142 85%);
       box-shadow: 
-        0 0 50px rgba(0, 170, 255, 0.85),
-        inset 0 0 40px rgba(0, 230, 255, 0.8),
-        inset -10px -10px 35px rgba(0, 20, 90, 0.95);
+        0 0 65px rgba(0, 170, 255, 0.85),
+        inset 0 0 50px rgba(0, 230, 255, 0.8),
+        inset -12px -12px 45px rgba(0, 20, 90, 0.95);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -5767,37 +5844,37 @@ export class ContactComponent {}
     }
     @keyframes globeDrift {
       0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-7px) scale(1.02); }
+      50% { transform: translateY(-8px) scale(1.02); }
     }
 
     .globe-core-mark {
       position: relative;
       z-index: 2;
-      width: 115px;
-      height: 115px;
+      width: 155px;
+      height: 155px;
       display: flex;
       align-items: center;
       justify-content: center;
       animation: markBob 4s ease-in-out infinite;
     }
     .mark-img-4b {
-      width: 115px;
-      height: 115px;
+      width: 155px;
+      height: 155px;
       object-fit: contain;
-      filter: drop-shadow(0 0 22px rgba(0, 220, 255, 0.95)) drop-shadow(0 0 10px rgba(0, 110, 255, 0.95));
+      filter: drop-shadow(0 0 28px rgba(0, 220, 255, 0.95)) drop-shadow(0 0 12px rgba(0, 110, 255, 0.95));
       user-select: none;
       pointer-events: none;
     }
     @keyframes markBob {
       0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-4px) scale(1.03); }
+      50% { transform: translateY(-5px) scale(1.04); }
     }
 
     /* Satellite Mini Radar Nodes */
     .orbit-node {
       position: absolute;
-      width: 32px;
-      height: 32px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       background: rgba(7, 24, 75, 0.92);
       border: 1.5px solid rgba(0, 210, 255, 0.65);
@@ -5806,21 +5883,21 @@ export class ContactComponent {}
       align-items: center;
       justify-content: center;
       color: #38bdf8;
-      box-shadow: 0 0 14px rgba(0, 190, 255, 0.55);
+      box-shadow: 0 0 18px rgba(0, 190, 255, 0.55);
       z-index: 3;
       animation: nodeFloat 3.5s ease-in-out infinite;
     }
     .orbit-node svg {
-      width: 15px;
-      height: 15px;
+      width: 18px;
+      height: 18px;
     }
-    .node-1 { top: 8px; left: 45px; animation-delay: 0.2s; }
-    .node-2 { top: 20px; right: 28px; animation-delay: 1.1s; }
-    .node-3 { bottom: 24px; left: 36px; animation-delay: 0.7s; }
-    .node-4 { bottom: 26px; right: 32px; animation-delay: 1.6s; }
+    .node-1 { top: 12px; left: 65px; animation-delay: 0.2s; }
+    .node-2 { top: 28px; right: 40px; animation-delay: 1.1s; }
+    .node-3 { bottom: 32px; left: 52px; animation-delay: 0.7s; }
+    .node-4 { bottom: 38px; right: 48px; animation-delay: 1.6s; }
     @keyframes nodeFloat {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
+      50% { transform: translateY(-7px); }
     }
 
     /* Floating Glass Cards */
@@ -5830,14 +5907,14 @@ export class ContactComponent {}
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1.5px solid rgba(0, 190, 255, 0.42);
-      border-radius: 14px;
-      padding: 8px 12px;
+      border-radius: 20px;
+      padding: 14px 18px;
       display: flex;
       align-items: center;
-      gap: 10px;
-      min-width: 170px;
+      gap: 14px;
+      min-width: 220px;
       box-shadow: 
-        0 12px 32px rgba(0, 8, 38, 0.7),
+        0 14px 40px rgba(0, 8, 38, 0.7),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
       z-index: 4;
       cursor: default;
@@ -5846,85 +5923,85 @@ export class ContactComponent {}
     .glass-chip:hover {
       border-color: #00e1ff;
       box-shadow: 
-        0 16px 40px rgba(0, 150, 255, 0.5),
+        0 18px 48px rgba(0, 150, 255, 0.5),
         inset 0 1px 0 rgba(255, 255, 255, 0.35);
     }
     .chip-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
     .chip-icon svg {
-      width: 18px;
-      height: 18px;
+      width: 22px;
+      height: 22px;
     }
     .icon-bulb {
       background: linear-gradient(135deg, rgba(130, 60, 255, 0.45), rgba(70, 15, 180, 0.25));
       border: 1px solid rgba(160, 90, 255, 0.55);
       color: #c084fc;
-      box-shadow: 0 0 12px rgba(150, 70, 255, 0.4);
+      box-shadow: 0 0 14px rgba(150, 70, 255, 0.4);
     }
     .icon-rocket {
       background: linear-gradient(135deg, rgba(0, 150, 255, 0.45), rgba(0, 80, 200, 0.25));
       border: 1px solid rgba(0, 190, 255, 0.55);
       color: #38bdf8;
-      box-shadow: 0 0 12px rgba(0, 160, 255, 0.4);
+      box-shadow: 0 0 14px rgba(0, 160, 255, 0.4);
     }
     .icon-bar {
       background: linear-gradient(135deg, rgba(0, 210, 255, 0.45), rgba(0, 110, 180, 0.25));
       border: 1px solid rgba(0, 230, 255, 0.55);
       color: #22d3ee;
-      box-shadow: 0 0 12px rgba(0, 220, 255, 0.4);
+      box-shadow: 0 0 14px rgba(0, 220, 255, 0.4);
     }
     .icon-users {
       background: linear-gradient(135deg, rgba(90, 100, 255, 0.45), rgba(50, 60, 190, 0.25));
       border: 1px solid rgba(120, 140, 255, 0.55);
       color: #818cf8;
-      box-shadow: 0 0 12px rgba(100, 120, 255, 0.4);
+      box-shadow: 0 0 14px rgba(100, 120, 255, 0.4);
     }
     .chip-text {
       display: flex;
       flex-direction: column;
     }
     .chip-text strong {
-      font: 700 13px Manrope, sans-serif;
+      font: 700 14.5px Manrope, sans-serif;
       color: #ffffff;
       margin-bottom: 2px;
     }
     .chip-text small {
-      font-size: 10.5px;
+      font-size: 11.5px;
       color: #9bb7e3;
-      line-height: 1.3;
+      line-height: 1.35;
     }
 
-    .chip-ai { top: 6px; left: -10px; }
-    .chip-innovation { top: 10px; right: -15px; }
-    .chip-strategy { bottom: 20px; left: -15px; }
-    .chip-support { bottom: 24px; right: -10px; }
+    .chip-ai { top: 25px; left: 10px; }
+    .chip-innovation { top: 35px; right: 0; }
+    .chip-strategy { bottom: 55px; left: 5px; }
+    .chip-support { bottom: 70px; right: 15px; }
 
     /* Quote Badge */
     .script-badge-quote {
       position: absolute;
-      right: 15px;
-      bottom: -4px;
+      right: 32px;
+      bottom: 12px;
       display: flex;
       flex-direction: column;
       align-items: flex-end;
       font-family: 'Caveat', cursive;
-      font-size: 17px;
+      font-size: 21px;
       line-height: 1.15;
       color: #bae6fd;
       transform: rotate(5deg);
       pointer-events: none;
-      text-shadow: 0 0 10px rgba(0, 190, 255, 0.65);
+      text-shadow: 0 0 12px rgba(0, 190, 255, 0.65);
     }
     .quote-underline {
       margin-top: -3px;
-      filter: drop-shadow(0 0 6px #00d2ff);
+      filter: drop-shadow(0 0 8px #00d2ff);
     }
 
     /* Bottom Glass Running Marquee Bar in Hero Section */
@@ -5932,7 +6009,7 @@ export class ContactComponent {}
       position: relative;
       z-index: 5;
       width: 100%;
-      margin-top: 6px;
+      margin-top: 18px;
     }
     .hero-marquee-bar {
       position: relative;
@@ -5940,17 +6017,17 @@ export class ContactComponent {}
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid rgba(0, 170, 255, 0.32);
-      border-radius: 18px;
-      padding: 8px 0;
+      border-radius: 24px;
+      padding: 13px 0;
       overflow: hidden;
-      box-shadow: 0 12px 32px rgba(1, 6, 24, 0.6);
+      box-shadow: 0 16px 40px rgba(1, 6, 24, 0.7);
       user-select: none;
     }
     .marquee-edge {
       position: absolute;
       top: 0;
       bottom: 0;
-      width: 45px;
+      width: 50px;
       z-index: 3;
       pointer-events: none;
     }
@@ -5979,8 +6056,8 @@ export class ContactComponent {}
     .marquee-item {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 0 14px;
+      gap: 13px;
+      padding: 0 20px;
       flex-shrink: 0;
       transition: transform 0.22s ease;
     }
@@ -5988,9 +6065,9 @@ export class ContactComponent {}
       transform: translateY(-2px);
     }
     .wf-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
       background: rgba(0, 110, 255, 0.2);
       border: 1px solid rgba(0, 180, 255, 0.45);
       display: flex;
@@ -5998,11 +6075,11 @@ export class ContactComponent {}
       justify-content: center;
       color: #00d2ff;
       flex-shrink: 0;
-      box-shadow: 0 0 12px rgba(0, 140, 255, 0.3);
+      box-shadow: 0 0 14px rgba(0, 140, 255, 0.3);
       transition: transform 0.22s ease, box-shadow 0.22s ease;
     }
     .wf-symbol {
-      font-size: 16px;
+      font-size: 19px;
       line-height: 1;
       display: inline-flex;
       align-items: center;
@@ -6010,13 +6087,16 @@ export class ContactComponent {}
     }
     .marquee-item:hover .wf-icon {
       transform: scale(1.08);
-      box-shadow: 0 0 16px rgba(0, 210, 255, 0.6);
+      box-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
     }
     .wf-icon.icon-bulb {
       color: #facc15;
       background: rgba(234, 179, 8, 0.18);
       border-color: rgba(250, 204, 21, 0.45);
-      box-shadow: 0 0 12px rgba(234, 179, 8, 0.3);
+      box-shadow: 0 0 14px rgba(234, 179, 8, 0.3);
+    }
+    .marquee-item:hover .wf-icon.icon-bulb {
+      box-shadow: 0 0 20px rgba(250, 204, 21, 0.65);
     }
     .wf-icon.icon-cloud {
       color: #38bdf8;
@@ -6029,21 +6109,21 @@ export class ContactComponent {}
       flex-direction: column;
     }
     .wf-title {
-      font: 700 13px Manrope, sans-serif;
+      font: 700 14px Manrope, sans-serif;
       color: #ffffff;
-      margin: 0 0 1px;
+      margin: 0 0 2px;
       white-space: nowrap;
     }
     .wf-sub {
-      font-size: 11px;
+      font-size: 11.5px;
       color: #94a9cc;
       white-space: nowrap;
     }
     .wf-sep {
       width: 1px;
-      height: 24px;
+      height: 30px;
       background: rgba(255, 255, 255, 0.12);
-      margin-left: 14px;
+      margin-left: 18px;
       flex-shrink: 0;
     }
     @keyframes heroMarqueeScroll {
@@ -6051,74 +6131,157 @@ export class ContactComponent {}
       to { transform: translateX(-50%); }
     }
     @media (max-width: 992px) {
-      .hero-land-glow {
-        padding: 24px 0 20px;
-        height: auto;
-        min-height: calc(100vh - 58px);
-      }
       .hero-interactive-stage {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 20px;
+        gap: 24px;
       }
       .hero-subtext {
-        margin: 0 auto 20px;
+        margin: 0 auto 30px;
       }
       .hero-cta-btns {
         justify-content: center;
       }
       .hero-visual-col {
-        height: 380px;
+        height: 480px;
+        margin-top: 10px;
       }
-      .chip-ai { top: 10px; left: 2%; }
-      .chip-innovation { top: 15px; right: 2%; }
-      .chip-strategy { bottom: 35px; left: 2%; }
-      .chip-support { bottom: 40px; right: 2%; }
+      .chip-ai { top: 15px; left: 2%; }
+      .chip-innovation { top: 25px; right: 2%; }
+      .chip-strategy { bottom: 45px; left: 2%; }
+      .chip-support { bottom: 55px; right: 2%; }
       .script-badge-quote { right: 8%; bottom: 5px; }
     }
     @media (max-width: 768px) {
       .hero-land-glow {
-        padding: 20px 0 16px;
+        padding: 30px 0 25px;
         min-height: auto;
       }
       .hero-headline {
-        font-size: clamp(28px, 6vw, 36px);
+        font-size: clamp(32px, 7vw, 40px);
         line-height: 1.15;
       }
       .hero-subtext {
-        font-size: 14px;
+        font-size: 15px;
+      }
+      .hero-cta-btns {
+        flex-wrap: wrap;
       }
       .hero-visual-col {
-        height: 340px;
+        height: 410px;
         transform: none !important;
       }
       .globe-system-wrap {
+        width: 250px;
+        height: 250px;
+      }
+      .hologram-globe {
         width: 220px;
         height: 220px;
       }
-      .hologram-globe {
-        width: 190px;
-        height: 190px;
-      }
       .globe-core-mark, .mark-img-4b {
-        width: 95px;
-        height: 95px;
+        width: 120px;
+        height: 120px;
       }
-      .ring-1 { width: 300px; height: 160px; }
-      .ring-2 { width: 310px; height: 150px; }
-      .ring-3 { width: 230px; height: 230px; }
-      .orbit-glow-behind { width: 240px; height: 240px; }
+      .ring-1 { width: 340px; height: 190px; }
+      .ring-2 { width: 360px; height: 170px; }
+      .ring-3 { width: 270px; height: 270px; }
+      .orbit-glow-behind { width: 280px; height: 280px; }
       .glass-chip {
-        min-width: 140px;
-        padding: 7px 10px;
-        gap: 8px;
-        border-radius: 12px;
+        min-width: 160px;
+        padding: 10px 12px;
+        gap: 10px;
+        border-radius: 14px;
       }
       .glass-chip strong {
-        font-size: 11.5px;
+        font-size: 13px;
       }
       .glass-chip small {
         display: none;
+      }
+      .chip-icon {
+        width: 36px;
+        height: 36px;
+      }
+      .chip-icon svg {
+        width: 18px;
+        height: 18px;
+      }
+      .chip-ai { top: 10px; left: 0; }
+      .chip-innovation { top: 15px; right: 0; }
+      .chip-strategy { bottom: 35px; left: 0; }
+      .chip-support { bottom: 45px; right: 0; }
+      .script-badge-quote {
+        font-size: 17px;
+        right: 15px;
+        bottom: 0;
+      }
+      .orbit-node {
+        width: 32px;
+        height: 32px;
+      }
+      .orbit-node svg {
+        width: 15px;
+        height: 15px;
+      }
+      .node-1 { top: 5px; left: 40px; }
+      .node-2 { top: 20px; right: 25px; }
+      .node-3 { bottom: 25px; left: 35px; }
+      .node-4 { bottom: 25px; right: 35px; }
+      .hero-marquee-bar {
+        padding: 10px 0;
+        border-radius: 18px;
+      }
+      .marquee-item {
+        padding: 0 14px;
+        gap: 9px;
+      }
+      .wf-icon {
+        width: 34px;
+        height: 34px;
+      }
+      .wf-symbol {
+        font-size: 16px;
+      }
+      .wf-title {
+        font-size: 13px;
+      }
+      .wf-sub {
+        font-size: 10.5px;
+      }
+      .wf-sep {
+        margin-left: 14px;
+        height: 24px;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero-headline {
+        font-size: 30px;
+      }
+      .hero-visual-col {
+        height: 350px;
+      }
+      .globe-system-wrap {
+        width: 200px;
+        height: 200px;
+      }
+      .hologram-globe {
+        width: 180px;
+        height: 180px;
+      }
+      .globe-core-mark, .mark-img-4b {
+        width: 100px;
+        height: 100px;
+      }
+      .ring-1 { width: 280px; height: 160px; }
+      .ring-2 { width: 290px; height: 140px; }
+      .ring-3 { width: 220px; height: 220px; }
+      .glass-chip {
+        min-width: 135px;
+        padding: 8px 10px;
+      }
+      .glass-chip strong {
+        font-size: 11.5px;
       }
       .chip-icon {
         width: 30px;
@@ -6128,14 +6291,204 @@ export class ContactComponent {}
         width: 15px;
         height: 15px;
       }
-      .chip-ai { top: 6px; left: 0; }
-      .chip-innovation { top: 10px; right: 0; }
-      .chip-strategy { bottom: 25px; left: 0; }
-      .chip-support { bottom: 30px; right: 0; }
-      .script-badge-quote {
-        font-size: 15px;
-        right: 10px;
-        bottom: -2px;
+      .btn-hero-gradient, .btn-hero-glass {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* Remaining Section Styles */
+    .landing-section,
+    .landing-services-wrap,
+    .landing-blog-wrap {
+      scroll-margin-top: 76px;
+    }
+    .landing-section {
+      padding: 85px 0;
+    }
+    .light {
+      background: #f6f8ff;
+    }
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+      max-width: 930px;
+    }
+    .split h2,
+    .heading h2 {
+      font: 800 40px/1.15 Manrope;
+      margin: 13px 0;
+    }
+    .split p,
+    .heading p,
+    .tiles p {
+      font-size: 13px;
+      color: #69708a;
+      line-height: 1.8;
+    }
+    .idea-box,
+    .person {
+      min-height: 260px;
+      border-radius: 20px;
+      background: #dce5ff;
+      display: grid;
+      place-content: center;
+      text-align: center;
+      font: 800 28px/1.25 Manrope;
+    }
+    .idea-box b {
+      color: #3159f5;
+    }
+    .metrics {
+      margin-top: 50px;
+      max-width: 930px;
+      background: #080f2b;
+      color: white;
+      padding: 22px 30px;
+      border-radius: 15px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .metrics b {
+      font: 800 23px Manrope;
+    }
+    .metrics small {
+      display: block;
+      color: #c5cce6;
+      font: 11px 'DM Sans';
+      margin-top: 4px;
+    }
+    .heading {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 42px;
+    }
+    .tiles {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      max-width: 900px;
+    }
+    .tiles article {
+      background: #fff;
+      border: 1px solid #e8ebf5;
+      border-radius: 16px;
+      padding: 26px;
+    }
+    .tiles i {
+      font-style: normal;
+      color: #3159f5;
+      font-size: 20px;
+    }
+    .tiles h3 {
+      font-size: 17px;
+      margin: 18px 0 7px;
+    }
+    .list {
+      display: flex;
+      gap: 13px;
+      margin: 16px 0;
+      color: #69708a;
+      font-size: 12px;
+    }
+    .list b {
+      color: #3159f5;
+      font-size: 22px;
+    }
+    .list strong {
+      display: block;
+      color: #080f2b;
+      font-size: 13px;
+    }
+    .robot {
+      height: 290px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #2d57ed, #e6ecff 47%);
+      font-size: 34px;
+      padding-top: 96px;
+      text-align: center;
+      letter-spacing: 18px;
+    }
+    .robot span {
+      display: block;
+      margin: 28px auto;
+      color: #071337;
+      background: #a9b9ee;
+      width: 100px;
+      height: 90px;
+      padding: 25px;
+      border-radius: 40px;
+      letter-spacing: 0;
+    }
+    .benefits {
+      padding: 16px;
+      background: #e9edff;
+      color: #3159f5;
+      font-size: 12px;
+      line-height: 2.5;
+      border-radius: 12px;
+    }
+    .person {
+      font-size: 150px;
+    }
+    .blogtiles img {
+      width: 100%;
+      height: 145px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 13px;
+    }
+    .blogtiles small,
+    .blogtiles a {
+      font-size: 11px;
+      color: #3159f5;
+    }
+    .contact p {
+      line-height: 2;
+      font-size: 13px;
+    }
+    .form {
+      display: grid;
+      gap: 12px;
+      background: white;
+      padding: 25px;
+      border-radius: 16px;
+    }
+    .form input,
+    .form textarea {
+      border: 0;
+      background: #f4f6fc;
+      padding: 13px;
+      border-radius: 8px;
+    }
+    .form textarea {
+      height: 100px;
+    }
+    .form button {
+      background: #3159f5;
+      color: white;
+      border: 0;
+      padding: 13px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    @media (max-width: 700px) {
+      .split {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .tiles {
+        grid-template-columns: 1fr;
+      }
+      .metrics {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      .split h2,
+      .heading h2 {
+        font-size: 31px;
       }
     }
   `,
@@ -6174,13 +6527,11 @@ const simple = (kind: string, label: string, title: string, intro: string) => ({
 });
 export const routes: Routes = [
   { path: '', component: LandingComponent },
-  { path: 'home', redirectTo: '' },
-  { path: 'about', component: AboutComponent },
-  { path: 'services', component: ServicesComponent },
-  { path: 'product', redirectTo: 'services' },
-  { path: 'solutions', component: SolutionsComponent },
-  { path: 'ai-solutions', redirectTo: 'solutions' },
-  { path: 'contact', component: ContactComponent },
+  { path: 'about', redirectTo: '' },
+  { path: 'services', redirectTo: '' },
+  { path: 'solutions', redirectTo: '' },
+  { path: 'ai-solutions', redirectTo: '' },
+  { path: 'contact', redirectTo: '' },
   { path: 'careers', redirectTo: '' },
   { path: 'blog', redirectTo: '' },
   { path: 'blog/:id', component: BlogDetailComponent },

@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
-:root{--ink:#080f2b;--blue:#3159f5;--soft:#f5f7ff;--muted:#69708a;--line:#e9ecf5}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:'DM Sans',Arial,sans-serif;background:#fff;font-size:17px}h1,h2,h3{font-family:Manrope,sans-serif;letter-spacing:-.04em}button,input,textarea{font:inherit}a{text-decoration:none;color:inherit}.container{max-width:1180px;margin:auto;padding:0 24px}.eyebrow{color:#4665ee;background:#f1f4ff;width:max-content;border-radius:20px;padding:5px 10px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:11px;padding:14px 20px;font-weight:700;cursor:pointer;transition:.2s;background:var(--blue);color:white}.btn:hover{transform:translateY(-2px);box-shadow:0 12px 25px #3159f544}.btn.ghost{background:#ffffff18;border:1px solid #ffffff34}.page{padding:32px 0 50px;min-height:calc(100vh - 62px)}.page-head{text-align:center;max-width:700px;margin:0 auto 36px}.page-head h1{font-size:42px;line-height:1.1;margin:10px 0}.page-head p{color:var(--muted);line-height:1.6}.card{background:#fff;border:1px solid var(--line);box-shadow:0 14px 45px #1620500d;border-radius:17px}
+:root{--ink:#080f2b;--blue:#3159f5;--soft:#f5f7ff;--muted:#69708a;--line:#e9ecf5}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:'DM Sans',Arial,sans-serif;background:#fff;font-size:17px}h1,h2,h3{font-family:Manrope,sans-serif;letter-spacing:-.04em}button,input,textarea{font:inherit}a{text-decoration:none;color:inherit}.container{max-width:1180px;margin:auto;padding:0 24px}.eyebrow{color:#4665ee;background:#f1f4ff;width:max-content;border-radius:20px;padding:5px 10px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:11px;padding:14px 20px;font-weight:700;cursor:pointer;transition:.2s;background:var(--blue);color:white}.btn:hover{transform:translateY(-2px);box-shadow:0 12px 25px #3159f544}.btn.ghost{background:#ffffff18;border:1px solid #ffffff34}.page{padding:88px 0 100px;min-height:73vh}.page-head{text-align:center;max-width:700px;margin:0 auto 52px}.page-head h1{font-size:49px;line-height:1.1;margin:12px 0}.page-head p{color:var(--muted);line-height:1.7}.card{background:#fff;border:1px solid var(--line);box-shadow:0 14px 45px #1620500d;border-radius:17px}
 
 /* The app shell owns the navigation and footer; routed pages replace only the body. */
 app-root > router-outlet + * app-header,
@@ -11,7 +11,6 @@ app-root > app-header {
   top: 0;
   z-index: 1000;
   width: 100%;
-  height: 62px;
   background: rgba(2, 7, 27, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -21,20 +20,15 @@ app-root > app-header {
 app-root > app-header > header {
   position: relative;
   max-width: 1240px;
-  height: 62px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 32px;
   background: transparent !important;
   box-shadow: none !important;
   border-bottom: none !important;
 }
 
 @media (max-width: 860px) {
-  app-root > app-header {
-    height: 58px;
-  }
   app-root > app-header > header {
-    height: 58px;
     padding: 0 16px;
   }
 }
@@ -46,12 +40,12 @@ app-root > app-header > header {
     min-width: auto;
   }
   .brand-image {
-    width: 38px !important;
-    height: 38px !important;
+    width: 46px !important;
+    height: 46px !important;
   }
   .header-logo .brand-image img {
-    width: 38px !important;
-    height: 38px !important;
+    width: 46px !important;
+    height: 46px !important;
   }
   .header-logo .brand-title {
     font-size: 18px !important;
@@ -93,9 +87,9 @@ app-header header nav, app-header header .start, .one-nav nav a, .one-nav > a:la
 /* High-contrast 4B mark and hero reveal on the first page. */
 .one-nav .menu-logo{height:60px;display:flex;align-items:center;gap:10px;padding:0 14px;border-radius:16px;background:linear-gradient(145deg,#eaf3ff,#c6dcff);box-shadow:0 7px 16px #2058b038, inset 0 1px #fff;overflow:hidden;font:800 17px Manrope;color:#081447}
 .one-nav .menu-logo img{width:55px;height:55px;mix-blend-mode:screen;filter:drop-shadow(0 4px 7px #006dff8a);animation:logo-float 3.6s ease-in-out infinite}
-.logo{min-width:auto;min-height:auto;justify-content:flex-start;white-space:nowrap}.logo span{display:inline-block;font:800 19px Manrope;color:#091645;letter-spacing:-.04em}
-.header-logo span, .header-logo .brand-title { color:#ffffff !important; font-size:19px !important; }
-.header-logo{display:inline-flex !important;align-items:center;gap:10px}.brand-image{width:42px;height:42px;display:inline-grid;place-items:center;overflow:visible;border-radius:0;background:transparent;box-shadow:none}.header-logo .brand-image img,.one-nav .menu-logo .brand-image img{position:static;width:42px !important;height:42px !important;max-width:none !important;transform:none;display:block !important;visibility:visible !important;opacity:1 !important;mix-blend-mode:normal !important;background:transparent !important;padding:0 !important;object-fit:contain !important;filter:drop-shadow(0 5px 8px #146cff4a) !important}.one-nav .menu-logo .brand-image{width:42px;height:42px}.one-nav .menu-logo .brand-image img{width:42px !important;height:42px !important}
+.logo{min-width:205px;min-height:64px;justify-content:flex-start;white-space:nowrap}.logo span{display:inline-block;font:800 22px Manrope;color:#091645;letter-spacing:-.05em}
+.header-logo span, .header-logo .brand-title { color:#ffffff !important; }
+.header-logo{display:inline-flex !important;align-items:center;gap:12px}.brand-image{width:62px;height:62px;display:inline-grid;place-items:center;overflow:visible;border-radius:0;background:transparent;box-shadow:none}.header-logo .brand-image img,.one-nav .menu-logo .brand-image img{position:static;width:62px !important;height:62px !important;max-width:none !important;transform:none;display:block !important;visibility:visible !important;opacity:1 !important;mix-blend-mode:normal !important;background:transparent !important;padding:0 !important;object-fit:contain !important;filter:drop-shadow(0 5px 8px #146cff4a) !important}.one-nav .menu-logo .brand-image{width:58px;height:58px}.one-nav .menu-logo .brand-image img{width:58px !important;height:58px !important}
 app-landing .hero-content{display:grid;grid-template-columns:1fr .65fr;align-items:center;gap:35px}
 app-landing .hero-logo{height:330px;display:grid;place-items:center;position:relative;border-radius:50%;background:radial-gradient(circle,#2449b8,#0b1544 62%,transparent 63%);animation:hero-orbit 7s ease-in-out infinite}
 app-landing .hero-logo img{position:relative;z-index:2;width:255px;height:255px;object-fit:contain;mix-blend-mode:screen;filter:drop-shadow(0 18px 18px #001352);animation:hero-logo-in 1s cubic-bezier(.2,.9,.2,1) both,logo-float 3.6s 1s ease-in-out infinite}
