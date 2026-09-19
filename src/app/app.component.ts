@@ -5589,68 +5589,82 @@ export class ContactComponent {}
         </div>
 
 
-        <!-- Bottom Glass Workflow Process Bar -->
+        <!-- Bottom Glass Features Bar matching Image 2 -->
         <div class="container hero-workflow-container">
           <div class="hero-workflow-bar">
-            <!-- Step 1 -->
+            <!-- 01 Digital Experiences -->
             <div class="workflow-item">
-              <div class="wf-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-7 7c0 3.03 1.8 5.65 4.38 6.78.38.16.62.54.62.95V18h4v-1.27c0-.41.24-.79.62-.95C17.2 14.65 19 12.03 19 9a7 7 0 0 0-7-7z"/></svg>
+              <div class="wf-icon icon-exp">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <circle cx="12" cy="12" r="6"/>
+                  <circle cx="12" cy="12" r="2"/>
+                </svg>
               </div>
               <div class="wf-content">
-                <span class="wf-index">01</span>
-                <strong class="wf-title">Innovate</strong>
-                <span class="wf-sub">Turn Ideas into Solutions</span>
+                <strong class="wf-title">Digital Experiences</strong>
+                <span class="wf-sub">Simple, useful and engaging</span>
               </div>
             </div>
             <div class="wf-sep"></div>
 
-            <!-- Step 2 -->
+            <!-- 02 Innovate -->
+            <div class="workflow-item">
+              <div class="wf-icon icon-bulb">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 18h6"/><path d="M10 22h4"/>
+                  <path d="M12 2a7 7 0 0 0-7 7c0 3.03 1.8 5.65 4.38 6.78.38.16.62.54.62.95V18h4v-1.27c0-.41.24-.79.62-.95C17.2 14.65 19 12.03 19 9a7 7 0 0 0-7-7z"/>
+                </svg>
+              </div>
+              <div class="wf-content">
+                <strong class="wf-title">Innovate</strong>
+                <span class="wf-sub">Turning ideas into possibilities</span>
+              </div>
+            </div>
+            <div class="wf-sep"></div>
+
+            <!-- 03 Develop -->
             <div class="workflow-item">
               <div class="wf-icon code-style">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"/>
+                  <polyline points="8 6 2 12 8 18"/>
+                </svg>
               </div>
               <div class="wf-content">
-                <span class="wf-index">02</span>
-                <strong class="wf-title">Build</strong>
-                <span class="wf-sub">Modern Digital Products</span>
+                <strong class="wf-title">Develop</strong>
+                <span class="wf-sub">Building modern software</span>
               </div>
             </div>
             <div class="wf-sep"></div>
 
-            <!-- Step 3 -->
+            <!-- 04 Transform -->
             <div class="workflow-item">
-              <div class="wf-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4.5c1.45-1.47 4.5-2 4.5-2"/><path d="M12 15v5s3.03-.55 4.5-2c1.47-1.45 2-4.5 2-4.5"/></svg>
+              <div class="wf-icon icon-cloud">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
+                </svg>
               </div>
               <div class="wf-content">
-                <span class="wf-index">03</span>
-                <strong class="wf-title">Deliver</strong>
-                <span class="wf-sub">Real Business Impact</span>
+                <strong class="wf-title">Transform</strong>
+                <span class="wf-sub">Improving digital experiences</span>
               </div>
             </div>
             <div class="wf-sep"></div>
 
-            <!-- Step 4 -->
+            <!-- 05 Automate -->
             <div class="workflow-item">
-              <div class="wf-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/><line x1="2" y1="21" x2="22" y2="21"/></svg>
+              <div class="wf-icon icon-gear">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                </svg>
               </div>
               <div class="wf-content">
-                <span class="wf-index">04</span>
-                <strong class="wf-title">Grow</strong>
-                <span class="wf-sub">Together for a Better Tomorrow</span>
+                <strong class="wf-title">Automate</strong>
+                <span class="wf-sub">Making work smarter</span>
               </div>
             </div>
-
-            <!-- Scroll to Explore -->
-            <a href="#services" class="wf-scroll-indicator" aria-label="Scroll to Explore">
-              <div class="mouse-shape">
-                <span class="mouse-dot"></span>
-              </div>
-              <span class="scroll-label">Scroll to Explore</span>
-              <svg class="scroll-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </a>
           </div>
         </div>
 
@@ -6136,27 +6150,32 @@ export class ContactComponent {}
       margin-top: 15px;
     }
     .hero-workflow-bar {
-      background: rgba(5, 18, 56, 0.76);
+      background: rgba(5, 18, 56, 0.78);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid rgba(0, 170, 255, 0.32);
       border-radius: 24px;
-      padding: 16px 28px;
+      padding: 16px 26px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
+      gap: 14px;
       box-shadow: 0 16px 40px rgba(1, 6, 24, 0.7);
     }
     .workflow-item {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       flex: 1;
+      min-width: 0;
+      transition: transform 0.2s ease;
+    }
+    .workflow-item:hover {
+      transform: translateY(-2px);
     }
     .wf-icon {
-      width: 44px;
-      height: 44px;
+      width: 42px;
+      height: 42px;
       border-radius: 12px;
       background: rgba(0, 110, 255, 0.2);
       border: 1px solid rgba(0, 180, 255, 0.45);
@@ -6166,6 +6185,26 @@ export class ContactComponent {}
       color: #00d2ff;
       flex-shrink: 0;
       box-shadow: 0 0 14px rgba(0, 140, 255, 0.3);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+    .workflow-item:hover .wf-icon {
+      transform: scale(1.08);
+      box-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
+    }
+    .wf-icon.icon-bulb {
+      color: #facc15;
+      background: rgba(234, 179, 8, 0.18);
+      border-color: rgba(250, 204, 21, 0.45);
+      box-shadow: 0 0 14px rgba(234, 179, 8, 0.3);
+    }
+    .workflow-item:hover .wf-icon.icon-bulb {
+      box-shadow: 0 0 20px rgba(250, 204, 21, 0.65);
+    }
+    .wf-icon.icon-cloud {
+      color: #38bdf8;
+    }
+    .wf-icon.icon-gear {
+      color: #00e5ff;
     }
     .wf-icon svg {
       width: 20px;
@@ -6174,73 +6213,28 @@ export class ContactComponent {}
     .wf-content {
       display: flex;
       flex-direction: column;
-    }
-    .wf-index {
-      font-size: 11px;
-      font-weight: 700;
-      color: #38bdf8;
-      letter-spacing: 0.5px;
+      min-width: 0;
     }
     .wf-title {
-      font: 700 14px Manrope, sans-serif;
+      font: 700 13.5px Manrope, sans-serif;
       color: #ffffff;
-      margin: 1px 0;
+      margin: 0 0 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .wf-sub {
-      font-size: 11.5px;
-      color: #8ca3c8;
+      font-size: 11px;
+      color: #94a9cc;
       white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .wf-sep {
       width: 1px;
-      height: 38px;
+      height: 36px;
       background: rgba(255, 255, 255, 0.12);
-    }
-
-    /* Scroll Indicator */
-    .wf-scroll-indicator {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      text-decoration: none;
-      padding-left: 10px;
-      color: #8ba8d4;
-      transition: color 0.2s ease;
-    }
-    .wf-scroll-indicator:hover {
-      color: #00d2ff;
-    }
-    .mouse-shape {
-      width: 18px;
-      height: 28px;
-      border: 2px solid currentColor;
-      border-radius: 12px;
-      display: flex;
-      justify-content: center;
-      padding-top: 5px;
-    }
-    .mouse-dot {
-      width: 3px;
-      height: 6px;
-      background: currentColor;
-      border-radius: 2px;
-      animation: wheelBounce 1.6s ease-in-out infinite;
-    }
-    .scroll-label {
-      font-size: 10.5px;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-    .scroll-chevron {
-      width: 15px;
-      height: 15px;
-      margin-top: -2px;
-      animation: arrowBounce 1.6s ease-in-out infinite;
-    }
-    @keyframes arrowBounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(3px); }
+      flex-shrink: 0;
     }
 
     /* Responsiveness for Laptop, Tablet & Mobile */
@@ -6267,15 +6261,14 @@ export class ContactComponent {}
     @media (max-width: 1180px) {
       .hero-workflow-bar {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 16px;
       }
       .wf-sep { display: none; }
-      .wf-scroll-indicator {
-        grid-column: span 2;
-        flex-direction: row;
-        justify-content: center;
-        margin-top: 10px;
+    }
+    @media (max-width: 860px) {
+      .hero-workflow-bar {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
     @media (max-width: 992px) {
@@ -6378,11 +6371,8 @@ export class ContactComponent {}
       .node-4 { bottom: 25px; right: 35px; }
       .hero-workflow-bar {
         grid-template-columns: 1fr;
-        padding: 18px 20px;
-        gap: 14px;
-      }
-      .wf-scroll-indicator {
-        grid-column: span 1;
+        padding: 16px 18px;
+        gap: 12px;
       }
     }
     @media (max-width: 480px) {
