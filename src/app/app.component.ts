@@ -5042,11 +5042,15 @@ const contactPillars = [
     .contact-showcase {
       position: relative;
       overflow: hidden;
-      padding: 24px 20px 32px;
+      padding: 16px 20px 18px;
       background: linear-gradient(160deg, #f0f4ff 0%, #fafbff 55%, #eef1ff 100%);
       opacity: 1;
-      min-height: 100vh;
+      min-height: calc(100vh - 64px);
       box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
     /* Orbs */
     .orb { position: absolute; border-radius: 50%; filter: blur(55px); opacity: 0.35; pointer-events: none; }
@@ -5058,42 +5062,43 @@ const contactPillars = [
     .scribble {
       position: absolute;
       font-family: 'Caveat', cursive;
-      font-size: 13px;
+      font-size: 12px;
       color: #3159f5;
-      line-height: 1.4;
+      line-height: 1.35;
       pointer-events: none;
       opacity: 0.75;
     }
-    .scribble-left { top: 60px; left: 24px; transform: rotate(-5deg); }
-    .scribble-right { top: 60px; right: 24px; transform: rotate(4deg); text-align: center; }
+    .scribble-left { top: 30px; left: 24px; transform: rotate(-5deg); }
+    .scribble-right { top: 30px; right: 24px; transform: rotate(4deg); text-align: center; }
     /* Paper plane */
-    .plane-wrap { position: absolute; top: 35px; right: 90px; pointer-events: none; animation: planeDrift 5s ease-in-out infinite; }
-    .paper-plane { width: 44px; height: 44px; filter: drop-shadow(0 4px 10px #3159f535); }
-    .plane-trail { width: 100px; height: 50px; position: absolute; top: 8px; right: 35px; }
-    @keyframes planeDrift { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-10px) rotate(3deg)} }
+    .plane-wrap { position: absolute; top: 20px; right: 90px; pointer-events: none; animation: planeDrift 5s ease-in-out infinite; }
+    .paper-plane { width: 38px; height: 38px; filter: drop-shadow(0 4px 10px #3159f535); }
+    .plane-trail { width: 90px; height: 45px; position: absolute; top: 6px; right: 30px; }
+    @keyframes planeDrift { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-8px) rotate(3deg)} }
     /* Header */
-    .contact-header { text-align: center; margin-bottom: 20px; position: relative; z-index: 1; }
+    .contact-header { text-align: center; margin-bottom: 12px; position: relative; z-index: 1; }
     .contact-badge {
       display: inline-block;
       border: 1.5px solid #b4c4f4;
       border-radius: 30px;
-      padding: 4px 14px;
-      font-size: 11px;
+      padding: 3px 12px;
+      font-size: 10px;
       font-weight: 700;
       letter-spacing: 1.2px;
       color: #3159f5;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
       background: #fff;
     }
-    .contact-title { font: 800 clamp(26px, 3.2vw, 36px)/1.15 Manrope; color: #080f2b; margin: 0 0 8px; }
+    .contact-title { font: 800 clamp(20px, 2.2vw, 28px)/1.15 Manrope; color: #080f2b; margin: 0 0 4px; }
     .grad { background: linear-gradient(135deg, #3159f5, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .contact-sub { font-size: 13px; color: #69708a; line-height: 1.5; margin: 0; }
+    .contact-sub { font-size: 12px; color: #69708a; line-height: 1.4; margin: 0; }
     /* Main layout */
     .contact-main {
       display: grid;
-      grid-template-columns: 1fr 1.05fr 1fr;
-      gap: 20px;
-      max-width: 1160px;
+      grid-template-columns: 1fr 0.92fr 1.15fr;
+      gap: 16px;
+      max-width: 1180px;
+      width: 100%;
       margin: 0 auto;
       position: relative;
       z-index: 1;
@@ -5109,34 +5114,34 @@ const contactPillars = [
     /* Info col */
     .contact-info-col {
       background: #fff;
-      border-radius: 20px;
-      padding: 22px 20px 18px;
+      border-radius: 18px;
+      padding: 18px 18px 14px;
       box-shadow: 0 4px 20px rgba(49,89,245,0.07);
       border: 1px solid #e8edff;
       display: flex;
       flex-direction: column;
     }
-    .info-accent { width: 34px; height: 3px; background: #3159f5; border-radius: 2px; margin-bottom: 12px; }
-    .info-title { font: 700 19px/1.2 Manrope; color: #080f2b; margin: 0 0 6px; }
-    .info-sub { font-size: 12px; color: #69708a; line-height: 1.5; margin-bottom: 16px; }
-    .info-list { display: flex; flex-direction: column; gap: 12px; flex: 1; }
-    .info-item { display: flex; gap: 12px; align-items: flex-start; }
+    .info-accent { width: 32px; height: 3px; background: #3159f5; border-radius: 2px; margin-bottom: 8px; }
+    .info-title { font: 700 16.5px/1.2 Manrope; color: #080f2b; margin: 0 0 4px; }
+    .info-sub { font-size: 11.5px; color: #69708a; line-height: 1.4; margin-bottom: 10px; }
+    .info-list { display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .info-item { display: flex; gap: 10px; align-items: flex-start; }
     .info-icon {
-      width: 34px; height: 34px; border-radius: 50%;
+      width: 28px; height: 28px; border-radius: 50%;
       background: #f0f4ff;
       display: flex; align-items: center; justify-content: center;
-      font-size: 15px; flex-shrink: 0;
+      font-size: 13.5px; flex-shrink: 0;
     }
-    .info-label { font: 700 12.5px Manrope; color: #080f2b; margin-bottom: 2px; }
-    .info-val { font-size: 11.5px; color: #69708a; line-height: 1.5; }
-    .social-row { display: flex; align-items: center; gap: 8px; margin: 16px 0 0; }
-    .social-label { font: 700 12px Manrope; color: #080f2b; }
+    .info-label { font: 700 11.5px Manrope; color: #080f2b; margin-bottom: 1px; }
+    .info-val { font-size: 11px; color: #69708a; line-height: 1.35; }
+    .social-row { display: flex; align-items: center; gap: 6px; margin: 10px 0 0; }
+    .social-label { font: 700 11px Manrope; color: #080f2b; }
     .social-btn {
-      width: 30px; height: 30px; border-radius: 8px;
+      width: 26px; height: 26px; border-radius: 6px;
       border: 1px solid #dde4f5;
       background: #fff;
       display: flex; align-items: center; justify-content: center;
-      font-size: 12px; font-weight: 700; color: #3159f5;
+      font-size: 11px; font-weight: 700; color: #3159f5;
       text-decoration: none;
       transition: background 0.2s, color 0.2s;
     }
@@ -5145,23 +5150,23 @@ const contactPillars = [
     .map-blob-container {
       position: relative;
       width: 100%;
-      max-width: 290px;
+      max-width: 260px;
       margin: 0 auto;
       display: flex;
       justify-content: center;
       align-items: center;
     }
     .map-blob {
-      width: 250px;
-      height: 250px;
+      width: 210px;
+      height: 210px;
       background: linear-gradient(135deg, #dbe7ff 0%, #c4d7ff 50%, #ebf2ff 100%);
-      border-radius: 36px;
+      border-radius: 28px;
       position: relative;
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      padding-bottom: 18px;
-      box-shadow: 0 14px 36px rgba(49, 89, 245, 0.16);
+      padding-bottom: 14px;
+      box-shadow: 0 12px 30px rgba(49, 89, 245, 0.14);
       overflow: hidden;
       border: 2px solid #ffffff;
     }
@@ -5173,7 +5178,7 @@ const contactPillars = [
       height: 100%;
       border: 0;
       opacity: 0.88;
-      border-radius: 34px;
+      border-radius: 26px;
       filter: saturate(1.1) contrast(1.02);
       transition: opacity 0.3s ease;
     }
@@ -5182,7 +5187,7 @@ const contactPillars = [
     }
     .map-pin-overlay {
       position: absolute;
-      top: 30px;
+      top: 22px;
       left: 50%;
       transform: translateX(-50%);
       pointer-events: none;
@@ -5192,8 +5197,8 @@ const contactPillars = [
       animation: pinBounce 2s ease-in-out infinite;
     }
     .pin-head {
-      width: 28px;
-      height: 28px;
+      width: 24px;
+      height: 24px;
       background: #2563eb;
       border-radius: 50% 50% 50% 0;
       transform: rotate(-45deg);
@@ -5201,8 +5206,8 @@ const contactPillars = [
       box-shadow: 0 6px 14px rgba(37, 99, 235, 0.45);
     }
     .pin-stem {
-      width: 4px;
-      height: 16px;
+      width: 3.5px;
+      height: 13px;
       background: #2563eb;
       margin: 2px auto 0;
       border-radius: 0 0 4px 4px;
@@ -5216,9 +5221,9 @@ const contactPillars = [
       z-index: 3;
       background: linear-gradient(135deg, #4338ca, #6366f1);
       color: #ffffff;
-      font: 700 12px Manrope, sans-serif;
-      padding: 8px 18px;
-      border-radius: 18px;
+      font: 700 11px Manrope, sans-serif;
+      padding: 6px 14px;
+      border-radius: 16px;
       text-align: center;
       text-decoration: none;
       box-shadow: 0 5px 16px rgba(67, 56, 202, 0.4);
@@ -5235,73 +5240,73 @@ const contactPillars = [
     .float-chip {
       position: absolute;
       background: #ffffff;
-      border-radius: 12px;
-      padding: 6px 12px;
-      font-size: 11px;
+      border-radius: 10px;
+      padding: 4px 10px;
+      font-size: 10px;
       font-weight: 700;
       color: #080f2b;
-      box-shadow: 0 5px 16px rgba(49, 89, 245, 0.14);
+      box-shadow: 0 4px 12px rgba(49, 89, 245, 0.12);
       white-space: nowrap;
       animation: chipFloat 3.2s ease-in-out infinite;
       z-index: 4;
       border: 1px solid #edf2f7;
     }
-    .chip1 { top: -12px; left: -18px; animation-delay: 0s; }
-    .chip2 { bottom: 14px; right: -24px; animation-delay: 1.1s; }
-    .chip3 { bottom: -12px; left: 8px; animation-delay: 0.6s; }
+    .chip1 { top: -10px; left: -14px; animation-delay: 0s; }
+    .chip2 { bottom: 10px; right: -18px; animation-delay: 1.1s; }
+    .chip3 { bottom: -10px; left: 6px; animation-delay: 0.6s; }
     @keyframes chipFloat {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-7px); }
+      50% { transform: translateY(-6px); }
     }
     /* Form card matching design */
     .contact-form-card {
       background: #ffffff;
-      border-radius: 24px;
-      padding: 32px 28px 24px;
+      border-radius: 20px;
+      padding: 18px 22px 16px;
       border: 1px solid #e2e8f0;
-      box-shadow: 0 16px 45px rgba(49, 89, 245, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 14px 38px rgba(49, 89, 245, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
       position: relative;
       display: flex;
       flex-direction: column;
       transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
     }
     .contact-form-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 22px 55px rgba(49, 89, 245, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06);
+      transform: translateY(-3px);
+      box-shadow: 0 18px 45px rgba(49, 89, 245, 0.12);
     }
     .info-accent {
-      width: 44px;
-      height: 4px;
+      width: 36px;
+      height: 3.5px;
       background: #3b82f6;
       border-radius: 4px;
-      margin-bottom: 18px;
+      margin-bottom: 10px;
     }
     .form-title {
-      font: 800 24px/1.2 'Manrope', sans-serif;
+      font: 800 20px/1.2 'Manrope', sans-serif;
       color: #080f2b;
-      margin: 0 0 10px;
+      margin: 0 0 4px;
       letter-spacing: -0.02em;
     }
     .form-sub {
-      font-size: 14.5px;
+      font-size: 12px;
       color: #4b5563;
-      line-height: 1.55;
-      margin: 0 0 22px;
+      line-height: 1.4;
+      margin: 0 0 12px;
     }
     .contact-form {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 10px;
     }
     .field-wrap {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       background: #f8fafc;
       border: 1.5px solid #e2e8f0;
-      border-radius: 14px;
-      padding: 0 16px;
-      height: 52px;
+      border-radius: 11px;
+      padding: 0 14px;
+      height: 42px;
       transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
     }
     .field-wrap:focus-within {
@@ -5311,12 +5316,12 @@ const contactPillars = [
     }
     .field-wrap.msg-wrap {
       height: auto;
-      min-height: 120px;
+      min-height: 72px;
       align-items: flex-start;
-      padding: 14px 16px;
+      padding: 8px 14px;
     }
     .field-icon {
-      font-size: 16px;
+      font-size: 15px;
       color: #6366f1;
       flex-shrink: 0;
       display: flex;
@@ -5324,14 +5329,14 @@ const contactPillars = [
       justify-content: center;
     }
     .field-icon.top {
-      margin-top: 3px;
+      margin-top: 2px;
     }
     .field {
       flex: 1;
       background: none;
       border: none;
       outline: none;
-      font: 500 14.5px 'DM Sans', sans-serif;
+      font: 500 13px 'DM Sans', sans-serif;
       color: #080f2b;
       width: 100%;
     }
@@ -5341,81 +5346,98 @@ const contactPillars = [
     }
     textarea.field {
       resize: none;
-      line-height: 1.55;
+      line-height: 1.45;
     }
     .send-btn {
       width: fit-content;
       background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
       color: #ffffff;
       border: none;
-      border-radius: 12px;
-      padding: 13px 26px;
-      font: 700 15px 'DM Sans', sans-serif;
+      border-radius: 10px;
+      padding: 9px 20px;
+      font: 700 13px 'DM Sans', sans-serif;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 9px;
+      gap: 8px;
       transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-      box-shadow: 0 8px 22px rgba(37, 99, 235, 0.35);
-      margin-top: 4px;
+      box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+      margin-top: 2px;
     }
     .send-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.45);
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.45);
     }
     .send-arrow {
-      font-size: 16px;
+      font-size: 15px;
       transition: transform 0.2s ease;
     }
     .send-btn:hover .send-arrow {
       transform: translateX(3px);
     }
     .privacy-note {
-      font-size: 12.5px;
+      font-size: 11px;
       color: #6b7280;
       display: flex;
       align-items: center;
-      gap: 7px;
-      margin-top: 16px;
+      gap: 6px;
+      margin-top: 8px;
     }
     /* Pillars in 3D */
     .contact-pillars {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      max-width: 1080px;
-      margin: 22px auto 0;
+      gap: 10px;
+      max-width: 1180px;
+      width: 100%;
+      margin: 12px auto 0;
       position: relative;
       z-index: 1;
       perspective: 1000px;
     }
     .cpillar {
       background: #fff;
-      border-radius: 14px;
-      padding: 12px 14px;
+      border-radius: 12px;
+      padding: 8px 12px;
       border: 1px solid #e8edff;
       display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      box-shadow: 0 6px 16px rgba(49, 89, 245, 0.06);
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(49, 89, 245, 0.05);
       transform-style: preserve-3d;
-      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+      transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
     }
     .cpillar:hover {
-      transform: perspective(600px) rotateX(4deg) translateY(-5px) translateZ(14px);
-      box-shadow: 0 16px 36px -6px rgba(49, 89, 245, 0.16), 0 0 16px rgba(49, 89, 245, 0.08);
+      transform: perspective(600px) rotateX(4deg) translateY(-3px) translateZ(10px);
+      box-shadow: 0 12px 28px rgba(49, 89, 245, 0.12);
       border-color: #3159f5;
     }
     .cpillar-icon {
-      width: 36px; height: 36px;
+      width: 30px; height: 30px;
       background: #f0f4ff;
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-size: 17px;
+      font-size: 14px;
       flex-shrink: 0;
-      transform: translateZ(14px);
-      transition: transform 0.25s ease;
+      transform: translateZ(10px);
+      transition: transform 0.22s ease;
+    }
+    .cpillar:hover .cpillar-icon {
+      transform: translateZ(18px) scale(1.1);
+    }
+    .cpillar-body {
+      transform: translateZ(8px);
+    }
+    .cpillar-title {
+      font: 700 12px Manrope;
+      color: #080f2b;
+      margin-bottom: 1px;
+    }
+    .cpillar-text {
+      font-size: 10px;
+      color: #69708a;
+      line-height: 1.3;
     }
     .cpillar:hover .cpillar-icon {
       transform: translateZ(24px) scale(1.12);
@@ -5887,19 +5909,6 @@ export class ContactComponent {}
               <div class="ctrl-scrubber-fill" [style.width]="progressPercent() + '%'"></div>
               <div class="ctrl-scrubber-thumb" [style.left]="progressPercent() + '%'"></div>
             </div>
-
-            <!-- BGM Audio Toggle -->
-            <button
-              type="button"
-              class="ctrl-btn-bgm"
-              [class.muted]="isBgmMuted()"
-              (click)="toggleBgmMute()"
-              [title]="isBgmMuted() ? 'Turn on Background Music' : 'Mute Background Music'"
-              aria-label="Toggle background music"
-            >
-              <span *ngIf="!isBgmMuted()">🔊 BGM</span>
-              <span *ngIf="isBgmMuted()">🔇 BGM</span>
-            </button>
 
             <!-- Scene Jump Pills -->
             <div class="ctrl-scene-pills">
@@ -7836,36 +7845,6 @@ export class ContactComponent {}
       color: #94a3b8;
       white-space: nowrap;
       min-width: 48px;
-    }
-
-    .ctrl-btn-bgm {
-      background: rgba(0, 210, 255, 0.12);
-      border: 1px solid rgba(0, 210, 255, 0.32);
-      color: #00d2ff;
-      border-radius: 6px;
-      padding: 3px 8px;
-      font-size: 9.5px;
-      font-weight: 700;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      transition: all 0.2s ease;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .ctrl-btn-bgm:hover {
-      background: rgba(0, 210, 255, 0.25);
-      border-color: #00d2ff;
-      color: #ffffff;
-      transform: scale(1.04);
-    }
-
-    .ctrl-btn-bgm.muted {
-      color: #ef4444;
-      border-color: rgba(239, 68, 68, 0.4);
-      background: rgba(239, 68, 68, 0.12);
     }
 
     .ctrl-scrubber-track {
