@@ -4997,15 +4997,21 @@ const contactPillars = [
           <p class="form-sub">Tell us about your project or idea. We'll get back to you soon.</p>
           <div class="contact-form">
             <div class="field-wrap">
-              <span class="field-icon">👤</span>
+              <span class="field-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              </span>
               <input class="field" type="text" placeholder="Your Name" [(ngModel)]="name" />
             </div>
             <div class="field-wrap">
-              <span class="field-icon">✉</span>
+              <span class="field-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </span>
               <input class="field" type="email" placeholder="Your Email" [(ngModel)]="email" />
             </div>
             <div class="field-wrap msg-wrap">
-              <span class="field-icon top">💬</span>
+              <span class="field-icon top">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              </span>
               <textarea class="field" placeholder="Your Message" rows="4" [(ngModel)]="message"></textarea>
             </div>
             <button class="send-btn" (click)="send()">
@@ -5013,7 +5019,10 @@ const contactPillars = [
               <span *ngIf="!sent" class="send-arrow">→</span>
             </button>
           </div>
-          <div class="privacy-note">🔒 We respect your privacy. Your information is safe with us.</div>
+          <div class="privacy-note">
+            <span>🔒</span>
+            <span>We respect your privacy. Your information is safe with us.</span>
+          </div>
         </div>
       </div>
       <!-- Bottom pillars -->
@@ -5244,73 +5253,132 @@ const contactPillars = [
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-7px); }
     }
-    /* Form card in 3D Perspective */
+    /* Form card matching design */
     .contact-form-card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 22px 20px 18px;
-      border: 1px solid #e2e8f8;
-      box-shadow: 0 20px 50px -10px rgba(49, 89, 245, 0.15), 0 0 20px rgba(49, 89, 245, 0.05);
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 32px 28px 24px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 16px 45px rgba(49, 89, 245, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
       position: relative;
-      transform-style: preserve-3d;
-      transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
     }
     .contact-form-card:hover {
-      transform: perspective(900px) translateY(-5px) translateZ(12px);
-      box-shadow: 0 28px 65px -12px rgba(49, 89, 245, 0.22), 0 0 25px rgba(49, 89, 245, 0.08);
+      transform: translateY(-4px);
+      box-shadow: 0 22px 55px rgba(49, 89, 245, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06);
     }
-    .cform-title { font: 800 17px Manrope; color: #080f2b; margin-bottom: 3px; transform: translateZ(12px); }
-    .cform-sub { font-size: 12px; color: #69708a; margin-bottom: 14px; transform: translateZ(8px); }
-    .cform { display: flex; flex-direction: column; gap: 10px; transform-style: preserve-3d; }
+    .info-accent {
+      width: 44px;
+      height: 4px;
+      background: #3b82f6;
+      border-radius: 4px;
+      margin-bottom: 18px;
+    }
+    .form-title {
+      font: 800 24px/1.2 'Manrope', sans-serif;
+      color: #080f2b;
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+    }
+    .form-sub {
+      font-size: 14.5px;
+      color: #4b5563;
+      line-height: 1.55;
+      margin: 0 0 22px;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
     .field-wrap {
       display: flex;
       align-items: center;
-      gap: 10px;
-      background: #f7f9fc;
-      border: 1.5px solid #edf2f7;
-      border-radius: 10px;
-      padding: 0 12px;
-      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.2s;
-      transform: translateZ(8px);
+      gap: 12px;
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 0 16px;
+      height: 52px;
+      transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
     }
     .field-wrap:focus-within {
-      background: #fff;
-      border-color: #3159f5;
-      box-shadow: 0 0 0 3px rgba(49,89,245,0.12);
-      transform: translateZ(14px);
+      background: #ffffff;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
     }
-    .field-wrap.msg-wrap { align-items: flex-start; padding-top: 10px; }
-    .field-icon { font-size: 14px; color: #9aabd4; flex-shrink: 0; }
-    .field-icon.top { margin-top: 2px; }
+    .field-wrap.msg-wrap {
+      height: auto;
+      min-height: 120px;
+      align-items: flex-start;
+      padding: 14px 16px;
+    }
+    .field-icon {
+      font-size: 16px;
+      color: #6366f1;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .field-icon.top {
+      margin-top: 3px;
+    }
     .field {
       flex: 1;
       background: none;
       border: none;
       outline: none;
-      font: 13.5px 'DM Sans', sans-serif;
+      font: 500 14.5px 'DM Sans', sans-serif;
       color: #080f2b;
-      padding: 10px 0;
+      width: 100%;
     }
-    textarea.field { resize: none; line-height: 1.5; }
+    .field::placeholder {
+      color: #94a3b8;
+      font-weight: 400;
+    }
+    textarea.field {
+      resize: none;
+      line-height: 1.55;
+    }
     .send-btn {
-      background: linear-gradient(135deg, #3159f5, #5b7fff);
-      color: #fff;
+      width: fit-content;
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      color: #ffffff;
       border: none;
-      border-radius: 10px;
-      padding: 12px 20px;
-      font: 700 13.5px 'DM Sans';
+      border-radius: 12px;
+      padding: 13px 26px;
+      font: 700 15px 'DM Sans', sans-serif;
       cursor: pointer;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      transform: translateZ(14px);
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 6px 18px rgba(49, 89, 245, 0.35);
+      gap: 9px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      box-shadow: 0 8px 22px rgba(37, 99, 235, 0.35);
+      margin-top: 4px;
     }
-    .send-btn:hover { transform: translateZ(20px) translateY(-2px); box-shadow: 0 10px 24px rgba(49, 89, 245, 0.45); }
-    .send-arrow { font-size: 16px; }
-    .privacy-note { font-size: 11px; color: #9aabd4; text-align: center; margin-top: 10px; }
+    .send-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.45);
+    }
+    .send-arrow {
+      font-size: 16px;
+      transition: transform 0.2s ease;
+    }
+    .send-btn:hover .send-arrow {
+      transform: translateX(3px);
+    }
+    .privacy-note {
+      font-size: 12.5px;
+      color: #6b7280;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 16px;
+    }
     /* Pillars in 3D */
     .contact-pillars {
       display: grid;
@@ -5406,9 +5474,15 @@ export class ContactComponent {}
   template: `
     <div id="home">
       <header class="one-nav">
-        <a href="#home" class="menu-logo" aria-label="Build4Big home"><span class="brand-image"><img src="/build4big-mark.svg" alt="Build4Big 4B logo" /></span><span>Build4Big</span></a>
-        <nav><a href="#home">Home</a><a href="#about">About</a><a href="#services">Product</a><a href="#solutions">Solutions</a><!-- <a href="#blog">Blog</a> --><a href="#contact">Contact</a></nav>
-        <a href="#contact">Get Started</a>
+        <a href="#home" (click)="scrollToSection('home', $event)" class="menu-logo" aria-label="Build4Big home"><span class="brand-image"><img src="/build4big-mark.svg" alt="Build4Big 4B logo" /></span><span>Build4Big</span></a>
+        <nav>
+          <a href="#home" (click)="scrollToSection('home', $event)">Home</a>
+          <a href="#about" (click)="scrollToSection('about', $event)">About</a>
+          <a href="#services" (click)="scrollToSection('services', $event)">Product</a>
+          <a href="#solutions" (click)="scrollToSection('solutions', $event)">Solutions</a>
+          <a href="#contact" (click)="scrollToSection('contact', $event)">Contact</a>
+        </nav>
+        <a href="#contact" (click)="scrollToSection('contact', $event)">Get Started</a>
       </header>
       <!-- Interactive 3D Hero Section matching image -->
       <div class="hero-land-glow" (mousemove)="onHeroMouseMove($event)" (mouseleave)="onHeroMouseLeave()">
@@ -5445,7 +5519,7 @@ export class ContactComponent {}
             </p>
 
             <div class="hero-cta-btns">
-              <a href="#contact" class="btn-hero-gradient">Get Started →</a>
+              <a href="#contact" (click)="scrollToSection('contact', $event)" class="btn-hero-gradient">Get Started →</a>
               <button type="button" class="btn-hero-glass" (click)="openStoryModal()" aria-label="Watch Build4Big Story Video">
                 <span class="play-arrow">▷</span> Watch Our Story
               </button>
@@ -5784,7 +5858,7 @@ export class ContactComponent {}
                 <h2 class="scene-headline">Let's Build Something <span class="scene-accent">Big Together</span></h2>
                 <p class="scene-sub">Ready to transform your ideas into industry-leading software solutions?</p>
                 <div class="scene-actions" (click)="$event.stopPropagation()">
-                  <a href="#contact" (click)="closeStoryModal()" class="scene-btn-primary">Get In Touch Now →</a>
+                  <a href="#contact" (click)="goToContactFromVideo($event)" class="scene-btn-primary">Get In Touch Now →</a>
                   <button type="button" (click)="restartStory()" class="scene-btn-replay">↺ Replay Video</button>
                 </div>
               </div>
@@ -5813,6 +5887,19 @@ export class ContactComponent {}
               <div class="ctrl-scrubber-fill" [style.width]="progressPercent() + '%'"></div>
               <div class="ctrl-scrubber-thumb" [style.left]="progressPercent() + '%'"></div>
             </div>
+
+            <!-- BGM Audio Toggle -->
+            <button
+              type="button"
+              class="ctrl-btn-bgm"
+              [class.muted]="isBgmMuted()"
+              (click)="toggleBgmMute()"
+              [title]="isBgmMuted() ? 'Turn on Background Music' : 'Mute Background Music'"
+              aria-label="Toggle background music"
+            >
+              <span *ngIf="!isBgmMuted()">🔊 BGM</span>
+              <span *ngIf="isBgmMuted()">🔇 BGM</span>
+            </button>
 
             <!-- Scene Jump Pills -->
             <div class="ctrl-scene-pills">
@@ -6991,7 +7078,7 @@ export class ContactComponent {}
 
     .story-modal-card {
       width: 100%;
-      max-width: 680px;
+      max-width: 520px;
       background: linear-gradient(180deg, #071333 0%, #030a1c 100%);
       border: 1px solid rgba(0, 210, 255, 0.35);
       border-radius: 18px;
@@ -7006,7 +7093,7 @@ export class ContactComponent {}
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 10px 18px;
+      padding: 7px 14px;
       background: rgba(10, 22, 50, 0.7);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       position: relative;
@@ -7421,10 +7508,10 @@ export class ContactComponent {}
 
     .scene-headline {
       font-family: 'Manrope', sans-serif;
-      font-size: clamp(17px, 2.3vw, 24px);
+      font-size: clamp(14.5px, 2vw, 19px);
       font-weight: 800;
       color: #ffffff;
-      margin: 0 0 6px 0;
+      margin: 0 0 4px 0;
       line-height: 1.25;
       z-index: 1;
       text-shadow: 0 3px 16px rgba(0, 0, 0, 0.6);
@@ -7443,30 +7530,30 @@ export class ContactComponent {}
     }
 
     .scene-sub {
-      font-size: clamp(11px, 1.2vw, 12.5px);
-      line-height: 1.5;
+      font-size: clamp(10px, 1.1vw, 11.5px);
+      line-height: 1.4;
       color: #94a3b8;
-      max-width: 480px;
+      max-width: 440px;
       margin: 0 auto;
       z-index: 1;
     }
 
     .scene-tech-ticker {
       display: flex;
-      gap: 8px;
+      gap: 6px;
       justify-content: center;
-      margin-top: 10px;
+      margin-top: 8px;
       z-index: 1;
       flex-wrap: wrap;
     }
 
     .ticker-tag {
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 700;
       color: #cbd5e1;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 3px 10px;
+      padding: 2px 8px;
       border-radius: 999px;
       animation: tagBob 3s ease-in-out infinite alternate;
     }
@@ -7479,9 +7566,9 @@ export class ContactComponent {}
     .scene-cards-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-top: 10px;
-      max-width: 580px;
+      gap: 7px;
+      margin-top: 8px;
+      max-width: 470px;
       width: 100%;
       z-index: 1;
     }
@@ -7489,12 +7576,12 @@ export class ContactComponent {}
     .scene-feature-chip {
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(0, 210, 255, 0.22);
-      border-radius: 12px;
-      padding: 10px 8px;
+      border-radius: 10px;
+      padding: 6px 4px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 3px;
+      gap: 2px;
       position: relative;
       overflow: hidden;
       transition: transform 0.2s ease;
@@ -7516,43 +7603,43 @@ export class ContactComponent {}
     }
 
     .chip-emoji {
-      font-size: 18px;
+      font-size: 15px;
       margin-bottom: 1px;
     }
 
     .scene-feature-chip strong {
-      font-size: 11.5px;
+      font-size: 10px;
       font-weight: 700;
       color: #ffffff;
     }
 
     .scene-feature-chip small {
-      font-size: 10px;
+      font-size: 8.5px;
       color: #94a3b8;
-      line-height: 1.3;
+      line-height: 1.25;
       text-align: center;
     }
 
     .chip-tag-live {
-      margin-top: 3px;
-      font-size: 9px;
+      margin-top: 2px;
+      font-size: 8px;
       font-weight: 800;
       color: #00e5ff;
       background: rgba(0, 229, 255, 0.12);
-      padding: 2px 6px;
+      padding: 1.5px 5px;
       border-radius: 4px;
     }
 
     /* Scene 3 AI Robot */
     .scene-ai-robot-wrap {
       position: relative;
-      margin: 6px 0 8px 0;
+      margin: 4px 0 6px 0;
       z-index: 1;
     }
 
     .scene-robot-svg {
-      width: 72px;
-      height: 56px;
+      width: 52px;
+      height: 40px;
       filter: drop-shadow(0 0 16px rgba(0, 229, 255, 0.65));
       animation: robotFloat 2.6s ease-in-out infinite alternate;
     }
@@ -7712,8 +7799,8 @@ export class ContactComponent {}
     .story-controls-bar {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 9px 16px;
+      gap: 8px;
+      padding: 6px 12px;
       background: #050e24;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
       position: relative;
@@ -7724,13 +7811,13 @@ export class ContactComponent {}
       background: rgba(0, 210, 255, 0.15);
       border: 1px solid rgba(0, 210, 255, 0.35);
       color: #00d2ff;
-      width: 30px;
-      height: 30px;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 11px;
+      font-size: 9.5px;
       cursor: pointer;
       flex-shrink: 0;
       transition: all 0.2s ease;
@@ -7744,11 +7831,41 @@ export class ContactComponent {}
 
     .ctrl-time-label {
       font-family: 'DM Sans', monospace, sans-serif;
-      font-size: 10.5px;
+      font-size: 9.5px;
       font-weight: 600;
       color: #94a3b8;
       white-space: nowrap;
-      min-width: 56px;
+      min-width: 48px;
+    }
+
+    .ctrl-btn-bgm {
+      background: rgba(0, 210, 255, 0.12);
+      border: 1px solid rgba(0, 210, 255, 0.32);
+      color: #00d2ff;
+      border-radius: 6px;
+      padding: 3px 8px;
+      font-size: 9.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .ctrl-btn-bgm:hover {
+      background: rgba(0, 210, 255, 0.25);
+      border-color: #00d2ff;
+      color: #ffffff;
+      transform: scale(1.04);
+    }
+
+    .ctrl-btn-bgm.muted {
+      color: #ef4444;
+      border-color: rgba(239, 68, 68, 0.4);
+      background: rgba(239, 68, 68, 0.12);
     }
 
     .ctrl-scrubber-track {
@@ -7896,6 +8013,7 @@ export class LandingComponent implements OnDestroy {
   currentTimeSec = signal(0);
   totalTimeSec = signal(30);
   useNativeVideo = signal(false);
+  isBgmMuted = signal(false);
 
   storyScenes = [
     { title: 'Origin', duration: 6 },
@@ -7907,6 +8025,12 @@ export class LandingComponent implements OnDestroy {
 
   private storyTimer: any = null;
 
+  // Web Audio API Ambient Synthesizer BGM
+  private audioCtx: AudioContext | null = null;
+  private bgmGain: GainNode | null = null;
+  private bgmTimer: any = null;
+  private chordIndex = 0;
+
   @ViewChild('storyVideoEl') storyVideoEl?: ElementRef<HTMLVideoElement>;
 
   @HostListener('window:keydown.escape')
@@ -7916,27 +8040,62 @@ export class LandingComponent implements OnDestroy {
     }
   }
 
+  scrollToSection(sectionId: string, event?: Event): void {
+    if (event) {
+      event.preventDefault();
+    }
+    const el = document.getElementById(sectionId);
+    if (el) {
+      const headerEl = document.querySelector('app-header header, app-header, header');
+      const headerHeight = headerEl ? (headerEl as HTMLElement).offsetHeight : 64;
+      const rect = el.getBoundingClientRect();
+      const currentScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+      const top = rect.top + currentScrollY;
+      window.scrollTo({
+        top: Math.max(0, Math.round(top - headerHeight + 5)),
+        behavior: 'smooth',
+      });
+      if (typeof history !== 'undefined' && history.pushState) {
+        history.pushState(null, '', '#' + sectionId);
+      }
+    }
+  }
+
+  goToContactFromVideo(event?: Event): void {
+    if (event) {
+      event.preventDefault();
+    }
+    this.closeStoryModal();
+    setTimeout(() => {
+      this.scrollToSection('contact');
+    }, 180);
+  }
+
   openStoryModal(): void {
     this.isStoryModalOpen.set(true);
     this.currentTimeSec.set(0);
     this.currentScene.set(0);
     this.isPlaying.set(true);
     this.startStoryTimer();
+    this.initBgm();
   }
 
   closeStoryModal(): void {
     this.isStoryModalOpen.set(false);
     this.stopStoryTimer();
     this.isPlaying.set(false);
+    this.stopBgm();
   }
 
   togglePlayPause(): void {
     if (this.isPlaying()) {
       this.isPlaying.set(false);
       this.stopStoryTimer();
+      this.pauseBgm();
     } else {
       this.isPlaying.set(true);
       this.startStoryTimer();
+      this.resumeBgm();
     }
   }
 
@@ -7945,6 +8104,7 @@ export class LandingComponent implements OnDestroy {
     this.currentScene.set(0);
     this.isPlaying.set(true);
     this.startStoryTimer();
+    this.initBgm();
   }
 
   goToScene(index: number): void {
@@ -7975,6 +8135,7 @@ export class LandingComponent implements OnDestroy {
       if (current >= this.totalTimeSec()) {
         this.stopStoryTimer();
         this.isPlaying.set(false);
+        this.stopBgm();
         return;
       }
       const nextTime = current + 1;
@@ -8009,8 +8170,165 @@ export class LandingComponent implements OnDestroy {
     return `${m}:${s < 10 ? '0' : ''}${s}`;
   }
 
+  /* ==========================================================================
+     WEB AUDIO API BGM ENGINE
+     ========================================================================== */
+  private initBgm(): void {
+    if (typeof window === 'undefined') return;
+    try {
+      const AudioCtxClass = window.AudioContext || (window as any).webkitAudioContext;
+      if (!AudioCtxClass) return;
+      if (!this.audioCtx) {
+        this.audioCtx = new AudioCtxClass();
+      }
+      if (this.audioCtx.state === 'suspended') {
+        this.audioCtx.resume();
+      }
+      if (!this.bgmGain) {
+        this.bgmGain = this.audioCtx.createGain();
+        this.bgmGain.connect(this.audioCtx.destination);
+      }
+      const targetVol = this.isBgmMuted() ? 0 : 0.16;
+      this.bgmGain.gain.setValueAtTime(0, this.audioCtx.currentTime);
+      this.bgmGain.gain.linearRampToValueAtTime(targetVol, this.audioCtx.currentTime + 1.0);
+      this.startBgmLoop();
+    } catch (err) {
+      console.warn('Web Audio BGM initialization notice:', err);
+    }
+  }
+
+  private startBgmLoop(): void {
+    this.stopBgmLoop();
+    this.chordIndex = 0;
+
+    // Harmonic progression: C Major 7 -> A Minor 7 -> F Major 7 -> G Add9
+    const chordProgression = [
+      { bass: 130.81, arps: [261.63, 329.63, 392.00, 493.88, 523.25, 392.00, 329.63, 261.63] },
+      { bass: 110.00, arps: [220.00, 261.63, 329.63, 392.00, 440.00, 329.63, 261.63, 220.00] },
+      { bass: 87.31,  arps: [174.61, 220.00, 261.63, 329.63, 349.23, 261.63, 220.00, 174.61] },
+      { bass: 98.00,  arps: [196.00, 246.94, 293.66, 392.00, 440.00, 293.66, 246.94, 196.00] },
+    ];
+
+    let step = 0;
+    this.bgmTimer = setInterval(() => {
+      if (!this.isPlaying() || this.isBgmMuted() || !this.audioCtx || this.audioCtx.state !== 'running') {
+        return;
+      }
+      try {
+        const chord = chordProgression[this.chordIndex];
+        const now = this.audioCtx.currentTime;
+
+        // Sub-bass warm drone every 4 beats
+        if (step % 4 === 0) {
+          const bassOsc = this.audioCtx.createOscillator();
+          const bassFilter = this.audioCtx.createBiquadFilter();
+          const bassVol = this.audioCtx.createGain();
+
+          bassOsc.type = 'triangle';
+          bassOsc.frequency.setValueAtTime(chord.bass, now);
+          bassFilter.type = 'lowpass';
+          bassFilter.frequency.setValueAtTime(320, now);
+
+          bassVol.gain.setValueAtTime(0.14, now);
+          bassVol.gain.exponentialRampToValueAtTime(0.001, now + 1.1);
+
+          bassOsc.connect(bassFilter);
+          bassFilter.connect(bassVol);
+          bassVol.connect(this.bgmGain!);
+
+          bassOsc.start(now);
+          bassOsc.stop(now + 1.1);
+        }
+
+        // Ambient melodic synth arpeggio
+        const noteFreq = chord.arps[step % chord.arps.length];
+        const osc = this.audioCtx.createOscillator();
+        const noteGain = this.audioCtx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(noteFreq, now);
+
+        noteGain.gain.setValueAtTime(0.08, now);
+        noteGain.gain.exponentialRampToValueAtTime(0.0006, now + 0.35);
+
+        osc.connect(noteGain);
+        noteGain.connect(this.bgmGain!);
+
+        osc.start(now);
+        osc.stop(now + 0.35);
+
+        step++;
+        if (step >= 8) {
+          step = 0;
+          this.chordIndex = (this.chordIndex + 1) % chordProgression.length;
+        }
+      } catch (e) {
+        // ignore audio glitches
+      }
+    }, 280);
+  }
+
+  private stopBgmLoop(): void {
+    if (this.bgmTimer) {
+      clearInterval(this.bgmTimer);
+      this.bgmTimer = null;
+    }
+  }
+
+  private pauseBgm(): void {
+    if (this.bgmGain && this.audioCtx) {
+      try {
+        this.bgmGain.gain.linearRampToValueAtTime(0, this.audioCtx.currentTime + 0.2);
+      } catch (e) {
+        // ignore
+      }
+    }
+  }
+
+  private resumeBgm(): void {
+    if (this.audioCtx && this.audioCtx.state === 'suspended') {
+      this.audioCtx.resume();
+    }
+    if (this.bgmGain && this.audioCtx) {
+      const vol = this.isBgmMuted() ? 0 : 0.16;
+      try {
+        this.bgmGain.gain.linearRampToValueAtTime(vol, this.audioCtx.currentTime + 0.3);
+      } catch (e) {
+        // ignore
+      }
+    }
+    if (!this.bgmTimer) {
+      this.startBgmLoop();
+    }
+  }
+
+  toggleBgmMute(): void {
+    const next = !this.isBgmMuted();
+    this.isBgmMuted.set(next);
+    if (this.bgmGain && this.audioCtx) {
+      const vol = next ? 0 : 0.16;
+      try {
+        this.bgmGain.gain.setValueAtTime(vol, this.audioCtx.currentTime);
+      } catch (e) {
+        // ignore
+      }
+    }
+  }
+
+  private stopBgm(): void {
+    this.stopBgmLoop();
+    if (this.bgmGain && this.audioCtx) {
+      try {
+        this.bgmGain.gain.linearRampToValueAtTime(0, this.audioCtx.currentTime + 0.3);
+      } catch (e) {
+        // ignore
+      }
+    }
+  }
+
   ngOnDestroy(): void {
     this.stopStoryTimer();
+    this.stopBgm();
   }
 
   onHeroMouseMove(e: MouseEvent): void {
