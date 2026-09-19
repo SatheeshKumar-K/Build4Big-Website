@@ -1085,14 +1085,6 @@ const servicePillars = [
             <!-- Card Content -->
             <h3>{{ card.title }}</h3>
             <p>{{ card.description }}</p>
-
-            <!-- Card Action: "Learn More →" on Center, circle arrow on sides -->
-            <div class="card-action">
-              <a *ngIf="isCenter(i)" href="#contact" class="btn-learn-more">
-                Learn More <span>→</span>
-              </a>
-              <span *ngIf="!isCenter(i)" class="btn-circle-arrow">→</span>
-            </div>
           </article>
         </div>
 
@@ -1286,32 +1278,37 @@ const servicePillars = [
     /* 3D Coverflow Stage */
     .stage-container {
       position: relative;
+      width: 100%;
       max-width: 1240px;
-      margin: 6px auto 2px;
-      min-height: 330px;
+      margin: 8px auto 4px;
+      min-height: 310px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 0 16px;
+      box-sizing: border-box;
     }
     .coverflow-stage {
       position: relative;
+      flex: 1;
       width: 100%;
-      height: 310px;
+      height: 295px;
       perspective: 1200px;
       transform-style: preserve-3d;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: visible;
+      order: 2;
     }
 
-    /* Navigation Arrows */
+    /* Navigation Arrows: Left & Right with generous space */
     .nav-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 38px;
-      height: 38px;
+      position: relative;
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       background: #2563eb;
       color: #fff;
@@ -1325,24 +1322,24 @@ const servicePillars = [
       transition: all 0.25s ease;
     }
     .nav-arrow:hover {
-      transform: translateY(-50%) scale(1.08);
+      transform: scale(1.1);
       background: #1d4ed8;
-      box-shadow: 0 8px 22px rgba(37, 99, 235, 0.45);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.45);
     }
     .nav-prev {
-      left: 14px;
+      order: 1;
     }
     .nav-next {
-      right: 14px;
+      order: 3;
     }
 
     /* Service Card */
     .service-card {
       position: absolute;
-      width: clamp(205px, 18vw, 245px);
-      min-height: 270px;
-      max-height: 290px;
-      padding: 16px 14px;
+      width: clamp(210px, 18vw, 250px);
+      min-height: 250px;
+      max-height: 275px;
+      padding: 20px 16px;
       border-radius: 18px;
       background: #ffffff;
       border: 1px solid rgba(255, 255, 255, 0.95);
@@ -1350,6 +1347,7 @@ const servicePillars = [
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
       text-align: center;
       cursor: pointer;
       transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1),
@@ -1395,63 +1393,11 @@ const servicePillars = [
       font-size: 18px;
     }
     .service-card p {
-      font-size: 11.5px;
+      font-size: 12px;
       line-height: 1.45;
       color: #63708f;
-      margin: 0 0 10px;
-      flex-grow: 1;
-      max-width: 200px;
-    }
-
-    /* Card Action Buttons */
-    .card-action {
-      margin-top: auto;
-    }
-    .btn-learn-more {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      background: linear-gradient(110deg, #2563eb, #3b82f6);
-      color: #ffffff;
-      padding: 9px 24px;
-      border-radius: 9999px;
-      font: 700 13px 'DM Sans', sans-serif;
-      text-decoration: none;
-      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.32);
-      transition: all 0.25s ease;
-    }
-    .btn-learn-more:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 22px rgba(37, 99, 235, 0.42);
-    }
-    .btn-learn-more span {
-      font-size: 16px;
-      transition: transform 0.2s ease;
-    }
-    .btn-learn-more:hover span {
-      transform: translateX(3px);
-    }
-    .btn-circle-arrow {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: #ffffff;
-      color: #2563eb;
-      font-size: 16px;
-      font-weight: 800;
-      box-shadow: 0 4px 12px rgba(24, 60, 138, 0.1);
-      border: 1px solid #eef2ff;
-      transition: all 0.25s ease;
-    }
-    .service-card:hover .btn-circle-arrow {
-      background: #2563eb;
-      color: #fff;
-      transform: scale(1.06);
-      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.26);
+      margin: 0;
+      max-width: 205px;
     }
 
     /* Indicators */
@@ -1591,22 +1537,23 @@ const servicePillars = [
         padding: 24px 10px 36px;
       }
       .stage-container {
-        min-height: 330px;
+        padding: 0 6px;
+        gap: 6px;
+        min-height: 280px;
       }
       .coverflow-stage {
-        height: 320px;
+        height: 280px;
       }
       .service-card {
-        width: clamp(230px, 72vw, 270px);
-        min-height: 275px;
+        width: clamp(210px, 68vw, 260px);
+        min-height: 240px;
+        max-height: 265px;
         padding: 18px 14px 16px;
       }
       .nav-arrow {
-        width: 36px;
-        height: 36px;
+        width: 38px;
+        height: 38px;
       }
-      .nav-prev { left: 4px; }
-      .nav-next { right: 4px; }
       .pillars-strip {
         grid-template-columns: 1fr;
         gap: 10px;
