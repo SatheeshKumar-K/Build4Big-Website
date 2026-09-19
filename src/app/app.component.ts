@@ -1900,20 +1900,6 @@ const AUTOMATION_NODES: AutomationNode[] = [
       <div class="ambient-glow glow-mint" aria-hidden="true"></div>
 
       <div class="container sol-main-container">
-        <!-- Section Header matching image -->
-        <div class="sol-header">
-          <div class="sol-eyebrow">
-            <span class="eyebrow-badge">✦ AI AUTOMATION SOLUTIONS</span>
-          </div>
-          <h2 class="sol-title">
-            Intelligent Ecosystem.<br class="mobile-break" />
-            <span class="sol-grad-text">Everything Automated.</span>
-          </h2>
-          <p class="sol-subtitle">
-            Connect your entire business into an autonomous AI powerhouse — from social media and customer support to document processing and cloud infrastructure.
-          </p>
-        </div>
-
         <!-- 3-Column Layout: Left Cards | Center Orbital Stage | Right Cards -->
         <div class="sol-ecosystem-row">
           <!-- LEFT SIDE: 3 Cards (Cloud, E-commerce, Business Process) -->
@@ -2181,9 +2167,9 @@ const AUTOMATION_NODES: AutomationNode[] = [
   styles: `
     .solutions-showcase-section {
       position: relative;
-      padding: 50px 0 75px 0;
+      padding: 24px 0 36px 0;
       overflow: hidden;
-      min-height: 100vh;
+      min-height: calc(100vh - 62px);
       display: flex;
       align-items: center;
       box-sizing: border-box;
@@ -2230,53 +2216,11 @@ const AUTOMATION_NODES: AutomationNode[] = [
       box-sizing: border-box;
     }
 
-    /* Section Header */
-    .sol-header {
-      text-align: center;
-      max-width: 780px;
-      margin: 0 auto 40px auto;
-    }
-    .sol-eyebrow {
-      display: inline-block;
-      margin-bottom: 12px;
-    }
-    .eyebrow-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font: 700 12px/1 'Manrope', sans-serif;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #3b82f6;
-      background: rgba(59, 130, 246, 0.08);
-      border: 1px solid rgba(59, 130, 246, 0.22);
-      padding: 6px 14px;
-      border-radius: 999px;
-    }
-    .sol-title {
-      font: 800 38px/1.2 'Plus Jakarta Sans', 'Manrope', sans-serif;
-      color: #0f172a;
-      letter-spacing: -0.025em;
-      margin: 0 0 12px 0;
-    }
-    .sol-grad-text {
-      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #db2777 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: inline-block;
-    }
-    .sol-subtitle {
-      font: 400 15px/1.65 'Inter', sans-serif;
-      color: #475569;
-      margin: 0 auto;
-      max-width: 660px;
-    }
-
-    /* 3-Column Ecosystem Layout matching image */
+    /* 3-Column Ecosystem Layout */
     .sol-ecosystem-row {
       display: grid;
-      grid-template-columns: 310px 540px 310px;
-      gap: 32px;
+      grid-template-columns: 290px 450px 290px;
+      gap: 28px;
       align-items: center;
       justify-content: center;
       width: 100%;
@@ -2286,7 +2230,7 @@ const AUTOMATION_NODES: AutomationNode[] = [
     .sol-cards-col {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 18px;
       justify-content: center;
     }
 
@@ -2294,11 +2238,11 @@ const AUTOMATION_NODES: AutomationNode[] = [
     .sol-feature-card {
       background: #ffffff;
       border: 1px solid rgba(226, 232, 240, 0.95);
-      border-radius: 18px;
-      padding: 16px 18px;
+      border-radius: 16px;
+      padding: 14px 16px;
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(0, 0, 0, 0.02);
       transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
       cursor: pointer;
@@ -2311,17 +2255,17 @@ const AUTOMATION_NODES: AutomationNode[] = [
       box-shadow: 0 14px 30px -6px var(--card-glow), 0 0 0 1px var(--card-accent);
     }
     .card-icon-squircle {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
+      width: 44px;
+      height: 44px;
+      border-radius: 13px;
       display: grid;
       place-items: center;
       flex-shrink: 0;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
     }
     .card-svg {
-      width: 26px;
-      height: 26px;
+      width: 24px;
+      height: 24px;
       display: block;
     }
     .card-copy-wrap {
@@ -2329,19 +2273,19 @@ const AUTOMATION_NODES: AutomationNode[] = [
       min-width: 0;
     }
     .card-heading {
-      font: 700 14.5px/1.25 'Plus Jakarta Sans', 'Manrope', sans-serif;
+      font: 700 14px/1.25 'Plus Jakarta Sans', 'Manrope', sans-serif;
       color: #0f172a;
-      margin: 0 0 3px 0;
+      margin: 0 0 2px 0;
     }
     .card-desc {
-      font: 400 12px/1.4 'Inter', sans-serif;
+      font: 400 11.5px/1.4 'Inter', sans-serif;
       color: #64748b;
       margin: 0;
       white-space: normal;
     }
     .card-chevron-btn {
-      width: 28px;
-      height: 28px;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
       background: #f8fafc;
       border: 1px solid #e2e8f0;
@@ -2352,7 +2296,7 @@ const AUTOMATION_NODES: AutomationNode[] = [
       transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
     }
     .chevron-glyph {
-      font: 700 16px/1 'Manrope', sans-serif;
+      font: 700 15px/1 'Manrope', sans-serif;
       color: #94a3b8;
       margin-top: -2px;
       transition: transform 0.2s ease, color 0.2s ease;
@@ -2366,7 +2310,7 @@ const AUTOMATION_NODES: AutomationNode[] = [
       transform: translateX(2px);
     }
 
-    /* CENTER: Orbital Stage */
+    /* CENTER: Orbital Stage (downscaled slightly as requested) */
     .sol-orbital-col {
       display: flex;
       justify-content: center;
@@ -2374,8 +2318,8 @@ const AUTOMATION_NODES: AutomationNode[] = [
     }
     .orbital-stage {
       position: relative;
-      width: 520px;
-      height: 520px;
+      width: 440px;
+      height: 440px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -2384,11 +2328,11 @@ const AUTOMATION_NODES: AutomationNode[] = [
 
     .stage-aura-blur {
       position: absolute;
-      width: 480px;
-      height: 480px;
+      width: 410px;
+      height: 410px;
       border-radius: 50%;
       background: radial-gradient(circle, rgba(14, 165, 233, 0.12) 0%, rgba(168, 85, 247, 0.1) 50%, transparent 70%);
-      filter: blur(35px);
+      filter: blur(32px);
       pointer-events: none;
       z-index: 0;
       animation: auraPulse 6s ease-in-out infinite;
@@ -2404,8 +2348,8 @@ const AUTOMATION_NODES: AutomationNode[] = [
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      width: 156px;
-      height: 156px;
+      width: 132px;
+      height: 132px;
       z-index: 15;
       display: flex;
       align-items: center;
@@ -2418,21 +2362,21 @@ const AUTOMATION_NODES: AutomationNode[] = [
       border-radius: 50%;
       background: radial-gradient(circle at 50% 32%, #0e2a6d 0%, #06194b 55%, #020b22 100%);
       border: 2.5px solid #00d2ff;
-      box-shadow: 0 0 35px rgba(0, 195, 255, 0.55),
-                  inset 0 0 25px rgba(0, 225, 255, 0.3),
-                  0 12px 30px rgba(2, 9, 30, 0.7);
+      box-shadow: 0 0 30px rgba(0, 195, 255, 0.55),
+                  inset 0 0 20px rgba(0, 225, 255, 0.3),
+                  0 12px 28px rgba(2, 9, 30, 0.7);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 10px;
+      padding: 8px;
       box-sizing: border-box;
       z-index: 2;
     }
     .center-pulse-ring {
       position: absolute;
-      inset: -12px;
+      inset: -10px;
       border-radius: 50%;
       border: 1.5px solid rgba(0, 210, 255, 0.45);
       animation: hubWavePulse 3.5s ease-out infinite;
@@ -2448,10 +2392,10 @@ const AUTOMATION_NODES: AutomationNode[] = [
     }
 
     .robot-avatar-wrap {
-      width: 44px;
-      height: 36px;
+      width: 38px;
+      height: 30px;
       margin-bottom: 2px;
-      filter: drop-shadow(0 2px 8px rgba(0, 210, 255, 0.5));
+      filter: drop-shadow(0 2px 7px rgba(0, 210, 255, 0.5));
     }
     .robot-svg {
       width: 100%;
@@ -2481,23 +2425,23 @@ const AUTOMATION_NODES: AutomationNode[] = [
       line-height: 1.1;
     }
     .core-ai-text {
-      font: 900 20px/1 'Plus Jakarta Sans', sans-serif;
+      font: 900 17px/1 'Plus Jakarta Sans', sans-serif;
       background: linear-gradient(180deg, #ffffff 0%, #7dd3fc 60%, #00e5ff 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       letter-spacing: 0.05em;
     }
     .core-auto-text {
-      font: 700 11.5px 'Manrope', sans-serif;
+      font: 700 10px 'Manrope', sans-serif;
       color: #ffffff;
       letter-spacing: 0.04em;
       margin-top: 1px;
       text-shadow: 0 0 8px rgba(0, 195, 255, 0.6);
     }
     .core-infinity-glyph {
-      font: 700 16px/1 'Inter', sans-serif;
+      font: 700 14px/1 'Inter', sans-serif;
       color: #00e5ff;
-      margin-top: 2px;
+      margin-top: 1px;
       text-shadow: 0 0 8px #00e5ff;
       animation: infinityPulse 2.4s ease-in-out infinite;
     }
@@ -2558,16 +2502,16 @@ const AUTOMATION_NODES: AutomationNode[] = [
       left: 50%;
       width: 0;
       height: 0;
-      transform: rotate(var(--node-angle)) translateY(-195px);
+      transform: rotate(var(--node-angle)) translateY(-165px);
       z-index: 5;
     }
 
     /* Counter-spin container keeps cards upright at all times */
     .counter-rotate-wrap {
-      width: 108px;
-      height: 108px;
-      margin-left: -54px;
-      margin-top: -54px;
+      width: 92px;
+      height: 92px;
+      margin-left: -46px;
+      margin-top: -46px;
       animation: counterSpin 22s linear infinite;
       transform-origin: center center;
       display: flex;
@@ -2584,17 +2528,17 @@ const AUTOMATION_NODES: AutomationNode[] = [
 
     /* Circular Node Bubble matching image */
     .orbit-pod-bubble {
-      width: 104px;
-      height: 104px;
+      width: 88px;
+      height: 88px;
       border-radius: 50%;
       background: #ffffff;
       border: 2px solid var(--node-color);
-      box-shadow: 0 0 20px var(--node-glow), 0 8px 18px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 0 18px var(--node-glow), 0 8px 16px rgba(15, 23, 42, 0.08);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 6px 4px;
+      padding: 5px 3px;
       box-sizing: border-box;
       cursor: pointer;
       transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
@@ -2603,26 +2547,26 @@ const AUTOMATION_NODES: AutomationNode[] = [
     .orbit-pod-bubble:hover,
     .orbit-pod-bubble.is-hovered {
       transform: scale(1.06);
-      box-shadow: 0 0 30px var(--node-color), 0 12px 24px rgba(15, 23, 42, 0.14);
+      box-shadow: 0 0 26px var(--node-color), 0 10px 20px rgba(15, 23, 42, 0.14);
     }
     .pod-icon-wrap {
-      width: 30px;
-      height: 30px;
+      width: 26px;
+      height: 26px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     .pod-svg {
-      width: 28px;
-      height: 28px;
+      width: 24px;
+      height: 24px;
       display: block;
     }
     .pod-label {
-      font: 700 10px/1.18 'Manrope', sans-serif;
+      font: 700 9px/1.15 'Manrope', sans-serif;
       text-align: center;
       color: #0f172a;
-      max-width: 82px;
-      margin-top: 4px;
+      max-width: 72px;
+      margin-top: 3px;
       display: block;
     }
 
@@ -2633,28 +2577,28 @@ const AUTOMATION_NODES: AutomationNode[] = [
     /* RESPONSIVE LAYOUT */
     @media (max-width: 1180px) {
       .sol-ecosystem-row {
-        grid-template-columns: 280px 480px 280px;
-        gap: 20px;
+        grid-template-columns: 270px 410px 270px;
+        gap: 18px;
       }
       .orbital-stage {
-        width: 480px;
-        height: 480px;
+        width: 410px;
+        height: 410px;
       }
       .orbit-node-slot {
-        transform: rotate(var(--node-angle)) translateY(-180px);
+        transform: rotate(var(--node-angle)) translateY(-154px);
       }
       .counter-rotate-wrap {
-        width: 100px;
-        height: 100px;
-        margin-left: -50px;
-        margin-top: -50px;
+        width: 86px;
+        height: 86px;
+        margin-left: -43px;
+        margin-top: -43px;
       }
       .orbit-pod-bubble {
-        width: 96px;
-        height: 96px;
+        width: 82px;
+        height: 82px;
       }
       .pod-label {
-        font-size: 9.5px;
+        font-size: 8.5px;
       }
     }
 
@@ -2663,11 +2607,11 @@ const AUTOMATION_NODES: AutomationNode[] = [
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 36px;
+        gap: 32px;
       }
       .sol-cards-col {
         display: grid;
-        grid-template-columns: repeat(2, 320px);
+        grid-template-columns: repeat(2, 300px);
         gap: 16px;
         width: auto;
       }
@@ -2681,80 +2625,71 @@ const AUTOMATION_NODES: AutomationNode[] = [
         order: 1;
       }
       .orbital-stage {
-        width: 450px;
-        height: 450px;
+        width: 390px;
+        height: 390px;
       }
       .orbit-node-slot {
-        transform: rotate(var(--node-angle)) translateY(-165px);
+        transform: rotate(var(--node-angle)) translateY(-146px);
       }
       .counter-rotate-wrap {
-        width: 94px;
-        height: 94px;
-        margin-left: -47px;
-        margin-top: -47px;
+        width: 82px;
+        height: 82px;
+        margin-left: -41px;
+        margin-top: -41px;
       }
       .orbit-pod-bubble {
-        width: 90px;
-        height: 90px;
+        width: 78px;
+        height: 78px;
       }
     }
 
     @media (max-width: 768px) {
       .solutions-showcase-section {
-        padding: 35px 0 50px 0;
-      }
-      .sol-title {
-        font-size: 28px;
-      }
-      .mobile-break {
-        display: inline;
-      }
-      .sol-subtitle {
-        font-size: 14px;
+        padding: 24px 0 40px 0;
       }
       .sol-cards-col {
         grid-template-columns: 1fr;
         width: 100%;
-        max-width: 380px;
+        max-width: 360px;
       }
       .orbital-stage {
-        width: 330px;
-        height: 330px;
+        width: 310px;
+        height: 310px;
       }
       .orbit-node-slot {
-        transform: rotate(var(--node-angle)) translateY(-122px);
+        transform: rotate(var(--node-angle)) translateY(-116px);
       }
       .counter-rotate-wrap {
-        width: 76px;
-        height: 76px;
-        margin-left: -38px;
-        margin-top: -38px;
+        width: 72px;
+        height: 72px;
+        margin-left: -36px;
+        margin-top: -36px;
       }
       .orbit-pod-bubble {
-        width: 74px;
-        height: 74px;
-        padding: 4px;
+        width: 70px;
+        height: 70px;
+        padding: 3px;
       }
       .pod-svg {
-        width: 22px;
-        height: 22px;
+        width: 20px;
+        height: 20px;
       }
       .pod-label {
-        font-size: 8px;
-        max-width: 62px;
+        font-size: 7.5px;
+        max-width: 58px;
       }
       .center-ai-core {
-        width: 110px;
-        height: 110px;
+        width: 100px;
+        height: 100px;
       }
       .core-ai-text {
-        font-size: 16px;
+        font-size: 15px;
       }
       .core-auto-text {
-        font-size: 9px;
+        font-size: 8.5px;
       }
       .robot-avatar-wrap {
-        width: 34px;
+        width: 30px;
       }
     }
 
