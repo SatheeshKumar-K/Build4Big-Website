@@ -11,51 +11,57 @@ app-root > app-header {
   top: 0;
   z-index: 1000;
   width: 100%;
+  height: 64px;
   background: rgba(2, 7, 27, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
 }
 app-root > app-header > header {
   position: relative;
   max-width: 1240px;
+  height: 64px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 24px;
   background: transparent !important;
   box-shadow: none !important;
   border-bottom: none !important;
 }
 
 @media (max-width: 860px) {
+  app-root > app-header,
   app-root > app-header > header {
+    height: 58px;
     padding: 0 16px;
   }
 }
 @media (max-width: 480px) {
+  app-root > app-header,
   app-root > app-header > header {
+    height: 56px;
     padding: 0 12px;
   }
   .logo {
     min-width: auto;
   }
   .brand-image {
-    width: 46px !important;
-    height: 46px !important;
+    width: 38px !important;
+    height: 38px !important;
   }
   .header-logo .brand-image img {
-    width: 46px !important;
-    height: 46px !important;
+    width: 38px !important;
+    height: 38px !important;
   }
   .header-logo .brand-title {
-    font-size: 18px !important;
+    font-size: 17px !important;
   }
 }
 
-/* Larger, more editorial typography. */
-body { font-size:19px; }
-app-header header .logo { font-size:21px; }
-app-header header nav, app-header header .start { font-size:15px; }
+/* Compact, refined typography. */
+body { font-size:16px; }
+app-header header .logo { font-size:19px; }
+app-header header nav, app-header header .start { font-size:14px; }
 
 /* Depth treatment for the product, team and editorial visuals. */
 app-landing .visual, app-landing .idea-box, app-landing .robot, app-landing .person,
@@ -230,14 +236,13 @@ app-landing .hero-land::before {
 
 /* --- Section scroll-margin for anchor links (based on actual sticky navbar height) --- */
 #home, #about, #services, #solutions, #blog, #contact, section[id], [id] {
-  scroll-margin-top: 84px !important;
+  scroll-margin-top: 64px !important;
 }
 
 .landing-contact-wrap {
-  min-height: 100vh;
+  min-height: calc(100vh - 64px);
   display: flex;
   flex-direction: column;
-  padding-bottom: 40px;
   box-sizing: border-box;
 }
 .landing-contact-wrap app-contact-showcase {
@@ -246,7 +251,7 @@ app-landing .hero-land::before {
 
 /* Services section fills full screen when scrolled to */
 .landing-services-wrap {
-  min-height: 100vh;
+  min-height: calc(100vh - 64px);
   background: radial-gradient(circle at 18% 20%, #eef5ff 0%, transparent 42%),
               radial-gradient(circle at 82% 80%, #f5edff 0%, transparent 45%),
               #f8faff;
@@ -260,7 +265,7 @@ app-landing .hero-land::before {
 
 /* Solutions section fills full screen when scrolled to */
 .landing-solutions-wrap {
-  min-height: 100vh;
+  min-height: calc(100vh - 64px);
   background: radial-gradient(circle at 50% 30%, #eef5ff 0%, transparent 55%),
               radial-gradient(circle at 80% 80%, #f3ebff 0%, transparent 45%),
               radial-gradient(circle at 20% 85%, #ecfdf5 0%, transparent 45%),
@@ -275,27 +280,20 @@ app-landing .hero-land::before {
 
 /* Blog section fills screen */
 .landing-blog-wrap {
-  min-height: 100vh;
+  min-height: calc(100vh - 64px);
   background: #ffffff;
   box-sizing: border-box;
 }
 
 @media (max-width: 860px) {
   #home, #about, #services, #solutions, #blog, #contact, section[id], [id] {
-    scroll-margin-top: 72px !important;
+    scroll-margin-top: 58px !important;
   }
-  .landing-contact-wrap {
-    min-height: 100vh;
-    padding-bottom: 24px;
-  }
-  .landing-services-wrap {
-    min-height: 100vh;
-  }
-  .landing-solutions-wrap {
-    min-height: 100vh;
-  }
+  .landing-contact-wrap,
+  .landing-services-wrap,
+  .landing-solutions-wrap,
   .landing-blog-wrap {
-    min-height: 100vh;
+    min-height: auto;
   }
 }
 
