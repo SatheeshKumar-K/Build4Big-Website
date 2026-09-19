@@ -23,6 +23,11 @@
             "styles": [
               "src/styles.scss"
             ],
+            "optimization": {
+              "fonts": {
+                "inline": false
+              }
+            },
             "outputHashing": "all"
           }
         },
