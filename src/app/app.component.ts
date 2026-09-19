@@ -1918,98 +1918,77 @@ export class ServicesShowcaseComponent implements AfterViewInit, OnDestroy {
 })
 export class ServicesComponent {}
 
-interface SolutionPod {
+interface AutomationNode {
   id: string;
   name: string;
-  shortName: string;
   category: string;
-  icon: string;
+  description: string;
+  angle: number; // 0, 60, 120, 180, 240, 300
   color: string;
   glowColor: string;
-  xPercent: number;
-  yPercent: number;
-  description: string;
-  features: string[];
+  iconBg: string;
 }
 
-const solutionPodsData: SolutionPod[] = [
+const AUTOMATION_NODES: AutomationNode[] = [
   {
     id: 'social',
     name: 'Social Media Automation',
-    shortName: 'Social Media',
-    category: 'Omnichannel Engagement',
-    icon: '📸',
-    color: '#ec4899',
-    glowColor: 'rgba(236, 72, 153, 0.65)',
-    xPercent: 50.0,
-    yPercent: 16.8,
-    description: 'Auto-reply to DMs, schedule viral reels, manage cross-platform comments, and turn followers into paying leads on autopilot.',
-    features: ['Auto DM & Comments', 'Multi-Platform Sync (IG, FB, X, YT)', 'AI Content & Caption Generator'],
+    category: 'Social Channels',
+    description: 'Auto reply, DM automation, comment management',
+    angle: 0,
+    color: '#e1306c',
+    glowColor: 'rgba(225, 48, 108, 0.45)',
+    iconBg: '#fdf2f8',
   },
   {
     id: 'chatbot',
     name: 'AI Chatbot Solution',
-    shortName: 'AI Chatbot',
-    category: 'Conversational AI',
-    icon: '🤖',
+    category: 'Support & Sales',
+    description: 'Intelligent chatbots for support, sales and engagement',
+    angle: 60,
     color: '#8b5cf6',
-    glowColor: 'rgba(139, 92, 246, 0.65)',
-    xPercent: 73.7,
-    yPercent: 37.4,
-    description: '24/7 intelligent conversational agents that understand user intent, answer queries instantly, book meetings, and qualify incoming prospects.',
-    features: ['24/7 Multilingual Support', 'Smart CRM Lead Hand-off', 'Custom Knowledge Base Training'],
+    glowColor: 'rgba(139, 92, 246, 0.45)',
+    iconBg: '#f5f3ff',
   },
   {
     id: 'document',
     name: 'Document Automation',
-    shortName: 'Document AI',
-    category: 'Paperless Workflows',
-    icon: '📄',
-    color: '#c026d3',
-    glowColor: 'rgba(192, 38, 211, 0.65)',
-    xPercent: 73.7,
-    yPercent: 66.7,
-    description: 'Extract text, parse invoices, analyze legal contracts, and automatically route paperwork without a single manual data entry error.',
-    features: ['High-Accuracy OCR & Extraction', 'Instant Invoice & Receipt Parsing', 'Automated Compliance & Sign-offs'],
+    category: 'Paperless Docs',
+    description: 'Auto-generate, process and manage documents',
+    angle: 120,
+    color: '#a855f7',
+    glowColor: 'rgba(168, 85, 247, 0.45)',
+    iconBg: '#faf5ff',
   },
   {
     id: 'business',
     name: 'Business Process Automation',
-    shortName: 'Business Process',
-    category: 'Enterprise Efficiency',
-    icon: '📈',
+    category: 'Operations',
+    description: 'Streamline operations and increase productivity',
+    angle: 180,
     color: '#10b981',
-    glowColor: 'rgba(16, 185, 129, 0.65)',
-    xPercent: 50.0,
-    yPercent: 85.0,
-    description: 'Connect disparate systems, trigger multi-step cross-department approvals, and monitor KPI growth charts in real-time.',
-    features: ['Zero-Touch Workflow Triggers', 'Real-Time Performance Dashboards', 'Cross-System API Orchestration'],
+    glowColor: 'rgba(16, 185, 129, 0.45)',
+    iconBg: '#ecfdf5',
   },
   {
     id: 'ecommerce',
     name: 'E-commerce Automation',
-    shortName: 'E-commerce',
-    category: 'Sales Acceleration',
-    icon: '🛒',
+    category: 'Online Commerce',
+    description: 'Automate orders, inventory and customer updates',
+    angle: 240,
     color: '#f97316',
-    glowColor: 'rgba(249, 115, 22, 0.65)',
-    xPercent: 26.2,
-    yPercent: 66.7,
-    description: 'Recover abandoned carts with personalized WhatsApp/Email alerts, automate inventory reorders, and adjust dynamic prices on demand.',
-    features: ['Abandoned Cart Recovery', 'Live Inventory & Order Sync', 'AI-Driven Dynamic Pricing'],
+    glowColor: 'rgba(249, 115, 22, 0.45)',
+    iconBg: '#fff7ed',
   },
   {
     id: 'cloud',
     name: 'Cloud Automation',
-    shortName: 'Cloud & DevOps',
     category: 'Infrastructure',
-    icon: '☁️',
+    description: 'Automate cloud infrastructure and deployments',
+    angle: 300,
     color: '#0284c7',
-    glowColor: 'rgba(2, 132, 199, 0.65)',
-    xPercent: 26.2,
-    yPercent: 37.4,
-    description: 'Automate multi-cloud provisioning across AWS, GCP, and Azure with self-healing containers, autoscaling, and rock-solid CI/CD.',
-    features: ['Auto-Scaling & Load Balancing', 'Multi-Cloud Backup & Security', 'Continuous Zero-Downtime Deployments'],
+    glowColor: 'rgba(2, 132, 199, 0.45)',
+    iconBg: '#f0f9ff',
   },
 ];
 
@@ -2018,101 +1997,283 @@ const solutionPodsData: SolutionPod[] = [
   imports: [CommonModule],
   template: `
     <div class="solutions-showcase-section">
-      <!-- Ambient background lighting -->
+      <!-- Ambient background glow -->
       <div class="ambient-glow glow-blue" aria-hidden="true"></div>
       <div class="ambient-glow glow-purple" aria-hidden="true"></div>
       <div class="ambient-glow glow-mint" aria-hidden="true"></div>
 
       <div class="container sol-main-container">
-        <!-- Header Section -->
+        <!-- Section Header matching image -->
         <div class="sol-header">
           <div class="sol-eyebrow">
             <span class="eyebrow-badge">✦ AI AUTOMATION SOLUTIONS</span>
           </div>
           <h2 class="sol-title">
-            Intelligent Ecosystem. <span class="sol-grad-text">Everything Automated.</span>
+            Intelligent Ecosystem.<br class="mobile-break" />
+            <span class="sol-grad-text">Everything Automated.</span>
           </h2>
           <p class="sol-subtitle">
             Connect your entire business into an autonomous AI powerhouse — from social media and customer support to document processing and cloud infrastructure.
           </p>
         </div>
 
-        <!-- Central Interactive Animated Diagram (Normal Size) -->
-        <div
-          class="sol-stage-wrapper"
-          (mouseenter)="pauseAutoCycle()"
-          (mouseleave)="resumeAutoCycle()"
-        >
-          <!-- Ambient Rotating Aura Halo behind image -->
-          <div class="sol-halo-aura" aria-hidden="true"></div>
-          <div class="sol-orbit-ring" aria-hidden="true"></div>
-
-          <!-- The Exact User Image with Animation -->
-          <div class="sol-graphic-card">
-            <img
-              src="solutions-ai-automation.jpg"
-              alt="AI Automation Ecosystem - Social Media, AI Chatbot, Document, Business Process, E-commerce, Cloud"
-              class="sol-main-img"
-            />
-
-            <!-- Radar Waves expanding from central Robot Core (50%, 50%) -->
-            <div class="center-radar-wave wave-1" aria-hidden="true"></div>
-            <div class="center-radar-wave wave-2" aria-hidden="true"></div>
-            <div class="center-infinity-glow" aria-hidden="true"></div>
-
-            <!-- 6 Interactive Pulsating Hotspot Beacons placed directly on the 6 Pods -->
-            <button
-              *ngFor="let pod of pods"
-              type="button"
-              class="pod-hotspot-beacon"
-              [class.is-active]="selectedId() === pod.id"
-              [style.left.%]="pod.xPercent"
-              [style.top.%]="pod.yPercent"
-              [style.--pod-color]="pod.color"
-              [style.--pod-glow]="pod.glowColor"
-              (click)="selectPod(pod.id)"
-              (mouseenter)="selectPod(pod.id)"
-              [attr.aria-label]="pod.name"
+        <!-- 3-Column Layout: Left Cards | Center Orbital Stage | Right Cards -->
+        <div class="sol-ecosystem-row">
+          <!-- LEFT SIDE: 3 Cards (Cloud, E-commerce, Business Process) -->
+          <div class="sol-cards-col sol-left-col">
+            <div
+              *ngFor="let card of leftCards"
+              class="sol-feature-card"
+              [class.is-active]="hoveredId() === card.id"
+              [style.--card-accent]="card.color"
+              [style.--card-glow]="card.glowColor"
+              (mouseenter)="onCardHover(card.id)"
+              (mouseleave)="onCardLeave()"
             >
-              <!-- Expanding Ping Wave -->
-              <span class="beacon-wave"></span>
-              <!-- Central Pulse Dot -->
-              <span class="beacon-core"></span>
-              <!-- Active Spotlight Ring -->
-              <span class="beacon-ring" *ngIf="selectedId() === pod.id"></span>
-              <!-- Tooltip Tag -->
-              <span class="beacon-tag">{{ pod.shortName }}</span>
-            </button>
-          </div>
-
-          <!-- Interactive Quick Hint -->
-          <div class="sol-stage-hint">
-            <span class="hint-pulse-dot"></span>
-            <span>Hover or click any solution node to inspect details</span>
-          </div>
-        </div>
-
-        <!-- Active Spotlight Info Panel -->
-        <div class="sol-active-panel" *ngIf="getActivePod() as active">
-          <div class="active-panel-inner" [style.border-color]="active.color" [style.box-shadow]="'0 8px 30px ' + active.glowColor">
-            <div class="active-panel-left">
-              <div class="active-icon-badge" [style.background]="active.color">
-                <span>{{ active.icon }}</span>
+              <div class="card-icon-squircle" [style.background]="card.iconBg" [style.color]="card.color">
+                <!-- Icon based on card.id -->
+                <ng-container [ngSwitch]="card.id">
+                  <!-- Cloud -->
+                  <svg *ngSwitchCase="'cloud'" viewBox="0 0 32 32" class="card-svg">
+                    <path d="M8 22a6 6 0 0 1 0-12 7.5 7.5 0 0 1 14.5-2.5A6.5 6.5 0 0 1 25 22H8z" fill="#0284c7" />
+                  </svg>
+                  <!-- E-commerce -->
+                  <svg *ngSwitchCase="'ecommerce'" viewBox="0 0 32 32" class="card-svg">
+                    <path d="M4 6h3l3.5 13a2 2 0 0 0 2 1.5h10a2 2 0 0 0 2-1.5l2.8-7.5H8.5" fill="none" stroke="#f97316" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                    <circle cx="13" cy="24" r="2.2" fill="#f97316" />
+                    <circle cx="22" cy="24" r="2.2" fill="#f97316" />
+                  </svg>
+                  <!-- Business Process -->
+                  <svg *ngSwitchCase="'business'" viewBox="0 0 32 32" class="card-svg">
+                    <rect x="6" y="18" width="4.5" height="9" rx="1.5" fill="#10b981" />
+                    <rect x="13.5" y="12" width="4.5" height="15" rx="1.5" fill="#10b981" />
+                    <rect x="21" y="7" width="4.5" height="20" rx="1.5" fill="#10b981" />
+                    <path d="M7 14 L14 8 L19 12 L25 5" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M22 5h3v3" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </ng-container>
               </div>
-              <div class="active-meta">
-                <span class="active-category" [style.color]="active.color">{{ active.category }}</span>
-                <h3 class="active-title">{{ active.name }}</h3>
-                <p class="active-desc">{{ active.description }}</p>
+              <div class="card-copy-wrap">
+                <h4 class="card-heading">{{ card.name }}</h4>
+                <p class="card-desc">{{ card.description }}</p>
+              </div>
+              <a href="#contact" class="card-chevron-btn" aria-label="Learn more">
+                <span class="chevron-glyph">›</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- CENTER: Orbital System (Fixed Hub + 6 Orbiting Nodes) -->
+          <div
+            class="sol-orbital-col"
+            (mouseenter)="isPaused.set(true)"
+            (mouseleave)="isPaused.set(false)"
+          >
+            <div class="orbital-stage">
+              <!-- Ambient soft aura behind stage -->
+              <div class="stage-aura-blur" aria-hidden="true"></div>
+
+              <!-- Central Fixed AI Automation Hub (DOES NOT ROTATE) -->
+              <div class="center-ai-core">
+                <div class="center-pulse-ring ring-1"></div>
+                <div class="center-pulse-ring ring-2"></div>
+                <div class="center-core-body">
+                  <!-- Cute Robot Avatar -->
+                  <div class="robot-avatar-wrap">
+                    <svg viewBox="0 0 100 80" class="robot-svg">
+                      <circle cx="50" cy="8" r="5" fill="#00e5ff" class="antenna-glow" />
+                      <rect x="48" y="12" width="4" height="10" rx="2" fill="#7dd3fc" />
+                      <rect x="14" y="32" width="8" height="18" rx="4" fill="#0ea5e9" />
+                      <rect x="78" y="32" width="8" height="18" rx="4" fill="#0ea5e9" />
+                      <rect x="20" y="20" width="60" height="42" rx="18" fill="#ffffff" stroke="#38bdf8" stroke-width="2.5" />
+                      <rect x="26" y="27" width="48" height="28" rx="13" fill="#061849" />
+                      <ellipse cx="38" cy="41" rx="6" ry="7" fill="#00e5ff" class="robot-eye" />
+                      <ellipse cx="62" cy="41" rx="6" ry="7" fill="#00e5ff" class="robot-eye" />
+                      <circle cx="36" cy="39" r="2" fill="#ffffff" />
+                      <circle cx="60" cy="39" r="2" fill="#ffffff" />
+                      <path d="M44 48 Q50 52 56 48" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" fill="none" />
+                    </svg>
+                  </div>
+                  <div class="core-text-group">
+                    <span class="core-ai-text">AI</span>
+                    <span class="core-auto-text">Automation</span>
+                    <span class="core-infinity-glyph">∞</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Continuous Rotating Orbital Track (360° rotation) -->
+              <div class="orbit-rotator" [class.is-paused]="isPaused()">
+                <!-- SVG Canvas with Dashed Rings and Connecting Rays -->
+                <svg class="orbit-rays-canvas" viewBox="0 0 520 520">
+                  <circle cx="260" cy="260" r="195" class="orbit-dashed-track" />
+                  <circle cx="260" cy="260" r="130" class="orbit-sub-track" />
+                  <ng-container *ngFor="let node of nodes">
+                    <line
+                      [attr.x1]="260"
+                      [attr.y1]="260"
+                      [attr.x2]="getRayX(node.angle, 195)"
+                      [attr.y2]="getRayY(node.angle, 195)"
+                      [attr.stroke]="node.color"
+                      stroke-width="1.8"
+                      stroke-dasharray="4 4"
+                      class="ray-line"
+                    />
+                    <circle
+                      [attr.cx]="getRayX(node.angle, 195)"
+                      [attr.cy]="getRayY(node.angle, 195)"
+                      r="4.5"
+                      [attr.fill]="node.color"
+                      class="ray-dot"
+                    />
+                  </ng-container>
+                </svg>
+
+                <!-- 6 Orbiting Automation Nodes -->
+                <div
+                  *ngFor="let node of nodes"
+                  class="orbit-node-slot"
+                  [style.--node-angle]="node.angle + 'deg'"
+                >
+                  <!-- Counter-rotation keeps icons and labels upright while orbiting -->
+                  <div class="counter-rotate-wrap" [class.is-paused]="isPaused()">
+                    <div
+                      class="orbit-pod-bubble"
+                      [class.is-hovered]="hoveredId() === node.id"
+                      (mouseenter)="onNodeHover(node.id)"
+                      (mouseleave)="onNodeLeave()"
+                      [style.--node-color]="node.color"
+                      [style.--node-glow]="node.glowColor"
+                    >
+                      <div class="pod-icon-wrap">
+                        <!-- Icon per node -->
+                        <ng-container [ngSwitch]="node.id">
+                          <!-- Social Media / Instagram -->
+                          <svg *ngSwitchCase="'social'" viewBox="0 0 32 32" class="pod-svg">
+                            <defs>
+                              <linearGradient id="smGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#ffb900" />
+                                <stop offset="35%" stop-color="#ff0040" />
+                                <stop offset="70%" stop-color="#d300c5" />
+                                <stop offset="100%" stop-color="#7638fa" />
+                              </linearGradient>
+                            </defs>
+                            <rect x="2" y="2" width="28" height="28" rx="8" fill="url(#smGrad)" />
+                            <rect x="7" y="7" width="18" height="18" rx="5" fill="none" stroke="#fff" stroke-width="2" />
+                            <circle cx="16" cy="16" r="4.2" fill="none" stroke="#fff" stroke-width="2" />
+                            <circle cx="21" cy="11" r="1.2" fill="#fff" />
+                          </svg>
+
+                          <!-- AI Chatbot -->
+                          <svg *ngSwitchCase="'chatbot'" viewBox="0 0 32 32" class="pod-svg">
+                            <rect x="4" y="9" width="18" height="14" rx="5" fill="#8b5cf6" />
+                            <circle cx="9" cy="15" r="2" fill="#fff" />
+                            <circle cx="17" cy="15" r="2" fill="#fff" />
+                            <path d="M10 19 Q13 21 16 19" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" />
+                            <circle cx="13" cy="5" r="1.8" fill="#a78bfa" />
+                            <rect x="12" y="6" width="2" height="3" fill="#a78bfa" />
+                            <rect x="23" y="10" width="8" height="6" rx="2" fill="#8b5cf6" />
+                            <circle cx="25.5" cy="13" r="0.8" fill="#fff" />
+                            <circle cx="27" cy="13" r="0.8" fill="#fff" />
+                            <circle cx="28.5" cy="13" r="0.8" fill="#fff" />
+                          </svg>
+
+                          <!-- Document -->
+                          <svg *ngSwitchCase="'document'" viewBox="0 0 32 32" class="pod-svg">
+                            <path d="M7 4h12l6 6v17a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" fill="#a855f7" />
+                            <polygon points="19,4 19,10 25,10" fill="#f5d0fe" />
+                            <line x1="10" y1="15" x2="20" y2="15" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                            <line x1="10" y1="19" x2="20" y2="19" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                            <line x1="10" y1="23" x2="16" y2="23" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                          </svg>
+
+                          <!-- Business Process -->
+                          <svg *ngSwitchCase="'business'" viewBox="0 0 32 32" class="pod-svg">
+                            <rect x="6" y="18" width="4.5" height="9" rx="1.5" fill="#10b981" />
+                            <rect x="13.5" y="12" width="4.5" height="15" rx="1.5" fill="#10b981" />
+                            <rect x="21" y="7" width="4.5" height="20" rx="1.5" fill="#10b981" />
+                            <path d="M7 14 L14 8 L19 12 L25 5" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M22 5h3v3" fill="none" stroke="#059669" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                          </svg>
+
+                          <!-- E-commerce -->
+                          <svg *ngSwitchCase="'ecommerce'" viewBox="0 0 32 32" class="pod-svg">
+                            <path d="M4 6h3l3.5 13a2 2 0 0 0 2 1.5h10a2 2 0 0 0 2-1.5l2.8-7.5H8.5" fill="none" stroke="#f97316" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                            <circle cx="13" cy="24" r="2.2" fill="#f97316" />
+                            <circle cx="22" cy="24" r="2.2" fill="#f97316" />
+                          </svg>
+
+                          <!-- Cloud -->
+                          <svg *ngSwitchCase="'cloud'" viewBox="0 0 32 32" class="pod-svg">
+                            <path d="M8 22a6 6 0 0 1 0-12 7.5 7.5 0 0 1 14.5-2.5A6.5 6.5 0 0 1 25 22H8z" fill="#0284c7" />
+                          </svg>
+                        </ng-container>
+                      </div>
+                      <span class="pod-label">{{ node.name }}</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
 
-            <div class="active-panel-right">
-              <div class="active-tags">
-                <span class="active-pill" *ngFor="let feat of active.features">✓ {{ feat }}</span>
+          <!-- RIGHT SIDE: 3 Cards (Social Media, AI Chatbot, Document) -->
+          <div class="sol-cards-col sol-right-col">
+            <div
+              *ngFor="let card of rightCards"
+              class="sol-feature-card"
+              [class.is-active]="hoveredId() === card.id"
+              [style.--card-accent]="card.color"
+              [style.--card-glow]="card.glowColor"
+              (mouseenter)="onCardHover(card.id)"
+              (mouseleave)="onCardLeave()"
+            >
+              <div class="card-icon-squircle" [style.background]="card.iconBg" [style.color]="card.color">
+                <ng-container [ngSwitch]="card.id">
+                  <!-- Social Media -->
+                  <svg *ngSwitchCase="'social'" viewBox="0 0 32 32" class="card-svg">
+                    <defs>
+                      <linearGradient id="smGradR" x1="0%" y1="100%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#ffb900" />
+                        <stop offset="35%" stop-color="#ff0040" />
+                        <stop offset="70%" stop-color="#d300c5" />
+                        <stop offset="100%" stop-color="#7638fa" />
+                      </linearGradient>
+                    </defs>
+                    <rect x="2" y="2" width="28" height="28" rx="8" fill="url(#smGradR)" />
+                    <rect x="7" y="7" width="18" height="18" rx="5" fill="none" stroke="#fff" stroke-width="2" />
+                    <circle cx="16" cy="16" r="4.2" fill="none" stroke="#fff" stroke-width="2" />
+                    <circle cx="21" cy="11" r="1.2" fill="#fff" />
+                  </svg>
+                  <!-- AI Chatbot -->
+                  <svg *ngSwitchCase="'chatbot'" viewBox="0 0 32 32" class="card-svg">
+                    <rect x="4" y="9" width="18" height="14" rx="5" fill="#8b5cf6" />
+                    <circle cx="9" cy="15" r="2" fill="#fff" />
+                    <circle cx="17" cy="15" r="2" fill="#fff" />
+                    <path d="M10 19 Q13 21 16 19" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" />
+                    <circle cx="13" cy="5" r="1.8" fill="#a78bfa" />
+                    <rect x="12" y="6" width="2" height="3" fill="#a78bfa" />
+                    <rect x="23" y="10" width="8" height="6" rx="2" fill="#8b5cf6" />
+                    <circle cx="25.5" cy="13" r="0.8" fill="#fff" />
+                    <circle cx="27" cy="13" r="0.8" fill="#fff" />
+                    <circle cx="28.5" cy="13" r="0.8" fill="#fff" />
+                  </svg>
+                  <!-- Document -->
+                  <svg *ngSwitchCase="'document'" viewBox="0 0 32 32" class="card-svg">
+                    <path d="M7 4h12l6 6v17a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" fill="#a855f7" />
+                    <polygon points="19,4 19,10 25,10" fill="#f5d0fe" />
+                    <line x1="10" y1="15" x2="20" y2="15" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                    <line x1="10" y1="19" x2="20" y2="19" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                    <line x1="10" y1="23" x2="16" y2="23" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                  </svg>
+                </ng-container>
               </div>
-              <a href="#contact" class="btn-deploy-active" [style.background]="active.color">
-                <span>Deploy This Solution</span>
-                <span class="cta-arrow">→</span>
+              <div class="card-copy-wrap">
+                <h4 class="card-heading">{{ card.name }}</h4>
+                <p class="card-desc">{{ card.description }}</p>
+              </div>
+              <a href="#contact" class="card-chevron-btn" aria-label="Learn more">
+                <span class="chevron-glyph">›</span>
               </a>
             </div>
           </div>
@@ -2123,10 +2284,15 @@ const solutionPodsData: SolutionPod[] = [
   styles: `
     .solutions-showcase-section {
       position: relative;
-      padding: 40px 0 60px 0;
+      padding: 50px 0 75px 0;
       overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
     }
 
+    /* Ambient background lighting */
     .ambient-glow {
       position: absolute;
       border-radius: 50%;
@@ -2160,20 +2326,22 @@ const solutionPodsData: SolutionPod[] = [
     .sol-main-container {
       position: relative;
       z-index: 1;
-      max-width: 1160px;
+      max-width: 1260px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 24px;
+      width: 100%;
+      box-sizing: border-box;
     }
 
-    /* Header */
+    /* Section Header */
     .sol-header {
       text-align: center;
       max-width: 780px;
-      margin: 0 auto 32px auto;
+      margin: 0 auto 40px auto;
     }
     .sol-eyebrow {
       display: inline-block;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
     .eyebrow-badge {
       display: inline-flex;
@@ -2184,7 +2352,7 @@ const solutionPodsData: SolutionPod[] = [
       text-transform: uppercase;
       color: #3b82f6;
       background: rgba(59, 130, 246, 0.08);
-      border: 1px solid rgba(59, 130, 246, 0.2);
+      border: 1px solid rgba(59, 130, 246, 0.22);
       padding: 6px 14px;
       border-radius: 999px;
     }
@@ -2201,453 +2369,561 @@ const solutionPodsData: SolutionPod[] = [
       display: inline-block;
     }
     .sol-subtitle {
-      font: 400 16px/1.6 'Inter', sans-serif;
+      font: 400 15px/1.65 'Inter', sans-serif;
       color: #475569;
       margin: 0 auto;
       max-width: 660px;
     }
 
-    /* Stage Wrapper - Normal Size */
-    .sol-stage-wrapper {
-      position: relative;
-      max-width: 700px;
-      margin: 0 auto 32px auto;
+    /* 3-Column Ecosystem Layout matching image */
+    .sol-ecosystem-row {
+      display: grid;
+      grid-template-columns: 310px 540px 310px;
+      gap: 32px;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    /* Side Cards Column */
+    .sol-cards-col {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      gap: 20px;
+      justify-content: center;
     }
 
-    /* Ambient aura & dashed orbit rings behind image */
-    .sol-halo-aura {
-      position: absolute;
-      width: 560px;
-      height: 560px;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(14, 165, 233, 0.14) 0%, rgba(168, 85, 247, 0.12) 45%, transparent 70%);
-      filter: blur(32px);
-      pointer-events: none;
-      z-index: 0;
-      animation: auraBreathing 5s ease-in-out infinite;
-    }
-    .sol-orbit-ring {
-      position: absolute;
-      width: 620px;
-      height: 620px;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      border: 1.5px dashed rgba(99, 102, 241, 0.22);
-      pointer-events: none;
-      z-index: 0;
-      animation: orbitRotate 50s linear infinite;
-    }
-    @keyframes orbitRotate {
-      from { transform: translate(-50%, -50%) rotate(0deg); }
-      to { transform: translate(-50%, -50%) rotate(360deg); }
-    }
-    @keyframes auraBreathing {
-      0%, 100% { transform: translate(-50%, -50%) scale(0.94); opacity: 0.6; }
-      50% { transform: translate(-50%, -50%) scale(1.06); opacity: 0.95; }
-    }
-
-    /* Graphic Card Container (Normal Size, Floating Animation) */
-    .sol-graphic-card {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 680px;
-      border-radius: 24px;
-      overflow: visible;
+    /* Horizontal Card Item matching image */
+    .sol-feature-card {
       background: #ffffff;
-      box-shadow: 0 16px 40px -12px rgba(15, 23, 42, 0.1), 0 0 0 1px rgba(226, 232, 240, 0.8);
-      animation: floatGraphic 4.5s ease-in-out infinite;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .sol-graphic-card:hover {
-      box-shadow: 0 24px 55px -12px rgba(37, 99, 235, 0.18), 0 0 0 1px rgba(99, 102, 241, 0.3);
-    }
-    @keyframes floatGraphic {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-7px); }
-    }
-
-    .sol-main-img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 24px;
-      user-select: none;
-      -webkit-user-drag: none;
-    }
-
-    /* Central Radar Waves */
-    .center-radar-wave {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 120px;
-      height: 120px;
-      margin-left: -60px;
-      margin-top: -60px;
-      border-radius: 50%;
-      border: 2px solid rgba(14, 165, 233, 0.65);
-      pointer-events: none;
-      animation: centerPulse 3.2s cubic-bezier(0.2, 0.8, 0.4, 1.2) infinite;
-    }
-    .center-radar-wave.wave-2 {
-      animation-delay: 1.6s;
-      border-color: rgba(168, 85, 247, 0.6);
-    }
-    .center-infinity-glow {
-      position: absolute;
-      left: 50%;
-      top: 57%;
-      width: 32px;
-      height: 18px;
-      margin-left: -16px;
-      margin-top: -9px;
-      border-radius: 999px;
-      background: radial-gradient(circle, rgba(0, 229, 255, 0.45) 0%, transparent 70%);
-      pointer-events: none;
-      animation: infinityPulse 2s ease-in-out infinite;
-    }
-    @keyframes centerPulse {
-      0% { transform: scale(0.65); opacity: 0.85; }
-      100% { transform: scale(2.3); opacity: 0; }
-    }
-    @keyframes infinityPulse {
-      0%, 100% { transform: scale(0.9); opacity: 0.5; }
-      50% { transform: scale(1.3); opacity: 1; filter: drop-shadow(0 0 8px #00e5ff); }
-    }
-
-    /* 6 Interactive Pulsating Hotspots */
-    .pod-hotspot-beacon {
-      position: absolute;
-      transform: translate(-50%, -50%);
-      width: 44px;
-      height: 44px;
-      border: none;
-      background: transparent;
+      border: 1px solid rgba(226, 232, 240, 0.95);
+      border-radius: 18px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(0, 0, 0, 0.02);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
       cursor: pointer;
-      padding: 0;
+      position: relative;
+    }
+    .sol-feature-card:hover,
+    .sol-feature-card.is-active {
+      transform: translateY(-3px);
+      border-color: var(--card-accent);
+      box-shadow: 0 14px 30px -6px var(--card-glow), 0 0 0 1px var(--card-accent);
+    }
+    .card-icon-squircle {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
       display: grid;
       place-items: center;
-      z-index: 10;
-      outline: none;
-      transition: transform 0.25s ease;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
     }
-    .beacon-core {
-      width: 14px;
-      height: 14px;
+    .card-svg {
+      width: 26px;
+      height: 26px;
+      display: block;
+    }
+    .card-copy-wrap {
+      flex: 1;
+      min-width: 0;
+    }
+    .card-heading {
+      font: 700 14.5px/1.25 'Plus Jakarta Sans', 'Manrope', sans-serif;
+      color: #0f172a;
+      margin: 0 0 3px 0;
+    }
+    .card-desc {
+      font: 400 12px/1.4 'Inter', sans-serif;
+      color: #64748b;
+      margin: 0;
+      white-space: normal;
+    }
+    .card-chevron-btn {
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
-      background: var(--pod-color);
-      box-shadow: 0 0 14px var(--pod-color), 0 0 4px #ffffff;
-      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      display: grid;
+      place-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+      transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
     }
-    .beacon-wave {
+    .chevron-glyph {
+      font: 700 16px/1 'Manrope', sans-serif;
+      color: #94a3b8;
+      margin-top: -2px;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+    .sol-feature-card:hover .card-chevron-btn {
+      background: #ffffff;
+      border-color: var(--card-accent);
+    }
+    .sol-feature-card:hover .chevron-glyph {
+      color: var(--card-accent);
+      transform: translateX(2px);
+    }
+
+    /* CENTER: Orbital Stage */
+    .sol-orbital-col {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .orbital-stage {
+      position: relative;
+      width: 520px;
+      height: 520px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+    }
+
+    .stage-aura-blur {
       position: absolute;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(14, 165, 233, 0.12) 0%, rgba(168, 85, 247, 0.1) 50%, transparent 70%);
+      filter: blur(35px);
+      pointer-events: none;
+      z-index: 0;
+      animation: auraPulse 6s ease-in-out infinite;
+    }
+    @keyframes auraPulse {
+      0%, 100% { transform: scale(0.95); opacity: 0.6; }
+      50% { transform: scale(1.05); opacity: 0.95; }
+    }
+
+    /* Central Fixed AI Core (Fixed in center, DOES NOT ROTATE) */
+    .center-ai-core {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 156px;
+      height: 156px;
+      z-index: 15;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .center-core-body {
+      position: relative;
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      background: var(--pod-glow);
-      opacity: 0.6;
-      animation: beaconPing 2.4s ease-out infinite;
-      pointer-events: none;
+      background: radial-gradient(circle at 50% 32%, #0e2a6d 0%, #06194b 55%, #020b22 100%);
+      border: 2.5px solid #00d2ff;
+      box-shadow: 0 0 35px rgba(0, 195, 255, 0.55),
+                  inset 0 0 25px rgba(0, 225, 255, 0.3),
+                  0 12px 30px rgba(2, 9, 30, 0.7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 10px;
+      box-sizing: border-box;
+      z-index: 2;
     }
-    .beacon-ring {
+    .center-pulse-ring {
       position: absolute;
-      width: 54px;
-      height: 54px;
+      inset: -12px;
       border-radius: 50%;
-      border: 2px dashed var(--pod-color);
-      animation: beaconSpin 6s linear infinite;
+      border: 1.5px solid rgba(0, 210, 255, 0.45);
+      animation: hubWavePulse 3.5s ease-out infinite;
       pointer-events: none;
     }
-    .pod-hotspot-beacon.is-active .beacon-core,
-    .pod-hotspot-beacon:hover .beacon-core {
-      transform: scale(1.55);
-      box-shadow: 0 0 24px var(--pod-color), 0 0 8px #ffffff;
+    .center-pulse-ring.ring-2 {
+      animation-delay: 1.75s;
+      border-color: rgba(168, 85, 247, 0.4);
     }
-    .beacon-tag {
-      position: absolute;
-      bottom: -22px;
-      left: 50%;
-      transform: translateX(-50%);
-      white-space: nowrap;
-      font: 700 11px/1.2 'Manrope', sans-serif;
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.88);
-      color: #ffffff;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.25s ease;
-    }
-    .pod-hotspot-beacon.is-active .beacon-tag,
-    .pod-hotspot-beacon:hover .beacon-tag {
-      opacity: 1;
-      bottom: -27px;
+    @keyframes hubWavePulse {
+      0% { transform: scale(0.92); opacity: 0.85; }
+      100% { transform: scale(1.4); opacity: 0; }
     }
 
-    @keyframes beaconPing {
-      0% { transform: scale(0.6); opacity: 0.8; }
-      100% { transform: scale(2.1); opacity: 0; }
+    .robot-avatar-wrap {
+      width: 44px;
+      height: 36px;
+      margin-bottom: 2px;
+      filter: drop-shadow(0 2px 8px rgba(0, 210, 255, 0.5));
     }
-    @keyframes beaconSpin {
+    .robot-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .antenna-glow {
+      animation: antennaPulse 2s ease-in-out infinite;
+    }
+    @keyframes antennaPulse {
+      0%, 100% { fill: #00e5ff; filter: drop-shadow(0 0 3px #00e5ff); }
+      50% { fill: #7dd3fc; filter: drop-shadow(0 0 8px #38bdf8); }
+    }
+    .robot-eye {
+      animation: blinkEye 4.5s infinite;
+      transform-origin: center;
+    }
+    @keyframes blinkEye {
+      0%, 96%, 100% { transform: scaleY(1); }
+      98% { transform: scaleY(0.1); }
+    }
+
+    .core-text-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.1;
+    }
+    .core-ai-text {
+      font: 900 20px/1 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(180deg, #ffffff 0%, #7dd3fc 60%, #00e5ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 0.05em;
+    }
+    .core-auto-text {
+      font: 700 11.5px 'Manrope', sans-serif;
+      color: #ffffff;
+      letter-spacing: 0.04em;
+      margin-top: 1px;
+      text-shadow: 0 0 8px rgba(0, 195, 255, 0.6);
+    }
+    .core-infinity-glyph {
+      font: 700 16px/1 'Inter', sans-serif;
+      color: #00e5ff;
+      margin-top: 2px;
+      text-shadow: 0 0 8px #00e5ff;
+      animation: infinityPulse 2.4s ease-in-out infinite;
+    }
+    @keyframes infinityPulse {
+      0%, 100% { opacity: 0.7; transform: scale(0.95); }
+      50% { opacity: 1; transform: scale(1.15); filter: drop-shadow(0 0 8px #00e5ff); }
+    }
+
+    /* CONTINUOUS ORBITAL TRACK ROTATION (22s linear infinite) */
+    .orbit-rotator {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      animation: spinOrbit 22s linear infinite;
+      transform-origin: center center;
+    }
+    .orbit-rotator.is-paused {
+      animation-play-state: paused;
+    }
+    @keyframes spinOrbit {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
 
-    /* Stage Hint */
-    .sol-stage-hint {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 14px;
-      font: 500 13px 'Inter', sans-serif;
-      color: #64748b;
+    /* SVG Canvas with Concentric dashed tracks & connecting rays */
+    .orbit-rays-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
     }
-    .hint-pulse-dot {
-      width: 8px;
-      height: 8px;
+    .orbit-dashed-track {
+      fill: none;
+      stroke: rgba(148, 163, 184, 0.32);
+      stroke-width: 1.5;
+      stroke-dasharray: 5 6;
+    }
+    .orbit-sub-track {
+      fill: none;
+      stroke: rgba(56, 189, 248, 0.28);
+      stroke-width: 1.2;
+      stroke-dasharray: 4 6;
+    }
+    .ray-line {
+      opacity: 0.75;
+    }
+    .ray-dot {
+      filter: drop-shadow(0 0 4px currentColor);
+    }
+
+    /* Orbiting Node Slots */
+    .orbit-node-slot {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      transform: rotate(var(--node-angle)) translateY(-195px);
+      z-index: 5;
+    }
+
+    /* Counter-spin container keeps cards upright at all times */
+    .counter-rotate-wrap {
+      width: 108px;
+      height: 108px;
+      margin-left: -54px;
+      margin-top: -54px;
+      animation: counterSpin 22s linear infinite;
+      transform-origin: center center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .counter-rotate-wrap.is-paused {
+      animation-play-state: paused;
+    }
+    @keyframes counterSpin {
+      from { transform: rotate(calc(-1 * var(--node-angle))); }
+      to { transform: rotate(calc(-1 * var(--node-angle) - 360deg)); }
+    }
+
+    /* Circular Node Bubble matching image */
+    .orbit-pod-bubble {
+      width: 104px;
+      height: 104px;
       border-radius: 50%;
-      background: #10b981;
-      box-shadow: 0 0 8px #10b981;
-      animation: hintDot 1.8s ease-in-out infinite;
-    }
-    @keyframes hintDot {
-      0%, 100% { opacity: 0.4; transform: scale(0.9); }
-      50% { opacity: 1; transform: scale(1.3); }
-    }
-
-    /* Active Spotlight Panel */
-    .sol-active-panel {
-      max-width: 780px;
-      margin: 0 auto 36px auto;
-    }
-    .active-panel-inner {
       background: #ffffff;
-      border: 1.5px solid #e2e8f0;
-      border-radius: 20px;
-      padding: 22px 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      transition: all 0.35s ease;
-    }
-    .active-panel-left {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      flex: 1;
-    }
-    .active-icon-badge {
-      width: 54px;
-      height: 54px;
-      border-radius: 16px;
-      display: grid;
-      place-items: center;
-      font-size: 26px;
-      color: #ffffff;
-      flex-shrink: 0;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-    }
-    .active-meta {
+      border: 2px solid var(--node-color);
+      box-shadow: 0 0 20px var(--node-glow), 0 8px 18px rgba(15, 23, 42, 0.08);
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 4px;
+      box-sizing: border-box;
+      cursor: pointer;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+      user-select: none;
     }
-    .active-category {
-      font: 700 11px/1 'Manrope', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+    .orbit-pod-bubble:hover,
+    .orbit-pod-bubble.is-hovered {
+      transform: scale(1.06);
+      box-shadow: 0 0 30px var(--node-color), 0 12px 24px rgba(15, 23, 42, 0.14);
     }
-    .active-title {
-      font: 800 20px/1.2 'Plus Jakarta Sans', 'Manrope', sans-serif;
+    .pod-icon-wrap {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pod-svg {
+      width: 28px;
+      height: 28px;
+      display: block;
+    }
+    .pod-label {
+      font: 700 10px/1.18 'Manrope', sans-serif;
+      text-align: center;
       color: #0f172a;
-      margin: 0;
-    }
-    .active-desc {
-      font: 400 13.5px/1.5 'Inter', sans-serif;
-      color: #475569;
-      margin: 0;
+      max-width: 82px;
+      margin-top: 4px;
+      display: block;
     }
 
-    .active-panel-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 12px;
-      flex-shrink: 0;
-    }
-    .active-tags {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      align-items: flex-end;
-    }
-    .active-pill {
-      font: 600 11.5px 'Inter', sans-serif;
-      color: #334155;
-      background: #f1f5f9;
-      padding: 3px 10px;
-      border-radius: 999px;
-    }
-    .btn-deploy-active {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font: 700 13px 'Manrope', sans-serif;
-      color: #ffffff;
-      text-decoration: none;
-      padding: 9px 18px;
-      border-radius: 12px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-      transition: transform 0.2s ease, filter 0.2s ease;
-    }
-    .btn-deploy-active:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.1);
-    }
-    .cta-arrow {
-      transition: transform 0.2s ease;
-    }
-    .btn-deploy-active:hover .cta-arrow {
-      transform: translateX(3px);
+    .mobile-break {
+      display: none;
     }
 
-    /* Responsive Breakpoints */
-    @media (max-width: 991px) {
-      .sol-stage-wrapper {
-        max-width: 560px;
+    /* RESPONSIVE LAYOUT */
+    @media (max-width: 1180px) {
+      .sol-ecosystem-row {
+        grid-template-columns: 280px 480px 280px;
+        gap: 20px;
       }
-      .sol-orbit-ring {
-        width: 520px;
-        height: 520px;
+      .orbital-stage {
+        width: 480px;
+        height: 480px;
       }
-      .sol-halo-aura {
-        width: 460px;
-        height: 460px;
+      .orbit-node-slot {
+        transform: rotate(var(--node-angle)) translateY(-180px);
+      }
+      .counter-rotate-wrap {
+        width: 100px;
+        height: 100px;
+        margin-left: -50px;
+        margin-top: -50px;
+      }
+      .orbit-pod-bubble {
+        width: 96px;
+        height: 96px;
+      }
+      .pod-label {
+        font-size: 9.5px;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .sol-ecosystem-row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 36px;
+      }
+      .sol-cards-col {
+        display: grid;
+        grid-template-columns: repeat(2, 320px);
+        gap: 16px;
+        width: auto;
+      }
+      .sol-left-col {
+        order: 2;
+      }
+      .sol-right-col {
+        order: 3;
+      }
+      .sol-orbital-col {
+        order: 1;
+      }
+      .orbital-stage {
+        width: 450px;
+        height: 450px;
+      }
+      .orbit-node-slot {
+        transform: rotate(var(--node-angle)) translateY(-165px);
+      }
+      .counter-rotate-wrap {
+        width: 94px;
+        height: 94px;
+        margin-left: -47px;
+        margin-top: -47px;
+      }
+      .orbit-pod-bubble {
+        width: 90px;
+        height: 90px;
       }
     }
 
     @media (max-width: 768px) {
       .solutions-showcase-section {
-        padding: 30px 0 45px 0;
+        padding: 35px 0 50px 0;
       }
       .sol-title {
         font-size: 28px;
       }
+      .mobile-break {
+        display: inline;
+      }
       .sol-subtitle {
-        font-size: 14.5px;
+        font-size: 14px;
       }
-      .sol-stage-wrapper {
-        max-width: 100%;
-        margin-bottom: 24px;
+      .sol-cards-col {
+        grid-template-columns: 1fr;
+        width: 100%;
+        max-width: 380px;
       }
-      .sol-graphic-card {
-        border-radius: 16px;
+      .orbital-stage {
+        width: 330px;
+        height: 330px;
       }
-      .sol-main-img {
-        border-radius: 16px;
+      .orbit-node-slot {
+        transform: rotate(var(--node-angle)) translateY(-122px);
       }
-      .pod-hotspot-beacon {
+      .counter-rotate-wrap {
+        width: 76px;
+        height: 76px;
+        margin-left: -38px;
+        margin-top: -38px;
+      }
+      .orbit-pod-bubble {
+        width: 74px;
+        height: 74px;
+        padding: 4px;
+      }
+      .pod-svg {
+        width: 22px;
+        height: 22px;
+      }
+      .pod-label {
+        font-size: 8px;
+        max-width: 62px;
+      }
+      .center-ai-core {
+        width: 110px;
+        height: 110px;
+      }
+      .core-ai-text {
+        font-size: 16px;
+      }
+      .core-auto-text {
+        font-size: 9px;
+      }
+      .robot-avatar-wrap {
         width: 34px;
-        height: 34px;
-      }
-      .beacon-core {
-        width: 11px;
-        height: 11px;
-      }
-      .beacon-ring {
-        width: 42px;
-        height: 42px;
-      }
-      .beacon-tag {
-        display: none;
-      }
-      .active-panel-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 18px 20px;
-      }
-      .active-panel-right {
-        align-items: flex-start;
-        width: 100%;
-      }
-      .btn-deploy-active {
-        width: 100%;
-        justify-content: center;
-        box-sizing: border-box;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .sol-graphic-card,
-      .sol-halo-aura,
-      .sol-orbit-ring,
-      .center-radar-wave,
-      .beacon-wave,
-      .beacon-ring {
+      .orbit-rotator,
+      .counter-rotate-wrap,
+      .center-pulse-ring,
+      .stage-aura-blur {
         animation: none !important;
       }
     }
   `,
 })
-export class SolutionsShowcaseComponent implements OnInit, OnDestroy {
-  pods = solutionPodsData;
-  selectedId = signal<string>('social');
+export class SolutionsShowcaseComponent {
+  nodes = AUTOMATION_NODES;
   isPaused = signal<boolean>(false);
-  private autoCycleInterval: any = null;
+  hoveredId = signal<string | null>(null);
 
-  ngOnInit(): void {
-    this.startAutoCycle();
-  }
+  // Left 3 Cards matching image: Cloud, E-commerce, Business Process
+  leftCards = [
+    this.nodes.find((n) => n.id === 'cloud')!,
+    this.nodes.find((n) => n.id === 'ecommerce')!,
+    this.nodes.find((n) => n.id === 'business')!,
+  ];
 
-  ngOnDestroy(): void {
-    this.stopAutoCycle();
-  }
+  // Right 3 Cards matching image: Social Media, AI Chatbot, Document
+  rightCards = [
+    this.nodes.find((n) => n.id === 'social')!,
+    this.nodes.find((n) => n.id === 'chatbot')!,
+    this.nodes.find((n) => n.id === 'document')!,
+  ];
 
-  startAutoCycle(): void {
-    this.stopAutoCycle();
-    this.autoCycleInterval = setInterval(() => {
-      if (!this.isPaused()) {
-        const currentIndex = this.pods.findIndex((p) => p.id === this.selectedId());
-        const nextIndex = (currentIndex + 1) % this.pods.length;
-        this.selectedId.set(this.pods[nextIndex].id);
-      }
-    }, 3200);
-  }
-
-  stopAutoCycle(): void {
-    if (this.autoCycleInterval) {
-      clearInterval(this.autoCycleInterval);
-      this.autoCycleInterval = null;
-    }
-  }
-
-  pauseAutoCycle(): void {
+  onNodeHover(id: string): void {
     this.isPaused.set(true);
+    this.hoveredId.set(id);
   }
 
-  resumeAutoCycle(): void {
+  onNodeLeave(): void {
     this.isPaused.set(false);
+    this.hoveredId.set(null);
   }
 
-  selectPod(id: string): void {
-    this.selectedId.set(id);
+  onCardHover(id: string): void {
+    this.hoveredId.set(id);
   }
 
-  getActivePod(): SolutionPod {
-    return this.pods.find((p) => p.id === this.selectedId()) || this.pods[0];
+  onCardLeave(): void {
+    this.hoveredId.set(null);
+  }
+
+  selectNode(id: string): void {
+    this.hoveredId.set(id);
+  }
+
+  // Trigonometry helper for SVG rays from center (260, 260)
+  getRayX(angleDegrees: number, radius: number): number {
+    const rad = (angleDegrees * Math.PI) / 180;
+    return Math.round(260 + radius * Math.sin(rad));
+  }
+
+  getRayY(angleDegrees: number, radius: number): number {
+    const rad = (angleDegrees * Math.PI) / 180;
+    return Math.round(260 - radius * Math.cos(rad));
   }
 }
+
 
 
 const aboutCards = [
