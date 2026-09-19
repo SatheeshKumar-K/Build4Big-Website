@@ -5785,7 +5785,6 @@ export class ContactComponent {}
                 <div class="scene-actions" (click)="$event.stopPropagation()">
                   <a href="#contact" (click)="closeStoryModal()" class="scene-btn-primary">Get In Touch Now →</a>
                   <button type="button" (click)="restartStory()" class="scene-btn-replay">↺ Replay Video</button>
-                  <button type="button" (click)="closeStoryModal()" class="scene-btn-close-action">✕ Close Player</button>
                 </div>
               </div>
             </div>
@@ -5826,17 +5825,6 @@ export class ContactComponent {}
                 {{ s.title }}
               </button>
             </div>
-
-            <!-- Prominent Bottom Bar Close Button -->
-            <button
-              type="button"
-              class="ctrl-btn-close-prominent"
-              (click)="closeStoryModal()"
-              title="Close Video Player (Esc)"
-              aria-label="Close Video Player"
-            >
-              ✕ Close
-            </button>
           </div>
 
           <!-- Modal Footer Note -->
@@ -7002,11 +6990,11 @@ export class ContactComponent {}
 
     .story-modal-card {
       width: 100%;
-      max-width: 940px;
+      max-width: 680px;
       background: linear-gradient(180deg, #071333 0%, #030a1c 100%);
       border: 1px solid rgba(0, 210, 255, 0.35);
-      border-radius: 20px;
-      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.85), 0 0 50px rgba(0, 210, 255, 0.18);
+      border-radius: 18px;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.88), 0 0 40px rgba(0, 210, 255, 0.18);
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -7017,7 +7005,7 @@ export class ContactComponent {}
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 22px;
+      padding: 10px 18px;
       background: rgba(10, 22, 50, 0.7);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       position: relative;
@@ -7027,18 +7015,18 @@ export class ContactComponent {}
     .story-header-left {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
     }
 
     .story-modal-badge {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
+      gap: 6px;
       background: rgba(0, 210, 255, 0.12);
       border: 1px solid rgba(0, 210, 255, 0.35);
-      padding: 4px 11px;
+      padding: 3px 9px;
       border-radius: 999px;
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 800;
       letter-spacing: 0.8px;
       color: #00d2ff;
@@ -7046,8 +7034,8 @@ export class ContactComponent {}
     }
 
     .live-dot {
-      width: 7px;
-      height: 7px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background: #00e5ff;
       box-shadow: 0 0 8px #00e5ff;
@@ -7061,7 +7049,7 @@ export class ContactComponent {}
 
     .story-modal-title {
       margin: 0;
-      font-size: 13.5px;
+      font-size: 12.5px;
       font-weight: 600;
       color: #e2e8f0;
       letter-spacing: -0.2px;
@@ -7071,13 +7059,13 @@ export class ContactComponent {}
     .story-modal-close-prominent {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.2);
       color: #e2e8f0;
-      padding: 6px 14px;
+      padding: 5px 12px;
       border-radius: 999px;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.2s ease;
@@ -7088,11 +7076,11 @@ export class ContactComponent {}
       color: #ffffff;
       border-color: #ef4444;
       transform: scale(1.04);
-      box-shadow: 0 0 16px rgba(239, 68, 68, 0.4);
+      box-shadow: 0 0 14px rgba(239, 68, 68, 0.4);
     }
 
     .close-x-mark {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 900;
     }
 
@@ -7135,9 +7123,9 @@ export class ContactComponent {}
 
     .video-hud-top {
       position: absolute;
-      top: 14px;
-      left: 18px;
-      right: 18px;
+      top: 10px;
+      left: 14px;
+      right: 14px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -7146,20 +7134,20 @@ export class ContactComponent {}
     .rec-indicator {
       display: flex;
       align-items: center;
-      gap: 7px;
+      gap: 6px;
       background: rgba(0, 0, 0, 0.45);
-      padding: 4px 10px;
-      border-radius: 6px;
+      padding: 3px 8px;
+      border-radius: 5px;
       border: 1px solid rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(4px);
     }
 
     .rec-red-dot {
-      width: 9px;
-      height: 9px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background: #ef4444;
-      box-shadow: 0 0 10px #ef4444;
+      box-shadow: 0 0 8px #ef4444;
     }
 
     .rec-indicator.is-live .rec-red-dot {
@@ -7172,7 +7160,7 @@ export class ContactComponent {}
     }
 
     .rec-text {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 800;
       letter-spacing: 1px;
       color: #ef4444;
@@ -7180,36 +7168,36 @@ export class ContactComponent {}
 
     .rec-timecode {
       font-family: 'DM Sans', monospace;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       color: #e2e8f0;
-      padding-left: 6px;
+      padding-left: 5px;
       border-left: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     .video-hud-right {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
 
     /* Audio Equalizer Waveform */
     .audio-wave-bars {
       display: flex;
       align-items: flex-end;
-      gap: 2.5px;
-      height: 16px;
-      padding: 3px 6px;
+      gap: 2px;
+      height: 14px;
+      padding: 2px 5px;
       background: rgba(0, 0, 0, 0.45);
       border-radius: 4px;
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .wave-bar {
-      width: 3px;
+      width: 2.5px;
       border-radius: 1px;
-      background: #00e5ff;
-      height: 4px;
+      background: #00d2ff;
+      height: 3px;
     }
 
     .audio-wave-bars.is-playing .wb1 { animation: eqJump 0.6s ease-in-out infinite alternate; }
@@ -7221,17 +7209,17 @@ export class ContactComponent {}
 
     @keyframes eqJump {
       from { height: 3px; background: #00d2ff; }
-      to { height: 14px; background: #38bdf8; }
+      to { height: 12px; background: #38bdf8; }
     }
 
     .video-spec-pill {
-      font-size: 10px;
+      font-size: 9.5px;
       font-weight: 800;
       letter-spacing: 0.5px;
       color: #94a3b8;
       background: rgba(0, 0, 0, 0.45);
-      padding: 4px 9px;
-      border-radius: 6px;
+      padding: 3px 8px;
+      border-radius: 5px;
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
@@ -7241,7 +7229,7 @@ export class ContactComponent {}
       inset: 0;
       background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
       background-size: 100% 4px;
-      opacity: 0.18;
+      opacity: 0.16;
       pointer-events: none;
     }
 
@@ -7274,35 +7262,35 @@ export class ContactComponent {}
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
       animation: fadeIn 0.2s ease;
     }
 
     .center-play-disc {
-      width: 68px;
-      height: 68px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       background: linear-gradient(135deg, #00d2ff, #3159f5);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 35px rgba(0, 210, 255, 0.65);
+      box-shadow: 0 0 30px rgba(0, 210, 255, 0.65);
       animation: pulsePlay 1.8s ease-in-out infinite alternate;
     }
 
     @keyframes pulsePlay {
-      from { transform: scale(0.95); box-shadow: 0 0 25px rgba(0, 210, 255, 0.5); }
-      to { transform: scale(1.06); box-shadow: 0 0 45px rgba(0, 210, 255, 0.85); }
+      from { transform: scale(0.95); box-shadow: 0 0 20px rgba(0, 210, 255, 0.5); }
+      to { transform: scale(1.06); box-shadow: 0 0 38px rgba(0, 210, 255, 0.85); }
     }
 
     .center-play-triangle {
       color: #ffffff;
-      font-size: 24px;
-      margin-left: 4px;
+      font-size: 20px;
+      margin-left: 3px;
     }
 
     .center-play-caption {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       color: #e2e8f0;
       letter-spacing: 0.3px;
@@ -7317,7 +7305,7 @@ export class ContactComponent {}
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 24px 36px;
+      padding: 18px 24px;
       box-sizing: border-box;
       position: relative;
       animation: sceneCutIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -7328,31 +7316,31 @@ export class ContactComponent {}
     }
 
     @keyframes sceneCutIn {
-      from { opacity: 0; transform: scale(1.05); filter: blur(4px); }
+      from { opacity: 0; transform: scale(1.04); filter: blur(3px); }
       to { opacity: 1; transform: scale(1); filter: blur(0); }
     }
 
     @keyframes kenBurnsZoom {
       0% { transform: scale(1) translateY(0); }
-      100% { transform: scale(1.035) translateY(-4px); }
+      100% { transform: scale(1.03) translateY(-3px); }
     }
 
     .scene-ambient-glow {
       position: absolute;
-      width: 500px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(0, 210, 255, 0.22) 0%, rgba(49, 89, 245, 0.1) 50%, transparent 80%);
+      width: 420px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(0, 210, 255, 0.2) 0%, rgba(49, 89, 245, 0.08) 50%, transparent 80%);
       pointer-events: none;
-      filter: blur(45px);
+      filter: blur(35px);
       z-index: 0;
     }
 
     .scene-energy-vortex {
       position: absolute;
-      width: 320px;
-      height: 320px;
+      width: 260px;
+      height: 260px;
       border-radius: 50%;
-      border: 1px dashed rgba(0, 210, 255, 0.25);
+      border: 1px dashed rgba(0, 210, 255, 0.22);
       animation: vortexSpin 24s linear infinite;
       pointer-events: none;
     }
@@ -7364,29 +7352,29 @@ export class ContactComponent {}
 
     .scene-logo-hero {
       position: relative;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
       z-index: 1;
     }
 
     .scene-brand-img {
-      height: 72px;
+      height: 54px;
       width: auto;
       object-fit: contain;
-      filter: drop-shadow(0 0 24px rgba(0, 210, 255, 0.6));
+      filter: drop-shadow(0 0 20px rgba(0, 210, 255, 0.55));
       animation: brandLevitate 3.2s ease-in-out infinite alternate;
     }
 
     @keyframes brandLevitate {
       from { transform: translateY(0); }
-      to { transform: translateY(-7px); }
+      to { transform: translateY(-5px); }
     }
 
     .logo-energy-halo {
       position: absolute;
-      inset: -14px;
+      inset: -10px;
       border-radius: 50%;
       border: 1.5px solid rgba(0, 210, 255, 0.35);
-      box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
+      box-shadow: 0 0 16px rgba(0, 210, 255, 0.25);
       animation: haloPulse 3s ease-in-out infinite alternate;
     }
 
@@ -7397,18 +7385,18 @@ export class ContactComponent {}
 
     .logo-orbit-dots {
       position: absolute;
-      inset: -22px;
+      inset: -18px;
       border-radius: 50%;
       animation: vortexSpin 10s linear infinite;
     }
 
     .orbit-dot {
       position: absolute;
-      width: 6px;
-      height: 6px;
+      width: 5px;
+      height: 5px;
       border-radius: 50%;
       background: #00e5ff;
-      box-shadow: 0 0 10px #00e5ff;
+      box-shadow: 0 0 8px #00e5ff;
     }
 
     .od1 { top: 0; left: 50%; }
@@ -7417,28 +7405,28 @@ export class ContactComponent {}
 
     .scene-pill, .scene-badge-pill {
       display: inline-block;
-      font-size: 10px;
+      font-size: 9.5px;
       font-weight: 800;
-      letter-spacing: 1.6px;
+      letter-spacing: 1.4px;
       color: #00d2ff;
       background: rgba(0, 210, 255, 0.12);
       border: 1px solid rgba(0, 210, 255, 0.35);
-      padding: 4px 14px;
+      padding: 3px 11px;
       border-radius: 999px;
       text-transform: uppercase;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       z-index: 1;
     }
 
     .scene-headline {
       font-family: 'Manrope', sans-serif;
-      font-size: clamp(20px, 3.2vw, 32px);
+      font-size: clamp(17px, 2.3vw, 24px);
       font-weight: 800;
       color: #ffffff;
-      margin: 0 0 8px 0;
+      margin: 0 0 6px 0;
       line-height: 1.25;
       z-index: 1;
-      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+      text-shadow: 0 3px 16px rgba(0, 0, 0, 0.6);
     }
 
     .scene-accent {
@@ -7454,30 +7442,30 @@ export class ContactComponent {}
     }
 
     .scene-sub {
-      font-size: clamp(12px, 1.3vw, 14px);
-      line-height: 1.6;
+      font-size: clamp(11px, 1.2vw, 12.5px);
+      line-height: 1.5;
       color: #94a3b8;
-      max-width: 580px;
+      max-width: 480px;
       margin: 0 auto;
       z-index: 1;
     }
 
     .scene-tech-ticker {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       justify-content: center;
-      margin-top: 14px;
+      margin-top: 10px;
       z-index: 1;
       flex-wrap: wrap;
     }
 
     .ticker-tag {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       color: #cbd5e1;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 4px 12px;
+      padding: 3px 10px;
       border-radius: 999px;
       animation: tagBob 3s ease-in-out infinite alternate;
     }
@@ -7490,9 +7478,9 @@ export class ContactComponent {}
     .scene-cards-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 14px;
-      max-width: 740px;
+      gap: 10px;
+      margin-top: 10px;
+      max-width: 580px;
       width: 100%;
       z-index: 1;
     }
@@ -7500,12 +7488,12 @@ export class ContactComponent {}
     .scene-feature-chip {
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(0, 210, 255, 0.22);
-      border-radius: 14px;
-      padding: 14px 12px;
+      border-radius: 12px;
+      padding: 10px 8px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 5px;
+      gap: 3px;
       position: relative;
       overflow: hidden;
       transition: transform 0.2s ease;
@@ -7527,50 +7515,50 @@ export class ContactComponent {}
     }
 
     .chip-emoji {
-      font-size: 24px;
-      margin-bottom: 2px;
+      font-size: 18px;
+      margin-bottom: 1px;
     }
 
     .scene-feature-chip strong {
-      font-size: 12.5px;
+      font-size: 11.5px;
       font-weight: 700;
       color: #ffffff;
     }
 
     .scene-feature-chip small {
-      font-size: 11px;
+      font-size: 10px;
       color: #94a3b8;
-      line-height: 1.35;
+      line-height: 1.3;
       text-align: center;
     }
 
     .chip-tag-live {
-      margin-top: 4px;
-      font-size: 9.5px;
+      margin-top: 3px;
+      font-size: 9px;
       font-weight: 800;
       color: #00e5ff;
       background: rgba(0, 229, 255, 0.12);
-      padding: 2px 7px;
+      padding: 2px 6px;
       border-radius: 4px;
     }
 
     /* Scene 3 AI Robot */
     .scene-ai-robot-wrap {
       position: relative;
-      margin: 8px 0 12px 0;
+      margin: 6px 0 8px 0;
       z-index: 1;
     }
 
     .scene-robot-svg {
-      width: 90px;
-      height: 72px;
-      filter: drop-shadow(0 0 20px rgba(0, 229, 255, 0.65));
+      width: 72px;
+      height: 56px;
+      filter: drop-shadow(0 0 16px rgba(0, 229, 255, 0.65));
       animation: robotFloat 2.6s ease-in-out infinite alternate;
     }
 
     @keyframes robotFloat {
       from { transform: translateY(0); }
-      to { transform: translateY(-7px); }
+      to { transform: translateY(-5px); }
     }
 
     .robot-visor-line {
@@ -7579,12 +7567,12 @@ export class ContactComponent {}
 
     @keyframes visorLaser {
       0% { stroke: #00e5ff; stroke-width: 2; opacity: 0.6; }
-      100% { stroke: #38bdf8; stroke-width: 3.5; opacity: 1; }
+      100% { stroke: #38bdf8; stroke-width: 3; opacity: 1; }
     }
 
     .robot-pulse-aura {
       position: absolute;
-      inset: -20px;
+      inset: -16px;
       background: radial-gradient(circle, rgba(0, 229, 255, 0.25) 0%, transparent 70%);
       border-radius: 50%;
       animation: auraPulse 2s ease-in-out infinite alternate;
@@ -7598,21 +7586,21 @@ export class ContactComponent {}
     .ai-live-prompt-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
       background: rgba(0, 210, 255, 0.1);
       border: 1px solid rgba(0, 210, 255, 0.3);
-      padding: 6px 14px;
+      padding: 5px 12px;
       border-radius: 8px;
-      font-size: 12px;
+      font-size: 11px;
       color: #e2e8f0;
-      max-width: 500px;
-      line-height: 1.4;
+      max-width: 440px;
+      line-height: 1.35;
       z-index: 1;
     }
 
     .ai-typing-dot {
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background: #00e5ff;
       animation: typingPulse 0.9s infinite alternate;
@@ -7627,9 +7615,9 @@ export class ContactComponent {}
     .scene-values-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 14px;
-      max-width: 720px;
+      gap: 10px;
+      margin-top: 10px;
+      max-width: 580px;
       width: 100%;
       z-index: 1;
     }
@@ -7637,8 +7625,8 @@ export class ContactComponent {}
     .val-pod {
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      padding: 12px 10px;
+      border-radius: 10px;
+      padding: 10px 8px;
       text-align: center;
       transition: all 0.2s ease;
     }
@@ -7650,35 +7638,35 @@ export class ContactComponent {}
 
     .val-num {
       display: inline-block;
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 800;
       color: #00d2ff;
       background: rgba(0, 210, 255, 0.1);
-      padding: 2px 7px;
-      border-radius: 6px;
-      margin-bottom: 4px;
+      padding: 2px 6px;
+      border-radius: 5px;
+      margin-bottom: 3px;
     }
 
     .val-pod h4 {
-      margin: 3px 0;
-      font-size: 12.5px;
+      margin: 2px 0;
+      font-size: 11.5px;
       font-weight: 700;
       color: #ffffff;
     }
 
     .val-pod p {
       margin: 0;
-      font-size: 11px;
+      font-size: 10px;
       color: #94a3b8;
-      line-height: 1.35;
+      line-height: 1.3;
     }
 
     /* Scene 5 CTA Actions */
     .scene-actions {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-top: 18px;
+      gap: 10px;
+      margin-top: 14px;
       z-index: 2;
       flex-wrap: wrap;
       justify-content: center;
@@ -7687,28 +7675,28 @@ export class ContactComponent {}
     .scene-btn-primary {
       background: linear-gradient(135deg, #00d2ff 0%, #3159f5 100%);
       color: #ffffff;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
-      padding: 10px 22px;
-      border-radius: 10px;
+      padding: 8px 18px;
+      border-radius: 8px;
       text-decoration: none;
-      box-shadow: 0 8px 25px rgba(0, 210, 255, 0.4);
+      box-shadow: 0 6px 20px rgba(0, 210, 255, 0.4);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .scene-btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(0, 210, 255, 0.6);
+      box-shadow: 0 10px 25px rgba(0, 210, 255, 0.6);
     }
 
     .scene-btn-replay {
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.18);
       color: #e2e8f0;
-      font-size: 12.5px;
+      font-size: 11.5px;
       font-weight: 700;
-      padding: 9px 18px;
-      border-radius: 10px;
+      padding: 8px 15px;
+      border-radius: 8px;
       cursor: pointer;
       transition: all 0.2s ease;
     }
@@ -7719,30 +7707,12 @@ export class ContactComponent {}
       border-color: #00d2ff;
     }
 
-    .scene-btn-close-action {
-      background: rgba(239, 68, 68, 0.16);
-      border: 1px solid rgba(239, 68, 68, 0.35);
-      color: #fca5a5;
-      font-size: 12.5px;
-      font-weight: 700;
-      padding: 9px 18px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .scene-btn-close-action:hover {
-      background: #ef4444;
-      color: #ffffff;
-      border-color: #ef4444;
-    }
-
     /* Controls bar */
     .story-controls-bar {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 11px 18px;
+      gap: 10px;
+      padding: 9px 16px;
       background: #050e24;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
       position: relative;
@@ -7753,13 +7723,13 @@ export class ContactComponent {}
       background: rgba(0, 210, 255, 0.15);
       border: 1px solid rgba(0, 210, 255, 0.35);
       color: #00d2ff;
-      width: 34px;
-      height: 34px;
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 12px;
+      font-size: 11px;
       cursor: pointer;
       flex-shrink: 0;
       transition: all 0.2s ease;
@@ -7773,16 +7743,16 @@ export class ContactComponent {}
 
     .ctrl-time-label {
       font-family: 'DM Sans', monospace, sans-serif;
-      font-size: 11.5px;
+      font-size: 10.5px;
       font-weight: 600;
       color: #94a3b8;
       white-space: nowrap;
-      min-width: 62px;
+      min-width: 56px;
     }
 
     .ctrl-scrubber-track {
       flex: 1;
-      height: 6px;
+      height: 5px;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 999px;
       position: relative;
@@ -7802,11 +7772,11 @@ export class ContactComponent {}
     .ctrl-scrubber-thumb {
       position: absolute;
       top: 50%;
-      width: 13px;
-      height: 13px;
+      width: 11px;
+      height: 11px;
       border-radius: 50%;
       background: #ffffff;
-      box-shadow: 0 0 12px #00d2ff;
+      box-shadow: 0 0 10px #00d2ff;
       transform: translate(-50%, -50%);
       transition: left 0.2s linear;
       pointer-events: none;
@@ -7814,7 +7784,7 @@ export class ContactComponent {}
 
     .ctrl-scene-pills {
       display: flex;
-      gap: 5px;
+      gap: 4px;
       flex-shrink: 0;
     }
 
@@ -7822,9 +7792,9 @@ export class ContactComponent {}
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.08);
       color: #94a3b8;
-      font-size: 10px;
+      font-size: 9.5px;
       font-weight: 600;
-      padding: 4px 9px;
+      padding: 3px 8px;
       border-radius: 999px;
       cursor: pointer;
       transition: all 0.2s ease;
@@ -7843,30 +7813,8 @@ export class ContactComponent {}
       font-weight: 700;
     }
 
-    /* Dedicated Bottom Bar Close Button */
-    .ctrl-btn-close-prominent {
-      background: rgba(239, 68, 68, 0.16);
-      border: 1px solid rgba(239, 68, 68, 0.35);
-      color: #fca5a5;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 5px 12px;
-      border-radius: 999px;
-      cursor: pointer;
-      white-space: nowrap;
-      flex-shrink: 0;
-      transition: all 0.2s ease;
-    }
-
-    .ctrl-btn-close-prominent:hover {
-      background: #ef4444;
-      color: #ffffff;
-      border-color: #ef4444;
-      transform: scale(1.04);
-    }
-
     .story-modal-footer {
-      padding: 7px 20px;
+      padding: 6px 18px;
       background: rgba(2, 7, 20, 0.85);
       border-top: 1px solid rgba(255, 255, 255, 0.04);
       display: flex;
@@ -7875,7 +7823,7 @@ export class ContactComponent {}
     }
 
     .video-tip {
-      font-size: 11px;
+      font-size: 10px;
       color: #64748b;
       line-height: 1.4;
       text-align: center;
@@ -7884,9 +7832,9 @@ export class ContactComponent {}
     .video-tip code {
       background: rgba(0, 210, 255, 0.1);
       color: #00d2ff;
-      padding: 2px 6px;
+      padding: 2px 5px;
       border-radius: 4px;
-      font-size: 10.5px;
+      font-size: 9.5px;
     }
 
     @media (max-width: 680px) {
@@ -7894,7 +7842,7 @@ export class ContactComponent {}
         border-radius: 14px;
       }
       .story-modal-header {
-        padding: 9px 12px;
+        padding: 8px 12px;
       }
       .story-modal-title {
         display: none;
@@ -7905,25 +7853,25 @@ export class ContactComponent {}
       .story-floating-close-btn {
         top: 10px;
         right: 14px;
-        padding: 5px 12px;
-        font-size: 10.5px;
+        padding: 4px 10px;
+        font-size: 10px;
       }
       .scene-cards-grid, .scene-values-row {
         grid-template-columns: 1fr;
-        gap: 8px;
+        gap: 6px;
       }
       .scene-feature-chip, .val-pod {
-        padding: 8px 10px;
+        padding: 6px 8px;
       }
       .motion-scene {
-        padding: 14px 14px;
+        padding: 12px 12px;
       }
       .scene-brand-img {
-        height: 48px;
+        height: 42px;
       }
       .scene-robot-svg {
-        width: 60px;
-        height: 48px;
+        width: 52px;
+        height: 42px;
       }
       .scene-tech-ticker {
         display: none;
