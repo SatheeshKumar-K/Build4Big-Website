@@ -2916,38 +2916,51 @@ const aboutFeatures = heroFeatures;
   imports: [CommonModule],
   template: `
     <section #section id="about" class="about-page" [class.is-visible]="isVisible()">
-      <section class="about-hero container">
-        <div class="story-copy reveal-left">
-          <span class="story-badge">Our Story</span>
-          <h1>Building Ideas into<br /><em>Digital Experiences</em></h1>
-          <h2>We are a new technology company focused on turning ideas into modern digital solutions.</h2>
-          <p>Build4Big is our own technology venture, created with a passion for software, design and innovation. We are starting our journey by building useful, scalable and meaningful digital experiences for businesses and people.</p>
-          <p>Our goal is simple — understand real problems, create smart solutions and continuously improve the way technology works for people.</p>
+      <div class="about-wrapper container">
+        <!-- Centered Header matching screenshot -->
+        <div class="about-head reveal-top">
+          <div class="about-pill-badge">ABOUT BUILD4BIG</div>
+          <h2 class="about-head-title">Building <span class="about-gradient-text">Digital Solutions</span> That Matter</h2>
+          <p class="about-head-sub">We help businesses, startups and entrepreneurs turn ideas into reliable, scalable digital products.</p>
         </div>
-        <div class="card-marquee reveal-right" aria-label="Build4Big values">
-          <div class="edge edge-left"></div><div class="edge edge-right"></div>
-          <div class="card-track">
-            <div class="card-set" *ngFor="let _ of [0, 1]">
-              <article class="story-card" *ngFor="let card of aboutCards; let i = index">
-                <span class="card-count">0{{ i + 1 }}</span><span class="card-icon">{{ card.icon }}</span>
-                <h3>{{ card.title }}</h3><p>{{ card.description }}</p><span class="card-arrow">→</span>
-              </article>
+
+        <section class="about-hero">
+          <div class="story-copy reveal-left">
+            <span class="story-badge">Our Mission</span>
+            <h3>Driven by Innovation &amp; Purpose</h3>
+            <p>Build4Big is our technology venture, created with a passion for software, design and modern engineering. We partner with ambitious brands to build scalable, secure and meaningful digital experiences.</p>
+            <p>Our commitment is simple — deeply understand real business challenges, engineer smart solutions and continuously optimize how technology drives your growth.</p>
+          </div>
+          <div class="card-marquee reveal-right" aria-label="Build4Big values">
+            <div class="edge edge-left"></div><div class="edge edge-right"></div>
+            <div class="card-track">
+              <div class="card-set" *ngFor="let _ of [0, 1]">
+                <article class="story-card" *ngFor="let card of aboutCards; let i = index">
+                  <span class="card-count">0{{ i + 1 }}</span><span class="card-icon">{{ card.icon }}</span>
+                  <h3>{{ card.title }}</h3><p>{{ card.description }}</p><span class="card-arrow">→</span>
+                </article>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </section>
   `,
   styles: `
     :host{display:block}
-    .about-page{overflow:hidden;background:radial-gradient(circle at 18% 20%,#eef5ff 0,transparent 42%),radial-gradient(circle at 82% 80%,#f5edff 0,transparent 45%),radial-gradient(circle at 78% 10%,#edf4ff 0,transparent 30%),#f8faff;color:#07133d;min-height:calc(100vh - 64px);box-sizing:border-box;display:flex;align-items:center;padding:16px 0}
-    .about-hero{min-height:auto;display:grid;grid-template-columns:minmax(320px,.92fr) minmax(0,1.08fr);gap:36px;align-items:center;padding:0}
-    .story-badge{display:inline-block;padding:5px 13px;border-radius:20px;background:linear-gradient(100deg,#eff3ff,#fff);color:#265df6;text-transform:uppercase;letter-spacing:.12em;font-size:11px;font-weight:800;box-shadow:0 6px 18px #2457b218}
-    .story-copy h1{font:800 clamp(30px,3.2vw,44px)/1.1 Manrope;margin:12px 0 10px}
-    .story-copy h1 em{font-style:normal;color:#1f61fa}
-    .story-copy h2{max-width:560px;font:600 clamp(16px,1.6vw,22px)/1.3 Manrope;letter-spacing:-.03em;margin:0 0 12px}
-    .story-copy p{color:#63708d;font-size:13.5px;line-height:1.6;margin:8px 0}
-    .card-marquee{position:relative;overflow:hidden;padding:24px 0;width:100%;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);perspective:1100px}
+    .about-page{overflow:hidden;background:radial-gradient(circle at 18% 20%,#eef5ff 0,transparent 42%),radial-gradient(circle at 82% 80%,#f5edff 0,transparent 45%),radial-gradient(circle at 78% 10%,#edf4ff 0,transparent 30%),#f8faff;color:#07133d;min-height:calc(100vh - 64px);box-sizing:border-box;display:flex;align-items:center;padding:24px 0}
+    .about-wrapper{width:100%;max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+    .about-head{text-align:center;max-width:820px;margin:0 auto;position:relative;z-index:3}
+    .about-pill-badge{display:inline-flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#2563eb;background:#eef4ff;border:1.5px solid #c7d8fe;border-radius:9999px;padding:3.5px 16px;box-shadow:0 4px 12px rgba(37,99,235,.08);margin-bottom:8px}
+    .about-head-title{font:800 clamp(26px,3.2vw,44px)/1.15 'Manrope',sans-serif;letter-spacing:-.04em;margin:0 0 8px;color:#080f2b}
+    .about-gradient-text{background:linear-gradient(135deg,#2563eb 0%,#6366f1 50%,#8b5cf6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block}
+    .about-head-sub{font-size:clamp(13px,1.25vw,15px);color:#55617d;line-height:1.55;max-width:620px;margin:0 auto}
+    .about-hero{min-height:auto;display:grid;grid-template-columns:minmax(320px,.92fr) minmax(0,1.08fr);gap:32px;align-items:center;padding:0}
+    .story-copy{background:#fff;border:1px solid #e8edff;border-radius:20px;padding:24px 26px;box-shadow:0 10px 30px rgba(37,99,235,.06)}
+    .story-badge{display:inline-block;padding:4px 12px;border-radius:20px;background:linear-gradient(100deg,#eff3ff,#fff);color:#265df6;text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-weight:800;box-shadow:0 4px 12px #2457b218;margin-bottom:6px}
+    .story-copy h3{font:800 clamp(18px,1.8vw,22px)/1.25 Manrope;letter-spacing:-.03em;color:#080f2b;margin:6px 0 8px}
+    .story-copy p{color:#63708d;font-size:13px;line-height:1.55;margin:6px 0}
+    .card-marquee{position:relative;overflow:hidden;padding:20px 0;width:100%;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);perspective:1100px}
     .card-track,.card-set{display:flex;gap:16px;width:max-content;transform-style:preserve-3d}
     .card-track{animation:about-cards 30s linear infinite}
     .card-marquee:hover .card-track{animation-play-state:paused}
@@ -2964,17 +2977,19 @@ const aboutFeatures = heroFeatures;
     .edge{position:absolute;top:0;bottom:0;width:65px;z-index:2;pointer-events:none}
     .edge-left{left:0;background:linear-gradient(90deg,#f8faff,transparent)}
     .edge-right{right:0;background:linear-gradient(270deg,#f8faff,transparent)}
-    .reveal-left,.reveal-right,.reveal-bottom{opacity:0;will-change:transform,opacity}
-    .is-visible .reveal-left{animation:reveal-left .7s cubic-bezier(.22,1,.36,1) both}
-    .is-visible .reveal-right{animation:reveal-right .7s .12s cubic-bezier(.22,1,.36,1) both}
-    .is-visible .reveal-bottom{animation:reveal-bottom .7s .18s cubic-bezier(.22,1,.36,1) both}
+    .reveal-top,.reveal-left,.reveal-right,.reveal-bottom{opacity:0;will-change:transform,opacity}
+    .is-visible .reveal-top{animation:reveal-top .7s cubic-bezier(.22,1,.36,1) both}
+    .is-visible .reveal-left{animation:reveal-left .7s .1s cubic-bezier(.22,1,.36,1) both}
+    .is-visible .reveal-right{animation:reveal-right .7s .18s cubic-bezier(.22,1,.36,1) both}
+    .is-visible .reveal-bottom{animation:reveal-bottom .7s .24s cubic-bezier(.22,1,.36,1) both}
+    @keyframes reveal-top{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:none}}
     @keyframes about-cards{to{transform:translateX(-50%)}}
     @keyframes reveal-left{from{opacity:0;transform:translateX(-26px)}to{opacity:1;transform:none}}
     @keyframes reveal-right{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
     @keyframes reveal-bottom{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-    @media(max-width:850px){.about-page{min-height:auto;padding:32px 0}.about-hero{grid-template-columns:1fr;gap:18px;padding-top:20px}.card-marquee{width:calc(100% + 48px);margin-left:-24px}.story-copy p{font-size:15px}}
-    @media(max-width:560px){.about-hero{padding-bottom:44px}.story-copy h1{font-size:40px}.story-copy h2{font-size:20px}.story-actions{gap:13px}.primary-action{padding:13px 16px}.story-card{flex-basis:270px;min-height:260px;padding:25px}.card-marquee{mask-image:none}.edge{display:none}}
-    @media(prefers-reduced-motion:reduce){.reveal-left,.reveal-right,.reveal-bottom{opacity:1!important;transform:none!important;animation:none!important}.card-track{animation:none}.story-card{transition:none}}
+    @media(max-width:850px){.about-page{min-height:auto;padding:32px 0}.about-hero{grid-template-columns:1fr;gap:18px;padding-top:10px}.card-marquee{width:calc(100% + 48px);margin-left:-24px}.story-copy p{font-size:14px}}
+    @media(max-width:560px){.about-page{padding:24px 0}.about-head-title{font-size:26px}.about-head-sub{font-size:12.5px}.story-copy{padding:18px 16px}.story-card{flex-basis:260px;min-height:240px;padding:20px}.card-marquee{mask-image:none}.edge{display:none}}
+    @media(prefers-reduced-motion:reduce){.reveal-top,.reveal-left,.reveal-right,.reveal-bottom{opacity:1!important;transform:none!important;animation:none!important}.card-track{animation:none}.story-card{transition:none}}
   `,
 })
 export class HomeAboutPreviewComponent implements AfterViewInit, OnDestroy {
