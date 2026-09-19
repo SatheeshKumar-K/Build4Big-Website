@@ -9,6 +9,7 @@ import {
 } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ChatbotComponent } from './chatbot.component';
 
 type Service = { icon: string; title: string; text: string };
 type Post = {
@@ -8026,8 +8027,8 @@ export class LandingComponent implements OnDestroy {
 }
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, FooterComponent],
-  template: `<app-header></app-header><router-outlet></router-outlet><app-footer></app-footer>`,
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, ChatbotComponent],
+  template: `<app-header></app-header><router-outlet></router-outlet><app-footer></app-footer><app-chatbot></app-chatbot>`,
 })
 export class AppComponent {}
 const simple = (kind: string, label: string, title: string, intro: string) => ({
