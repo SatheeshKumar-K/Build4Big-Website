@@ -1629,7 +1629,7 @@ export class ChatbotComponent implements OnInit, AfterViewChecked, OnDestroy {
         this.scrollToContactSection();
         break;
       case 'whatsapp':
-        window.open('https://wa.me/919677745205', '_blank');
+        window.open('https://wa.me/917010868560', '_blank');
         break;
       default:
         this.processUserQuery(action);
@@ -1808,7 +1808,7 @@ export class ChatbotComponent implements OnInit, AfterViewChecked, OnDestroy {
         "Build4Big is a forward-thinking software innovation company helping startups, scale-ups, and enterprises turn visionary ideas into robust digital products.<br/><br/>" +
         "• **Mission:** *Innovate Today, Build a Better Tomorrow.*<br/>" +
         "• **Headquarters:** Plot No. 2, Mahatma Gandhi 11th St, Thirunagar, Madurai, Tamil Nadu.<br/>" +
-        "• **Contact Phones:** +91 96777 45205 / +91 70106 68560<br/>" +
+        "• **Contact Phones:** +91 96777 45205 / +91 70108 68560<br/>" +
         "• **Email:** info@build4big.com<br/>" +
         "• **Delivery Model:** Agile, transparent, 100% on-time delivery with ongoing support.";
 
@@ -1855,19 +1855,18 @@ export class ChatbotComponent implements OnInit, AfterViewChecked, OnDestroy {
         "👤 **Connect with Our Team Directly**<br/><br/>" +
         "Our business and technical representatives are available to speak with you:<br/><br/>" +
         "• ☎️ **Phone:** +91 96777 45205<br/>" +
-        "• 📱 **Alternate:** +91 70106 68560<br/>" +
-        "• 💬 **WhatsApp:** [Chat with Us on WhatsApp](https://wa.me/919677745205)<br/>" +
+        "• 💬 **WhatsApp:** [Chat with Us on WhatsApp (+91 70108 68560)](https://wa.me/917010868560)<br/>" +
         "• ✉️ **Email:** info@build4big.com<br/>" +
         "• 📍 **Location:** Thirunagar, Madurai, India";
 
       this.addBotMessage(text, [
-        { label: '💬 Open WhatsApp (+91 96777 45205)', action: 'whatsapp' },
+        { label: '💬 Open WhatsApp (+91 70108 68560)', action: 'whatsapp' },
         { label: '📝 Go to Contact Form', action: 'scroll_contact' },
         { label: '📊 Get a Quote Instead', action: 'quote' },
       ]);
 
       this.speakText(
-        "You can reach our team directly at plus 91 96777 45205, or chat with us on WhatsApp."
+        "You can reach our team directly at plus 91 70108 68560, or chat with us on WhatsApp."
       );
     });
   }

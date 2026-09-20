@@ -523,7 +523,7 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
         <h4>Contact Info</h4>
         <p>⌖ Plot No. 2, Mahatma Gandhi 11th St, Thirunagar, Madurai</p>
         <p>☎ +91 96777 45205</p>
-        <p>◉ +91 70106 68560</p>
+        <p>◉ +91 70108 68560</p>
         <p>✉ info@build4big.com</p>
       </section>
     </div>
@@ -3224,7 +3224,7 @@ export class AiComponent {
               - 625006
             </p>
             <p class="copytext">
-              ☎ +91 96777 45205<br />◉ +91 70106 68560<br />✉
+              ☎ +91 96777 45205<br />◉ +91 70108 68560<br />✉
               info@build4big.com<br />◷ Mon - Sun: 10 AM - 7 PM
             </p>
           </div>
@@ -4957,7 +4957,7 @@ const contactPillars = [
               <div class="info-icon">📞</div>
               <div>
                 <div class="info-label">Call Us</div>
-                <div class="info-val">+91 96777 45205<br/>+91 70106 68560</div>
+                <div class="info-val">+91 96777 45205<br/>+91 70108 68560</div>
               </div>
             </div>
             <div class="info-item">
