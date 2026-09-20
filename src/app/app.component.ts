@@ -522,9 +522,9 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
       <section>
         <h4>Contact Info</h4>
         <p>⌖ Plot No. 2, Mahatma Gandhi 11th St, Thirunagar, Madurai</p>
-        <p>☎ +91 96777 45205</p>
-        <p>◉ +91 70108 68560</p>
-        <p>✉ info@build4big.com</p>
+        <p><a href="tel:+919677745205">☎ +91 96777 45205</a></p>
+        <p><a href="https://wa.me/917010868560" target="_blank" rel="noopener">◉ +91 70108 68560</a></p>
+        <p><a href="mailto:info@build4big.com">✉ info@build4big.com</a></p>
       </section>
     </div>
     <div class="copyright container">
@@ -3224,8 +3224,7 @@ export class AiComponent {
               - 625006
             </p>
             <p class="copytext">
-              ☎ +91 96777 45205<br />◉ +91 70108 68560<br />✉
-              info@build4big.com<br />◷ Mon - Sun: 10 AM - 7 PM
+              <a href="tel:+919677745205" style="color:inherit;text-decoration:none;">☎ +91 96777 45205</a><br /><a href="https://wa.me/917010868560" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">◉ +91 70108 68560</a><br /><a href="mailto:info@build4big.com" style="color:inherit;text-decoration:none;">✉ info@build4big.com</a><br />◷ Mon - Sun: 10 AM - 7 PM
             </p>
           </div>
           <form class="card form">
@@ -4956,8 +4955,11 @@ const contactPillars = [
             <div class="info-item">
               <div class="info-icon">📞</div>
               <div>
-                <div class="info-label">Call Us</div>
-                <div class="info-val">+91 96777 45205<br/>+91 70108 68560</div>
+                <div class="info-label">Call Us / WhatsApp</div>
+                <div class="info-val">
+                  <a href="tel:+919677745205" style="color:inherit;text-decoration:none;">+91 96777 45205</a><br/>
+                  <a href="https://wa.me/917010868560" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">+91 70108 68560</a>
+                </div>
               </div>
             </div>
             <div class="info-item">
