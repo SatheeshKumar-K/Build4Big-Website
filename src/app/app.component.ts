@@ -5343,33 +5343,74 @@ const contactPillars = [
           <div class="info-accent"></div>
           <h3 class="form-title">Send us a message</h3>
           <p class="form-sub">Tell us about your project or idea. We'll get back to you soon.</p>
-          <div class="contact-form">
-            <div class="field-wrap">
+          <!-- Standard Form when not sent -->
+          <div *ngIf="!sent" class="contact-form">
+            <div class="field-wrap" [class.field-error]="hasError && !name.trim()">
               <span class="field-icon">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
               </span>
-              <input class="field" type="text" placeholder="Your Name" [(ngModel)]="name" />
+              <input class="field" type="text" placeholder="Your Name *" [(ngModel)]="name" (input)="hasError = false" />
             </div>
-            <div class="field-wrap">
+            <div class="field-wrap" [class.field-error]="hasError && !email.trim()">
               <span class="field-icon">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
               </span>
-              <input class="field" type="email" placeholder="Your Email" [(ngModel)]="email" />
+              <input class="field" type="email" placeholder="Your Email *" [(ngModel)]="email" (input)="hasError = false" />
             </div>
-            <div class="field-wrap msg-wrap">
+            <div class="field-wrap msg-wrap" [class.field-error]="hasError && !message.trim()">
               <span class="field-icon top">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
               </span>
-              <textarea class="field" placeholder="Your Message" rows="4" [(ngModel)]="message"></textarea>
+              <textarea class="field" placeholder="Your Message *" rows="4" [(ngModel)]="message" (input)="hasError = false"></textarea>
             </div>
-            <button class="send-btn" (click)="send()">
-              <span>{{ sent ? 'Message Sent! 🎉' : 'Send Message' }}</span>
-              <span *ngIf="!sent" class="send-arrow">→</span>
+
+            <div *ngIf="hasError" class="form-error-msg">
+              ⚠️ Please fill in all fields (Name, Email, Message) to send via WhatsApp.
+            </div>
+
+            <button type="button" class="send-btn" (click)="send()">
+              <span class="wa-btn-icon">💬</span>
+              <span>Send Message to WhatsApp</span>
+              <span class="send-arrow">→</span>
             </button>
           </div>
+
+          <!-- Sent State: Multi-Number WhatsApp Dispatch Screen -->
+          <div *ngIf="sent" class="wa-success-panel">
+            <div class="wa-success-badge">
+              <span class="wa-pulse-dot"></span>
+              <strong>Message Prepared for WhatsApp!</strong>
+            </div>
+            <p class="wa-success-desc">
+              Opening WhatsApp chat... Click either number below to connect directly with our team:
+            </p>
+
+            <div class="wa-target-btns">
+              <a [href]="getWhatsAppUrl(phone1)" target="_blank" rel="noopener noreferrer" class="wa-direct-btn wa-btn-primary">
+                <span class="wa-icon-bubble">💬</span>
+                <div class="wa-btn-info">
+                  <strong>Send to +91 93600 04214</strong>
+                  <small>Primary WhatsApp Support ↗</small>
+                </div>
+              </a>
+
+              <a [href]="getWhatsAppUrl(phone2)" target="_blank" rel="noopener noreferrer" class="wa-direct-btn wa-btn-secondary">
+                <span class="wa-icon-bubble">💬</span>
+                <div class="wa-btn-info">
+                  <strong>Send to +91 93425 97035</strong>
+                  <small>Direct Line WhatsApp ↗</small>
+                </div>
+              </a>
+            </div>
+
+            <button type="button" class="wa-reset-btn" (click)="resetForm()">
+              ↩ Send Another Message
+            </button>
+          </div>
+
           <div class="privacy-note">
             <span>🔒</span>
-            <span>We respect your privacy. Your information is safe with us.</span>
+            <span>We respect your privacy. Messages go directly to our team via WhatsApp.</span>
           </div>
         </div>
       </div>
@@ -5756,8 +5797,144 @@ const contactPillars = [
       font-size: 15px;
       transition: transform 0.2s ease;
     }
-    .send-btn:hover .send-arrow {
-      transform: translateX(3px);
+    .field-wrap.field-error {
+      border-color: #ef4444 !important;
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
+    }
+    .form-error-msg {
+      font-size: 11.5px;
+      color: #ef4444;
+      font-weight: 600;
+      margin-top: -2px;
+      margin-bottom: 4px;
+    }
+    .wa-btn-icon {
+      font-size: 15px;
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+    }
+    .wa-success-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 4px 0 8px;
+      animation: panelFadeIn 0.3s ease-out both;
+    }
+    @keyframes panelFadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: none; }
+    }
+    .wa-success-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      width: fit-content;
+    }
+    .wa-pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      animation: waPulse 1.8s infinite;
+    }
+    @keyframes waPulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+    .wa-success-desc {
+      font-size: 12px;
+      color: #4b5563;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .wa-target-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 4px 0;
+    }
+    .wa-direct-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.22s ease;
+      cursor: pointer;
+    }
+    .wa-btn-primary {
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: #ffffff;
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+    }
+    .wa-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(37, 211, 102, 0.45);
+      filter: brightness(1.05);
+    }
+    .wa-btn-secondary {
+      background: #f0fdf4;
+      color: #065f46;
+      border: 1.5px solid #86efac;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.12);
+    }
+    .wa-btn-secondary:hover {
+      transform: translateY(-2px);
+      background: #dcfce7;
+      border-color: #4ade80;
+      box-shadow: 0 8px 18px rgba(16, 185, 129, 0.2);
+    }
+    .wa-icon-bubble {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .wa-btn-secondary .wa-icon-bubble {
+      background: #dcfce7;
+    }
+    .wa-btn-info {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+    .wa-btn-info strong {
+      font-size: 13.5px;
+      font-family: 'Manrope', sans-serif;
+    }
+    .wa-btn-info small {
+      font-size: 11px;
+      opacity: 0.9;
+    }
+    .wa-reset-btn {
+      background: transparent;
+      border: 1px dashed #cbd5e1;
+      color: #64748b;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font: 600 11.5px 'DM Sans', sans-serif;
+      cursor: pointer;
+      align-self: center;
+      margin-top: 4px;
+      transition: all 0.2s ease;
+    }
+    .wa-reset-btn:hover {
+      background: #f8fafc;
+      border-color: #94a3b8;
+      color: #1e293b;
     }
     .privacy-note {
       font-size: 11px;
@@ -5929,12 +6106,60 @@ const contactPillars = [
 })
 export class ContactShowcaseComponent {
   pillars = contactPillars;
-  name = ''; email = ''; message = ''; sent = false;
-  send() {
-    if (!this.name || !this.email || !this.message) return;
-    this.sent = true;
-    setTimeout(() => { this.sent = false; this.name = ''; this.email = ''; this.message = ''; }, 3500);
+  name = '';
+  email = '';
+  message = '';
+  sent = false;
+  hasError = false;
+
+  readonly phone1 = '919360004214';
+  readonly phone2 = '919342597035';
+
+  getFormattedMessage(): string {
+    return (
+      `*New Inquiry via Build4Big Website*\n\n` +
+      `👤 *Name:* ${this.name.trim()}\n` +
+      `✉️ *Email:* ${this.email.trim()}\n` +
+      `📝 *Message:*\n${this.message.trim()}\n\n` +
+      `_Sent from build4big.com_`
+    );
   }
+
+  getWhatsAppUrl(phoneNumber: string): string {
+    const text = this.getFormattedMessage();
+    return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
+  }
+
+  send(): void {
+    if (!this.name.trim() || !this.email.trim() || !this.message.trim()) {
+      this.hasError = true;
+      return;
+    }
+    this.hasError = false;
+    this.sent = true;
+
+    const url1 = this.getWhatsAppUrl(this.phone1);
+    const url2 = this.getWhatsAppUrl(this.phone2);
+
+    // Open first contact number immediately on direct user click
+    window.open(url1, '_blank');
+
+    // Attempt to open second contact number automatically
+    setTimeout(() => {
+      try {
+        window.open(url2, '_blank');
+      } catch (e) {}
+    }, 450);
+  }
+
+  resetForm(): void {
+    this.sent = false;
+    this.hasError = false;
+    this.name = '';
+    this.email = '';
+    this.message = '';
+  }
+
   openEmail(event?: Event): void {
     if (event) {
       const target = event.target as HTMLElement;
