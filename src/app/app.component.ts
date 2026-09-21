@@ -5929,12 +5929,50 @@ const contactPillars = [
 })
 export class ContactShowcaseComponent {
   pillars = contactPillars;
-  name = ''; email = ''; message = ''; sent = false;
-  send() {
-    if (!this.name || !this.email || !this.message) return;
+  name = '';
+  email = '';
+  message = '';
+  sent = false;
+
+  readonly phone1 = '919360004214';
+  readonly phone2 = '919342597035';
+
+  send(): void {
+    if (!this.name.trim() || !this.email.trim() || !this.message.trim()) {
+      return;
+    }
     this.sent = true;
-    setTimeout(() => { this.sent = false; this.name = ''; this.email = ''; this.message = ''; }, 3500);
+
+    const formattedMessage =
+      `*New Inquiry via Build4Big Website*\n\n` +
+      `👤 *Name:* ${this.name.trim()}\n` +
+      `✉️ *Email:* ${this.email.trim()}\n` +
+      `📝 *Message:*\n${this.message.trim()}\n\n` +
+      `_Sent from build4big.com_`;
+
+    const encoded = encodeURIComponent(formattedMessage);
+    const url1 = `https://api.whatsapp.com/send?phone=${this.phone1}&text=${encoded}`;
+    const url2 = `https://api.whatsapp.com/send?phone=${this.phone2}&text=${encoded}`;
+
+    // Automatically trigger WhatsApp for both numbers
+    try {
+      window.open(url1, '_blank');
+    } catch (e) {}
+
+    setTimeout(() => {
+      try {
+        window.open(url2, '_blank');
+      } catch (e) {}
+    }, 500);
+
+    setTimeout(() => {
+      this.sent = false;
+      this.name = '';
+      this.email = '';
+      this.message = '';
+    }, 4000);
   }
+
   openEmail(event?: Event): void {
     if (event) {
       const target = event.target as HTMLElement;
