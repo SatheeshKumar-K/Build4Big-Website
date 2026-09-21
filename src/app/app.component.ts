@@ -1597,6 +1597,39 @@ const servicePillars = [
         padding-bottom: 10px;
       }
     }
+    @media (max-width: 480px) {
+      .services-showcase {
+        padding: 20px 8px 30px;
+      }
+      .showcase-title {
+        font-size: clamp(20px, 6vw, 24px);
+      }
+      .stage-container {
+        padding: 0 4px;
+        gap: 4px;
+        min-height: 260px;
+      }
+      .coverflow-stage {
+        height: 260px;
+      }
+      .service-card {
+        width: clamp(190px, 64vw, 230px);
+        min-height: 225px;
+        max-height: 250px;
+        padding: 14px 10px 12px;
+      }
+      .service-card h3 {
+        font-size: 15px;
+      }
+      .service-card p {
+        font-size: 11px;
+        line-height: 1.35;
+      }
+      .nav-arrow {
+        width: 34px;
+        height: 34px;
+      }
+    }
     @media (prefers-reduced-motion: reduce) {
       .showcase-head, .stage-container, .carousel-indicators, .pillars-strip {
         opacity: 1 !important;
@@ -2730,7 +2763,7 @@ const AUTOMATION_NODES: AutomationNode[] = [
       .solutions-showcase-section {
         min-height: auto;
         justify-content: flex-start;
-        padding: 28px 16px 36px 0;
+        padding: 28px 16px 36px;
       }
       .sol-ecosystem-row {
         display: flex;
@@ -2740,9 +2773,10 @@ const AUTOMATION_NODES: AutomationNode[] = [
       }
       .sol-cards-col {
         display: grid;
-        grid-template-columns: repeat(2, 280px);
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         gap: 14px;
-        width: auto;
+        width: 100%;
+        max-width: 620px;
       }
       .sol-left-col {
         order: 2;
@@ -2774,7 +2808,7 @@ const AUTOMATION_NODES: AutomationNode[] = [
 
     @media (max-width: 768px) {
       .solutions-showcase-section {
-        padding: 24px 0 32px 0;
+        padding: 24px 16px 32px;
       }
       .sol-showcase-head {
         margin-bottom: 14px;
@@ -2789,7 +2823,11 @@ const AUTOMATION_NODES: AutomationNode[] = [
       .sol-cards-col {
         grid-template-columns: 1fr;
         width: 100%;
-        max-width: 340px;
+        max-width: 100%;
+      }
+      .sol-col-left .sol-feature-card,
+      .sol-col-right .sol-feature-card {
+        transform: none !important;
       }
       .orbital-stage {
         width: 300px;
@@ -3024,8 +3062,9 @@ const aboutFeatures = heroFeatures;
     @keyframes reveal-left{from{opacity:0;transform:translateX(-26px)}to{opacity:1;transform:none}}
     @keyframes reveal-right{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
     @keyframes reveal-bottom{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-    @media(max-width:850px){.about-page{min-height:auto;padding:32px 0;overflow-x:hidden}.about-hero{grid-template-columns:1fr;gap:18px;padding-top:10px}.card-marquee{width:100%;margin:0}.story-copy p{font-size:14px}}
-    @media(max-width:560px){.about-page{padding:24px 0}.about-head-title{font-size:26px}.about-head-sub{font-size:12.5px}.story-copy{padding:18px 16px}.story-card{flex-basis:240px;min-height:220px;padding:18px}.card-marquee{width:100%;margin:0;mask-image:none}.edge{display:none}}
+    @media(max-width:960px){.about-page{min-height:auto;padding:32px 0;overflow-x:hidden}.about-hero{grid-template-columns:1fr;gap:20px;padding-top:10px}.card-marquee{width:100%;margin:0}.story-copy p{font-size:14px}}
+    @media(max-width:768px){.story-card{transform:none!important}}
+    @media(max-width:560px){.about-page{padding:24px 0}.about-head-title{font-size:clamp(22px,6.5vw,28px)}.about-head-sub{font-size:12.5px;padding:0 8px}.story-copy{padding:18px 16px}.story-card{flex-basis:220px;min-height:210px;padding:16px}.card-marquee{width:100%;margin:0;mask-image:none}.edge{display:none}}
     @media(prefers-reduced-motion:reduce){.reveal-top,.reveal-left,.reveal-right,.reveal-bottom{opacity:1!important;transform:none!important;animation:none!important}.card-track{animation:none}.story-card{transition:none}}
   `,
 })
@@ -5553,6 +5592,7 @@ const contactPillars = [
       .send-btn { width: 100%; justify-content: center; }
       .scribble { display: none; }
       .plane-wrap { display: none; }
+      .cpillar, .contact-form-card { transform: none !important; }
     }
   `,
 })
@@ -6785,174 +6825,212 @@ export class ContactComponent {}
     }
     @media (max-width: 768px) {
       .hero-land-glow {
-        padding: 30px 0 25px;
+        padding: 24px 0 20px;
         min-height: auto;
       }
       .hero-headline {
-        font-size: clamp(32px, 7vw, 40px);
+        font-size: clamp(28px, 6.5vw, 38px);
         line-height: 1.15;
       }
       .hero-subtext {
-        font-size: 15px;
+        font-size: 14px;
+        padding: 0 12px;
       }
       .hero-cta-btns {
         flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
       }
       .hero-visual-col {
-        height: 410px;
+        height: 380px;
         transform: none !important;
       }
       .globe-system-wrap {
-        width: 250px;
-        height: 250px;
+        width: 240px;
+        height: 240px;
       }
       .hologram-globe {
-        width: 220px;
-        height: 220px;
+        width: 210px;
+        height: 210px;
       }
       .globe-core-mark, .mark-img-4b {
-        width: 120px;
-        height: 120px;
+        width: 110px;
+        height: 110px;
       }
-      .ring-1 { width: 340px; height: 190px; }
-      .ring-2 { width: 360px; height: 170px; }
-      .ring-3 { width: 270px; height: 270px; }
-      .orbit-glow-behind { width: 280px; height: 280px; }
+      .ring-1 { width: 320px; height: 180px; }
+      .ring-2 { width: 330px; height: 160px; }
+      .ring-3 { width: 250px; height: 250px; }
+      .orbit-glow-behind { width: 260px; height: 260px; }
       .glass-chip {
-        min-width: 160px;
-        padding: 10px 12px;
-        gap: 10px;
-        border-radius: 14px;
+        min-width: 145px;
+        padding: 8px 12px;
+        gap: 8px;
+        border-radius: 12px;
       }
       .glass-chip strong {
-        font-size: 13px;
+        font-size: 12px;
       }
       .glass-chip small {
         display: none;
       }
       .chip-icon {
-        width: 36px;
-        height: 36px;
+        width: 32px;
+        height: 32px;
       }
       .chip-icon svg {
-        width: 18px;
-        height: 18px;
+        width: 16px;
+        height: 16px;
       }
       .chip-ai { top: 10px; left: 0; }
       .chip-innovation { top: 15px; right: 0; }
       .chip-strategy { bottom: 35px; left: 0; }
       .chip-support { bottom: 45px; right: 0; }
       .script-badge-quote {
-        font-size: 17px;
+        font-size: 15px;
         right: 15px;
         bottom: 0;
       }
       .orbit-node {
-        width: 32px;
-        height: 32px;
+        width: 30px;
+        height: 30px;
       }
       .orbit-node svg {
-        width: 15px;
-        height: 15px;
+        width: 14px;
+        height: 14px;
       }
       .node-1 { top: 5px; left: 40px; }
       .node-2 { top: 20px; right: 25px; }
       .node-3 { bottom: 25px; left: 35px; }
       .node-4 { bottom: 25px; right: 35px; }
       .hero-marquee-bar {
-        padding: 10px 0;
-        border-radius: 18px;
+        padding: 8px 0;
+        border-radius: 16px;
       }
       .marquee-item {
-        padding: 0 14px;
-        gap: 9px;
+        padding: 0 12px;
+        gap: 8px;
       }
       .wf-icon {
-        width: 34px;
-        height: 34px;
-      }
-      .wf-symbol {
-        font-size: 16px;
-      }
-      .wf-title {
-        font-size: 13px;
-      }
-      .wf-sub {
-        font-size: 10.5px;
-      }
-      .wf-sep {
-        margin-left: 14px;
-        height: 24px;
-      }
-    }
-    @media (max-width: 480px) {
-      .hero-headline {
-        font-size: 30px;
-      }
-      .hero-visual-col {
-        height: 350px;
-      }
-      .globe-system-wrap {
-        width: 200px;
-        height: 200px;
-      }
-      .hologram-globe {
-        width: 180px;
-        height: 180px;
-      }
-      .globe-core-mark, .mark-img-4b {
-        width: 100px;
-        height: 100px;
-      }
-      .ring-1 { width: 280px; height: 160px; }
-      .ring-2 { width: 290px; height: 140px; }
-      .ring-3 { width: 220px; height: 220px; }
-      .glass-chip {
-        min-width: 135px;
-        padding: 8px 10px;
-      }
-      .glass-chip strong {
-        font-size: 11.5px;
-      }
-      .chip-icon {
         width: 30px;
         height: 30px;
       }
-      .chip-icon svg {
-        width: 15px;
-        height: 15px;
+      .wf-symbol {
+        font-size: 15px;
+      }
+      .wf-title {
+        font-size: 12.5px;
+      }
+      .wf-sub {
+        font-size: 10px;
+      }
+      .wf-sep {
+        margin-left: 12px;
+        height: 20px;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero-interactive-stage {
+        padding: 0 14px;
+      }
+      .hero-workflow-container {
+        padding: 0 12px;
+      }
+      .hero-headline {
+        font-size: clamp(24px, 7.5vw, 30px);
+        margin: 0 0 10px;
+      }
+      .hero-subtext {
+        font-size: 13.5px;
+        padding: 0 8px;
+        margin: 0 auto 16px;
+      }
+      .hero-cta-btns {
+        flex-direction: column;
+        width: 100%;
+        max-width: 290px;
+        margin: 0 auto;
+        gap: 10px;
       }
       .btn-hero-gradient, .btn-hero-glass {
         width: 100%;
         justify-content: center;
+        padding: 10px 16px;
+        font-size: 13px;
+        min-height: 44px;
+      }
+      .hero-visual-col {
+        height: 330px;
+        margin-top: 6px;
+      }
+      .globe-system-wrap {
+        width: 190px;
+        height: 190px;
+      }
+      .hologram-globe {
+        width: 170px;
+        height: 170px;
+      }
+      .globe-core-mark, .mark-img-4b {
+        width: 90px;
+        height: 90px;
+      }
+      .ring-1 { width: 260px; height: 150px; }
+      .ring-2 { width: 270px; height: 130px; }
+      .ring-3 { width: 200px; height: 200px; }
+      .orbit-glow-behind { width: 220px; height: 220px; }
+      .glass-chip {
+        min-width: 120px;
+        padding: 6px 9px;
+        border-radius: 12px;
+      }
+      .glass-chip strong {
+        font-size: 11px;
+      }
+      .chip-icon {
+        width: 28px;
+        height: 28px;
+      }
+      .chip-icon svg {
+        width: 14px;
+        height: 14px;
+      }
+      .script-badge-quote {
+        display: none;
       }
     }
     @media (max-width: 360px) {
       .hero-headline {
-        font-size: 26px;
+        font-size: 23px;
       }
       .hero-visual-col {
-        height: 310px;
+        height: 290px;
       }
       .globe-system-wrap {
-        width: 170px;
-        height: 170px;
+        width: 160px;
+        height: 160px;
       }
       .hologram-globe {
-        width: 150px;
-        height: 150px;
+        width: 140px;
+        height: 140px;
       }
       .globe-core-mark, .mark-img-4b {
-        width: 80px;
-        height: 80px;
+        width: 75px;
+        height: 75px;
       }
-      .ring-1 { width: 230px; height: 130px; }
-      .ring-2 { width: 240px; height: 120px; }
-      .ring-3 { width: 180px; height: 180px; }
+      .ring-1 { width: 220px; height: 120px; }
+      .ring-2 { width: 230px; height: 110px; }
+      .ring-3 { width: 170px; height: 170px; }
+      .orbit-glow-behind { width: 170px; height: 170px; }
       .glass-chip {
-        min-width: 110px;
-        padding: 6px 8px;
+        min-width: 105px;
+        padding: 5px 7px;
+      }
+      .glass-chip strong {
         font-size: 10px;
+      }
+      .orbit-node {
+        width: 26px;
+        height: 26px;
       }
     }
 
