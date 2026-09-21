@@ -331,11 +331,23 @@ const posts: Post[] = [
     .start-btn-mobile {
       display: none;
     }
+    @media (min-width: 1440px) {
+      header {
+        max-width: 1400px;
+        padding: 0 32px;
+      }
+    }
+    @media (min-width: 1680px) {
+      header {
+        max-width: 1620px;
+        padding: 0 40px;
+      }
+    }
     @media (min-width: 1920px) {
       header {
-        max-width: 1560px;
+        max-width: 1840px;
         height: 74px;
-        padding: 0 36px;
+        padding: 0 48px;
       }
       .brand-title {
         font-size: 22px;
@@ -349,22 +361,42 @@ const posts: Post[] = [
         font-size: 14.5px;
       }
     }
-    @media (min-width: 2560px) {
+    @media (min-width: 2400px) {
       header {
-        max-width: 1840px;
-        height: 84px;
-        padding: 0 48px;
+        width: 92%;
+        max-width: 2360px;
+        height: 80px;
+        padding: 0 60px;
       }
       .brand-title {
-        font-size: 25px;
+        font-size: 24px;
       }
       nav {
-        gap: 40px;
-        font-size: 17px;
+        gap: 38px;
+        font-size: 16.5px;
+      }
+      .start-btn {
+        padding: 11px 26px;
+        font-size: 15.5px;
+      }
+    }
+    @media (min-width: 2800px) {
+      header {
+        width: 90%;
+        max-width: 2640px;
+        height: 84px;
+        padding: 0 72px;
+      }
+      .brand-title {
+        font-size: 26px;
+      }
+      nav {
+        gap: 44px;
+        font-size: 17.5px;
       }
       .start-btn {
         padding: 12px 28px;
-        font-size: 16px;
+        font-size: 16.5px;
       }
     }
     @media (max-width: 1024px) {
@@ -1595,37 +1627,61 @@ const servicePillars = [
     }
 
     /* Responsive adjustments */
+    @media (min-width: 1440px) {
+      .stage-container { max-width: 1400px; }
+      .pillars-strip { max-width: 1360px; }
+    }
+    @media (min-width: 1680px) {
+      .stage-container { max-width: 1620px; }
+      .pillars-strip { max-width: 1540px; }
+    }
     @media (min-width: 1920px) {
       .services-showcase { padding: 40px 36px 50px; }
       .showcase-head { margin-bottom: 16px; }
       .showcase-title { font-size: 40px; }
       .showcase-sub { font-size: 15px; max-width: 660px; }
-      .stage-container { max-width: 1560px; min-height: 360px; margin: 16px auto; }
-      .coverflow-stage { height: 340px; }
-      .service-card { width: 280px; min-height: 290px; max-height: 320px; padding: 24px 20px; border-radius: 22px; }
-      .service-card h3 { font-size: 20px; }
-      .service-card p { font-size: 13.5px; }
-      .service-card .icon-bubble { width: 56px; height: 56px; font-size: 26px; }
-      .nav-arrow { width: 52px; height: 52px; }
-      .pillars-strip { max-width: 1360px; padding: 18px 32px; border-radius: 24px; }
-      .pillar-text h4 { font-size: 15.5px; }
-      .pillar-text p { font-size: 12px; }
+      .stage-container { max-width: 1840px; min-height: 380px; margin: 18px auto; }
+      .coverflow-stage { height: 360px; }
+      .service-card { width: 300px; min-height: 300px; max-height: 340px; padding: 26px 22px; border-radius: 24px; }
+      .service-card h3 { font-size: 21px; }
+      .service-card p { font-size: 14px; }
+      .service-card .icon-bubble { width: 60px; height: 60px; font-size: 28px; }
+      .nav-arrow { width: 54px; height: 54px; }
+      .pillars-strip { max-width: 1720px; padding: 20px 36px; border-radius: 26px; }
+      .pillar-text h4 { font-size: 16px; }
+      .pillar-text p { font-size: 12.5px; }
     }
-    @media (min-width: 2560px) {
-      .services-showcase { padding: 50px 48px 64px; }
+    @media (min-width: 2400px) {
+      .services-showcase { padding: 50px 60px 64px; }
       .showcase-head { margin-bottom: 22px; }
-      .showcase-title { font-size: 50px; }
-      .showcase-sub { font-size: 17.5px; max-width: 800px; }
-      .stage-container { max-width: 1840px; min-height: 420px; margin: 24px auto; }
-      .coverflow-stage { height: 400px; }
-      .service-card { width: 330px; min-height: 340px; max-height: 380px; padding: 30px 24px; border-radius: 26px; }
-      .service-card h3 { font-size: 23px; }
-      .service-card p { font-size: 15px; }
-      .service-card .icon-bubble { width: 66px; height: 66px; font-size: 32px; }
-      .nav-arrow { width: 60px; height: 60px; }
-      .pillars-strip { max-width: 1640px; padding: 22px 42px; border-radius: 28px; }
-      .pillar-text h4 { font-size: 17.5px; }
-      .pillar-text p { font-size: 13.5px; }
+      .showcase-title { font-size: 48px; }
+      .showcase-sub { font-size: 17px; max-width: 800px; }
+      .stage-container { width: 92%; max-width: 2360px; min-height: 440px; margin: 24px auto; }
+      .coverflow-stage { height: 420px; }
+      .service-card { width: 340px; min-height: 350px; max-height: 400px; padding: 32px 26px; border-radius: 28px; }
+      .service-card h3 { font-size: 24px; }
+      .service-card p { font-size: 15.5px; }
+      .service-card .icon-bubble { width: 70px; height: 70px; font-size: 34px; }
+      .nav-arrow { width: 62px; height: 62px; }
+      .pillars-strip { width: 92%; max-width: 2100px; padding: 24px 44px; border-radius: 30px; }
+      .pillar-text h4 { font-size: 18px; }
+      .pillar-text p { font-size: 14px; }
+    }
+    @media (min-width: 2800px) {
+      .services-showcase { padding: 60px 72px 76px; }
+      .showcase-head { margin-bottom: 26px; }
+      .showcase-title { font-size: 54px; }
+      .showcase-sub { font-size: 19px; max-width: 900px; }
+      .stage-container { width: 90%; max-width: 2640px; min-height: 480px; margin: 28px auto; }
+      .coverflow-stage { height: 460px; }
+      .service-card { width: 380px; min-height: 380px; max-height: 440px; padding: 36px 30px; border-radius: 32px; }
+      .service-card h3 { font-size: 27px; }
+      .service-card p { font-size: 17px; }
+      .service-card .icon-bubble { width: 78px; height: 78px; font-size: 38px; }
+      .nav-arrow { width: 68px; height: 68px; }
+      .pillars-strip { width: 90%; max-width: 2360px; padding: 28px 52px; border-radius: 34px; }
+      .pillar-text h4 { font-size: 20px; }
+      .pillar-text p { font-size: 15.5px; }
     }
     @media (max-width: 1040px) {
       .services-showcase {
@@ -2816,11 +2872,19 @@ const AUTOMATION_NODES: AutomationNode[] = [
     }
 
     /* RESPONSIVE LAYOUT */
+    @media (min-width: 1440px) {
+      .sol-main-container { max-width: 1400px; padding: 0 32px; }
+      .sol-ecosystem-row { grid-template-columns: 290px 420px 290px; gap: 24px; }
+    }
+    @media (min-width: 1680px) {
+      .sol-main-container { max-width: 1620px; padding: 0 40px; }
+      .sol-ecosystem-row { grid-template-columns: 310px 450px 310px; gap: 28px; }
+    }
     @media (min-width: 1920px) {
-      .sol-main-container { max-width: 1560px; padding: 0 36px; }
+      .sol-main-container { max-width: 1840px; padding: 0 48px; }
       .sol-showcase-title { font-size: 38px; }
       .sol-showcase-sub { font-size: 14.5px; max-width: 660px; }
-      .sol-ecosystem-row { grid-template-columns: 320px 460px 320px; gap: 32px; }
+      .sol-ecosystem-row { grid-template-columns: 340px 480px 340px; gap: 36px; }
       .sol-feature-card { padding: 14px 16px; border-radius: 16px; }
       .card-heading { font-size: 14.5px; }
       .card-desc { font-size: 12px; }
@@ -2834,13 +2898,13 @@ const AUTOMATION_NODES: AutomationNode[] = [
       .core-ai-text { font-size: 16px; }
       .core-auto-text { font-size: 10px; }
     }
-    @media (min-width: 2560px) {
-      .sol-main-container { max-width: 1840px; padding: 0 48px; }
-      .sol-showcase-title { font-size: 48px; }
-      .sol-showcase-sub { font-size: 17px; max-width: 800px; }
-      .sol-ecosystem-row { grid-template-columns: 380px 540px 380px; gap: 48px; }
+    @media (min-width: 2400px) {
+      .sol-main-container { width: 92%; max-width: 2360px; padding: 0 60px; }
+      .sol-showcase-title { font-size: 46px; }
+      .sol-showcase-sub { font-size: 16.5px; max-width: 780px; }
+      .sol-ecosystem-row { grid-template-columns: 400px 560px 400px; gap: 48px; }
       .sol-feature-card { padding: 18px 20px; border-radius: 20px; }
-      .card-heading { font-size: 16.5px; }
+      .card-heading { font-size: 16px; }
       .card-desc { font-size: 13.5px; }
       .orbital-stage { width: 520px; height: 520px; }
       .orbit-node-slot { transform: rotate(var(--node-angle)) translateY(-195px); }
@@ -2851,6 +2915,24 @@ const AUTOMATION_NODES: AutomationNode[] = [
       .center-ai-core { width: 154px; height: 154px; }
       .core-ai-text { font-size: 19px; }
       .core-auto-text { font-size: 12px; }
+    }
+    @media (min-width: 2800px) {
+      .sol-main-container { width: 90%; max-width: 2640px; padding: 0 72px; }
+      .sol-showcase-title { font-size: 52px; }
+      .sol-showcase-sub { font-size: 18.5px; max-width: 880px; }
+      .sol-ecosystem-row { grid-template-columns: 460px 640px 460px; gap: 56px; }
+      .sol-feature-card { padding: 22px 24px; border-radius: 24px; }
+      .card-heading { font-size: 18px; }
+      .card-desc { font-size: 15px; }
+      .orbital-stage { width: 600px; height: 600px; }
+      .orbit-node-slot { transform: rotate(var(--node-angle)) translateY(-225px); }
+      .counter-rotate-wrap { width: 114px; height: 114px; margin-left: -57px; margin-top: -57px; }
+      .orbit-pod-bubble { width: 110px; height: 110px; }
+      .pod-svg { width: 32px; height: 32px; }
+      .pod-label { font-size: 12.5px; max-width: 96px; }
+      .center-ai-core { width: 176px; height: 176px; }
+      .core-ai-text { font-size: 22px; }
+      .core-auto-text { font-size: 13.5px; }
     }
     @media (max-width: 1180px) {
       .sol-ecosystem-row {
@@ -3182,8 +3264,14 @@ const aboutFeatures = heroFeatures;
     @keyframes reveal-left{from{opacity:0;transform:translateX(-26px)}to{opacity:1;transform:none}}
     @keyframes reveal-right{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
     @keyframes reveal-bottom{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+    @media (min-width: 1440px) {
+      .about-wrapper { max-width: 1400px; }
+    }
+    @media (min-width: 1680px) {
+      .about-wrapper { max-width: 1620px; }
+    }
     @media (min-width: 1920px) {
-      .about-wrapper { max-width: 1560px; gap: 28px; }
+      .about-wrapper { max-width: 1840px; gap: 32px; }
       .about-head-title { font-size: clamp(34px, 2.5vw, 48px); }
       .about-head-sub { font-size: 16.5px; max-width: 720px; }
       .about-hero { gap: 40px; }
@@ -3194,9 +3282,9 @@ const aboutFeatures = heroFeatures;
       .story-card h3 { font-size: 26px; }
       .story-card p { font-size: 14px; max-width: 230px; }
     }
-    @media (min-width: 2560px) {
-      .about-wrapper { max-width: 1840px; gap: 36px; }
-      .about-head-title { font-size: clamp(42px, 2.8vw, 60px); }
+    @media (min-width: 2400px) {
+      .about-wrapper { width: 92%; max-width: 2360px; gap: 40px; }
+      .about-head-title { font-size: clamp(42px, 2.6vw, 56px); }
       .about-head-sub { font-size: 18.5px; max-width: 840px; }
       .about-hero { gap: 52px; }
       .story-copy { padding: 40px 44px; border-radius: 28px; }
@@ -3205,6 +3293,18 @@ const aboutFeatures = heroFeatures;
       .story-card { flex: 0 0 320px; min-height: 290px; padding: 30px 28px; }
       .story-card h3 { font-size: 29px; }
       .story-card p { font-size: 15.5px; max-width: 260px; }
+    }
+    @media (min-width: 2800px) {
+      .about-wrapper { width: 90%; max-width: 2640px; gap: 48px; }
+      .about-head-title { font-size: clamp(48px, 2.7vw, 64px); }
+      .about-head-sub { font-size: 20px; max-width: 920px; }
+      .about-hero { gap: 64px; }
+      .story-copy { padding: 48px 52px; border-radius: 32px; }
+      .story-copy h3 { font-size: 32px; }
+      .story-copy p { font-size: 18.5px; }
+      .story-card { flex: 0 0 360px; min-height: 320px; padding: 34px 32px; }
+      .story-card h3 { font-size: 32px; }
+      .story-card p { font-size: 17px; max-width: 290px; }
     }
     @media(max-width:960px){.about-page{min-height:auto;padding:32px 0;overflow-x:hidden}.about-hero{grid-template-columns:1fr;gap:20px;padding-top:10px}.card-marquee{width:100%;margin:0}.story-copy p{font-size:14px}}
     @media(max-width:768px){.story-card{transform:none!important}}
@@ -5635,12 +5735,13 @@ const contactPillars = [
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 10px;
-      max-width: 1240px;
+      max-width: 1280px;
       width: 100%;
       margin: 12px auto 0;
       position: relative;
       z-index: 1;
       perspective: 1000px;
+      transition: max-width 0.25s ease;
     }
     .cpillar {
       background: #fff;
@@ -5688,35 +5789,56 @@ const contactPillars = [
     .cpillar:hover .cpillar-icon {
       transform: translateZ(24px) scale(1.12);
     }
+    @media (min-width: 1440px) {
+      .contact-main, .contact-pillars { max-width: 1400px; }
+    }
+    @media (min-width: 1680px) {
+      .contact-main, .contact-pillars { max-width: 1620px; }
+    }
     @media (min-width: 1920px) {
-      .contact-main { max-width: 1560px; gap: 24px; }
-      .contact-title { font-size: 38px; }
+      .contact-main { max-width: 1840px; gap: 32px; }
+      .contact-title { font-size: 40px; }
       .contact-sub { font-size: 15px; max-width: 660px; }
-      .contact-info-col, .contact-form-card { padding: 24px 26px; border-radius: 22px; }
+      .contact-info-col, .contact-form-card { padding: 26px 28px; border-radius: 22px; }
       .info-title, .form-title { font-size: 22px; }
       .info-sub, .form-sub { font-size: 13.5px; }
       .field-wrap { height: 48px; }
-      .map-blob { width: 280px; height: 280px; }
-      .map-blob-container { max-width: 330px; }
-      .contact-pillars { max-width: 1560px; gap: 14px; margin-top: 18px; }
-      .cpillar { padding: 12px 16px; border-radius: 16px; }
-      .cpillar-title { font-size: 14px; }
-      .cpillar-text { font-size: 12px; }
+      .map-blob { width: 300px; height: 300px; }
+      .map-blob-container { max-width: 350px; }
+      .contact-pillars { max-width: 1840px; gap: 16px; margin-top: 20px; }
+      .cpillar { padding: 14px 18px; border-radius: 16px; }
+      .cpillar-title { font-size: 15px; }
+      .cpillar-text { font-size: 12.5px; }
     }
-    @media (min-width: 2560px) {
-      .contact-main { max-width: 1840px; gap: 36px; }
+    @media (min-width: 2400px) {
+      .contact-main { width: 92%; max-width: 2360px; gap: 44px; }
       .contact-title { font-size: 48px; }
-      .contact-sub { font-size: 17.5px; max-width: 800px; }
-      .contact-info-col, .contact-form-card { padding: 32px 34px; border-radius: 26px; }
+      .contact-sub { font-size: 17px; max-width: 800px; }
+      .contact-info-col, .contact-form-card { padding: 34px 36px; border-radius: 26px; }
       .info-title, .form-title { font-size: 26px; }
       .info-sub, .form-sub { font-size: 15px; }
       .field-wrap { height: 54px; font-size: 15px; }
-      .map-blob { width: 340px; height: 340px; }
-      .map-blob-container { max-width: 400px; }
-      .contact-pillars { max-width: 1840px; gap: 20px; margin-top: 24px; }
-      .cpillar { padding: 16px 20px; border-radius: 18px; }
-      .cpillar-title { font-size: 16px; }
-      .cpillar-text { font-size: 13.5px; }
+      .map-blob { width: 360px; height: 360px; }
+      .map-blob-container { max-width: 420px; }
+      .contact-pillars { width: 92%; max-width: 2360px; gap: 20px; margin-top: 24px; }
+      .cpillar { padding: 18px 22px; border-radius: 18px; }
+      .cpillar-title { font-size: 17px; }
+      .cpillar-text { font-size: 14px; }
+    }
+    @media (min-width: 2800px) {
+      .contact-main { width: 90%; max-width: 2640px; gap: 52px; }
+      .contact-title { font-size: 54px; }
+      .contact-sub { font-size: 19px; max-width: 900px; }
+      .contact-info-col, .contact-form-card { padding: 40px 42px; border-radius: 30px; }
+      .info-title, .form-title { font-size: 30px; }
+      .info-sub, .form-sub { font-size: 17px; }
+      .field-wrap { height: 60px; font-size: 17px; }
+      .map-blob { width: 420px; height: 420px; }
+      .map-blob-container { max-width: 480px; }
+      .contact-pillars { width: 90%; max-width: 2640px; gap: 24px; margin-top: 28px; }
+      .cpillar { padding: 22px 26px; border-radius: 22px; }
+      .cpillar-title { font-size: 19px; }
+      .cpillar-text { font-size: 15.5px; }
     }
     @media (max-width: 1200px) and (min-width: 1024px) {
       .contact-showcase { min-height: auto; padding: 28px 16px 32px; }
@@ -5846,6 +5968,14 @@ export class ContactComponent {}
                 <span class="play-arrow">▷</span> Watch Our Story
               </button>
             </div>
+
+            <!-- Handwritten Designer Quote Note -->
+            <div class="hero-quote-signature">
+              <span class="script-text">Ideas Build Better Tomorrows</span>
+              <svg class="quote-underline" width="130" height="16" viewBox="0 0 130 16" fill="none">
+                <path d="M4 12C40 4 95 4 126 14" stroke="#38bdf8" stroke-width="2.6" stroke-linecap="round"/>
+              </svg>
+            </div>
           </div>
 
           <!-- Right Column: 3D Holographic Sphere with Floating Glass Cards -->
@@ -5931,17 +6061,6 @@ export class ContactComponent {}
                   <small>Your Growth Our Priority</small>
                 </div>
               </div>
-            </div>
-
-            <!-- Handwritten Script Badge ("Ideas Build Better Tomorrows") -->
-            <div class="script-badge-quote" [style.transform]="'translate3d(' + heroMouseX * 8 + 'px, ' + heroMouseY * 8 + 'px, 0)'">
-              <span>Ideas</span>
-              <span>Build</span>
-              <span>Better</span>
-              <span>Tomorrows</span>
-              <svg class="quote-underline" width="110" height="24" viewBox="0 0 110 24" fill="none">
-                <path d="M4 16C35 4 80 4 106 18" stroke="#38bdf8" stroke-width="2.6" stroke-linecap="round"/>
-              </svg>
             </div>
           </div>
         </div>
@@ -6249,12 +6368,21 @@ export class ContactComponent {}
     <app-footer></app-footer>
   `,
   styles: `
-    .one-nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 max(24px,calc((100vw - 1240px)/2));background:#fff;position:sticky;top:0;z-index:9}.one-nav>a{font:800 16px Manrope;color:#080f2b;text-decoration:none;flex-shrink:0}.one-nav>a:last-child{background:#3159f5;color:#fff;padding:12px 18px;border-radius:10px;font:700 12px 'DM Sans';white-space:nowrap}.one-nav nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:center}.one-nav nav a{font-size:12px;font-weight:700;color:#111936;text-decoration:none;white-space:nowrap}.one-nav nav a:hover{color:#3159f5}
-    @media (min-width: 1920px) {
-      .one-nav { padding: 0 max(36px, calc((100vw - 1560px)/2)); height: 82px; }
+    .one-nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 max(24px,calc((100vw - 1280px)/2));background:#fff;position:sticky;top:0;z-index:9}.one-nav>a{font:800 16px Manrope;color:#080f2b;text-decoration:none;flex-shrink:0}.one-nav>a:last-child{background:#3159f5;color:#fff;padding:12px 18px;border-radius:10px;font:700 12px 'DM Sans';white-space:nowrap}.one-nav nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:center}.one-nav nav a{font-size:12px;font-weight:700;color:#111936;text-decoration:none;white-space:nowrap}.one-nav nav a:hover{color:#3159f5}
+    @media (min-width: 1440px) {
+      .one-nav { padding: 0 max(32px, calc((100vw - 1400px)/2)); }
     }
-    @media (min-width: 2560px) {
-      .one-nav { padding: 0 max(48px, calc((100vw - 1840px)/2)); height: 90px; }
+    @media (min-width: 1680px) {
+      .one-nav { padding: 0 max(40px, calc((100vw - 1620px)/2)); }
+    }
+    @media (min-width: 1920px) {
+      .one-nav { padding: 0 max(48px, calc((100vw - 1840px)/2)); height: 82px; }
+    }
+    @media (min-width: 2400px) {
+      .one-nav { padding: 0 max(60px, calc((100vw - 2360px)/2)); height: 86px; }
+    }
+    @media (min-width: 2800px) {
+      .one-nav { padding: 0 max(72px, calc((100vw - 2640px)/2)); height: 90px; }
     }
     @media (max-width: 768px) {
       .one-nav { height: 64px; padding: 0 16px; gap: 12px; }
@@ -6357,10 +6485,11 @@ export class ContactComponent {}
       align-items: center;
       gap: 24px;
       width: 100%;
-      max-width: 1240px;
+      max-width: 1280px;
       margin: auto;
       padding: 0 max(24px, env(safe-area-inset-right, 0px)) 0 max(24px, env(safe-area-inset-left, 0px));
       box-sizing: border-box;
+      transition: max-width 0.25s ease;
     }
 
     /* Left Text Column */
@@ -6787,23 +6916,22 @@ export class ContactComponent {}
       line-height: 1.25;
     }
 
-    /* Quote Badge */
-    .script-badge-quote {
-      position: absolute;
-      right: 32px;
-      bottom: 12px;
-      display: flex;
+    /* Handwritten Signature Quote in Left Column */
+    .hero-quote-signature {
+      display: inline-flex;
       flex-direction: column;
-      align-items: flex-end;
+      align-items: flex-start;
+      margin-top: 18px;
       font-family: 'Caveat', cursive;
-      font-size: 21px;
+      font-size: 22px;
       line-height: 1.15;
       color: #bae6fd;
-      transform: rotate(5deg);
+      text-shadow: 0 0 14px rgba(0, 190, 255, 0.7);
       pointer-events: none;
-      text-shadow: 0 0 12px rgba(0, 190, 255, 0.65);
+      user-select: none;
+      transition: font-size 0.25s ease, margin 0.25s ease;
     }
-    .quote-underline {
+    .hero-quote-signature .quote-underline {
       margin-top: -3px;
       filter: drop-shadow(0 0 8px #00d2ff);
     }
@@ -6813,10 +6941,11 @@ export class ContactComponent {}
       position: relative;
       z-index: 5;
       width: 100%;
-      max-width: 1240px;
+      max-width: 1280px;
       margin: 10px auto 0;
       padding: 0 max(24px, env(safe-area-inset-right, 0px)) 0 max(24px, env(safe-area-inset-left, 0px));
       box-sizing: border-box;
+      transition: max-width 0.25s ease;
     }
     .hero-marquee-bar {
       position: relative;
@@ -6976,25 +7105,54 @@ export class ContactComponent {}
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
     }
-    @media (min-width: 1920px) {
+    @media (min-width: 1440px) {
       .hero-interactive-stage {
-        max-width: 1560px;
-        gap: 48px;
-        padding: 0 36px;
+        max-width: 1400px;
+        gap: 36px;
+        padding: 0 32px;
       }
       .hero-workflow-container {
-        max-width: 1560px;
-        padding: 0 36px;
+        max-width: 1400px;
+        padding: 0 32px;
+      }
+    }
+    @media (min-width: 1680px) {
+      .hero-interactive-stage {
+        max-width: 1620px;
+        gap: 44px;
+        padding: 0 40px;
+      }
+      .hero-workflow-container {
+        max-width: 1620px;
+        padding: 0 40px;
+      }
+      .hero-headline {
+        font-size: clamp(46px, 3vw, 58px);
+      }
+    }
+    @media (min-width: 1920px) {
+      .hero-interactive-stage {
+        max-width: 1840px;
+        gap: 56px;
+        padding: 0 48px;
+      }
+      .hero-workflow-container {
+        max-width: 1840px;
+        padding: 0 48px;
         margin-top: 18px;
       }
       .hero-headline {
-        font-size: clamp(48px, 3.2vw, 64px);
+        font-size: clamp(52px, 3.2vw, 68px);
         margin-bottom: 20px;
       }
       .hero-subtext {
-        font-size: 16.5px;
-        max-width: 540px;
+        font-size: 17px;
+        max-width: 580px;
         margin-bottom: 28px;
+      }
+      .hero-quote-signature {
+        font-size: 26px;
+        margin-top: 22px;
       }
       .hero-pill-badge {
         font-size: 13px;
@@ -7002,110 +7160,111 @@ export class ContactComponent {}
         margin-bottom: 16px;
       }
       .btn-hero-gradient, .btn-hero-glass {
-        padding: 12px 28px;
+        padding: 13px 30px;
         font-size: 15px;
       }
       .hero-visual-col {
-        height: 520px;
+        height: 560px;
       }
       .globe-system-wrap {
-        width: 320px;
-        height: 320px;
+        width: 350px;
+        height: 350px;
       }
       .hologram-globe {
-        width: 280px;
-        height: 280px;
+        width: 300px;
+        height: 300px;
       }
       .globe-core-mark, .mark-img-4b {
-        width: 150px;
-        height: 150px;
+        width: 160px;
+        height: 160px;
       }
-      .ring-1 { width: 440px; height: 240px; }
-      .ring-2 { width: 460px; height: 220px; }
-      .ring-3 { width: 350px; height: 350px; }
-      .orbit-glow-behind { width: 360px; height: 360px; }
+      .ring-1 { width: 480px; height: 260px; }
+      .ring-2 { width: 500px; height: 240px; }
+      .ring-3 { width: 380px; height: 380px; }
+      .orbit-glow-behind { width: 400px; height: 400px; }
       .glass-chip {
-        min-width: 190px;
-        padding: 12px 18px;
-        gap: 12px;
-        border-radius: 16px;
+        min-width: 200px;
+        padding: 13px 19px;
+        gap: 13px;
+        border-radius: 17px;
       }
       .glass-chip strong {
-        font-size: 14.5px;
+        font-size: 15px;
       }
       .glass-chip small {
-        font-size: 11.5px;
+        font-size: 12px;
       }
       .chip-icon {
-        width: 42px;
-        height: 42px;
+        width: 44px;
+        height: 44px;
       }
       .chip-icon svg {
-        width: 22px;
-        height: 22px;
+        width: 23px;
+        height: 23px;
       }
-      .chip-ai { top: 25px; left: 3%; }
-      .chip-innovation { top: 35px; right: 3%; }
-      .chip-strategy { bottom: 45px; left: 3%; }
-      .chip-support { bottom: 55px; right: 3%; }
-      .script-badge-quote {
-        font-size: 25px;
-        right: 8%;
-        bottom: 8px;
-      }
+      .chip-ai { top: 25px; left: 2%; }
+      .chip-innovation { top: 35px; right: 2%; }
+      .chip-strategy { bottom: 45px; left: 2%; }
+      .chip-support { bottom: 55px; right: 2%; }
       .orbit-node {
-        width: 38px;
-        height: 38px;
+        width: 40px;
+        height: 40px;
       }
       .orbit-node svg {
-        width: 18px;
-        height: 18px;
+        width: 20px;
+        height: 20px;
       }
       .hero-marquee-bar {
-        padding: 10px 0;
-        border-radius: 20px;
+        padding: 11px 0;
+        border-radius: 22px;
       }
       .marquee-item {
-        padding: 0 20px;
-        gap: 12px;
+        padding: 0 22px;
+        gap: 13px;
       }
       .wf-icon {
-        width: 38px;
-        height: 38px;
+        width: 40px;
+        height: 40px;
       }
       .wf-title {
-        font-size: 14.5px;
+        font-size: 15px;
       }
       .wf-sub {
-        font-size: 11.5px;
+        font-size: 12px;
       }
     }
 
-    @media (min-width: 2560px) {
+    @media (min-width: 2400px) {
       .hero-interactive-stage {
-        max-width: 1840px;
-        gap: 64px;
-        padding: 0 48px;
+        width: 92%;
+        max-width: 2360px;
+        gap: 72px;
+        padding: 0 60px;
       }
       .hero-workflow-container {
-        max-width: 1840px;
-        padding: 0 48px;
-        margin-top: 24px;
+        width: 92%;
+        max-width: 2360px;
+        padding: 0 60px;
+        margin-top: 22px;
       }
       .hero-headline {
-        font-size: clamp(56px, 2.8vw, 76px);
+        font-size: clamp(60px, 2.7vw, 82px);
         margin-bottom: 24px;
       }
       .hero-subtext {
-        font-size: 19px;
-        max-width: 640px;
+        font-size: 20px;
+        max-width: 700px;
         line-height: 1.7;
-        margin-bottom: 34px;
+        margin-bottom: 32px;
+      }
+      .hero-quote-signature {
+        font-size: 30px;
+        margin-top: 26px;
       }
       .hero-pill-badge {
         font-size: 14.5px;
         padding: 8px 20px;
-        margin-bottom: 20px;
+        margin-bottom: 18px;
       }
       .btn-hero-gradient, .btn-hero-glass {
         padding: 15px 34px;
@@ -7113,81 +7272,187 @@ export class ContactComponent {}
         border-radius: 32px;
       }
       .hero-visual-col {
-        height: 620px;
+        height: 640px;
       }
       .globe-system-wrap {
-        width: 380px;
-        height: 380px;
+        width: 410px;
+        height: 410px;
       }
       .hologram-globe {
-        width: 340px;
-        height: 340px;
+        width: 360px;
+        height: 360px;
       }
       .globe-core-mark, .mark-img-4b {
-        width: 180px;
-        height: 180px;
+        width: 190px;
+        height: 190px;
       }
-      .ring-1 { width: 520px; height: 280px; }
-      .ring-2 { width: 540px; height: 260px; }
-      .ring-3 { width: 420px; height: 420px; }
-      .orbit-glow-behind { width: 440px; height: 440px; }
+      .ring-1 { width: 560px; height: 300px; }
+      .ring-2 { width: 580px; height: 280px; }
+      .ring-3 { width: 450px; height: 450px; }
+      .orbit-glow-behind { width: 470px; height: 470px; }
       .glass-chip {
-        min-width: 220px;
-        padding: 14px 22px;
-        gap: 14px;
-        border-radius: 18px;
+        min-width: 230px;
+        padding: 15px 23px;
+        gap: 15px;
+        border-radius: 19px;
       }
       .glass-chip strong {
-        font-size: 16px;
+        font-size: 16.5px;
       }
       .glass-chip small {
-        font-size: 13px;
+        font-size: 13.5px;
       }
       .chip-icon {
-        width: 48px;
-        height: 48px;
+        width: 50px;
+        height: 50px;
       }
       .chip-icon svg {
-        width: 25px;
-        height: 25px;
+        width: 26px;
+        height: 26px;
       }
-      .chip-ai { top: 35px; left: 4%; }
-      .chip-innovation { top: 50px; right: 4%; }
-      .chip-strategy { bottom: 60px; left: 4%; }
-      .chip-support { bottom: 75px; right: 4%; }
-      .script-badge-quote {
-        font-size: 30px;
-        right: 10%;
-        bottom: 14px;
-      }
+      .chip-ai { top: 30px; left: 1.5%; }
+      .chip-innovation { top: 40px; right: 1.5%; }
+      .chip-strategy { bottom: 50px; left: 1.5%; }
+      .chip-support { bottom: 65px; right: 1.5%; }
       .orbit-node {
-        width: 44px;
-        height: 44px;
+        width: 46px;
+        height: 46px;
       }
       .orbit-node svg {
-        width: 22px;
-        height: 22px;
+        width: 23px;
+        height: 23px;
       }
       .hero-marquee-bar {
         padding: 13px 0;
         border-radius: 24px;
       }
       .marquee-item {
-        padding: 0 24px;
-        gap: 14px;
+        padding: 0 26px;
+        gap: 15px;
       }
       .wf-icon {
-        width: 44px;
-        height: 44px;
+        width: 46px;
+        height: 46px;
       }
       .wf-symbol {
-        font-size: 20px;
+        font-size: 22px;
       }
       .wf-title {
-        font-size: 16px;
+        font-size: 16.5px;
       }
       .wf-sub {
-        font-size: 13px;
+        font-size: 13.5px;
+      }
+    }
+
+    @media (min-width: 2800px) {
+      .hero-interactive-stage {
+        width: 90%;
+        max-width: 2640px;
+        gap: 84px;
+        padding: 0 72px;
+      }
+      .hero-workflow-container {
+        width: 90%;
+        max-width: 2640px;
+        padding: 0 72px;
+        margin-top: 26px;
+      }
+      .hero-headline {
+        font-size: clamp(66px, 2.6vw, 92px);
+        margin-bottom: 28px;
+      }
+      .hero-subtext {
+        font-size: 22px;
+        max-width: 780px;
+        line-height: 1.75;
+        margin-bottom: 36px;
+      }
+      .hero-quote-signature {
+        font-size: 34px;
+        margin-top: 30px;
+      }
+      .hero-pill-badge {
+        font-size: 16px;
+        padding: 9px 24px;
+        margin-bottom: 22px;
+      }
+      .btn-hero-gradient, .btn-hero-glass {
+        padding: 17px 38px;
+        font-size: 18px;
+        border-radius: 36px;
+      }
+      .hero-visual-col {
+        height: 700px;
+      }
+      .globe-system-wrap {
+        width: 450px;
+        height: 450px;
+      }
+      .hologram-globe {
+        width: 400px;
+        height: 400px;
+      }
+      .globe-core-mark, .mark-img-4b {
+        width: 210px;
+        height: 210px;
+      }
+      .ring-1 { width: 620px; height: 340px; }
+      .ring-2 { width: 640px; height: 320px; }
+      .ring-3 { width: 500px; height: 500px; }
+      .orbit-glow-behind { width: 520px; height: 520px; }
+      .glass-chip {
+        min-width: 250px;
+        padding: 17px 26px;
+        gap: 16px;
+        border-radius: 22px;
+      }
+      .glass-chip strong {
+        font-size: 18px;
+      }
+      .glass-chip small {
+        font-size: 14.5px;
+      }
+      .chip-icon {
+        width: 54px;
+        height: 54px;
+      }
+      .chip-icon svg {
+        width: 28px;
+        height: 28px;
+      }
+      .chip-ai { top: 35px; left: 1%; }
+      .chip-innovation { top: 45px; right: 1%; }
+      .chip-strategy { bottom: 55px; left: 1%; }
+      .chip-support { bottom: 70px; right: 1%; }
+      .orbit-node {
+        width: 50px;
+        height: 50px;
+      }
+      .orbit-node svg {
+        width: 25px;
+        height: 25px;
+      }
+      .hero-marquee-bar {
+        padding: 15px 0;
+        border-radius: 26px;
+      }
+      .marquee-item {
+        padding: 0 30px;
+        gap: 16px;
+      }
+      .wf-icon {
+        width: 50px;
+        height: 50px;
+      }
+      .wf-symbol {
+        font-size: 24px;
+      }
+      .wf-title {
+        font-size: 18px;
+      }
+      .wf-sub {
+        font-size: 14.5px;
       }
     }
 
@@ -7214,7 +7479,7 @@ export class ContactComponent {}
       .chip-innovation { top: 25px; right: 2%; }
       .chip-strategy { bottom: 45px; left: 2%; }
       .chip-support { bottom: 55px; right: 2%; }
-      .script-badge-quote { right: 8%; bottom: 5px; }
+      .hero-quote-signature { align-self: center; align-items: center; margin-top: 16px; font-size: 21px; }
     }
     @media (max-width: 768px) {
       .hero-land-glow {
@@ -7278,10 +7543,11 @@ export class ContactComponent {}
       .chip-innovation { top: 15px; right: 0; }
       .chip-strategy { bottom: 35px; left: 0; }
       .chip-support { bottom: 45px; right: 0; }
-      .script-badge-quote {
-        font-size: 15px;
-        right: 15px;
-        bottom: 0;
+      .hero-quote-signature {
+        font-size: 18px;
+        align-self: center;
+        align-items: center;
+        margin-top: 14px;
       }
       .orbit-node {
         width: 30px;

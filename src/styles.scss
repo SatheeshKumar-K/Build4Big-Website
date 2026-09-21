@@ -48,23 +48,43 @@ a {
   color: inherit;
 }
 .container {
-  max-width: 1240px;
+  width: 100%;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 max(24px, env(safe-area-inset-right, 0px)) 0 max(24px, env(safe-area-inset-left, 0px));
-  width: 100%;
   box-sizing: border-box;
   transition: max-width 0.25s ease;
 }
-@media (min-width: 1920px) {
+@media (min-width: 1440px) {
   .container {
-    max-width: 1560px;
-    padding: 0 max(36px, env(safe-area-inset-right, 0px)) 0 max(36px, env(safe-area-inset-left, 0px));
+    max-width: 1400px;
+    padding: 0 max(32px, env(safe-area-inset-right, 0px)) 0 max(32px, env(safe-area-inset-left, 0px));
   }
 }
-@media (min-width: 2560px) {
+@media (min-width: 1680px) {
+  .container {
+    max-width: 1620px;
+    padding: 0 max(40px, env(safe-area-inset-right, 0px)) 0 max(40px, env(safe-area-inset-left, 0px));
+  }
+}
+@media (min-width: 1920px) {
   .container {
     max-width: 1840px;
     padding: 0 max(48px, env(safe-area-inset-right, 0px)) 0 max(48px, env(safe-area-inset-left, 0px));
+  }
+}
+@media (min-width: 2400px) {
+  .container {
+    width: 92%;
+    max-width: 2360px;
+    padding: 0 max(60px, env(safe-area-inset-right, 0px)) 0 max(60px, env(safe-area-inset-left, 0px));
+  }
+}
+@media (min-width: 2800px) {
+  .container {
+    width: 90%;
+    max-width: 2640px;
+    padding: 0 max(72px, env(safe-area-inset-right, 0px)) 0 max(72px, env(safe-area-inset-left, 0px));
   }
 }
 .eyebrow {
@@ -146,13 +166,59 @@ app-root > app-header {
 }
 app-root > app-header > header {
   position: relative;
-  max-width: 1240px;
+  width: 100%;
+  max-width: 1280px;
   height: 64px;
   margin: 0 auto;
   padding: 0 max(24px, env(safe-area-inset-right, 0px)) 0 max(24px, env(safe-area-inset-left, 0px));
   background: transparent !important;
   box-shadow: none !important;
   border-bottom: none !important;
+  transition: max-width 0.25s ease;
+}
+@media (min-width: 1440px) {
+  app-root > app-header > header {
+    max-width: 1400px;
+    padding: 0 max(32px, env(safe-area-inset-right, 0px)) 0 max(32px, env(safe-area-inset-left, 0px));
+  }
+}
+@media (min-width: 1680px) {
+  app-root > app-header > header {
+    max-width: 1620px;
+    padding: 0 max(40px, env(safe-area-inset-right, 0px)) 0 max(40px, env(safe-area-inset-left, 0px));
+  }
+}
+@media (min-width: 1920px) {
+  app-root > app-header,
+  app-root > app-header > header {
+    height: 74px;
+  }
+  app-root > app-header > header {
+    max-width: 1840px;
+    padding: 0 max(48px, env(safe-area-inset-right, 0px)) 0 max(48px, env(safe-area-inset-left, 0px));
+  }
+}
+@media (min-width: 2400px) {
+  app-root > app-header,
+  app-root > app-header > header {
+    height: 80px;
+  }
+  app-root > app-header > header {
+    width: 92%;
+    max-width: 2360px;
+    padding: 0 max(60px, env(safe-area-inset-right, 0px)) 0 max(60px, env(safe-area-inset-left, 0px));
+  }
+}
+@media (min-width: 2800px) {
+  app-root > app-header,
+  app-root > app-header > header {
+    height: 84px;
+  }
+  app-root > app-header > header {
+    width: 90%;
+    max-width: 2640px;
+    padding: 0 max(72px, env(safe-area-inset-right, 0px)) 0 max(72px, env(safe-area-inset-left, 0px));
+  }
 }
 
 @media (max-width: 860px) {
