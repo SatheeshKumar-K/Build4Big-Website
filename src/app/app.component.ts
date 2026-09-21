@@ -5281,11 +5281,13 @@ const contactPillars = [
                 </div>
               </div>
             </div>
-            <div class="info-item">
-              <div class="info-icon">✉️</div>
+            <div class="info-item info-item-clickable" (click)="openEmail($event)" role="button" tabindex="0" title="Click to email info@build4big.com">
+              <a href="mailto:info@build4big.com" class="info-icon" aria-label="Send email to info@build4big.com">✉️</a>
               <div>
-                <div class="info-label">Email Us</div>
-                <div class="info-val">info&#64;build4big.com</div>
+                <a href="mailto:info@build4big.com" class="info-label email-trigger">Email Us</a>
+                <div class="info-val">
+                  <a href="mailto:info@build4big.com" class="email-val-link">info&#64;build4big.com</a>
+                </div>
               </div>
             </div>
             <div class="info-item">
@@ -5480,6 +5482,41 @@ const contactPillars = [
     }
     .info-label { font: 700 11.5px Manrope; color: #080f2b; margin-bottom: 1px; }
     .info-val { font-size: 11px; color: #69708a; line-height: 1.35; }
+    .info-item-clickable {
+      cursor: pointer;
+      border-radius: 8px;
+      padding: 3px 4px;
+      margin: -3px -4px;
+      transition: background 0.2s ease;
+    }
+    .info-item-clickable:hover {
+      background: rgba(49, 89, 245, 0.05);
+    }
+    .info-item-clickable:hover .info-icon {
+      background: #dbe7ff;
+      transform: scale(1.08);
+      transition: all 0.2s ease;
+    }
+    .email-trigger {
+      display: inline-block;
+      color: #080f2b;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .email-trigger:hover,
+    .info-item-clickable:hover .email-trigger {
+      color: #3159f5;
+    }
+    .email-val-link {
+      color: #69708a;
+      text-decoration: none;
+      transition: color 0.2s ease, text-decoration 0.2s ease;
+    }
+    .email-val-link:hover,
+    .info-item-clickable:hover .email-val-link {
+      color: #3159f5;
+      text-decoration: underline;
+    }
     .social-row { display: flex; align-items: center; gap: 6px; margin: 10px 0 0; }
     .social-label { font: 700 11px Manrope; color: #080f2b; }
     .social-btn {
@@ -5897,6 +5934,15 @@ export class ContactShowcaseComponent {
     if (!this.name || !this.email || !this.message) return;
     this.sent = true;
     setTimeout(() => { this.sent = false; this.name = ''; this.email = ''; this.message = ''; }, 3500);
+  }
+  openEmail(event?: Event): void {
+    if (event) {
+      const target = event.target as HTMLElement;
+      if (target && target.tagName && target.tagName.toLowerCase() === 'a') {
+        return;
+      }
+    }
+    window.location.href = 'mailto:info@build4big.com';
   }
 }
 @Component({

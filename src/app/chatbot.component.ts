@@ -2048,8 +2048,18 @@ export class ChatbotComponent implements OnInit, AfterViewChecked, OnDestroy {
 
   formatMessageText(text: string): string {
     if (!text) return '';
+    // Format markdown links [Label](url)
+    let formatted = text.replace(
+      /\[(.*?)\]\((.*?)\)/g,
+      '<a href="$2" target="_blank" rel="noopener" style="color:#00d2ff;text-decoration:underline;">$1</a>'
+    );
     // Format markdown bold **text** to <strong>text</strong>
-    let formatted = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    // Convert plain info@build4big.com to clickable mailto link if not already inside an anchor tag
+    formatted = formatted.replace(
+      /(?<!href="mailto:)(?<!>)(info@build4big\.com)/g,
+      '<a href="mailto:$1" style="color:#00d2ff;text-decoration:underline;">$1</a>'
+    );
     return formatted;
   }
 }
