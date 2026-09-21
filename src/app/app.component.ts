@@ -525,6 +525,7 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
         <p><a href="tel:+919342597035">☎ +91 93425 97035</a></p>
         <p><a href="https://wa.me/919360004214" target="_blank" rel="noopener">◉ +91 93600 04214</a></p>
         <p><a href="mailto:info@build4big.com">✉ info@build4big.com</a></p>
+        <p>◷ Mon – Sun: 9:00 AM – 5:00 PM</p>
       </section>
     </div>
     <div class="copyright container">
@@ -3223,7 +3224,7 @@ export class AiComponent {
               ⌖ Theni Rd, Kalavasal,<br />Madurai, Tamil Nadu - 625010
             </p>
             <p class="copytext">
-              <a href="tel:+919342597035" style="color:inherit;text-decoration:none;">☎ +91 93425 97035</a><br /><a href="https://wa.me/919360004214" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">◉ +91 93600 04214</a><br /><a href="mailto:info@build4big.com" style="color:inherit;text-decoration:none;">✉ info@build4big.com</a><br />◷ Mon - Sun: 10 AM - 7 PM
+              <a href="tel:+919342597035" style="color:inherit;text-decoration:none;">☎ +91 93425 97035</a><br /><a href="https://wa.me/919360004214" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">◉ +91 93600 04214</a><br /><a href="mailto:info@build4big.com" style="color:inherit;text-decoration:none;">✉ info@build4big.com</a><br />◷ Mon – Sun: 9:00 AM – 5:00 PM
             </p>
           </div>
           <form class="card form">
@@ -4972,7 +4973,7 @@ const contactPillars = [
               <div class="info-icon">🕐</div>
               <div>
                 <div class="info-label">Working Hours</div>
-                <div class="info-val">Mon – Sun: 10 AM – 7 PM</div>
+                <div class="info-val">Mon – Sun: 9:00 AM – 5:00 PM</div>
               </div>
             </div>
           </div>
@@ -5470,28 +5471,52 @@ const contactPillars = [
     }
     .cpillar-title { font: 700 12.5px Manrope; color: #080f2b; margin-bottom: 2px; transform: translateZ(10px); }
     .cpillar-text { font-size: 11px; color: #69708a; line-height: 1.5; transform: translateZ(6px); }
-    @media (max-width: 1100px) {
-      .contact-showcase { min-height: auto; justify-content: flex-start; padding: 32px 18px 36px; }
-      .contact-main { grid-template-columns: 1fr; gap: 24px; }
-      .map-blob-container { margin: 10px auto; }
+    @media (max-width: 1200px) and (min-width: 1024px) {
+      .contact-showcase { min-height: auto; padding: 28px 16px 32px; }
+      .contact-main { grid-template-columns: 1fr 0.88fr 1.12fr; gap: 14px; }
+      .map-blob { width: 195px; height: 195px; }
+      .map-blob-container { max-width: 235px; }
+      .contact-info-col, .contact-form-card { padding: 16px 14px; }
+      .contact-pillars { grid-template-columns: repeat(4, 1fr); gap: 8px; }
     }
-    @media (max-width: 900px) {
-      .contact-showcase { padding: 26px 14px 30px; }
-      .contact-pillars { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    @media (max-width: 1023px) and (min-width: 768px) {
+      .contact-showcase { min-height: auto; padding: 26px 16px 30px; }
+      .contact-main { grid-template-columns: 1fr 1fr; gap: 18px; }
+      .contact-info-col { order: 1; }
+      .contact-form-card { order: 2; }
+      .contact-center-col {
+        grid-column: 1 / -1;
+        order: 3;
+        margin: 8px auto 0;
+      }
+      .map-blob { width: 240px; height: 210px; }
+      .map-blob-container { max-width: 280px; }
+      .contact-pillars { grid-template-columns: repeat(2, 1fr); gap: 12px; }
       .scribble { display: none; }
       .plane-wrap { display: none; }
     }
-    @media (max-width: 500px) {
-      .contact-showcase { padding: 20px 10px 24px; }
-      .map-blob { width: 220px; height: 220px; }
+    @media (max-width: 767px) {
+      .contact-showcase { padding: 20px 12px 24px; min-height: auto; }
+      .contact-main { grid-template-columns: 1fr; gap: 16px; }
+      .contact-info-col { order: 1; }
+      .contact-form-card { order: 2; }
+      .contact-center-col {
+        order: 3;
+        margin: 6px auto;
+      }
+      .map-blob { width: 220px; height: 200px; }
       .map-blob-container { max-width: 250px; }
-      .float-chip { font-size: 10px; padding: 3px 7px; }
+      .float-chip { font-size: 9.5px; padding: 3px 6px; }
       .chip1 { left: 0; top: -6px; }
       .chip2 { right: 0; bottom: 6px; }
       .chip3 { left: 4px; bottom: -6px; }
-      .contact-pillars { grid-template-columns: 1fr; }
-      .contact-title { font-size: clamp(22px, 6.2vw, 28px); }
-      .contact-info-col, .contact-form-card { padding: 18px 14px 16px; }
+      .contact-pillars { grid-template-columns: 1fr; gap: 8px; }
+      .contact-title { font-size: clamp(20px, 6vw, 26px); }
+      .contact-info-col, .contact-form-card { padding: 16px 14px; }
+      .info-val { font-size: 11.5px; }
+      .send-btn { width: 100%; justify-content: center; }
+      .scribble { display: none; }
+      .plane-wrap { display: none; }
     }
   `,
 })
