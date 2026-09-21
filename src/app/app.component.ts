@@ -521,9 +521,9 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
       </section>
       <section>
         <h4>Contact Info</h4>
-        <p>⌖ Plot No. 2, Mahatma Gandhi 11th St, Thirunagar, Madurai</p>
-        <p><a href="tel:+919677745205">☎ +91 96777 45205</a></p>
-        <p><a href="https://wa.me/917010868560" target="_blank" rel="noopener">◉ +91 70108 68560</a></p>
+        <p>⌖ Theni Rd, Kalavasal, Madurai, Tamil Nadu 625010</p>
+        <p><a href="tel:+919342597035">☎ +91 93425 97035</a></p>
+        <p><a href="https://wa.me/919360004214" target="_blank" rel="noopener">◉ +91 93600 04214</a></p>
         <p><a href="mailto:info@build4big.com">✉ info@build4big.com</a></p>
       </section>
     </div>
@@ -3220,11 +3220,10 @@ export class AiComponent {
           <div>
             <h3>Contact Information</h3>
             <p class="copytext">
-              ⌖ Plot No. 2, Mahatma Gandhi 11th Street,<br />Thirunagar, Madurai
-              - 625006
+              ⌖ Theni Rd, Kalavasal,<br />Madurai, Tamil Nadu - 625010
             </p>
             <p class="copytext">
-              <a href="tel:+919677745205" style="color:inherit;text-decoration:none;">☎ +91 96777 45205</a><br /><a href="https://wa.me/917010868560" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">◉ +91 70108 68560</a><br /><a href="mailto:info@build4big.com" style="color:inherit;text-decoration:none;">✉ info@build4big.com</a><br />◷ Mon - Sun: 10 AM - 7 PM
+              <a href="tel:+919342597035" style="color:inherit;text-decoration:none;">☎ +91 93425 97035</a><br /><a href="https://wa.me/919360004214" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">◉ +91 93600 04214</a><br /><a href="mailto:info@build4big.com" style="color:inherit;text-decoration:none;">✉ info@build4big.com</a><br />◷ Mon - Sun: 10 AM - 7 PM
             </p>
           </div>
           <form class="card form">
@@ -4949,7 +4948,7 @@ const contactPillars = [
               <div class="info-icon">📍</div>
               <div>
                 <div class="info-label">Our Location</div>
-                <div class="info-val">Plot No. 2, Mahatma Gandhi 11th Street,<br/>Thirunagar, Madurai – 625006</div>
+                <div class="info-val">Theni Rd, Kalavasal,<br/>Madurai, Tamil Nadu – 625010</div>
               </div>
             </div>
             <div class="info-item">
@@ -4957,8 +4956,8 @@ const contactPillars = [
               <div>
                 <div class="info-label">Call Us / WhatsApp</div>
                 <div class="info-val">
-                  <a href="tel:+919677745205" style="color:inherit;text-decoration:none;">+91 96777 45205</a><br/>
-                  <a href="https://wa.me/917010868560" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">+91 70108 68560</a>
+                  <a href="tel:+919342597035" style="color:inherit;text-decoration:none;">+91 93425 97035</a><br/>
+                  <a href="https://wa.me/919360004214" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">+91 93600 04214 (WhatsApp)</a>
                 </div>
               </div>
             </div>
@@ -4996,7 +4995,7 @@ const contactPillars = [
               <iframe
                 class="live-map-iframe"
                 title="Build4Big Office Location Map"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=78.0536,9.8587,78.0936,9.8987&layer=mapnik&marker=9.8787,78.0736"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=78.0775,9.9072,78.1175,9.9472&layer=mapnik&marker=9.9272,78.0975"
                 loading="lazy"
               ></iframe>
               <div class="map-pin-overlay">
@@ -5007,7 +5006,7 @@ const contactPillars = [
               </div>
               <a
                 class="map-badge"
-                href="https://maps.google.com/?q=Plot+No.+2,+Mahatma+Gandhi+11th+Street,+Thirunagar,+Madurai+-+625006"
+                href="https://maps.google.com/?q=Theni+Rd,+Kalavasal,+Madurai,+Tamil+Nadu+625010"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Open in Google Maps"
