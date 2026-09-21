@@ -418,8 +418,8 @@ interface QuoteFormState {
          ========================================================================== */
       .chatbot-floating-wrapper {
         position: fixed;
-        bottom: 26px;
-        right: 26px;
+        bottom: calc(26px + env(safe-area-inset-bottom, 0px));
+        right: calc(26px + env(safe-area-inset-right, 0px));
         z-index: 99999;
         display: flex;
         flex-direction: column;
@@ -1227,8 +1227,8 @@ interface QuoteFormState {
          ========================================================================== */
       @media (max-width: 640px) {
         .chatbot-floating-wrapper {
-          bottom: 16px;
-          right: 16px;
+          bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+          right: calc(16px + env(safe-area-inset-right, 0px));
         }
         .chatbot-unread-pill {
           display: none; /* Hide large pill on mobile to save screen space */
@@ -1240,10 +1240,11 @@ interface QuoteFormState {
         .chatbot-panel {
           bottom: 0 !important;
           right: 0 !important;
+          left: 0 !important;
           width: 100vw !important;
           max-width: 100vw !important;
-          height: 88vh !important;
-          max-height: 88vh !important;
+          height: calc(88vh - env(safe-area-inset-bottom, 0px)) !important;
+          max-height: calc(88vh - env(safe-area-inset-bottom, 0px)) !important;
           border-radius: 22px 22px 0 0 !important;
           border-bottom: none !important;
           transform-origin: bottom center;
@@ -1259,7 +1260,7 @@ interface QuoteFormState {
           gap: 12px;
         }
         .chatbot-input-footer {
-          padding: 10px 12px 12px;
+          padding: 10px 12px calc(12px + env(safe-area-inset-bottom, 0px));
         }
       }
     `,

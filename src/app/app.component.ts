@@ -321,7 +321,12 @@ const posts: Post[] = [
       color: #ffffff;
       margin-left: auto;
       cursor: pointer;
-      padding: 6px 10px;
+      padding: 8px 12px;
+      min-width: 44px;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      -webkit-tap-highlight-color: transparent;
     }
     .start-btn-mobile {
       display: none;
@@ -338,11 +343,11 @@ const posts: Post[] = [
     }
     @media (max-width: 860px) {
       header {
-        height: 68px;
-        padding: 0 20px;
+        height: 60px;
+        padding: 0 16px;
       }
       .brand-title {
-        font-size: 19px;
+        font-size: 18px;
       }
       .start-btn {
         display: none;
@@ -360,20 +365,21 @@ const posts: Post[] = [
         color: #ffffff !important;
         font-weight: 700;
         font-size: 15px;
+        min-height: 44px;
         box-shadow: 0 4px 18px rgba(0, 110, 255, 0.4);
       }
       .menu {
-        display: block;
+        display: inline-flex;
       }
       nav {
         display: none;
         position: absolute;
         z-index: 1001;
-        top: 68px;
-        left: 16px;
-        right: 16px;
+        top: 60px;
+        left: 12px;
+        right: 12px;
         margin: 0;
-        padding: 20px 24px;
+        padding: 16px 20px;
         background: #061138;
         border: 1px solid rgba(255, 255, 255, 0.12);
         color: #ffffff;
@@ -381,7 +387,7 @@ const posts: Post[] = [
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
         flex-direction: column;
         align-items: flex-start;
-        gap: 16px;
+        gap: 12px;
       }
       nav.show {
         display: flex;
@@ -390,7 +396,10 @@ const posts: Post[] = [
         color: #b2c5e5;
         font-size: 16px;
         width: 100%;
-        padding: 8px 0;
+        padding: 10px 0;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       }
       nav a:last-child {
@@ -2822,6 +2831,33 @@ const AUTOMATION_NODES: AutomationNode[] = [
         width: 26px;
       }
     }
+    @media (max-width: 360px) {
+      .orbital-stage {
+        width: 270px;
+        height: 270px;
+      }
+      .orbit-node-slot {
+        transform: rotate(var(--node-angle)) translateY(-100px);
+      }
+      .counter-rotate-wrap {
+        width: 58px;
+        height: 58px;
+        margin-left: -29px;
+        margin-top: -29px;
+      }
+      .orbit-pod-bubble {
+        width: 56px;
+        height: 56px;
+      }
+      .pod-svg {
+        width: 16px;
+        height: 16px;
+      }
+      .center-ai-core {
+        width: 84px;
+        height: 84px;
+      }
+    }
 
     @media (prefers-reduced-motion: reduce) {
       .orbit-rotator,
@@ -2988,8 +3024,8 @@ const aboutFeatures = heroFeatures;
     @keyframes reveal-left{from{opacity:0;transform:translateX(-26px)}to{opacity:1;transform:none}}
     @keyframes reveal-right{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
     @keyframes reveal-bottom{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-    @media(max-width:850px){.about-page{min-height:auto;padding:32px 0}.about-hero{grid-template-columns:1fr;gap:18px;padding-top:10px}.card-marquee{width:calc(100% + 48px);margin-left:-24px}.story-copy p{font-size:14px}}
-    @media(max-width:560px){.about-page{padding:24px 0}.about-head-title{font-size:26px}.about-head-sub{font-size:12.5px}.story-copy{padding:18px 16px}.story-card{flex-basis:260px;min-height:240px;padding:20px}.card-marquee{mask-image:none}.edge{display:none}}
+    @media(max-width:850px){.about-page{min-height:auto;padding:32px 0;overflow-x:hidden}.about-hero{grid-template-columns:1fr;gap:18px;padding-top:10px}.card-marquee{width:100%;margin:0}.story-copy p{font-size:14px}}
+    @media(max-width:560px){.about-page{padding:24px 0}.about-head-title{font-size:26px}.about-head-sub{font-size:12.5px}.story-copy{padding:18px 16px}.story-card{flex-basis:240px;min-height:220px;padding:18px}.card-marquee{width:100%;margin:0;mask-image:none}.edge{display:none}}
     @media(prefers-reduced-motion:reduce){.reveal-top,.reveal-left,.reveal-right,.reveal-bottom{opacity:1!important;transform:none!important;animation:none!important}.card-track{animation:none}.story-card{transition:none}}
   `,
 })
@@ -6878,6 +6914,34 @@ export class ContactComponent {}
       .btn-hero-gradient, .btn-hero-glass {
         width: 100%;
         justify-content: center;
+      }
+    }
+    @media (max-width: 360px) {
+      .hero-headline {
+        font-size: 26px;
+      }
+      .hero-visual-col {
+        height: 310px;
+      }
+      .globe-system-wrap {
+        width: 170px;
+        height: 170px;
+      }
+      .hologram-globe {
+        width: 150px;
+        height: 150px;
+      }
+      .globe-core-mark, .mark-img-4b {
+        width: 80px;
+        height: 80px;
+      }
+      .ring-1 { width: 230px; height: 130px; }
+      .ring-2 { width: 240px; height: 120px; }
+      .ring-3 { width: 180px; height: 180px; }
+      .glass-chip {
+        min-width: 110px;
+        padding: 6px 8px;
+        font-size: 10px;
       }
     }
 
