@@ -53,6 +53,19 @@ a {
   padding: 0 max(24px, env(safe-area-inset-right, 0px)) 0 max(24px, env(safe-area-inset-left, 0px));
   width: 100%;
   box-sizing: border-box;
+  transition: max-width 0.25s ease;
+}
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1560px;
+    padding: 0 max(36px, env(safe-area-inset-right, 0px)) 0 max(36px, env(safe-area-inset-left, 0px));
+  }
+}
+@media (min-width: 2560px) {
+  .container {
+    max-width: 1840px;
+    padding: 0 max(48px, env(safe-area-inset-right, 0px)) 0 max(48px, env(safe-area-inset-left, 0px));
+  }
 }
 .eyebrow {
   color: #4665ee;

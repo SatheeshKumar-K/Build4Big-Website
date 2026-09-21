@@ -331,6 +331,42 @@ const posts: Post[] = [
     .start-btn-mobile {
       display: none;
     }
+    @media (min-width: 1920px) {
+      header {
+        max-width: 1560px;
+        height: 74px;
+        padding: 0 36px;
+      }
+      .brand-title {
+        font-size: 22px;
+      }
+      nav {
+        gap: 32px;
+        font-size: 15.5px;
+      }
+      .start-btn {
+        padding: 10px 24px;
+        font-size: 14.5px;
+      }
+    }
+    @media (min-width: 2560px) {
+      header {
+        max-width: 1840px;
+        height: 84px;
+        padding: 0 48px;
+      }
+      .brand-title {
+        font-size: 25px;
+      }
+      nav {
+        gap: 40px;
+        font-size: 17px;
+      }
+      .start-btn {
+        padding: 12px 28px;
+        font-size: 16px;
+      }
+    }
     @media (max-width: 1024px) {
       nav {
         gap: 20px;
@@ -604,6 +640,22 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
     }
     .copyright span {
       float: right;
+    }
+    @media (min-width: 1920px) {
+      footer { padding-top: 80px; }
+      .foot { gap: 56px; }
+      .foot h2 { font-size: 26px; }
+      .foot h4 { font-size: 16px; }
+      .foot p, .foot-nav a, .foot section > a { font-size: 14.5px; }
+      .copyright { font-size: 13px; padding: 24px 36px; }
+    }
+    @media (min-width: 2560px) {
+      footer { padding-top: 100px; }
+      .foot { gap: 72px; }
+      .foot h2 { font-size: 30px; }
+      .foot h4 { font-size: 18px; }
+      .foot p, .foot-nav a, .foot section > a { font-size: 16px; }
+      .copyright { font-size: 14.5px; padding: 28px 48px; }
     }
     @media (max-width: 960px) {
       .foot {
@@ -1543,6 +1595,38 @@ const servicePillars = [
     }
 
     /* Responsive adjustments */
+    @media (min-width: 1920px) {
+      .services-showcase { padding: 40px 36px 50px; }
+      .showcase-head { margin-bottom: 16px; }
+      .showcase-title { font-size: 40px; }
+      .showcase-sub { font-size: 15px; max-width: 660px; }
+      .stage-container { max-width: 1560px; min-height: 360px; margin: 16px auto; }
+      .coverflow-stage { height: 340px; }
+      .service-card { width: 280px; min-height: 290px; max-height: 320px; padding: 24px 20px; border-radius: 22px; }
+      .service-card h3 { font-size: 20px; }
+      .service-card p { font-size: 13.5px; }
+      .service-card .icon-bubble { width: 56px; height: 56px; font-size: 26px; }
+      .nav-arrow { width: 52px; height: 52px; }
+      .pillars-strip { max-width: 1360px; padding: 18px 32px; border-radius: 24px; }
+      .pillar-text h4 { font-size: 15.5px; }
+      .pillar-text p { font-size: 12px; }
+    }
+    @media (min-width: 2560px) {
+      .services-showcase { padding: 50px 48px 64px; }
+      .showcase-head { margin-bottom: 22px; }
+      .showcase-title { font-size: 50px; }
+      .showcase-sub { font-size: 17.5px; max-width: 800px; }
+      .stage-container { max-width: 1840px; min-height: 420px; margin: 24px auto; }
+      .coverflow-stage { height: 400px; }
+      .service-card { width: 330px; min-height: 340px; max-height: 380px; padding: 30px 24px; border-radius: 26px; }
+      .service-card h3 { font-size: 23px; }
+      .service-card p { font-size: 15px; }
+      .service-card .icon-bubble { width: 66px; height: 66px; font-size: 32px; }
+      .nav-arrow { width: 60px; height: 60px; }
+      .pillars-strip { max-width: 1640px; padding: 22px 42px; border-radius: 28px; }
+      .pillar-text h4 { font-size: 17.5px; }
+      .pillar-text p { font-size: 13.5px; }
+    }
     @media (max-width: 1040px) {
       .services-showcase {
         min-height: auto;
@@ -2732,6 +2816,42 @@ const AUTOMATION_NODES: AutomationNode[] = [
     }
 
     /* RESPONSIVE LAYOUT */
+    @media (min-width: 1920px) {
+      .sol-main-container { max-width: 1560px; padding: 0 36px; }
+      .sol-showcase-title { font-size: 38px; }
+      .sol-showcase-sub { font-size: 14.5px; max-width: 660px; }
+      .sol-ecosystem-row { grid-template-columns: 320px 460px 320px; gap: 32px; }
+      .sol-feature-card { padding: 14px 16px; border-radius: 16px; }
+      .card-heading { font-size: 14.5px; }
+      .card-desc { font-size: 12px; }
+      .orbital-stage { width: 440px; height: 440px; }
+      .orbit-node-slot { transform: rotate(var(--node-angle)) translateY(-165px); }
+      .counter-rotate-wrap { width: 88px; height: 88px; margin-left: -44px; margin-top: -44px; }
+      .orbit-pod-bubble { width: 84px; height: 84px; }
+      .pod-svg { width: 24px; height: 24px; }
+      .pod-label { font-size: 9.5px; max-width: 72px; }
+      .center-ai-core { width: 130px; height: 130px; }
+      .core-ai-text { font-size: 16px; }
+      .core-auto-text { font-size: 10px; }
+    }
+    @media (min-width: 2560px) {
+      .sol-main-container { max-width: 1840px; padding: 0 48px; }
+      .sol-showcase-title { font-size: 48px; }
+      .sol-showcase-sub { font-size: 17px; max-width: 800px; }
+      .sol-ecosystem-row { grid-template-columns: 380px 540px 380px; gap: 48px; }
+      .sol-feature-card { padding: 18px 20px; border-radius: 20px; }
+      .card-heading { font-size: 16.5px; }
+      .card-desc { font-size: 13.5px; }
+      .orbital-stage { width: 520px; height: 520px; }
+      .orbit-node-slot { transform: rotate(var(--node-angle)) translateY(-195px); }
+      .counter-rotate-wrap { width: 100px; height: 100px; margin-left: -50px; margin-top: -50px; }
+      .orbit-pod-bubble { width: 96px; height: 96px; }
+      .pod-svg { width: 28px; height: 28px; }
+      .pod-label { font-size: 11px; max-width: 84px; }
+      .center-ai-core { width: 154px; height: 154px; }
+      .core-ai-text { font-size: 19px; }
+      .core-auto-text { font-size: 12px; }
+    }
     @media (max-width: 1180px) {
       .sol-ecosystem-row {
         grid-template-columns: 240px 350px 240px;
@@ -3062,6 +3182,30 @@ const aboutFeatures = heroFeatures;
     @keyframes reveal-left{from{opacity:0;transform:translateX(-26px)}to{opacity:1;transform:none}}
     @keyframes reveal-right{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
     @keyframes reveal-bottom{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+    @media (min-width: 1920px) {
+      .about-wrapper { max-width: 1560px; gap: 28px; }
+      .about-head-title { font-size: clamp(34px, 2.5vw, 48px); }
+      .about-head-sub { font-size: 16.5px; max-width: 720px; }
+      .about-hero { gap: 40px; }
+      .story-copy { padding: 32px 34px; border-radius: 24px; }
+      .story-copy h3 { font-size: 25px; }
+      .story-copy p { font-size: 15px; }
+      .story-card { flex: 0 0 280px; min-height: 260px; padding: 26px 24px; }
+      .story-card h3 { font-size: 26px; }
+      .story-card p { font-size: 14px; max-width: 230px; }
+    }
+    @media (min-width: 2560px) {
+      .about-wrapper { max-width: 1840px; gap: 36px; }
+      .about-head-title { font-size: clamp(42px, 2.8vw, 60px); }
+      .about-head-sub { font-size: 18.5px; max-width: 840px; }
+      .about-hero { gap: 52px; }
+      .story-copy { padding: 40px 44px; border-radius: 28px; }
+      .story-copy h3 { font-size: 29px; }
+      .story-copy p { font-size: 17px; }
+      .story-card { flex: 0 0 320px; min-height: 290px; padding: 30px 28px; }
+      .story-card h3 { font-size: 29px; }
+      .story-card p { font-size: 15.5px; max-width: 260px; }
+    }
     @media(max-width:960px){.about-page{min-height:auto;padding:32px 0;overflow-x:hidden}.about-hero{grid-template-columns:1fr;gap:20px;padding-top:10px}.card-marquee{width:100%;margin:0}.story-copy p{font-size:14px}}
     @media(max-width:768px){.story-card{transform:none!important}}
     @media(max-width:560px){.about-page{padding:24px 0}.about-head-title{font-size:clamp(22px,6.5vw,28px)}.about-head-sub{font-size:12.5px;padding:0 8px}.story-copy{padding:18px 16px}.story-card{flex-basis:220px;min-height:210px;padding:16px}.card-marquee{width:100%;margin:0;mask-image:none}.edge{display:none}}
@@ -5544,8 +5688,36 @@ const contactPillars = [
     .cpillar:hover .cpillar-icon {
       transform: translateZ(24px) scale(1.12);
     }
-    .cpillar-title { font: 700 12.5px Manrope; color: #080f2b; margin-bottom: 2px; transform: translateZ(10px); }
-    .cpillar-text { font-size: 11px; color: #69708a; line-height: 1.5; transform: translateZ(6px); }
+    @media (min-width: 1920px) {
+      .contact-main { max-width: 1560px; gap: 24px; }
+      .contact-title { font-size: 38px; }
+      .contact-sub { font-size: 15px; max-width: 660px; }
+      .contact-info-col, .contact-form-card { padding: 24px 26px; border-radius: 22px; }
+      .info-title, .form-title { font-size: 22px; }
+      .info-sub, .form-sub { font-size: 13.5px; }
+      .field-wrap { height: 48px; }
+      .map-blob { width: 280px; height: 280px; }
+      .map-blob-container { max-width: 330px; }
+      .contact-pillars { max-width: 1560px; gap: 14px; margin-top: 18px; }
+      .cpillar { padding: 12px 16px; border-radius: 16px; }
+      .cpillar-title { font-size: 14px; }
+      .cpillar-text { font-size: 12px; }
+    }
+    @media (min-width: 2560px) {
+      .contact-main { max-width: 1840px; gap: 36px; }
+      .contact-title { font-size: 48px; }
+      .contact-sub { font-size: 17.5px; max-width: 800px; }
+      .contact-info-col, .contact-form-card { padding: 32px 34px; border-radius: 26px; }
+      .info-title, .form-title { font-size: 26px; }
+      .info-sub, .form-sub { font-size: 15px; }
+      .field-wrap { height: 54px; font-size: 15px; }
+      .map-blob { width: 340px; height: 340px; }
+      .map-blob-container { max-width: 400px; }
+      .contact-pillars { max-width: 1840px; gap: 20px; margin-top: 24px; }
+      .cpillar { padding: 16px 20px; border-radius: 18px; }
+      .cpillar-title { font-size: 16px; }
+      .cpillar-text { font-size: 13.5px; }
+    }
     @media (max-width: 1200px) and (min-width: 1024px) {
       .contact-showcase { min-height: auto; padding: 28px 16px 32px; }
       .contact-main { grid-template-columns: 1fr 0.88fr 1.12fr; gap: 14px; }
@@ -6078,6 +6250,12 @@ export class ContactComponent {}
   `,
   styles: `
     .one-nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 max(24px,calc((100vw - 1240px)/2));background:#fff;position:sticky;top:0;z-index:9}.one-nav>a{font:800 16px Manrope;color:#080f2b;text-decoration:none;flex-shrink:0}.one-nav>a:last-child{background:#3159f5;color:#fff;padding:12px 18px;border-radius:10px;font:700 12px 'DM Sans';white-space:nowrap}.one-nav nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:center}.one-nav nav a{font-size:12px;font-weight:700;color:#111936;text-decoration:none;white-space:nowrap}.one-nav nav a:hover{color:#3159f5}
+    @media (min-width: 1920px) {
+      .one-nav { padding: 0 max(36px, calc((100vw - 1560px)/2)); height: 82px; }
+    }
+    @media (min-width: 2560px) {
+      .one-nav { padding: 0 max(48px, calc((100vw - 1840px)/2)); height: 90px; }
+    }
     @media (max-width: 768px) {
       .one-nav { height: 64px; padding: 0 16px; gap: 12px; }
       .one-nav > a.menu-logo span:last-child { font-size: 15px; }
@@ -6798,6 +6976,221 @@ export class ContactComponent {}
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
     }
+    @media (min-width: 1920px) {
+      .hero-interactive-stage {
+        max-width: 1560px;
+        gap: 48px;
+        padding: 0 36px;
+      }
+      .hero-workflow-container {
+        max-width: 1560px;
+        padding: 0 36px;
+        margin-top: 18px;
+      }
+      .hero-headline {
+        font-size: clamp(48px, 3.2vw, 64px);
+        margin-bottom: 20px;
+      }
+      .hero-subtext {
+        font-size: 16.5px;
+        max-width: 540px;
+        margin-bottom: 28px;
+      }
+      .hero-pill-badge {
+        font-size: 13px;
+        padding: 6px 16px;
+        margin-bottom: 16px;
+      }
+      .btn-hero-gradient, .btn-hero-glass {
+        padding: 12px 28px;
+        font-size: 15px;
+      }
+      .hero-visual-col {
+        height: 520px;
+      }
+      .globe-system-wrap {
+        width: 320px;
+        height: 320px;
+      }
+      .hologram-globe {
+        width: 280px;
+        height: 280px;
+      }
+      .globe-core-mark, .mark-img-4b {
+        width: 150px;
+        height: 150px;
+      }
+      .ring-1 { width: 440px; height: 240px; }
+      .ring-2 { width: 460px; height: 220px; }
+      .ring-3 { width: 350px; height: 350px; }
+      .orbit-glow-behind { width: 360px; height: 360px; }
+      .glass-chip {
+        min-width: 190px;
+        padding: 12px 18px;
+        gap: 12px;
+        border-radius: 16px;
+      }
+      .glass-chip strong {
+        font-size: 14.5px;
+      }
+      .glass-chip small {
+        font-size: 11.5px;
+      }
+      .chip-icon {
+        width: 42px;
+        height: 42px;
+      }
+      .chip-icon svg {
+        width: 22px;
+        height: 22px;
+      }
+      .chip-ai { top: 25px; left: 3%; }
+      .chip-innovation { top: 35px; right: 3%; }
+      .chip-strategy { bottom: 45px; left: 3%; }
+      .chip-support { bottom: 55px; right: 3%; }
+      .script-badge-quote {
+        font-size: 25px;
+        right: 8%;
+        bottom: 8px;
+      }
+      .orbit-node {
+        width: 38px;
+        height: 38px;
+      }
+      .orbit-node svg {
+        width: 18px;
+        height: 18px;
+      }
+      .hero-marquee-bar {
+        padding: 10px 0;
+        border-radius: 20px;
+      }
+      .marquee-item {
+        padding: 0 20px;
+        gap: 12px;
+      }
+      .wf-icon {
+        width: 38px;
+        height: 38px;
+      }
+      .wf-title {
+        font-size: 14.5px;
+      }
+      .wf-sub {
+        font-size: 11.5px;
+      }
+    }
+
+    @media (min-width: 2560px) {
+      .hero-interactive-stage {
+        max-width: 1840px;
+        gap: 64px;
+        padding: 0 48px;
+      }
+      .hero-workflow-container {
+        max-width: 1840px;
+        padding: 0 48px;
+        margin-top: 24px;
+      }
+      .hero-headline {
+        font-size: clamp(56px, 2.8vw, 76px);
+        margin-bottom: 24px;
+      }
+      .hero-subtext {
+        font-size: 19px;
+        max-width: 640px;
+        line-height: 1.7;
+        margin-bottom: 34px;
+      }
+      .hero-pill-badge {
+        font-size: 14.5px;
+        padding: 8px 20px;
+        margin-bottom: 20px;
+      }
+      .btn-hero-gradient, .btn-hero-glass {
+        padding: 15px 34px;
+        font-size: 16.5px;
+        border-radius: 32px;
+      }
+      .hero-visual-col {
+        height: 620px;
+      }
+      .globe-system-wrap {
+        width: 380px;
+        height: 380px;
+      }
+      .hologram-globe {
+        width: 340px;
+        height: 340px;
+      }
+      .globe-core-mark, .mark-img-4b {
+        width: 180px;
+        height: 180px;
+      }
+      .ring-1 { width: 520px; height: 280px; }
+      .ring-2 { width: 540px; height: 260px; }
+      .ring-3 { width: 420px; height: 420px; }
+      .orbit-glow-behind { width: 440px; height: 440px; }
+      .glass-chip {
+        min-width: 220px;
+        padding: 14px 22px;
+        gap: 14px;
+        border-radius: 18px;
+      }
+      .glass-chip strong {
+        font-size: 16px;
+      }
+      .glass-chip small {
+        font-size: 13px;
+      }
+      .chip-icon {
+        width: 48px;
+        height: 48px;
+      }
+      .chip-icon svg {
+        width: 25px;
+        height: 25px;
+      }
+      .chip-ai { top: 35px; left: 4%; }
+      .chip-innovation { top: 50px; right: 4%; }
+      .chip-strategy { bottom: 60px; left: 4%; }
+      .chip-support { bottom: 75px; right: 4%; }
+      .script-badge-quote {
+        font-size: 30px;
+        right: 10%;
+        bottom: 14px;
+      }
+      .orbit-node {
+        width: 44px;
+        height: 44px;
+      }
+      .orbit-node svg {
+        width: 22px;
+        height: 22px;
+      }
+      .hero-marquee-bar {
+        padding: 13px 0;
+        border-radius: 24px;
+      }
+      .marquee-item {
+        padding: 0 24px;
+        gap: 14px;
+      }
+      .wf-icon {
+        width: 44px;
+        height: 44px;
+      }
+      .wf-symbol {
+        font-size: 20px;
+      }
+      .wf-title {
+        font-size: 16px;
+      }
+      .wf-sub {
+        font-size: 13px;
+      }
+    }
+
     @media (max-width: 992px) {
       .hero-interactive-stage {
         grid-template-columns: 1fr;
