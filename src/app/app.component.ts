@@ -9276,6 +9276,41 @@ export class LandingComponent implements OnDestroy {
   template: `<app-header></app-header><router-outlet></router-outlet><app-footer></app-footer><app-chatbot></app-chatbot>`,
 })
 export class AppComponent {}
+
+@Component({
+  selector: 'app-client-uniqconstruction',
+  imports: [CommonModule],
+  template: `
+    <div class="client-frame-container">
+      <iframe
+        src="/client/uniqconstruction/index.html"
+        class="client-iframe"
+        title="UNIQ Construction Project Preview"
+        allow="autoplay; fullscreen; clipboard-write; encrypted-media; picture-in-picture"
+      ></iframe>
+    </div>
+  `,
+  styles: [`
+    .client-frame-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #0b1320;
+      z-index: 9999999;
+      overflow: hidden;
+    }
+    .client-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+  `],
+})
+export class ClientUniqconstructionComponent {}
+
 const simple = (kind: string, label: string, title: string, intro: string) => ({
   path: kind,
   component: SimpleComponent,
@@ -9283,6 +9318,8 @@ const simple = (kind: string, label: string, title: string, intro: string) => ({
 });
 export const routes: Routes = [
   { path: '', component: LandingComponent },
+  { path: 'client/uniqconstruction', component: ClientUniqconstructionComponent },
+  { path: 'client/uniqconstruction/**', component: ClientUniqconstructionComponent },
   { path: 'about', redirectTo: '' },
   { path: 'services', redirectTo: '' },
   { path: 'solutions', redirectTo: '' },
