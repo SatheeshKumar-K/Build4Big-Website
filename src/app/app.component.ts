@@ -9311,6 +9311,40 @@ export class AppComponent {}
 })
 export class ClientUniqconstructionComponent {}
 
+@Component({
+  selector: 'app-client-basic-sample-website',
+  imports: [CommonModule],
+  template: `
+    <div class="client-frame-container">
+      <iframe
+        src="/client/basic-sample-website/index.html"
+        class="client-iframe"
+        title="Basic Sample Website Preview"
+        allow="autoplay; fullscreen; clipboard-write; encrypted-media; picture-in-picture"
+      ></iframe>
+    </div>
+  `,
+  styles: [`
+    .client-frame-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #ffffff;
+      z-index: 9999999;
+      overflow: hidden;
+    }
+    .client-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+  `],
+})
+export class ClientBasicSampleWebsiteComponent {}
+
 const simple = (kind: string, label: string, title: string, intro: string) => ({
   path: kind,
   component: SimpleComponent,
@@ -9320,6 +9354,8 @@ export const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'client/uniqconstruction', component: ClientUniqconstructionComponent },
   { path: 'client/uniqconstruction/**', component: ClientUniqconstructionComponent },
+  { path: 'client/basic-sample-website', component: ClientBasicSampleWebsiteComponent },
+  { path: 'client/basic-sample-website/**', component: ClientBasicSampleWebsiteComponent },
   { path: 'about', redirectTo: '' },
   { path: 'services', redirectTo: '' },
   { path: 'solutions', redirectTo: '' },
