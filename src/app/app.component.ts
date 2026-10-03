@@ -9345,6 +9345,40 @@ export class ClientUniqconstructionComponent {}
 })
 export class ClientBasicSampleWebsiteComponent {}
 
+@Component({
+  selector: 'app-client-professinonal-sample-website',
+  imports: [CommonModule],
+  template: `
+    <div class="client-frame-container">
+      <iframe
+        src="/client/professinonal-sample-website/index.html"
+        class="client-iframe"
+        title="Professional Sample Website Preview"
+        allow="autoplay; fullscreen; clipboard-write; encrypted-media; picture-in-picture"
+      ></iframe>
+    </div>
+  `,
+  styles: [`
+    .client-frame-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #011425;
+      z-index: 9999999;
+      overflow: hidden;
+    }
+    .client-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+  `],
+})
+export class ClientProfessinonalSampleWebsiteComponent {}
+
 const simple = (kind: string, label: string, title: string, intro: string) => ({
   path: kind,
   component: SimpleComponent,
@@ -9356,6 +9390,10 @@ export const routes: Routes = [
   { path: 'client/uniqconstruction/**', component: ClientUniqconstructionComponent },
   { path: 'client/basic-sample-website', component: ClientBasicSampleWebsiteComponent },
   { path: 'client/basic-sample-website/**', component: ClientBasicSampleWebsiteComponent },
+  { path: 'client/professinonal-sample-website', component: ClientProfessinonalSampleWebsiteComponent },
+  { path: 'client/professinonal-sample-website/**', component: ClientProfessinonalSampleWebsiteComponent },
+  { path: 'client/professional-sample-website', component: ClientProfessinonalSampleWebsiteComponent },
+  { path: 'client/professional-sample-website/**', component: ClientProfessinonalSampleWebsiteComponent },
   { path: 'about', redirectTo: '' },
   { path: 'services', redirectTo: '' },
   { path: 'solutions', redirectTo: '' },
