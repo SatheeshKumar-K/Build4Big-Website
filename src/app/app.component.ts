@@ -9275,7 +9275,29 @@ export class LandingComponent implements OnDestroy {
   imports: [RouterOutlet, HeaderComponent, FooterComponent, ChatbotComponent],
   template: `<app-header></app-header><router-outlet></router-outlet><app-footer></app-footer><app-chatbot></app-chatbot>`,
 })
-export class AppComponent {}
+export class AppComponent implements OnInit {
+  ngOnInit(): void {
+    if (typeof document !== 'undefined') {
+      try {
+        const head = document.head;
+        const existing = head.querySelectorAll("link[rel*='icon']");
+        existing.forEach(el => el.remove());
+
+        const png = document.createElement('link');
+        png.rel = 'icon';
+        png.type = 'image/png';
+        png.sizes = '48x48';
+        png.href = '/favicon-48x48.png?v=' + Date.now();
+        head.appendChild(png);
+
+        const ico = document.createElement('link');
+        ico.rel = 'shortcut icon';
+        ico.href = '/favicon.ico?v=' + Date.now();
+        head.appendChild(ico);
+      } catch {}
+    }
+  }
+}
 
 @Component({
   selector: 'app-client-uniqconstruction',
