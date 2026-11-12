@@ -30,6 +30,14 @@ if (Test-Path $indexPath) {
   Write-Host "   Base href set to /client/jk_interior/" -ForegroundColor Green
 }
 
+Write-Host "2.1. Fixing relative asset paths in JavaScript bundle..." -ForegroundColor Yellow
+Get-ChildItem -Path "$TargetDir" -Filter "main-*.js" | ForEach-Object {
+  $jsContent = [IO.File]::ReadAllText($_.FullName)
+  $fixedJs = $jsContent.Replace('"/assets/', '"assets/')
+  [IO.File]::WriteAllText($_.FullName, $fixedJs)
+  Write-Host "   Fixed asset paths in $($_.Name)" -ForegroundColor Green
+}
+
 Write-Host "3. Committing to git..." -ForegroundColor Yellow
 git add -A
 $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
