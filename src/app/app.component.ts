@@ -9435,6 +9435,40 @@ export class ClientProfessinonalSampleWebsiteComponent {}
 })
 export class ClientBussinessSampleWebsiteComponent {}
 
+@Component({
+  selector: 'app-client-jk-interior',
+  imports: [CommonModule],
+  template: `
+    <div class="client-frame-container">
+      <iframe
+        src="/client/jk_interior/index.html"
+        class="client-iframe"
+        title="JK Interior Studio Preview"
+        allow="autoplay; fullscreen; clipboard-write; encrypted-media; picture-in-picture"
+      ></iframe>
+    </div>
+  `,
+  styles: [`
+    .client-frame-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #FAF8F5;
+      z-index: 9999999;
+      overflow: hidden;
+    }
+    .client-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+  `],
+})
+export class ClientJkInteriorComponent {}
+
 const simple = (kind: string, label: string, title: string, intro: string) => ({
   path: kind,
   component: SimpleComponent,
@@ -9444,6 +9478,10 @@ export const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'client/uniqconstruction', component: ClientUniqconstructionComponent },
   { path: 'client/uniqconstruction/**', component: ClientUniqconstructionComponent },
+  { path: 'client/jk_interior', component: ClientJkInteriorComponent },
+  { path: 'client/jk_interior/**', component: ClientJkInteriorComponent },
+  { path: 'client/jk-interior', component: ClientJkInteriorComponent },
+  { path: 'client/jk-interior/**', component: ClientJkInteriorComponent },
   { path: 'client/basic-sample-website', component: ClientBasicSampleWebsiteComponent },
   { path: 'client/basic-sample-website/**', component: ClientBasicSampleWebsiteComponent },
   { path: 'client/professinonal-sample-website', component: ClientProfessinonalSampleWebsiteComponent },
