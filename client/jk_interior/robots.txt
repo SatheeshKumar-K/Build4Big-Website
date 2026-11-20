@@ -1,0 +1,11 @@
+# Robots.txt for JK INTERIOR
+# Website: https://build4big.com/client/jk_interior/
+
+User-agent: *
+Allow: /
+
+# Disallow build and transient paths if any
+Disallow: /assets/videos/*.mp4$
+
+# Sitemap Index
+Sitemap: https://build4big.com/client/jk_interior/sitemap.xml
