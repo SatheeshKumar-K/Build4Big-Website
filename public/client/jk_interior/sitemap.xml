@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://build4big.com/client/jk_interior/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://build4big.com/client/jk_interior/assets/images/jk-brand-logo.png</image:loc>
+      <image:title>JK INTERIOR - Interior Design Studio Madurai Brand Logo</image:title>
+      <image:caption>Official brand emblem of JK INTERIOR - Leading Interior Designers in Madurai, Tamil Nadu.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://build4big.com/client/jk_interior/assets/images/jk-interior-001.jpg</image:loc>
+      <image:title>Luxury Living Room Interior Design Madurai - JK INTERIOR</image:title>
+      <image:caption>Turnkey residential interior architecture with designer fluted timber panels and warm LED cove lighting in Madurai.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://build4big.com/client/jk_interior/assets/images/jk-interior-005.jpg</image:loc>
+      <image:title>German Modular Kitchen Design Madurai - JK INTERIOR</image:title>
+      <image:caption>Bespoke acrylic finish modular kitchen with anti-scratch quartz countertops and Hafele fittings in Madurai.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://build4big.com/client/jk_interior/assets/images/jk-interior-008.jpg</image:loc>
+      <image:title>Master Bedroom Sanctuary &amp; Wardrobe Design Madurai - JK INTERIOR</image:title>
+      <image:caption>Modern master bedroom interior with acoustic headboard paneling and integrated mood lighting in Madurai.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://build4big.com/client/jk_interior/assets/images/jk-interior-012.jpg</image:loc>
+      <image:title>Floor-to-Ceiling Luxury Wardrobe Design Madurai - JK INTERIOR</image:title>
+      <image:caption>Tinted profile glass and matte finish designer wardrobe with sensor LEDs crafted in K. Pudur, Madurai.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://build4big.com/client/jk_interior/assets/images/jk-interior-002.jpg</image:loc>
+      <image:title>Floating TV Console &amp; Wall Paneling Madurai - JK INTERIOR</image:title>
+      <image:caption>Contemporary floating TV unit with backlit onyx stone and concealed wiring in Madurai.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://build4big.com/client/jk_interior/assets/images/jk-interior-025.jpg</image:loc>
+      <image:title>Pooja Mandapam &amp; Artisan Woodwork Madurai - JK INTERIOR</image:title>
+      <image:caption>Handcrafted teak wood mandir with CNC jali fretwork by Jeevamani K in Madurai.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://build4big.com/client/jk_interior/#about</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://build4big.com/client/jk_interior/#services</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://build4big.com/client/jk_interior/#projects</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://build4big.com/client/jk_interior/#clients</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://build4big.com/client/jk_interior/#contact</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
