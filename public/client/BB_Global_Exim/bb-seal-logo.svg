@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <!-- Luxury Imperial Gold Gradient -->
+    <linearGradient id="sealGoldAgro" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFBEB"/>
+      <stop offset="25%" stop-color="#FDE047"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="80%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#92400E"/>
+    </linearGradient>
+
+    <!-- Deep Shield Background -->
+    <linearGradient id="sealBgAgro" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c381e"/>
+      <stop offset="60%" stop-color="#051f0f"/>
+      <stop offset="100%" stop-color="#020e07"/>
+    </linearGradient>
+
+    <filter id="sealShadowAgro" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#051f0f" flood-opacity="0.5"/>
+    </filter>
+
+    <path id="sealTopArc" d="M 60 250 A 190 190 0 0 1 440 250" fill="none"/>
+    <path id="sealBottomArc" d="M 445 250 A 195 195 0 0 1 55 250" fill="none"/>
+  </defs>
+
+  <g filter="url(#sealShadowAgro)">
+    <!-- Outer Medallion Border Rings -->
+    <circle cx="250" cy="250" r="240" fill="url(#sealBgAgro)" stroke="url(#sealGoldAgro)" stroke-width="10"/>
+    <circle cx="250" cy="250" r="230" fill="none" stroke="url(#sealGoldAgro)" stroke-width="2" stroke-opacity="0.6"/>
+    <circle cx="250" cy="250" r="172" fill="none" stroke="url(#sealGoldAgro)" stroke-width="5"/>
+  </g>
+
+  <!-- Meridian Coordinates Grid inside Inner Core -->
+  <g>
+    <ellipse cx="250" cy="180" rx="145" ry="36" fill="none" stroke="url(#sealGoldAgro)" stroke-width="1.5" stroke-opacity="0.35"/>
+    <ellipse cx="250" cy="250" rx="168" ry="44" fill="none" stroke="url(#sealGoldAgro)" stroke-width="2" stroke-opacity="0.45"/>
+    <ellipse cx="250" cy="320" rx="145" ry="36" fill="none" stroke="url(#sealGoldAgro)" stroke-width="1.5" stroke-opacity="0.35"/>
+    <line x1="250" y1="82" x2="250" y2="418" stroke="url(#sealGoldAgro)" stroke-width="2" stroke-opacity="0.4"/>
+    <ellipse cx="250" cy="250" rx="75" ry="168" fill="none" stroke="url(#sealGoldAgro)" stroke-width="1.5" stroke-opacity="0.35"/>
+  </g>
+
+  <!-- Central 'BB' Agro-Trade Monogram (Scaled to Center Core) -->
+  <g transform="translate(100, 100)">
+    <!-- Pillar 1 in Gold -->
+    <path d="M 60 40 L 80 40 L 80 260 L 60 260 Z" fill="url(#sealGoldAgro)"/>
+
+    <!-- B1 Top Loop (Leaf Curve) -->
+    <path d="M 80 40 C 135 35, 170 55, 170 95 C 170 130, 140 148, 80 150 Z" 
+          fill="none" stroke="url(#sealGoldAgro)" stroke-width="18" stroke-linejoin="round"/>
+    <path d="M 100 95 Q 130 85 145 75" stroke="url(#sealGoldAgro)" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- B1 Bottom Loop -->
+    <path d="M 80 150 C 145 150, 185 170, 185 210 C 185 255, 135 260, 80 260 Z" 
+          fill="none" stroke="url(#sealGoldAgro)" stroke-width="18" stroke-linejoin="round"/>
+
+    <!-- Second 'B' (Mint Emerald Eco Interlock) -->
+    <path d="M 125 40 L 145 40 L 145 260 L 125 260 Z" fill="#4ade80"/>
+    <path d="M 145 50 C 190 45, 225 65, 225 100 C 225 130, 195 145, 145 148" 
+          fill="none" stroke="#4ade80" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 145 152 C 205 152, 238 175, 238 210 C 238 250, 195 258, 145 258" 
+          fill="none" stroke="#4ade80" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Compass Star Node -->
+    <polygon points="150,140 156,148 168,150 156,152 150,160 144,152 132,150 144,148" fill="url(#sealGoldAgro)"/>
+  </g>
+
+  <!-- Circular Arch Inscriptions -->
+  <!-- Top: BB GLOBAL EXIM -->
+  <text font-family="'Plus Jakarta Sans', 'Montserrat', sans-serif" font-weight="900" font-size="28" letter-spacing="7" fill="url(#sealGoldAgro)">
+    <textPath href="#sealTopArc" startOffset="50%" text-anchor="middle">
+      BB GLOBAL EXIM
+    </textPath>
+  </text>
+
+  <!-- Left Star -->
+  <polygon points="85,250 88,256 95,257 89,262 91,268 85,264 79,268 81,262 75,257 82,256" fill="url(#sealGoldAgro)"/>
+
+  <!-- Right Star -->
+  <polygon points="415,250 418,256 425,257 419,262 421,268 415,264 409,268 411,262 405,257 412,256" fill="url(#sealGoldAgro)"/>
+
+  <!-- Bottom: AGRO &bull; HERBAL &bull; GLOBAL TRADE -->
+  <text font-family="'Plus Jakarta Sans', 'Montserrat', sans-serif" font-weight="800" font-size="22" letter-spacing="8" fill="url(#sealGoldAgro)">
+    <textPath href="#sealBottomArc" startOffset="50%" text-anchor="middle">
+      AGRO &#8226; HERBAL &#8226; GLOBAL TRADE
+    </textPath>
+  </text>
+</svg>

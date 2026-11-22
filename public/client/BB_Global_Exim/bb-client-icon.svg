@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="boldIconBlue" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="50%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+
+    <radialGradient id="globeIconSolidBg" cx="40%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#F0F9FF"/>
+      <stop offset="70%" stop-color="#E0F2FE"/>
+      <stop offset="100%" stop-color="#BAE6FD"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Container -->
+  <circle cx="60" cy="60" r="56" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.5"/>
+
+  <!-- Globe Body & Grid -->
+  <circle cx="58" cy="58" r="42" fill="url(#globeIconSolidBg)" stroke="#0284C7" stroke-width="2"/>
+  <ellipse cx="58" cy="38" rx="34" ry="10" fill="none" stroke="#0284C7" stroke-width="1.5" stroke-opacity="0.85" transform="rotate(-15 58 58)"/>
+  <ellipse cx="58" cy="49" rx="40" ry="12" fill="none" stroke="#0284C7" stroke-width="1.6" stroke-opacity="0.85" transform="rotate(-15 58 58)"/>
+  <ellipse cx="58" cy="60" rx="42" ry="13" fill="none" stroke="#0369A1" stroke-width="2" transform="rotate(-15 58 58)"/>
+  <ellipse cx="58" cy="71" rx="38" ry="11" fill="none" stroke="#0284C7" stroke-width="1.5" stroke-opacity="0.85" transform="rotate(-15 58 58)"/>
+  <ellipse cx="58" cy="58" rx="14" ry="42" fill="none" stroke="#0284C7" stroke-width="1.5" stroke-opacity="0.85" transform="rotate(-15 58 58)"/>
+  <ellipse cx="58" cy="58" rx="29" ry="42" fill="none" stroke="#0284C7" stroke-width="1.5" stroke-opacity="0.85" transform="rotate(-15 58 58)"/>
+
+  <!-- Dynamic Trajectory Arc -->
+  <path d="M 18 86 C 6 62, 16 34, 40 22 C 60 12, 84 18, 98 34" 
+        fill="none" stroke="url(#boldIconBlue)" stroke-width="3.8" stroke-linecap="round"/>
+
+  <!-- Cargo Ship at Bottom -->
+  <g transform="translate(14, 72)">
+    <path d="M 0 16 C 8 13, 16 18, 25 15 C 34 12, 42 16, 50 14" fill="none" stroke="#0284C7" stroke-width="2" stroke-linecap="round"/>
+    <path d="M 8 14 L 32 14 L 38 6 L 14 6 Z" fill="#0F172A"/>
+    <rect x="16" y="1" width="6" height="5" rx="0.5" fill="#16A34A"/>
+    <rect x="23" y="1" width="6" height="5" rx="0.5" fill="#D97706"/>
+    <rect x="19" y="-4" width="7" height="5" rx="0.5" fill="#2563EB"/>
+    <path d="M 10 6 L 10 -1 L 13 -1 L 13 6 Z" fill="#1E293B"/>
+  </g>
+
+  <!-- Airplane at Top -->
+  <g transform="translate(90, 28) rotate(-24)">
+    <path d="M 0 -20 
+             C 1.5 -20, 3 -16, 3.5 -9 
+             L 17 1 
+             L 17 5 
+             L 3.5 1 
+             L 3.5 10 
+             L 9 15 
+             L 9 18 
+             L 0 16 
+             L -9 18 
+             L -9 15 
+             L -3.5 10 
+             L -3.5 1 
+             L -17 5 
+             L -17 1 
+             L -3.5 -9 
+             C -3 -16, -1.5 -20, 0 -20 Z" 
+          fill="url(#boldIconBlue)"/>
+  </g>
+</svg>
