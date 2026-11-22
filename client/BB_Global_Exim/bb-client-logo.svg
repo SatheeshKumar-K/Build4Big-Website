@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" width="520" height="120">
+  <defs>
+    <!-- Rich Vibrant Blue Gradient (High Contrast) -->
+    <linearGradient id="boldBlueGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0369A1"/>
+      <stop offset="50%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+
+    <!-- Punchy Accent Gradient -->
+    <linearGradient id="boldAccentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="50%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#16A34A"/>
+    </linearGradient>
+
+    <!-- Globe Sphere Subtle Gradient -->
+    <radialGradient id="globeSolidBg" cx="40%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#F0F9FF"/>
+      <stop offset="70%" stop-color="#E0F2FE"/>
+      <stop offset="100%" stop-color="#BAE6FD"/>
+    </radialGradient>
+
+    <filter id="crispShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="1" dy="3" stdDeviation="3" flood-color="#0F172A" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <!-- ==================== EMBLEM: BOLD GLOBE + SHIP + FLIGHT ==================== -->
+  <g transform="translate(10, 8)" filter="url(#crispShadow)">
+    <!-- 1. Solid Globe Body with Strong High-Contrast Grid -->
+    <circle cx="58" cy="54" r="44" fill="url(#globeSolidBg)" stroke="#0284C7" stroke-width="2.2"/>
+
+    <!-- Bold Latitude Lines -->
+    <ellipse cx="58" cy="30" rx="36" ry="11" fill="none" stroke="#0284C7" stroke-width="1.6" stroke-opacity="0.8" transform="rotate(-15 58 54)"/>
+    <ellipse cx="58" cy="42" rx="42" ry="13" fill="none" stroke="#0284C7" stroke-width="1.8" stroke-opacity="0.85" transform="rotate(-15 58 54)"/>
+    <ellipse cx="58" cy="55" rx="44" ry="14" fill="none" stroke="#0369A1" stroke-width="2.2" transform="rotate(-15 58 54)"/>
+    <ellipse cx="58" cy="68" rx="42" ry="13" fill="none" stroke="#0284C7" stroke-width="1.8" stroke-opacity="0.85" transform="rotate(-15 58 54)"/>
+
+    <!-- Bold Longitude Meridians -->
+    <ellipse cx="58" cy="54" rx="16" ry="44" fill="none" stroke="#0284C7" stroke-width="1.6" stroke-opacity="0.8" transform="rotate(-15 58 54)"/>
+    <ellipse cx="58" cy="54" rx="32" ry="44" fill="none" stroke="#0284C7" stroke-width="1.6" stroke-opacity="0.8" transform="rotate(-15 58 54)"/>
+
+    <!-- 2. Thick, Dynamic Flight & Sea Trajectory (Deep Navy to Royal Blue) -->
+    <path d="M 12 86 C 0 58, 12 28, 38 14 C 62 2, 90 10, 106 28" 
+          fill="none" stroke="url(#boldBlueGrad)" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M 22 92 C 12 70, 20 42, 44 26 C 66 12, 94 20, 104 36" 
+          fill="none" stroke="#0284C7" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- 3. Bold Cargo Ship (Ocean Freight at Base of Globe) -->
+    <g transform="translate(10, 72)">
+      <!-- Sea Waves -->
+      <path d="M 0 18 C 10 14, 20 20, 32 16 C 42 13, 52 17, 62 15" fill="none" stroke="#0284C7" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M 8 22 C 16 19, 24 23, 34 20" fill="none" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round"/>
+
+      <!-- Ship Hull (Deep Navy Blue) -->
+      <path d="M 10 16 L 40 16 L 48 5 L 16 5 Z" fill="#0F172A"/>
+
+      <!-- Bold Cargo Containers -->
+      <rect x="18" y="-1" width="8" height="6" rx="1" fill="#16A34A"/>
+      <rect x="27" y="-1" width="8" height="6" rx="1" fill="#D97706"/>
+      <rect x="22" y="-7" width="9" height="6" rx="1" fill="#2563EB"/>
+
+      <!-- Ship Bridge / Mast -->
+      <path d="M 12 5 L 12 -4 L 16 -4 L 16 5 Z" fill="#1E293B"/>
+      <line x1="14" y1="-4" x2="14" y2="-9" stroke="#0F172A" stroke-width="1.8"/>
+    </g>
+
+    <!-- 4. Large, Bold Jet Aircraft (Air Freight Climbing Upwards) -->
+    <g transform="translate(98, 22) rotate(-24)">
+      <!-- Jet Body in Solid Royal Navy / Blue Gradient -->
+      <path d="M 0 -26 
+               C 2 -26, 4 -21, 4.5 -12 
+               L 22 2 
+               L 22 7 
+               L 4.5 2 
+               L 4.5 14 
+               L 11 20 
+               L 11 24 
+               L 0 21 
+               L -11 24 
+               L -11 20 
+               L -4.5 14 
+               L -4.5 2 
+               L -22 7 
+               L -22 2 
+               L -4.5 -12 
+               C -4 -21, -2 -26, 0 -26 Z" 
+            fill="url(#boldBlueGrad)"/>
+
+      <!-- Jet Engines Under Wings -->
+      <rect x="8" y="2" width="3" height="5" rx="1.5" fill="#0F172A"/>
+      <rect x="-11" y="2" width="3" height="5" rx="1.5" fill="#0F172A"/>
+    </g>
+  </g>
+
+  <!-- ==================== RIGHT TYPOGRAPHY: SIMPLE, BOLD & CLEAR ==================== -->
+  <g transform="translate(148, 22)">
+    <!-- Primary Brand Wordmark: BB GLOBAL -->
+    <text x="0" y="46" 
+          font-family="system-ui, -apple-system, 'Plus Jakarta Sans', 'Montserrat', sans-serif" 
+          font-size="44" 
+          font-weight="900" 
+          letter-spacing="2" 
+          fill="#0F172A">
+      BB GLOBAL
+    </text>
+
+    <!-- Bold Dynamic Underline Axis -->
+    <line x1="2" y1="58" x2="330" y2="58" stroke="url(#boldAccentGrad)" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="340" cy="58" r="4" fill="#16A34A"/>
+
+    <!-- Clear, Subtitle: IMPORT AND EXPORT -->
+    <text x="2" y="84" 
+          font-family="system-ui, -apple-system, 'Plus Jakarta Sans', 'Montserrat', sans-serif" 
+          font-size="16" 
+          font-weight="800" 
+          letter-spacing="6.5" 
+          fill="#0284C7">
+      IMPORT AND EXPORT
+    </text>
+  </g>
+</svg>

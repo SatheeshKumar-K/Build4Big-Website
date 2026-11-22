@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BB EXIM - Official Logo Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0f172a;
+      color: #f8fafc;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(249, 115, 22, 0.15);
+      border: 1px solid rgba(249, 115, 22, 0.4);
+      border-radius: 9999px;
+      color: #fb923c;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+    }
+    p.sub {
+      color: #94a3b8;
+      font-size: 15px;
+      margin-top: 6px;
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 30px;
+      max-width: 960px;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .card-title {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #64748b;
+      margin-bottom: 20px;
+    }
+    .card img {
+      max-width: 100%;
+      height: auto;
+      max-height: 340px;
+      border-radius: 12px;
+      transition: transform 0.25s;
+    }
+    .card img:hover {
+      transform: scale(1.03);
+    }
+    .card-foot {
+      margin-top: 20px;
+      font-size: 13px;
+      color: #475569;
+      font-weight: 600;
+    }
+    .download-btn {
+      margin-top: 14px;
+      display: inline-block;
+      padding: 8px 20px;
+      background: #0f172a;
+      color: #ffffff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      transition: background 0.2s;
+    }
+    .download-btn:hover {
+      background: #f97316;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <span class="badge">Stacked Centered Layout</span>
+    <h1>BB EXIM &bull; Brand Identity Pictures</h1>
+    <p class="sub">Emblem on Top (Globe + Flight + Cargo Ship) &bull; Company Name Centered Underneath</p>
+  </div>
+
+  <div class="showcase-grid">
+    <!-- Picture 1: Rendered High-Resolution Image -->
+    <div class="card">
+      <div class="card-title">High-Resolution Picture Render (JPG)</div>
+      <img src="bb-exim-logo.jpg" alt="BB EXIM Logo Picture">
+      <div class="card-foot">Photorealistic clean logistics graphic on solid white</div>
+      <a href="bb-exim-logo.jpg" download class="download-btn">Download Picture (.JPG)</a>
+    </div>
+
+    <!-- Picture 2: Scalable Vector Artwork -->
+    <div class="card">
+      <div class="card-title">Scalable Vector Graphic (SVG)</div>
+      <img src="bb-exim-stacked-logo.svg" alt="BB EXIM Scalable Vector">
+      <div class="card-foot">Lossless vector artwork with exact navy &amp; orange accents</div>
+      <a href="bb-exim-stacked-logo.svg" download class="download-btn">Download Vector (.SVG)</a>
+    </div>
+  </div>
+
+</body>
+</html>
