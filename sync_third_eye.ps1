@@ -26,7 +26,25 @@ if (-not (Test-Path $TargetDir)) {
 }
 
 Remove-Item -Path "$TargetDir\*" -Recurse -Force -ErrorAction SilentlyContinue
-Copy-Item -Path "$SourceDist\*" -Destination $TargetDir -Recurse -Force
+Copy-Item -Path "$SourceDist\*" -Destination $TargetDir -Recurse -Force -ErrorAction SilentlyContinue
+
+# Fallback from zip for any locked video files
+$zipPath = "D:\B4B004_third_eye_web\dist\third-eye-dist.zip"
+if (Test-Path $zipPath) {
+  try {
+    Add-Type -AssemblyName System.IO.Compression.FileSystem -ErrorAction SilentlyContinue
+    $zip = [System.IO.Compression.ZipFile]::OpenRead($zipPath)
+    $heroEntry = $zip.Entries | Where-Object { $_.FullName -like "*hero-bg.mp4" -and $_.FullName -notlike "*perfect*" } | Select-Object -First 1
+    if ($heroEntry -and (-not (Test-Path "$TargetDir\assets\video\hero-bg.mp4"))) {
+      if (-not (Test-Path "$TargetDir\assets\video")) { New-Item -ItemType Directory -Path "$TargetDir\assets\video" -Force | Out-Null }
+      [System.IO.Compression.ZipFileExtensions]::ExtractToFile($heroEntry, "$TargetDir\assets\video\hero-bg.mp4", $true)
+      Write-Host "   Extracted hero-bg.mp4 from zip fallback" -ForegroundColor Green
+    }
+    $zip.Dispose()
+  } catch {
+    Write-Warning "Could not extract fallback from zip: $_"
+  }
+}
 
 Write-Host "2. Updating base href in HTML files..." -ForegroundColor Yellow
 $htmlFiles = Get-ChildItem -Path $TargetDir -Filter "*.html"
