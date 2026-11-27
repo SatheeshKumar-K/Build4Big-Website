@@ -1,9 +1,8 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /client/BB_Global_Exim/
+  RewriteBase /
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /client/BB_Global_Exim/index.html [L]
+  RewriteRule . /index.html [L]
 </IfModule>
-

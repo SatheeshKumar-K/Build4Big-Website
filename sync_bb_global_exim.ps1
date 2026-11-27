@@ -1,6 +1,6 @@
 # Automated Sync Script: C:\Users\91967\Downloads\bb-exim-deploy / dist -> Build4Big -> Live Deploy
 param(
-  [string]$SourceDist = "C:\Users\91967\Downloads\bb-exim-deploy",
+  [string]$SourceDist = "C:\Users\91967\Downloads\bb-exim-deploy (1)",
   [string]$TargetDir = "public\client\BB_Global_Exim"
 )
 
@@ -10,7 +10,9 @@ Write-Host "==========================================" -ForegroundColor Cyan
 
 # Fallback paths if user unzips to different location
 if (-not (Test-Path $SourceDist)) {
-  if (Test-Path "C:\Users\91967\Downloads\dist\dist\bb-exim-web\browser") {
+  if (Test-Path "C:\Users\91967\Downloads\bb-exim-deploy") {
+    $SourceDist = "C:\Users\91967\Downloads\bb-exim-deploy"
+  } elseif (Test-Path "C:\Users\91967\Downloads\dist\dist\bb-exim-web\browser") {
     $SourceDist = "C:\Users\91967\Downloads\dist\dist\bb-exim-web\browser"
   } elseif (Test-Path "C:\Users\91967\Downloads\dist\dist\bb-global\browser") {
     $SourceDist = "C:\Users\91967\Downloads\dist\dist\bb-global\browser"
